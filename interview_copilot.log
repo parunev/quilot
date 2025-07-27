@@ -261,3 +261,12 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-28 00:36:51] [INFO] Master Gain control found for the current device.
 [2025-07-28 00:36:51] [INFO] Selected audio output device: Default Audio Device
 [2025-07-28 00:36:51] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 00:55:29] [INFO] Current time update timer started.
+[2025-07-28 00:55:29] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 00:55:30] [INFO] Found 6 audio output devices.
+[2025-07-28 00:55:30] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:55:30] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 00:55:30] [INFO] Quilot UI initialized.
+[2025-07-28 00:55:38] [INFO] Output line closed.
+[2025-07-28 00:55:38] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 00:55:38] [INFO] Application closing. Audio resources released.

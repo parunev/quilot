@@ -145,7 +145,7 @@ public class UIBuilder {
         // LOG AREA + TIMERS
         JPanel logPanel = new JPanel(new BorderLayout());
         JPanel logHeaderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
-        logHeaderPanel.add(new JLabel("Application Logs:"));
+        logHeaderPanel.add(new JLabel("Application Logs"));
         logHeaderPanel.add(timerManager.getCurrentTimeLabel());
         logHeaderPanel.add(timerManager.getElapsedTimeLabel());
 
