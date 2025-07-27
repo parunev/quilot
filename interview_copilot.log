@@ -15,3 +15,249 @@
 [2025-07-27 23:38:39] [INFO] AI Interview Copilot UI initialized.
 [2025-07-27 23:40:20] [INFO] Current time update timer started.
 [2025-07-27 23:40:20] [INFO] AI Interview Copilot UI initialized.
+[2025-07-27 23:59:29] [INFO] Current time update timer started.
+[2025-07-27 23:59:29] [INFO] AudioOutputManager initialized.
+[2025-07-27 23:59:29] [INFO] Found 6 audio output devices.
+[2025-07-27 23:59:29] [INFO] Master Gain control found for device: Default Audio Device
+[2025-07-27 23:59:29] [INFO] Selected audio output device: Default Audio Device
+[2025-07-27 23:59:29] [ERROR] Failed to initialize MainFrame: Cannot invoke "javax.swing.JComboBox.addItemListener(java.awt.event.ItemListener)" because "this.outputDeviceComboBox" is null - NullPointerException: Cannot invoke "javax.swing.JComboBox.addItemListener(java.awt.event.ItemListener)" because "this.outputDeviceComboBox" is null
+java.lang.NullPointerException: Cannot invoke "javax.swing.JComboBox.addItemListener(java.awt.event.ItemListener)" because "this.outputDeviceComboBox" is null
+	at com.quilot.ui.MainFrame.addListeners(MainFrame.java:114)
+	at com.quilot.ui.MainFrame.<init>(MainFrame.java:55)
+	at com.quilot.core.Main.lambda$main$0(Main.java:12)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:723)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+[2025-07-28 00:09:19] [INFO] Current time update timer started.
+[2025-07-28 00:09:19] [INFO] AudioOutputManager initialized.
+[2025-07-28 00:09:20] [INFO] Found 6 audio output devices.
+[2025-07-28 00:09:20] [INFO] Master Gain control found for device: Default Audio Device
+[2025-07-28 00:09:20] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 00:09:20] [INFO] AI Interview Copilot UI initialized.
+[2025-07-28 00:09:26] [INFO] Playing test sound...
+[2025-07-28 00:09:27] [INFO] Test sound played.
+[2025-07-28 00:09:28] [INFO] Set volume to: 38.00% (Gain: -47.31 dB)
+[2025-07-28 00:09:29] [INFO] Playing test sound...
+[2025-07-28 00:09:29] [INFO] Test sound played.
+[2025-07-28 00:09:31] [INFO] Set volume to: 50.00% (Gain: -36.99 dB)
+[2025-07-28 00:09:32] [INFO] Playing test sound...
+[2025-07-28 00:09:32] [INFO] Test sound played.
+[2025-07-28 00:09:37] [INFO] Set volume to: 6.00% (Gain: -74.84 dB)
+[2025-07-28 00:09:37] [INFO] Playing test sound...
+[2025-07-28 00:09:37] [INFO] Test sound played.
+[2025-07-28 00:09:38] [INFO] Set volume to: 27.00% (Gain: -56.77 dB)
+[2025-07-28 00:09:39] [INFO] Playing test sound...
+[2025-07-28 00:09:39] [INFO] Test sound played.
+[2025-07-28 00:09:40] [INFO] Set volume to: 47.00% (Gain: -39.57 dB)
+[2025-07-28 00:09:41] [INFO] Playing test sound...
+[2025-07-28 00:09:41] [INFO] Test sound played.
+[2025-07-28 00:09:42] [INFO] Set volume to: 65.00% (Gain: -24.09 dB)
+[2025-07-28 00:09:42] [INFO] Playing test sound...
+[2025-07-28 00:09:43] [INFO] Test sound played.
+[2025-07-28 00:09:43] [INFO] Set volume to: 85.00% (Gain: -6.88 dB)
+[2025-07-28 00:09:44] [INFO] Playing test sound...
+[2025-07-28 00:09:44] [INFO] Test sound played.
+[2025-07-28 00:09:45] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-28 00:09:45] [INFO] Playing test sound...
+[2025-07-28 00:09:46] [INFO] Test sound played.
+[2025-07-28 00:09:53] [INFO] Closed previous output line.
+[2025-07-28 00:09:53] [ERROR] Illegal argument when selecting device WH-1000XM5: Line unsupported: interface SourceDataLine supporting format PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian - IllegalArgumentException: Line unsupported: interface SourceDataLine supporting format PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
+java.lang.IllegalArgumentException: Line unsupported: interface SourceDataLine supporting format PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
+	at java.desktop/com.sun.media.sound.DirectAudioDevice.getLine(DirectAudioDevice.java:171)
+	at com.quilot.audio.SystemAudioOutputService.setSelectedOutputDevice(AudioOutputManager.java:70)
+	at com.quilot.ui.MainFrame$2.itemStateChanged(MainFrame.java:131)
+	at java.desktop/javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1257)
+	at java.desktop/javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1318)
+	at java.desktop/javax.swing.JComboBox.contentsChanged(JComboBox.java:1365)
+	at java.desktop/javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:127)
+	at java.desktop/javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94)
+	at java.desktop/javax.swing.JComboBox.setSelectedItem(JComboBox.java:609)
+	at java.desktop/javax.swing.JComboBox.setSelectedIndex(JComboBox.java:654)
+	at java.desktop/javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(BasicComboPopup.java:946)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:298)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6576)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/com.apple.laf.AquaComboBoxPopup$1.processMouseEvent(AquaComboBoxPopup.java:177)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6341)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2260)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4958)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2318)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4916)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4559)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4500)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2304)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2671)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:725)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+[2025-07-28 00:09:53] [INFO] Master Gain control found for device: WH-1000XM5
+[2025-07-28 00:09:53] [INFO] Selected audio output device: WH-1000XM5
+[2025-07-28 00:09:53] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-28 00:09:54] [INFO] Playing test sound...
+[2025-07-28 00:09:55] [INFO] Test sound played.
+[2025-07-28 00:09:55] [INFO] Set volume to: 94.00% (Gain: 0.86 dB)
+[2025-07-28 00:09:55] [INFO] Set volume to: 64.00% (Gain: -24.95 dB)
+[2025-07-28 00:09:56] [INFO] Playing test sound...
+[2025-07-28 00:09:56] [INFO] Test sound played.
+[2025-07-28 00:09:57] [INFO] Set volume to: 28.00% (Gain: -55.91 dB)
+[2025-07-28 00:09:57] [INFO] Playing test sound...
+[2025-07-28 00:09:58] [INFO] Test sound played.
+[2025-07-28 00:10:02] [INFO] Closed previous output line.
+[2025-07-28 00:10:02] [INFO] Master Gain control found for device: MacBook Pro Speakers
+[2025-07-28 00:10:02] [INFO] Selected audio output device: MacBook Pro Speakers
+[2025-07-28 00:10:02] [INFO] Set volume to: 28.00% (Gain: -55.91 dB)
+[2025-07-28 00:10:03] [INFO] Playing test sound...
+[2025-07-28 00:10:03] [INFO] Test sound played.
+[2025-07-28 00:10:04] [INFO] Set volume to: 63.00% (Gain: -25.81 dB)
+[2025-07-28 00:10:05] [INFO] Playing test sound...
+[2025-07-28 00:10:05] [INFO] Test sound played.
+[2025-07-28 00:10:06] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-28 00:10:06] [INFO] Playing test sound...
+[2025-07-28 00:10:07] [INFO] Test sound played.
+[2025-07-28 00:10:08] [INFO] Set volume to: 92.00% (Gain: -0.86 dB)
+[2025-07-28 00:10:08] [INFO] Set volume to: 41.00% (Gain: -44.73 dB)
+[2025-07-28 00:10:09] [INFO] Playing test sound...
+[2025-07-28 00:10:09] [INFO] Test sound played.
+[2025-07-28 00:10:09] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-28 00:10:10] [INFO] Playing test sound...
+[2025-07-28 00:10:10] [INFO] Test sound played.
+[2025-07-28 00:10:43] [INFO] Audio output line closed.
+[2025-07-28 00:10:43] [INFO] Application closing. Audio resources released.
+[2025-07-28 00:36:12] [INFO] Current time update timer started.
+[2025-07-28 00:36:12] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 00:36:12] [INFO] Found 6 audio output devices.
+[2025-07-28 00:36:12] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:12] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 00:36:12] [INFO] Quilot UI initialized.
+[2025-07-28 00:36:14] [INFO] Playing test sound...
+[2025-07-28 00:36:14] [INFO] Test sound played.
+[2025-07-28 00:36:18] [INFO] Output line closed.
+[2025-07-28 00:36:18] [ERROR] Selected mixer 'WH-1000XM5' does not support the default audio format: PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
+[2025-07-28 00:36:18] [ERROR] An unexpected error occurred while selecting device 'WH-1000XM5': class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap') - ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
+java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
+	at com.quilot.audio.SystemAudioOutputService.selectOutputDevice(SystemAudioOutputService.java:48)
+	at com.quilot.ui.MainFrame.lambda$addListeners$2(MainFrame.java:121)
+	at java.desktop/javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1257)
+	at java.desktop/javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1318)
+	at java.desktop/javax.swing.JComboBox.contentsChanged(JComboBox.java:1365)
+	at java.desktop/javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:127)
+	at java.desktop/javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94)
+	at java.desktop/javax.swing.JComboBox.setSelectedItem(JComboBox.java:609)
+	at java.desktop/javax.swing.JComboBox.setSelectedIndex(JComboBox.java:654)
+	at java.desktop/javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(BasicComboPopup.java:946)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:298)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6576)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/com.apple.laf.AquaComboBoxPopup$1.processMouseEvent(AquaComboBoxPopup.java:177)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6341)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2260)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4958)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2318)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4916)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4559)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4500)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2304)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2671)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:725)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+[2025-07-28 00:36:18] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:18] [INFO] Selected audio output device: WH-1000XM5
+[2025-07-28 00:36:18] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 00:36:19] [INFO] Output line closed.
+[2025-07-28 00:36:19] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:19] [INFO] Selected audio output device: LG ULTRAGEAR
+[2025-07-28 00:36:19] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 00:36:20] [INFO] Playing test sound...
+[2025-07-28 00:36:20] [INFO] Test sound played.
+[2025-07-28 00:36:25] [INFO] Playing test sound...
+[2025-07-28 00:36:25] [INFO] Test sound played.
+[2025-07-28 00:36:33] [INFO] Output line closed.
+[2025-07-28 00:36:33] [ERROR] Selected mixer 'WH-1000XM5' does not support the default audio format: PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
+[2025-07-28 00:36:33] [ERROR] An unexpected error occurred while selecting device 'WH-1000XM5': class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap') - ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
+java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
+	at com.quilot.audio.SystemAudioOutputService.selectOutputDevice(SystemAudioOutputService.java:48)
+	at com.quilot.ui.MainFrame.lambda$addListeners$2(MainFrame.java:121)
+	at java.desktop/javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1257)
+	at java.desktop/javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1318)
+	at java.desktop/javax.swing.JComboBox.contentsChanged(JComboBox.java:1365)
+	at java.desktop/javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:127)
+	at java.desktop/javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94)
+	at java.desktop/javax.swing.JComboBox.setSelectedItem(JComboBox.java:609)
+	at java.desktop/javax.swing.JComboBox.setSelectedIndex(JComboBox.java:654)
+	at java.desktop/javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(BasicComboPopup.java:946)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:298)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6576)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/com.apple.laf.AquaComboBoxPopup$1.processMouseEvent(AquaComboBoxPopup.java:177)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6341)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2260)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4958)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2318)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4916)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4559)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4500)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2304)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2671)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:725)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+[2025-07-28 00:36:33] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:33] [INFO] Selected audio output device: WH-1000XM5
+[2025-07-28 00:36:33] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 00:36:35] [INFO] Playing test sound...
+[2025-07-28 00:36:35] [INFO] Test sound played.
+[2025-07-28 00:36:37] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-28 00:36:37] [INFO] Playing test sound...
+[2025-07-28 00:36:38] [INFO] Test sound played.
+[2025-07-28 00:36:38] [INFO] Set volume to: 92.00% (Gain: -0.86 dB)
+[2025-07-28 00:36:39] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 00:36:40] [INFO] Output line closed.
+[2025-07-28 00:36:40] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:40] [INFO] Selected audio output device: Background Music
+[2025-07-28 00:36:40] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 00:36:40] [INFO] Playing test sound...
+[2025-07-28 00:36:41] [INFO] Test sound played.
+[2025-07-28 00:36:44] [INFO] Output line closed.
+[2025-07-28 00:36:44] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:44] [INFO] Selected audio output device: Background Music (UI Sounds)
+[2025-07-28 00:36:44] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 00:36:44] [INFO] Playing test sound...
+[2025-07-28 00:36:45] [INFO] Test sound played.
+[2025-07-28 00:36:47] [INFO] Output line closed.
+[2025-07-28 00:36:47] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:47] [INFO] Selected audio output device: MacBook Pro Speakers
+[2025-07-28 00:36:47] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 00:36:48] [INFO] Playing test sound...
+[2025-07-28 00:36:49] [INFO] Test sound played.
+[2025-07-28 00:36:51] [INFO] Output line closed.
+[2025-07-28 00:36:51] [INFO] Master Gain control found for the current device.
+[2025-07-28 00:36:51] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 00:36:51] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)

@@ -1,110 +1,163 @@
 package com.quilot.ui;
 
+import com.quilot.audio.AudioOutputService;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class UIBuilder {
 
-    private JButton startButton;
-    private JButton stopButton;
-    private JTextArea transcribedAudioArea;
-    private JTextArea aiResponseArea;
-    private JTextArea logArea;
+    private final JButton startButton = new JButton("Start Interview");
+    private final JButton stopButton = new JButton("Stop Interview");
+    private final JTextArea transcribedAudioArea = new JTextArea(10, 40);
+    private final JTextArea aiResponseArea = new JTextArea(10, 40);
+    private final JTextArea logArea = new JTextArea(8, 40);
 
-    /**
-     * Initializes all the Swing UI components.
-     */
+    // audio output components
+    private final JComboBox<String> outputDeviceComboBox = new JComboBox<>();
+    private final JSlider volumeSlider = new JSlider(0, 100, 70);
+    private final JButton testVolumeButton = new JButton("Test Volume");
+
     public UIBuilder() {
-        initComponents();
+        setupComponentProperties();
     }
 
-    /**
-     * Initializes all the Swing UI components.
-     */
-    private void initComponents() {
-        startButton = new JButton("Start Interview");
-        stopButton = new JButton("Stop Interview");
-        stopButton.setEnabled(false); // disable stop button initially
+    private void setupComponentProperties() {
+        stopButton.setEnabled(false);
 
-        transcribedAudioArea = new JTextArea(10, 40); // rows, columns
-        transcribedAudioArea.setEditable(false); // user restricted
+        transcribedAudioArea.setEditable(false);
         transcribedAudioArea.setLineWrap(true);
         transcribedAudioArea.setWrapStyleWord(true);
 
-        aiResponseArea = new JTextArea(10, 40);
         aiResponseArea.setEditable(false);
         aiResponseArea.setLineWrap(true);
         aiResponseArea.setWrapStyleWord(true);
 
-        logArea = new JTextArea(8, 40);
         logArea.setEditable(false);
         logArea.setLineWrap(true);
         logArea.setWrapStyleWord(true);
+
+        volumeSlider.setMajorTickSpacing(25);
+        volumeSlider.setMinorTickSpacing(5);
+        volumeSlider.setPaintTicks(true);
+        volumeSlider.setPaintLabels(true);
     }
 
-    /**
-     * Sets up the layout of the UI components on the main panel.
-     * @param mainPanel The JPanel to which components will be added.
-     * @param timerManager The InterviewTimerManager instance to get time labels.
-     */
-    public void setupLayout(JPanel mainPanel, InterviewTimerManager timerManager) {
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // padding
+    public void setupLayout(JPanel mainPanel, InterviewTimerManager timerManager, AudioOutputService audioOutputService) {
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // padding between components
+        gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.BOTH;
 
-        // --- Buttons Panel ---
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 5)); // centered buttons
+        // BUTTONS
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 5));
         buttonPanel.add(startButton);
         buttonPanel.add(stopButton);
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 2; // two columns
-        gbc.weightx = 1.0; // horizontal expansion
+        gbc.gridwidth = 2;
+        gbc.weightx = 1.0;
         mainPanel.add(buttonPanel, gbc);
 
-        // Transcribed Audio Area
+        // AUDIO OUTPUT SETTINGS
+        JPanel audioSettingsPanel = new JPanel(new GridBagLayout());
+        audioSettingsPanel.setBorder(BorderFactory.createTitledBorder("Audio Output Settings"));
+        GridBagConstraints audioGbc = new GridBagConstraints();
+        audioGbc.insets = new Insets(2, 5, 2, 5);
+        audioGbc.fill = GridBagConstraints.HORIZONTAL;
+
+        audioGbc.gridx = 0;
+        audioGbc.gridy = 0;
+        audioGbc.weightx = 0;
+        audioSettingsPanel.add(new JLabel("Output Device:"), audioGbc);
+
+        audioGbc.gridx = 1;
+        audioGbc.gridy = 0;
+        audioGbc.weightx = 1.0;
+
+        List<String> devices = audioOutputService.getAvailableOutputDevices();
+        for (String device : devices) {
+            outputDeviceComboBox.addItem(device);
+        }
+        if (!devices.isEmpty()) {
+            outputDeviceComboBox.setSelectedIndex(0);
+            audioOutputService.selectOutputDevice(devices.getFirst());
+        } else {
+            outputDeviceComboBox.addItem("No Devices Found");
+            outputDeviceComboBox.setEnabled(false);
+            volumeSlider.setEnabled(false);
+            testVolumeButton.setEnabled(false);
+        }
+        audioSettingsPanel.add(outputDeviceComboBox, audioGbc);
+
+        audioGbc.gridx = 0;
+        audioGbc.gridy = 1;
+        audioGbc.weightx = 0;
+        audioSettingsPanel.add(new JLabel("Volume:"), audioGbc);
+
+        audioGbc.gridx = 1;
+        audioGbc.gridy = 1;
+        audioGbc.weightx = 1.0;
+        audioSettingsPanel.add(volumeSlider, audioGbc);
+
+        audioGbc.gridx = 0;
+        audioGbc.gridy = 2;
+        audioGbc.gridwidth = 2;
+        audioGbc.anchor = GridBagConstraints.CENTER;
+        audioGbc.fill = GridBagConstraints.NONE;
+        audioSettingsPanel.add(testVolumeButton, audioGbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.1;
+        mainPanel.add(audioSettingsPanel, gbc);
+
+
+        // TRANSCRIBED AUDIO AREA
         JPanel transcribedPanel = new JPanel(new BorderLayout());
         transcribedPanel.add(new JLabel("Transcribed Audio (Input):", SwingConstants.LEFT), BorderLayout.NORTH);
         transcribedPanel.add(new JScrollPane(transcribedAudioArea), BorderLayout.CENTER);
-        transcribedPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0)); // padding
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 1; // columns
-        gbc.weightx = 0.5; // width
-        gbc.weighty = 0.4; // vertical space
-        mainPanel.add(transcribedPanel, gbc);
-
-        // AI Response Area
-        JPanel aiResponsePanel = new JPanel(new BorderLayout());
-        aiResponsePanel.add(new JLabel("AI Response (Output):", SwingConstants.LEFT), BorderLayout.NORTH);
-        aiResponsePanel.add(new JScrollPane(aiResponseArea), BorderLayout.CENTER);
-        aiResponsePanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0)); // button padding
-
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        gbc.weightx = 0.5; // width
-        mainPanel.add(aiResponsePanel, gbc);
-
-        // Log Area + Timers
-        JPanel logPanel = new JPanel(new BorderLayout());
-        JPanel logHeaderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
-        logHeaderPanel.add(new JLabel("Application Logs:"));
-        logHeaderPanel.add(timerManager.getCurrentTimeLabel()); // current time from manager
-        logHeaderPanel.add(timerManager.getElapsedTimeLabel()); // elapsed time from manager
-
-        logPanel.add(logHeaderPanel, BorderLayout.NORTH);
-        logPanel.add(new JScrollPane(logArea), BorderLayout.CENTER);
-        logPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0)); // padding
+        transcribedPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 
         gbc.gridx = 0;
         gbc.gridy = 2;
-        gbc.gridwidth = 2; // Span across two columns
-        gbc.weightx = 1.0; // Full width
-        gbc.weighty = 0.2; // Allocate vertical space
+        gbc.gridwidth = 1;
+        gbc.weightx = 0.5;
+        gbc.weighty = 0.4;
+        mainPanel.add(transcribedPanel, gbc);
+
+        // AI RESPONSE AREA
+        JPanel aiResponsePanel = new JPanel(new BorderLayout());
+        aiResponsePanel.add(new JLabel("AI Response (Output):", SwingConstants.LEFT), BorderLayout.NORTH);
+        aiResponsePanel.add(new JScrollPane(aiResponseArea), BorderLayout.CENTER);
+        aiResponsePanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.weightx = 0.5;
+        mainPanel.add(aiResponsePanel, gbc);
+
+        // LOG AREA + TIMERS
+        JPanel logPanel = new JPanel(new BorderLayout());
+        JPanel logHeaderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
+        logHeaderPanel.add(new JLabel("Application Logs:"));
+        logHeaderPanel.add(timerManager.getCurrentTimeLabel());
+        logHeaderPanel.add(timerManager.getElapsedTimeLabel());
+
+        logPanel.add(logHeaderPanel, BorderLayout.NORTH);
+        logPanel.add(new JScrollPane(logArea), BorderLayout.CENTER);
+        logPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.2;
         mainPanel.add(logPanel, gbc);
     }
 
@@ -126,5 +179,17 @@ public class UIBuilder {
 
     public JTextArea getLogArea() {
         return logArea;
+    }
+
+    public JComboBox<String> getOutputDeviceComboBox() {
+        return outputDeviceComboBox;
+    }
+
+    public JSlider getVolumeSlider() {
+        return volumeSlider;
+    }
+
+    public JButton getTestVolumeButton() {
+        return testVolumeButton;
     }
 }
