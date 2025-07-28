@@ -1,195 +1,91 @@
 package com.quilot.ui;
 
+import com.quilot.audio.input.AudioInputService;
 import com.quilot.audio.ouput.AudioOutputService;
+import com.quilot.ui.builders.*;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
+
+/**
+ * A utility class responsible for initializing and laying out the Swing UI components.
+ * This helps in separating UI construction logic from the MainFrame's event handling.
+ * It uses the Builder pattern to construct different panels of the UI.
+ */
+@Getter
 public class UIBuilder {
 
-    private final JButton startButton = new JButton("Start Interview");
-    private final JButton stopButton = new JButton("Stop Interview");
-    private final JTextArea transcribedAudioArea = new JTextArea(10, 40);
-    private final JTextArea aiResponseArea = new JTextArea(10, 40);
-    private final JTextArea logArea = new JTextArea(8, 40);
+    // Panel Builders
+    private final ButtonPanelBuilder buttonPanelBuilder;
+    private final AudioOutputSettingsPanelBuilder audioOutputSettingsPanelBuilder;
+    private final AudioInputSettingsPanelBuilder audioInputSettingsPanelBuilder;
+    private final TranscribedAudioPanelBuilder transcribedAudioPanelBuilder;
+    private final AIResponsePanelBuilder aiResponsePanelBuilder;
+    private final LogPanelBuilder logPanelBuilder;
 
-    // audio output components
-    private final JComboBox<String> outputDeviceComboBox = new JComboBox<>();
-    private final JSlider volumeSlider = new JSlider(0, 100, 70);
-    private final JButton testVolumeButton = new JButton("Test Volume");
-
-    public UIBuilder() {
-        setupComponentProperties();
+    /**
+     * Initializes all the specific panel builders.
+     * @param audioOutputService The service for audio output.
+     * @param audioInputService The service for audio input.
+     * @param timerManager The manager for interview timers.
+     */
+    public UIBuilder(AudioOutputService audioOutputService, AudioInputService audioInputService, InterviewTimerManager timerManager) {
+        this.buttonPanelBuilder = new ButtonPanelBuilder();
+        this.audioOutputSettingsPanelBuilder = new AudioOutputSettingsPanelBuilder(audioOutputService);
+        this.audioInputSettingsPanelBuilder = new AudioInputSettingsPanelBuilder(audioInputService);
+        this.transcribedAudioPanelBuilder = new TranscribedAudioPanelBuilder();
+        this.aiResponsePanelBuilder = new AIResponsePanelBuilder();
+        this.logPanelBuilder = new LogPanelBuilder(timerManager);
     }
 
-    private void setupComponentProperties() {
-        stopButton.setEnabled(false);
-
-        transcribedAudioArea.setEditable(false);
-        transcribedAudioArea.setLineWrap(true);
-        transcribedAudioArea.setWrapStyleWord(true);
-
-        aiResponseArea.setEditable(false);
-        aiResponseArea.setLineWrap(true);
-        aiResponseArea.setWrapStyleWord(true);
-
-        logArea.setEditable(false);
-        logArea.setLineWrap(true);
-        logArea.setWrapStyleWord(true);
-
-        volumeSlider.setMajorTickSpacing(25);
-        volumeSlider.setMinorTickSpacing(5);
-        volumeSlider.setPaintTicks(true);
-        volumeSlider.setPaintLabels(true);
-    }
-
-    public void setupLayout(JPanel mainPanel, InterviewTimerManager timerManager, AudioOutputService audioOutputService) {
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+    /**
+     * Sets up the layout of the UI components on the main panel.
+     * This method orchestrates the building of individual panels using their respective builders.
+     * @param mainPanel The JPanel to which components will be added.
+     */
+    public void setupLayout(JPanel mainPanel) {
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add some padding
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(5, 5, 5, 5); // Padding between components
+        gbc.fill = GridBagConstraints.BOTH; // Components fill their display area
 
-        // BUTTONS
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 5));
-        buttonPanel.add(startButton);
-        buttonPanel.add(stopButton);
+        // Row 0: Main Interview Control Buttons
+        gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2; gbc.weightx = 1.0;
+        mainPanel.add(buttonPanelBuilder.build(), gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        gbc.weightx = 1.0;
-        mainPanel.add(buttonPanel, gbc);
+        // Row 1: Audio Output and Input Settings Panels (side-by-side)
+        gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.1;
+        mainPanel.add(audioOutputSettingsPanelBuilder.build(), gbc);
 
-        // AUDIO OUTPUT SETTINGS
-        JPanel audioSettingsPanel = new JPanel(new GridBagLayout());
-        audioSettingsPanel.setBorder(BorderFactory.createTitledBorder("Audio Output Settings"));
-        GridBagConstraints audioGbc = new GridBagConstraints();
-        audioGbc.insets = new Insets(2, 5, 2, 5);
-        audioGbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 1; gbc.gridy = 1; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.1;
+        mainPanel.add(audioInputSettingsPanelBuilder.build(), gbc);
 
-        audioGbc.gridx = 0;
-        audioGbc.gridy = 0;
-        audioGbc.weightx = 0;
-        audioSettingsPanel.add(new JLabel("Output Device:"), audioGbc);
+        // Row 2: Transcribed Audio and AI Response Panels (side-by-side)
+        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.4;
+        mainPanel.add(transcribedAudioPanelBuilder.build(), gbc);
 
-        audioGbc.gridx = 1;
-        audioGbc.gridy = 0;
-        audioGbc.weightx = 1.0;
+        gbc.gridx = 1; gbc.gridy = 2; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.4;
+        mainPanel.add(aiResponsePanelBuilder.build(), gbc);
 
-        List<String> devices = audioOutputService.getAvailableOutputDevices();
-        for (String device : devices) {
-            outputDeviceComboBox.addItem(device);
-        }
-        if (!devices.isEmpty()) {
-            outputDeviceComboBox.setSelectedIndex(0);
-            audioOutputService.selectOutputDevice(devices.getFirst());
-        } else {
-            outputDeviceComboBox.addItem("No Devices Found");
-            outputDeviceComboBox.setEnabled(false);
-            volumeSlider.setEnabled(false);
-            testVolumeButton.setEnabled(false);
-        }
-        audioSettingsPanel.add(outputDeviceComboBox, audioGbc);
-
-        audioGbc.gridx = 0;
-        audioGbc.gridy = 1;
-        audioGbc.weightx = 0;
-        audioSettingsPanel.add(new JLabel("Volume:"), audioGbc);
-
-        audioGbc.gridx = 1;
-        audioGbc.gridy = 1;
-        audioGbc.weightx = 1.0;
-        audioSettingsPanel.add(volumeSlider, audioGbc);
-
-        audioGbc.gridx = 0;
-        audioGbc.gridy = 2;
-        audioGbc.gridwidth = 2;
-        audioGbc.anchor = GridBagConstraints.CENTER;
-        audioGbc.fill = GridBagConstraints.NONE;
-        audioSettingsPanel.add(testVolumeButton, audioGbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 2;
-        gbc.weightx = 1.0;
-        gbc.weighty = 0.1;
-        mainPanel.add(audioSettingsPanel, gbc);
-
-
-        // TRANSCRIBED AUDIO AREA
-        JPanel transcribedPanel = new JPanel(new BorderLayout());
-        transcribedPanel.add(new JLabel("Transcribed Audio (Input):", SwingConstants.LEFT), BorderLayout.NORTH);
-        transcribedPanel.add(new JScrollPane(transcribedAudioArea), BorderLayout.CENTER);
-        transcribedPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
-
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.gridwidth = 1;
-        gbc.weightx = 0.5;
-        gbc.weighty = 0.4;
-        mainPanel.add(transcribedPanel, gbc);
-
-        // AI RESPONSE AREA
-        JPanel aiResponsePanel = new JPanel(new BorderLayout());
-        aiResponsePanel.add(new JLabel("AI Response (Output):", SwingConstants.LEFT), BorderLayout.NORTH);
-        aiResponsePanel.add(new JScrollPane(aiResponseArea), BorderLayout.CENTER);
-        aiResponsePanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
-
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        gbc.weightx = 0.5;
-        mainPanel.add(aiResponsePanel, gbc);
-
-        // LOG AREA + TIMERS
-        JPanel logPanel = new JPanel(new BorderLayout());
-        JPanel logHeaderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
-        logHeaderPanel.add(new JLabel("Application Logs"));
-        logHeaderPanel.add(timerManager.getCurrentTimeLabel());
-        logHeaderPanel.add(timerManager.getElapsedTimeLabel());
-
-        logPanel.add(logHeaderPanel, BorderLayout.NORTH);
-        logPanel.add(new JScrollPane(logArea), BorderLayout.CENTER);
-        logPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
-
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.gridwidth = 2;
-        gbc.weightx = 1.0;
-        gbc.weighty = 0.2;
-        mainPanel.add(logPanel, gbc);
+        // Row 3: Application Logs Panel
+        gbc.gridx = 0; gbc.gridy = 3; gbc.gridwidth = 2; gbc.weightx = 1.0; gbc.weighty = 0.2;
+        mainPanel.add(logPanelBuilder.build(), gbc);
     }
 
-    public JButton getStartButton() {
-        return startButton;
-    }
-
-    public JButton getStopButton() {
-        return stopButton;
-    }
-
-    public JTextArea getTranscribedAudioArea() {
-        return transcribedAudioArea;
-    }
-
-    public JTextArea getAiResponseArea() {
-        return aiResponseArea;
-    }
-
-    public JTextArea getLogArea() {
-        return logArea;
-    }
-
-    public JComboBox<String> getOutputDeviceComboBox() {
-        return outputDeviceComboBox;
-    }
-
-    public JSlider getVolumeSlider() {
-        return volumeSlider;
-    }
-
-    public JButton getTestVolumeButton() {
-        return testVolumeButton;
-    }
+    // Getters for all individual UI components, delegated from their respective builders
+    public JButton getStartButton() { return buttonPanelBuilder.getStartButton(); }
+    public JButton getStopButton() { return buttonPanelBuilder.getStopButton(); }
+    public JTextArea getTranscribedAudioArea() { return transcribedAudioPanelBuilder.getTranscribedAudioArea(); }
+    public JTextArea getAiResponseArea() { return aiResponsePanelBuilder.getAiResponseArea(); }
+    public JTextArea getLogArea() { return logPanelBuilder.getLogArea(); }
+    public JComboBox<String> getOutputDeviceComboBox() { return audioOutputSettingsPanelBuilder.getOutputDeviceComboBox(); }
+    public JSlider getVolumeSlider() { return audioOutputSettingsPanelBuilder.getVolumeSlider(); }
+    public JButton getTestVolumeButton() { return audioOutputSettingsPanelBuilder.getTestVolumeButton(); }
+    public JComboBox<String> getInputDeviceComboBox() { return audioInputSettingsPanelBuilder.getInputDeviceComboBox(); }
+    public JButton getStartInputRecordingButton() { return audioInputSettingsPanelBuilder.getStartInputRecordingButton(); }
+    public JButton getStopInputRecordingButton() { return audioInputSettingsPanelBuilder.getStopInputRecordingButton(); }
+    public JButton getPlayRecordedInputButton() { return audioInputSettingsPanelBuilder.getPlayRecordedInputButton(); }
 }

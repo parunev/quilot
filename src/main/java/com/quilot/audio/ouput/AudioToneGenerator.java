@@ -2,9 +2,23 @@ package com.quilot.audio.ouput;
 
 import javax.sound.sampled.AudioFormat;
 
-
+/**
+ * A utility class responsible for generating simple audio tones.
+ * This separates the concern of sound generation from the audio output service,
+ * making the code more modular and potentially allowing for different sound generation
+ * strategies in the future.
+ */
 public class AudioToneGenerator {
 
+    /**
+     * Generates a byte array representing a simple sine wave tone.
+     * The tone is generated based on the provided audio format, frequency, and duration.
+     *
+     * @param format The AudioFormat for which to generate the tone.
+     * @param frequency The frequency of the sine wave in Hz (e.g., 440 for A4).
+     * @param durationMs The duration of the tone in milliseconds.
+     * @return A byte array containing the generated audio data.
+     */
     public static byte[] generateSineWave(AudioFormat format, int frequency, int durationMs) {
         int sampleRate = (int) format.getSampleRate();
         int frameSize = format.getFrameSize();

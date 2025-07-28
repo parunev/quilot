@@ -1,6 +1,7 @@
 package com.quilot.ui;
 
 import com.quilot.utils.Logger;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.time.Duration;
@@ -11,10 +12,11 @@ import java.time.format.DateTimeFormatter;
  * Manages the current time and elapsed interview time display.
  * This class encapsulates the timer logic and the JLabel components for time display.
  */
+@Getter
 public class InterviewTimerManager {
 
-    private JLabel currentTimeLabel;
-    private JLabel elapsedTimeLabel;
+    private final JLabel currentTimeLabel;
+    private final JLabel elapsedTimeLabel;
 
     private Timer currentTimeUpdateTimer;
     private Timer elapsedTimeUpdateTimer;
@@ -24,25 +26,9 @@ public class InterviewTimerManager {
      * Initializes the time display labels and starts the current time timer.
      */
     public InterviewTimerManager() {
-        currentTimeLabel = new JLabel("Current Time: --:--:--");
-        elapsedTimeLabel = new JLabel("Elapsed: 00:00:00");
+        this.currentTimeLabel = new JLabel("Current Time: --:--:--");
+        this.elapsedTimeLabel = new JLabel("Elapsed: 00:00:00");
         startCurrentTimeTimer(); // Start updating current time immediately
-    }
-
-    /**
-     * Returns the JLabel displaying the current time.
-     * @return The JLabel for current time.
-     */
-    public JLabel getCurrentTimeLabel() {
-        return currentTimeLabel;
-    }
-
-    /**
-     * Returns the JLabel displaying the elapsed time.
-     * @return The JLabel for elapsed time.
-     */
-    public JLabel getElapsedTimeLabel() {
-        return elapsedTimeLabel;
     }
 
     /**
@@ -54,6 +40,7 @@ public class InterviewTimerManager {
             String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
             currentTimeLabel.setText("Current Time: " + time);
         });
+
         currentTimeUpdateTimer.start();
         Logger.info("Current time update timer started.");
     }

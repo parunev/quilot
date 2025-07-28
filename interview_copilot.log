@@ -276,3 +276,768 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-28 12:42:43] [INFO] Master Gain control found for the current device.
 [2025-07-28 12:42:43] [INFO] Selected audio output device: Default Audio Device
 [2025-07-28 12:42:43] [INFO] Quilot UI initialized.
+[2025-07-28 13:14:01] [INFO] Current time update timer started.
+[2025-07-28 13:14:01] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:14:01] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:14:01] [INFO] Found 5 audio output devices.
+[2025-07-28 13:14:02] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:14:02] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:14:02] [INFO] Found 4 audio input devices.
+[2025-07-28 13:14:02] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:14:02] [INFO] Quilot UI initialized.
+[2025-07-28 13:14:11] [INFO] Set volume to: 54.00% (Gain: -33.55 dB)
+[2025-07-28 13:14:14] [INFO] Set volume to: 59.00% (Gain: -29.25 dB)
+[2025-07-28 13:14:16] [INFO] Set volume to: 98.00% (Gain: 4.30 dB)
+[2025-07-28 13:14:16] [INFO] Set volume to: 98.00% (Gain: 4.30 dB)
+[2025-07-28 13:14:16] [INFO] Set volume to: 65.00% (Gain: -24.09 dB)
+[2025-07-28 13:14:17] [INFO] Set volume to: 51.00% (Gain: -36.13 dB)
+[2025-07-28 13:14:17] [INFO] Set volume to: 51.00% (Gain: -36.13 dB)
+[2025-07-28 13:14:17] [INFO] Set volume to: 50.00% (Gain: -36.99 dB)
+[2025-07-28 13:14:17] [INFO] Set volume to: 51.00% (Gain: -36.13 dB)
+[2025-07-28 13:14:17] [INFO] Set volume to: 52.00% (Gain: -35.27 dB)
+[2025-07-28 13:14:17] [INFO] Set volume to: 50.00% (Gain: -36.99 dB)
+[2025-07-28 13:14:18] [INFO] Set volume to: 72.00% (Gain: -18.07 dB)
+[2025-07-28 13:14:18] [WARN] No recording in progress to stop.
+[2025-07-28 13:14:19] [INFO] Set volume to: 54.00% (Gain: -33.55 dB)
+[2025-07-28 13:14:19] [INFO] Set volume to: 49.00% (Gain: -37.85 dB)
+[2025-07-28 13:14:19] [INFO] Set volume to: 49.00% (Gain: -37.85 dB)
+[2025-07-28 13:14:20] [INFO] Recording started from input device.
+[2025-07-28 13:14:20] [INFO] Audio capture thread started.
+[2025-07-28 13:14:21] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:21] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 13:14:22] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:23] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:24] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:25] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:26] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:27] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:28] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:29] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:30] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:14:30] [INFO] Captured 61592 bytes of audio data.
+[2025-07-28 13:14:30] [INFO] Audio capture thread stopped.
+[2025-07-28 13:14:30] [INFO] Recording stopped from input device.
+[2025-07-28 13:19:13] [INFO] Current time update timer started.
+[2025-07-28 13:19:13] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:19:13] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:19:14] [INFO] Found 5 audio output devices.
+[2025-07-28 13:19:14] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:19:14] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:19:14] [INFO] Found 5 audio input devices.
+[2025-07-28 13:19:14] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:19:14] [INFO] Quilot UI initialized.
+[2025-07-28 13:19:31] [INFO] Input line closed.
+[2025-07-28 13:19:31] [INFO] Selected audio input device: Background Music
+[2025-07-28 13:19:33] [INFO] Audio capture thread started.
+[2025-07-28 13:19:33] [INFO] Recording started from input device.
+[2025-07-28 13:19:34] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:19:35] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:19:36] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:19:37] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:19:38] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:19:39] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:19:40] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:19:40] [INFO] Captured 29768 bytes of audio data.
+[2025-07-28 13:19:40] [INFO] Audio capture thread stopped.
+[2025-07-28 13:19:40] [INFO] Recording stopped from input device.
+[2025-07-28 13:34:25] [INFO] Current time update timer started.
+[2025-07-28 13:34:25] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:34:25] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:34:25] [INFO] Found 5 audio output devices.
+[2025-07-28 13:34:25] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:34:25] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:34:25] [INFO] Found 5 audio input devices.
+[2025-07-28 13:34:25] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:34:25] [INFO] Quilot UI initialized.
+[2025-07-28 13:34:32] [INFO] Playing test sound...
+[2025-07-28 13:34:32] [INFO] Test sound played.
+[2025-07-28 13:34:32] [INFO] Playing test sound...
+[2025-07-28 13:34:33] [INFO] Test sound played.
+[2025-07-28 13:34:34] [INFO] Set volume to: 48.00% (Gain: -38.71 dB)
+[2025-07-28 13:34:35] [INFO] Playing test sound...
+[2025-07-28 13:34:35] [INFO] Test sound played.
+[2025-07-28 13:34:36] [INFO] Set volume to: 45.00% (Gain: -41.29 dB)
+[2025-07-28 13:34:36] [INFO] Playing test sound...
+[2025-07-28 13:34:37] [INFO] Test sound played.
+[2025-07-28 13:34:37] [INFO] Set volume to: 50.00% (Gain: -36.99 dB)
+[2025-07-28 13:34:37] [INFO] Playing test sound...
+[2025-07-28 13:34:38] [INFO] Test sound played.
+[2025-07-28 13:35:14] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:35:14] [INFO] Recording started from input device.
+[2025-07-28 13:35:14] [INFO] Audio capture thread started.
+[2025-07-28 13:35:15] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:16] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:17] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:18] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:19] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:20] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:21] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:22] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:23] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:24] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:25] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:26] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:27] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:28] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:29] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:30] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:31] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:32] [INFO] Captured 75468 bytes of audio data.
+[2025-07-28 13:35:32] [INFO] Audio capture thread stopped.
+[2025-07-28 13:35:32] [INFO] Recording stopped from input device.
+[2025-07-28 13:35:51] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:35:51] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:35:51] [INFO] Recording started from input device.
+[2025-07-28 13:35:51] [INFO] Audio capture thread started.
+[2025-07-28 13:35:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:53] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:54] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:35:54] [INFO] Captured 62770 bytes of audio data.
+[2025-07-28 13:35:54] [INFO] Audio capture thread stopped.
+[2025-07-28 13:35:54] [INFO] Recording stopped from input device.
+[2025-07-28 13:35:59] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:36:14] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:36:14] [INFO] Recording started from input device.
+[2025-07-28 13:36:14] [INFO] Audio capture thread started.
+[2025-07-28 13:36:15] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:16] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:17] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:18] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:19] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:20] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:20] [INFO] Captured 10788 bytes of audio data.
+[2025-07-28 13:36:20] [INFO] Audio capture thread stopped.
+[2025-07-28 13:36:20] [INFO] Recording stopped from input device.
+[2025-07-28 13:36:29] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:36:29] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 13:36:29] [INFO] Set volume to: 52.00% (Gain: -35.27 dB)
+[2025-07-28 13:36:35] [INFO] Input line closed.
+[2025-07-28 13:36:35] [INFO] Selected audio input device: Background Music
+[2025-07-28 13:36:38] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:36:38] [INFO] Recording started from input device.
+[2025-07-28 13:36:38] [INFO] Audio capture thread started.
+[2025-07-28 13:36:39] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:40] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:41] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:42] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:43] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:44] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:45] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:46] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:47] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:48] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:36:50] [INFO] Captured 60968 bytes of audio data.
+[2025-07-28 13:36:50] [INFO] Audio capture thread stopped.
+[2025-07-28 13:36:50] [INFO] Recording stopped from input device.
+[2025-07-28 13:37:05] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:37:17] [INFO] Input line closed.
+[2025-07-28 13:37:17] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:39:53] [INFO] Current time update timer started.
+[2025-07-28 13:39:53] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:39:53] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:39:53] [INFO] Found 5 audio output devices.
+[2025-07-28 13:39:53] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:39:53] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:39:53] [INFO] Found 5 audio input devices.
+[2025-07-28 13:39:53] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:39:53] [INFO] Quilot UI initialized.
+[2025-07-28 13:39:59] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-28 13:40:01] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:40:01] [INFO] Recording started from input device.
+[2025-07-28 13:40:01] [INFO] Audio capture thread started.
+[2025-07-28 13:40:02] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:03] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:04] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:05] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:06] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:07] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:08] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:09] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:10] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:11] [INFO] Captured 79232 bytes of audio data.
+[2025-07-28 13:40:11] [INFO] Audio capture thread stopped.
+[2025-07-28 13:40:11] [INFO] Recording stopped from input device.
+[2025-07-28 13:40:23] [INFO] Audio data played successfully.
+[2025-07-28 13:40:23] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:40:29] [INFO] Input line closed.
+[2025-07-28 13:40:29] [INFO] Selected audio input device: Mmp’s iPhone Microphone
+[2025-07-28 13:40:45] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:40:46] [INFO] Recording started from input device.
+[2025-07-28 13:40:46] [INFO] Audio capture thread started.
+[2025-07-28 13:40:47] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:48] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:50] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:51] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:53] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:54] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:55] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:56] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:40:56] [INFO] Captured 2322 bytes of audio data.
+[2025-07-28 13:40:56] [INFO] Audio capture thread stopped.
+[2025-07-28 13:40:56] [INFO] Recording stopped from input device.
+[2025-07-28 13:41:09] [INFO] Audio data played successfully.
+[2025-07-28 13:41:09] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:41:13] [INFO] Input line closed.
+[2025-07-28 13:41:13] [INFO] Selected audio input device: Background Music (UI Sounds)
+[2025-07-28 13:41:17] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:41:17] [INFO] Recording started from input device.
+[2025-07-28 13:41:17] [INFO] Audio capture thread started.
+[2025-07-28 13:41:18] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:19] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:20] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:22] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:22] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:23] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:24] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:25] [INFO] Captured 71752 bytes of audio data.
+[2025-07-28 13:41:25] [INFO] Audio capture thread stopped.
+[2025-07-28 13:41:25] [INFO] Recording stopped from input device.
+[2025-07-28 13:41:35] [INFO] Audio data played successfully.
+[2025-07-28 13:41:35] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:41:39] [INFO] Input line closed.
+[2025-07-28 13:41:39] [INFO] Selected audio input device: MacBook Pro Microphone
+[2025-07-28 13:41:47] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:41:47] [INFO] Recording started from input device.
+[2025-07-28 13:41:47] [INFO] Audio capture thread started.
+[2025-07-28 13:41:48] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:50] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:51] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:53] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:54] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:55] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:56] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:57] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:58] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:41:59] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:42:00] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:42:00] [INFO] Captured 8672 bytes of audio data.
+[2025-07-28 13:42:00] [INFO] Audio capture thread stopped.
+[2025-07-28 13:42:00] [INFO] Recording stopped from input device.
+[2025-07-28 13:42:14] [INFO] Audio data played successfully.
+[2025-07-28 13:42:14] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:45:52] [INFO] Current time update timer started.
+[2025-07-28 13:45:52] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:45:52] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:45:52] [INFO] Found 5 audio output devices.
+[2025-07-28 13:45:52] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:45:52] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:45:52] [INFO] Found 5 audio input devices.
+[2025-07-28 13:45:52] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:45:52] [INFO] Quilot UI initialized.
+[2025-07-28 13:50:19] [INFO] Current time update timer started.
+[2025-07-28 13:50:19] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:50:19] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:50:20] [INFO] Found 6 audio output devices.
+[2025-07-28 13:50:20] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:50:20] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:50:20] [INFO] Found 6 audio input devices.
+[2025-07-28 13:50:20] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:50:20] [INFO] Quilot UI initialized.
+[2025-07-28 13:52:17] [INFO] Current time update timer started.
+[2025-07-28 13:52:17] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:52:17] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:52:17] [INFO] Found 6 audio output devices.
+[2025-07-28 13:52:17] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:52:17] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:52:17] [INFO] Found 6 audio input devices.
+[2025-07-28 13:52:17] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:52:17] [INFO] Quilot UI initialized.
+[2025-07-28 13:52:27] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:52:27] [INFO] Recording started from input device.
+[2025-07-28 13:52:27] [INFO] Audio capture thread started.
+[2025-07-28 13:52:28] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:29] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:30] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:31] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:32] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:33] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:34] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:35] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:36] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:37] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:38] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:39] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:40] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:41] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:42] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:43] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:44] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:45] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:46] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:47] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:48] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:50] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:51] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:52:52] [INFO] Captured 40660 bytes of audio data.
+[2025-07-28 13:52:52] [INFO] Audio capture thread stopped.
+[2025-07-28 13:52:52] [INFO] Recording stopped from input device.
+[2025-07-28 13:53:19] [INFO] Audio data played successfully.
+[2025-07-28 13:53:19] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:53:32] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:53:32] [INFO] Audio capture thread started.
+[2025-07-28 13:53:32] [INFO] Recording started from input device.
+[2025-07-28 13:53:33] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:34] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:35] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:36] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:37] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:38] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:39] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:40] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 13:53:40] [INFO] Captured 64884 bytes of audio data.
+[2025-07-28 13:53:40] [INFO] Audio capture thread stopped.
+[2025-07-28 13:53:40] [INFO] Recording stopped from input device.
+[2025-07-28 13:53:50] [INFO] Audio data played successfully.
+[2025-07-28 13:53:50] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 13:54:54] [INFO] Current time update timer started.
+[2025-07-28 13:54:54] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:54:54] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:54:54] [INFO] Found 6 audio output devices.
+[2025-07-28 13:54:54] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:54:54] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:54:54] [INFO] Found 6 audio input devices.
+[2025-07-28 13:54:54] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:54:54] [INFO] Quilot UI initialized.
+[2025-07-28 13:59:48] [INFO] Current time update timer started.
+[2025-07-28 13:59:48] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 13:59:48] [INFO] SystemAudioInputService initialized.
+[2025-07-28 13:59:48] [INFO] Found 6 audio output devices.
+[2025-07-28 13:59:49] [INFO] Master Gain control found for the current device.
+[2025-07-28 13:59:49] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 13:59:49] [INFO] Found 6 audio input devices.
+[2025-07-28 13:59:49] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 13:59:49] [INFO] Quilot UI initialized.
+[2025-07-28 13:59:55] [INFO] Output line closed.
+[2025-07-28 13:59:55] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 13:59:55] [WARN] No recording in progress to stop.
+[2025-07-28 13:59:55] [INFO] Input line closed.
+[2025-07-28 13:59:55] [INFO] SystemAudioInputService resources released.
+[2025-07-28 13:59:55] [INFO] Application closing. Audio resources released.
+[2025-07-28 14:03:07] [INFO] Current time update timer started.
+[2025-07-28 14:03:07] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:03:07] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:03:08] [INFO] Found 6 audio output devices.
+[2025-07-28 14:03:08] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:03:08] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:03:08] [INFO] Found 6 audio input devices.
+[2025-07-28 14:03:08] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:03:08] [INFO] Quilot UI initialized.
+[2025-07-28 14:03:11] [INFO] Output line closed.
+[2025-07-28 14:03:11] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 14:03:11] [WARN] No recording in progress to stop.
+[2025-07-28 14:03:11] [INFO] Input line closed.
+[2025-07-28 14:03:11] [INFO] SystemAudioInputService resources released.
+[2025-07-28 14:03:11] [INFO] Application closing. Audio resources released.
+[2025-07-28 14:03:58] [INFO] Current time update timer started.
+[2025-07-28 14:03:58] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:03:58] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:03:59] [INFO] Found 6 audio output devices.
+[2025-07-28 14:03:59] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:03:59] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:03:59] [INFO] Found 6 audio input devices.
+[2025-07-28 14:03:59] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:03:59] [INFO] Quilot UI initialized.
+[2025-07-28 14:04:04] [INFO] Output line closed.
+[2025-07-28 14:04:04] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 14:04:04] [WARN] No recording in progress to stop.
+[2025-07-28 14:04:04] [INFO] Input line closed.
+[2025-07-28 14:04:04] [INFO] SystemAudioInputService resources released.
+[2025-07-28 14:04:04] [INFO] Application closing. Audio resources released.
+[2025-07-28 14:06:16] [INFO] Current time update timer started.
+[2025-07-28 14:06:16] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:06:16] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:06:17] [INFO] Found 6 audio output devices.
+[2025-07-28 14:06:17] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:06:17] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:06:17] [INFO] Found 6 audio input devices.
+[2025-07-28 14:06:17] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 14:06:17] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:06:17] [INFO] Quilot UI initialized.
+[2025-07-28 14:07:46] [INFO] Current time update timer started.
+[2025-07-28 14:07:46] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:07:46] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:07:47] [INFO] Found 6 audio output devices.
+[2025-07-28 14:07:47] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:07:47] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:07:47] [INFO] Found 6 audio input devices.
+[2025-07-28 14:07:47] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 14:07:47] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:07:47] [INFO] Quilot UI initialized.
+[2025-07-28 14:08:34] [INFO] Current time update timer started.
+[2025-07-28 14:08:34] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:08:34] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:08:35] [INFO] Found 6 audio output devices.
+[2025-07-28 14:08:35] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:08:35] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:08:35] [INFO] Found 6 audio input devices.
+[2025-07-28 14:08:35] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 14:08:35] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:08:35] [INFO] Quilot UI initialized.
+[2025-07-28 14:10:10] [INFO] Current time update timer started.
+[2025-07-28 14:10:10] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:10:10] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:10:11] [INFO] Found 6 audio output devices.
+[2025-07-28 14:10:11] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:10:11] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:10:11] [INFO] Found 6 audio input devices.
+[2025-07-28 14:10:11] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 14:10:11] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:10:11] [INFO] Quilot UI initialized.
+[2025-07-28 14:14:30] [INFO] Current time update timer started.
+[2025-07-28 14:14:30] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:14:30] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:14:31] [INFO] Found 6 audio output devices.
+[2025-07-28 14:14:31] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:14:31] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:14:31] [INFO] Found 6 audio input devices.
+[2025-07-28 14:14:31] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 14:14:31] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:14:31] [INFO] Quilot UI initialized.
+[2025-07-28 14:14:33] [INFO] Input line closed.
+[2025-07-28 14:14:33] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-28 14:15:13] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:15:13] [INFO] Recording started from input device.
+[2025-07-28 14:15:13] [INFO] Audio capture thread started.
+[2025-07-28 14:15:14] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:15] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:16] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:17] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:18] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:19] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:20] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:21] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:22] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:23] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:24] [INFO] Captured 25842 bytes of audio data.
+[2025-07-28 14:15:24] [INFO] Audio capture thread stopped.
+[2025-07-28 14:15:24] [INFO] Recording stopped from input device.
+[2025-07-28 14:15:34] [INFO] Audio data played successfully.
+[2025-07-28 14:15:34] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:15:37] [INFO] Output line closed.
+[2025-07-28 14:15:37] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:15:37] [INFO] Selected audio output device: BlackHole 2ch
+[2025-07-28 14:15:37] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 14:15:40] [INFO] Playing test sound...
+[2025-07-28 14:15:40] [INFO] Test sound played.
+[2025-07-28 14:15:46] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 14:15:47] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:15:47] [INFO] Recording started from input device.
+[2025-07-28 14:15:47] [INFO] Audio capture thread started.
+[2025-07-28 14:15:48] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:50] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:51] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:53] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:54] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:15:54] [INFO] Captured 60886 bytes of audio data.
+[2025-07-28 14:15:54] [INFO] Audio capture thread stopped.
+[2025-07-28 14:15:54] [INFO] Recording stopped from input device.
+[2025-07-28 14:16:05] [INFO] Audio data played successfully.
+[2025-07-28 14:16:05] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:17:22] [INFO] Playing test sound...
+[2025-07-28 14:17:22] [INFO] Test sound played.
+[2025-07-28 14:17:28] [INFO] Output line closed.
+[2025-07-28 14:17:28] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:17:28] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:17:28] [INFO] Set volume to: 75.00% (Gain: -15.48 dB)
+[2025-07-28 14:17:28] [INFO] Playing test sound...
+[2025-07-28 14:17:29] [INFO] Test sound played.
+[2025-07-28 14:17:29] [INFO] Playing test sound...
+[2025-07-28 14:17:29] [INFO] Test sound played.
+[2025-07-28 14:19:55] [INFO] Current time update timer started.
+[2025-07-28 14:19:55] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:19:55] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:19:55] [INFO] Found 7 audio output devices.
+[2025-07-28 14:19:55] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:19:55] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:19:55] [INFO] Found 6 audio input devices.
+[2025-07-28 14:19:55] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 14:19:55] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:19:55] [INFO] Quilot UI initialized.
+[2025-07-28 14:20:31] [INFO] Output line closed.
+[2025-07-28 14:20:31] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 14:20:31] [WARN] No recording in progress to stop.
+[2025-07-28 14:20:31] [INFO] Input line closed.
+[2025-07-28 14:20:31] [INFO] SystemAudioInputService resources released.
+[2025-07-28 14:20:31] [INFO] Application closing. Audio resources released.
+[2025-07-28 14:20:33] [INFO] Current time update timer started.
+[2025-07-28 14:20:33] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:20:33] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:20:34] [INFO] Found 8 audio output devices.
+[2025-07-28 14:20:34] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:20:34] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:20:34] [INFO] Found 7 audio input devices.
+[2025-07-28 14:20:34] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone, Aggregate Device]
+[2025-07-28 14:20:34] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:20:34] [INFO] Quilot UI initialized.
+[2025-07-28 14:20:36] [INFO] Input line closed.
+[2025-07-28 14:20:36] [INFO] Selected audio input device: Aggregate Device
+[2025-07-28 14:20:40] [INFO] Output line closed.
+[2025-07-28 14:20:40] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:20:40] [INFO] Selected audio output device: Multi-Output Device
+[2025-07-28 14:20:40] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 14:20:50] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:20:51] [INFO] Recording started from input device.
+[2025-07-28 14:20:51] [INFO] Audio capture thread started.
+[2025-07-28 14:20:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:20:53] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:20:54] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:20:55] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:20:56] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:20:57] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:20:57] [INFO] Captured 6084 bytes of audio data.
+[2025-07-28 14:20:57] [INFO] Audio capture thread stopped.
+[2025-07-28 14:20:57] [INFO] Recording stopped from input device.
+[2025-07-28 14:21:03] [INFO] Audio data played successfully.
+[2025-07-28 14:21:03] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:21:04] [INFO] Playing test sound...
+[2025-07-28 14:21:05] [INFO] Test sound played.
+[2025-07-28 14:21:21] [INFO] Output line closed.
+[2025-07-28 14:21:21] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 14:21:21] [WARN] No recording in progress to stop.
+[2025-07-28 14:21:21] [INFO] Input line closed.
+[2025-07-28 14:21:21] [INFO] SystemAudioInputService resources released.
+[2025-07-28 14:21:21] [INFO] Application closing. Audio resources released.
+[2025-07-28 14:21:24] [INFO] Current time update timer started.
+[2025-07-28 14:21:24] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:21:24] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:21:24] [INFO] Found 8 audio output devices.
+[2025-07-28 14:21:24] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:21:24] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:21:24] [INFO] Found 7 audio input devices.
+[2025-07-28 14:21:24] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone, Aggregate Device]
+[2025-07-28 14:21:24] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:21:24] [INFO] Quilot UI initialized.
+[2025-07-28 14:21:28] [INFO] Output line closed.
+[2025-07-28 14:21:28] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:21:28] [INFO] Selected audio output device: Multi-Output Device
+[2025-07-28 14:21:28] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 14:21:29] [INFO] Playing test sound...
+[2025-07-28 14:21:29] [INFO] Test sound played.
+[2025-07-28 14:21:30] [INFO] Output line closed.
+[2025-07-28 14:21:31] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:21:31] [INFO] Selected audio output device: Aggregate Device
+[2025-07-28 14:21:31] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 14:21:31] [INFO] Playing test sound...
+[2025-07-28 14:21:31] [INFO] Test sound played.
+[2025-07-28 14:21:33] [INFO] Output line closed.
+[2025-07-28 14:21:33] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:21:33] [INFO] Selected audio output device: Multi-Output Device
+[2025-07-28 14:21:33] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 14:21:36] [INFO] Input line closed.
+[2025-07-28 14:21:36] [INFO] Selected audio input device: Aggregate Device
+[2025-07-28 14:21:40] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:21:40] [INFO] Recording started from input device.
+[2025-07-28 14:21:40] [INFO] Audio capture thread started.
+[2025-07-28 14:21:41] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:42] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:43] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:44] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:45] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:46] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:47] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:48] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:50] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:51] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:53] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:54] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:55] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:21:55] [INFO] Captured 30780 bytes of audio data.
+[2025-07-28 14:21:55] [INFO] Audio capture thread stopped.
+[2025-07-28 14:21:55] [INFO] Recording stopped from input device.
+[2025-07-28 14:22:11] [INFO] Audio data played successfully.
+[2025-07-28 14:22:11] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:22:13] [INFO] Input line closed.
+[2025-07-28 14:22:13] [INFO] Selected audio input device: Mmp’s iPhone Microphone
+[2025-07-28 14:22:15] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:22:18] [INFO] Recording started from input device.
+[2025-07-28 14:22:18] [INFO] Audio capture thread started.
+[2025-07-28 14:22:19] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:20] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:21] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:22] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:23] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:24] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:25] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:26] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:27] [INFO] Captured 56418 bytes of audio data.
+[2025-07-28 14:22:27] [INFO] Audio capture thread stopped.
+[2025-07-28 14:22:27] [INFO] Recording stopped from input device.
+[2025-07-28 14:22:40] [INFO] Audio data played successfully.
+[2025-07-28 14:22:40] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:22:47] [INFO] Input line closed.
+[2025-07-28 14:22:47] [INFO] Selected audio input device: Aggregate Device
+[2025-07-28 14:22:48] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:22:48] [INFO] Recording started from input device.
+[2025-07-28 14:22:48] [INFO] Audio capture thread started.
+[2025-07-28 14:22:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:50] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:51] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:53] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-28 14:22:53] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:54] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:55] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:56] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:57] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:58] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:22:59] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:00] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:01] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:01] [INFO] Captured 15258 bytes of audio data.
+[2025-07-28 14:23:01] [INFO] Audio capture thread stopped.
+[2025-07-28 14:23:01] [INFO] Recording stopped from input device.
+[2025-07-28 14:23:15] [INFO] Audio data played successfully.
+[2025-07-28 14:23:15] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:23:31] [INFO] Input line closed.
+[2025-07-28 14:23:31] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-28 14:23:32] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:23:32] [INFO] Audio capture thread started.
+[2025-07-28 14:23:32] [INFO] Recording started from input device.
+[2025-07-28 14:23:33] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:34] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:35] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:36] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:36] [INFO] Captured 9378 bytes of audio data.
+[2025-07-28 14:23:36] [INFO] Audio capture thread stopped.
+[2025-07-28 14:23:36] [INFO] Recording stopped from input device.
+[2025-07-28 14:23:40] [INFO] Audio data played successfully.
+[2025-07-28 14:23:40] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:23:43] [INFO] Input line closed.
+[2025-07-28 14:23:43] [INFO] Selected audio input device: Aggregate Device
+[2025-07-28 14:23:44] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:23:44] [INFO] Recording started from input device.
+[2025-07-28 14:23:44] [INFO] Audio capture thread started.
+[2025-07-28 14:23:45] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:46] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:47] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:48] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:49] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:50] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:51] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:52] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:23:53] [INFO] Captured 31956 bytes of audio data.
+[2025-07-28 14:23:53] [INFO] Audio capture thread stopped.
+[2025-07-28 14:23:53] [INFO] Recording stopped from input device.
+[2025-07-28 14:24:01] [INFO] Audio data played successfully.
+[2025-07-28 14:24:01] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:24:15] [INFO] Current time update timer started.
+[2025-07-28 14:24:15] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:24:15] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:24:15] [INFO] Found 8 audio output devices.
+[2025-07-28 14:24:15] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:24:15] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:24:15] [INFO] Found 7 audio input devices.
+[2025-07-28 14:24:15] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone, Aggregate Device]
+[2025-07-28 14:24:15] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:24:15] [INFO] Quilot UI initialized.
+[2025-07-28 14:24:17] [INFO] Playing test sound...
+[2025-07-28 14:24:18] [INFO] Test sound played.
+[2025-07-28 14:24:18] [INFO] Set volume to: 56.00% (Gain: -31.83 dB)
+[2025-07-28 14:24:19] [INFO] Set volume to: 38.00% (Gain: -47.31 dB)
+[2025-07-28 14:24:19] [INFO] Playing test sound...
+[2025-07-28 14:24:19] [INFO] Test sound played.
+[2025-07-28 14:24:21] [INFO] Set volume to: 76.00% (Gain: -14.62 dB)
+[2025-07-28 14:24:22] [INFO] Output line closed.
+[2025-07-28 14:24:22] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:24:22] [INFO] Selected audio output device: BlackHole 2ch
+[2025-07-28 14:24:22] [INFO] Set volume to: 76.00% (Gain: -14.62 dB)
+[2025-07-28 14:24:22] [INFO] Playing test sound...
+[2025-07-28 14:24:23] [INFO] Test sound played.
+[2025-07-28 14:24:25] [INFO] Output line closed.
+[2025-07-28 14:24:25] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:24:25] [INFO] Selected audio output device: Multi-Output Device
+[2025-07-28 14:24:25] [INFO] Set volume to: 76.00% (Gain: -14.62 dB)
+[2025-07-28 14:24:26] [INFO] Set volume to: 51.00% (Gain: -36.13 dB)
+[2025-07-28 14:24:26] [INFO] Playing test sound...
+[2025-07-28 14:24:27] [INFO] Test sound played.
+[2025-07-28 14:24:27] [INFO] Set volume to: 76.00% (Gain: -14.62 dB)
+[2025-07-28 14:24:29] [INFO] Input line closed.
+[2025-07-28 14:24:29] [INFO] Selected audio input device: Aggregate Device
+[2025-07-28 14:24:30] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:24:30] [INFO] Recording started from input device.
+[2025-07-28 14:24:30] [INFO] Audio capture thread started.
+[2025-07-28 14:24:31] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:32] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:33] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:34] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:35] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:36] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:37] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:38] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:39] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:24:39] [INFO] Captured 57594 bytes of audio data.
+[2025-07-28 14:24:39] [INFO] Audio capture thread stopped.
+[2025-07-28 14:24:39] [INFO] Recording stopped from input device.
+[2025-07-28 14:24:49] [INFO] Audio data played successfully.
+[2025-07-28 14:24:49] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:28:14] [INFO] Current time update timer started.
+[2025-07-28 14:28:14] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 14:28:14] [INFO] SystemAudioInputService initialized.
+[2025-07-28 14:28:14] [INFO] Found 7 audio output devices.
+[2025-07-28 14:28:14] [INFO] Master Gain control found for the current device.
+[2025-07-28 14:28:14] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 14:28:14] [INFO] Found 6 audio input devices.
+[2025-07-28 14:28:14] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 14:28:14] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 14:28:14] [INFO] Quilot UI initialized.
+[2025-07-28 14:28:25] [INFO] Input line closed.
+[2025-07-28 14:28:25] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-28 14:29:00] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:29:00] [INFO] Audio capture thread started.
+[2025-07-28 14:29:00] [INFO] Recording started from input device.
+[2025-07-28 14:29:01] [INFO] Playing test sound...
+[2025-07-28 14:29:01] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:02] [INFO] Test sound played.
+[2025-07-28 14:29:02] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:03] [INFO] Captured 6084 bytes of audio data.
+[2025-07-28 14:29:03] [INFO] Audio capture thread stopped.
+[2025-07-28 14:29:03] [INFO] Recording stopped from input device.
+[2025-07-28 14:29:05] [INFO] Audio data played successfully.
+[2025-07-28 14:29:05] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:29:12] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:29:12] [INFO] Recording started from input device.
+[2025-07-28 14:29:12] [INFO] Audio capture thread started.
+[2025-07-28 14:29:13] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:14] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:15] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:16] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:17] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:18] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 14:29:19] [INFO] Captured 54068 bytes of audio data.
+[2025-07-28 14:29:19] [INFO] Audio capture thread stopped.
+[2025-07-28 14:29:19] [INFO] Recording stopped from input device.
+[2025-07-28 14:29:28] [INFO] Audio data played successfully.
+[2025-07-28 14:29:28] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 14:30:05] [INFO] Output line closed.
+[2025-07-28 14:30:05] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 14:30:05] [WARN] No recording in progress to stop.
+[2025-07-28 14:30:05] [INFO] Input line closed.
+[2025-07-28 14:30:05] [INFO] SystemAudioInputService resources released.
+[2025-07-28 14:30:05] [INFO] Application closing. Audio resources released.
+[2025-07-28 16:04:36] [INFO] Current time update timer started.
+[2025-07-28 16:04:36] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 16:04:36] [INFO] SystemAudioInputService initialized.
+[2025-07-28 16:04:37] [INFO] Found 7 audio output devices.
+[2025-07-28 16:04:37] [INFO] Master Gain control found for the current device.
+[2025-07-28 16:04:37] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 16:04:37] [INFO] Found 6 audio input devices.
+[2025-07-28 16:04:37] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 16:04:37] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 16:04:37] [INFO] Quilot UI initialized.
+[2025-07-28 16:04:43] [INFO] Output line closed.
+[2025-07-28 16:04:43] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 16:04:43] [WARN] No recording in progress to stop.
+[2025-07-28 16:04:43] [INFO] Input line closed.
+[2025-07-28 16:04:43] [INFO] SystemAudioInputService resources released.
+[2025-07-28 16:04:43] [INFO] Application closing. Audio resources released.
