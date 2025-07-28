@@ -1041,3 +1041,73 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-28 16:04:43] [INFO] Input line closed.
 [2025-07-28 16:04:43] [INFO] SystemAudioInputService resources released.
 [2025-07-28 16:04:43] [INFO] Application closing. Audio resources released.
+[2025-07-28 16:23:21] [INFO] Current time update timer started.
+[2025-07-28 16:23:21] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 16:23:21] [INFO] SystemAudioInputService initialized.
+[2025-07-28 16:23:21] [INFO] Found 7 audio output devices.
+[2025-07-28 16:23:21] [INFO] Master Gain control found for the current device.
+[2025-07-28 16:23:21] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 16:23:21] [INFO] Found 6 audio input devices.
+[2025-07-28 16:23:21] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 16:23:21] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 16:23:21] [INFO] Quilot UI initialized.
+[2025-07-28 16:23:30] [INFO] Output line closed.
+[2025-07-28 16:23:30] [INFO] Master Gain control found for the current device.
+[2025-07-28 16:23:30] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-28 16:23:30] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-28 16:23:37] [INFO] Input line closed.
+[2025-07-28 16:23:37] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-28 16:23:42] [INFO] Playing test sound...
+[2025-07-28 16:23:42] [INFO] Test sound played.
+[2025-07-28 16:23:43] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 16:23:43] [INFO] Recording started from input device.
+[2025-07-28 16:23:43] [INFO] Audio capture thread started.
+[2025-07-28 16:23:43] [INFO] Playing test sound...
+[2025-07-28 16:23:44] [INFO] Captured 88200 bytes of audio data.
+[2025-07-28 16:23:44] [INFO] Test sound played.
+[2025-07-28 16:23:45] [INFO] Captured 71706 bytes of audio data.
+[2025-07-28 16:23:45] [INFO] Audio capture thread stopped.
+[2025-07-28 16:23:45] [INFO] Recording stopped from input device.
+[2025-07-28 16:23:47] [INFO] Audio data played successfully.
+[2025-07-28 16:23:47] [INFO] Recorded audio data buffer cleared.
+[2025-07-28 16:32:23] [INFO] Current time update timer started.
+[2025-07-28 16:32:23] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 16:32:23] [INFO] SystemAudioInputService initialized.
+[2025-07-28 16:32:24] [INFO] Found 7 audio output devices.
+[2025-07-28 16:32:24] [INFO] Master Gain control found for the current device.
+[2025-07-28 16:32:24] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 16:32:24] [INFO] Found 6 audio input devices.
+[2025-07-28 16:32:24] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 16:32:24] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 16:32:24] [INFO] Quilot UI initialized.
+[2025-07-28 16:32:25] [INFO] Setup Guide button clicked. Displaying Blackhole setup guide.
+[2025-07-28 16:33:20] [INFO] Setup Guide button clicked. Displaying Blackhole setup guide.
+[2025-07-28 16:33:58] [INFO] Current time update timer started.
+[2025-07-28 16:33:58] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 16:33:58] [INFO] SystemAudioInputService initialized.
+[2025-07-28 16:33:58] [INFO] Found 7 audio output devices.
+[2025-07-28 16:33:58] [INFO] Master Gain control found for the current device.
+[2025-07-28 16:33:58] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 16:33:58] [INFO] Found 6 audio input devices.
+[2025-07-28 16:33:58] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 16:33:58] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 16:33:58] [INFO] Quilot UI initialized.
+[2025-07-28 16:33:59] [INFO] Setup Guide button clicked. Displaying Blackhole setup guide.
+[2025-07-28 16:35:23] [INFO] Current time update timer started.
+[2025-07-28 16:35:23] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 16:35:23] [INFO] SystemAudioInputService initialized.
+[2025-07-28 16:35:24] [INFO] Found 7 audio output devices.
+[2025-07-28 16:35:24] [INFO] Master Gain control found for the current device.
+[2025-07-28 16:35:24] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 16:35:24] [INFO] Found 6 audio input devices.
+[2025-07-28 16:35:24] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-28 16:35:24] [INFO] Selected audio input device: Default Audio Device
+[2025-07-28 16:35:24] [INFO] Quilot UI initialized.
+[2025-07-28 16:35:25] [INFO] Setup Guide button clicked. Displaying Blackhole setup guide.
+[2025-07-28 16:36:01] [INFO] Setup Guide button clicked. Displaying Blackhole setup guide.
+[2025-07-28 16:36:03] [INFO] Output line closed.
+[2025-07-28 16:36:03] [INFO] SystemAudioOutputService resources released.
+[2025-07-28 16:36:03] [WARN] No recording in progress to stop.
+[2025-07-28 16:36:03] [INFO] Input line closed.
+[2025-07-28 16:36:03] [INFO] SystemAudioInputService resources released.
+[2025-07-28 16:36:03] [INFO] Application closing. Audio resources released.

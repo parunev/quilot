@@ -4,6 +4,7 @@ import com.quilot.audio.input.AudioInputService;
 import com.quilot.audio.input.SystemAudioInputService;
 import com.quilot.audio.ouput.AudioOutputService;
 import com.quilot.audio.ouput.SystemAudioOutputService;
+import com.quilot.ui.help.SetupGuideDialog;
 import com.quilot.utils.Logger;
 import lombok.Getter;
 
@@ -37,6 +38,7 @@ public class MainFrame extends JFrame {
     private final JButton startInputRecordingButton;
     private final JButton stopInputRecordingButton;
     private final JButton playRecordedInputButton;
+    private final JButton setupGuideButton;
 
     // Managers for specific functionalities
     private final InterviewTimerManager timerManager;
@@ -80,6 +82,7 @@ public class MainFrame extends JFrame {
         this.startInputRecordingButton = uiBuilder.getStartInputRecordingButton();
         this.stopInputRecordingButton = uiBuilder.getStopInputRecordingButton();
         this.playRecordedInputButton = uiBuilder.getPlayRecordedInputButton();
+        this.setupGuideButton = uiBuilder.getSetupGuideButton();
 
         // Set up audio data listener for input service
         audioInputService.setAudioDataListener((_, bytesRead) -> {
@@ -100,6 +103,7 @@ public class MainFrame extends JFrame {
         addAudioOutputListeners();
         addAudioInputListeners();
         addWindowListeners(); // Moved to a dedicated method
+        addHelpListeners();
 
         Logger.info("Quilot UI initialized.");
         appendToLogArea("UI initialized. Ready to start.");
@@ -260,6 +264,17 @@ public class MainFrame extends JFrame {
                 audioInputService.close(); // Close input audio resources
                 Logger.info("Application closing. Audio resources released.");
             }
+        });
+    }
+
+    /**
+     * Adds listeners for help-related actions (e.g., showing setup guides).
+     */
+    private void addHelpListeners() {
+        setupGuideButton.addActionListener(_ -> {
+            Logger.info("Setup Guide button clicked. Displaying Blackhole setup guide.");
+            SetupGuideDialog dialog = new SetupGuideDialog(this);
+            dialog.setVisible(true);
         });
     }
 

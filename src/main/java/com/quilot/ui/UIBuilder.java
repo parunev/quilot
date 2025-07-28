@@ -88,4 +88,5 @@ public class UIBuilder {
     public JButton getStartInputRecordingButton() { return audioInputSettingsPanelBuilder.getStartInputRecordingButton(); }
     public JButton getStopInputRecordingButton() { return audioInputSettingsPanelBuilder.getStopInputRecordingButton(); }
     public JButton getPlayRecordedInputButton() { return audioInputSettingsPanelBuilder.getPlayRecordedInputButton(); }
+    public JButton getSetupGuideButton() { return audioInputSettingsPanelBuilder.getSetupGuideButton(); }
 }

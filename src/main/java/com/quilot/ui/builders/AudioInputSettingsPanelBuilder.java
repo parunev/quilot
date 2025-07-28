@@ -18,6 +18,7 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
     private final JButton startInputRecordingButton;
     private final JButton stopInputRecordingButton;
     private final JButton playRecordedInputButton;
+    private final JButton setupGuideButton;
 
     private final AudioInputService audioInputService;
 
@@ -27,6 +28,7 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
         this.startInputRecordingButton = new JButton("Start Input Capture");
         this.stopInputRecordingButton = new JButton("Stop Input Capture");
         this.playRecordedInputButton = new JButton("Play Recorded Input");
+        this.setupGuideButton = new JButton("Setup Guide (macOS)");
 
         setupComponentProperties();
     }
@@ -82,8 +84,15 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
         inputButtonsPanel.add(startInputRecordingButton);
         inputButtonsPanel.add(stopInputRecordingButton);
         inputButtonsPanel.add(playRecordedInputButton);
-
         panel.add(inputButtonsPanel, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.NONE;
+        panel.add(setupGuideButton, gbc);
+
         return panel;
     }
 }
