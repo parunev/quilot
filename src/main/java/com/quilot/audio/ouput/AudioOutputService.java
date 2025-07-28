@@ -1,4 +1,4 @@
-package com.quilot.audio;
+package com.quilot.audio.ouput;
 
 import java.util.List;
 

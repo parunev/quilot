@@ -1,7 +1,7 @@
 package com.quilot.ui;
 
-import com.quilot.audio.AudioOutputService;
-import com.quilot.audio.SystemAudioOutputService;
+import com.quilot.audio.ouput.AudioOutputService;
+import com.quilot.audio.ouput.SystemAudioOutputService;
 import com.quilot.utils.Logger;
 
 import javax.swing.*;

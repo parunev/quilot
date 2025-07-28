@@ -70,7 +70,7 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JComboBox.addItemList
 [2025-07-28 00:09:53] [ERROR] Illegal argument when selecting device WH-1000XM5: Line unsupported: interface SourceDataLine supporting format PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian - IllegalArgumentException: Line unsupported: interface SourceDataLine supporting format PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
 java.lang.IllegalArgumentException: Line unsupported: interface SourceDataLine supporting format PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
 	at java.desktop/com.sun.media.sound.DirectAudioDevice.getLine(DirectAudioDevice.java:171)
-	at com.quilot.audio.SystemAudioOutputService.setSelectedOutputDevice(AudioOutputManager.java:70)
+	at com.quilot.audio.ouput.SystemAudioOutputService.setSelectedOutputDevice(AudioOutputManager.java:70)
 	at com.quilot.ui.MainFrame$2.itemStateChanged(MainFrame.java:131)
 	at java.desktop/javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1257)
 	at java.desktop/javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1318)
@@ -148,7 +148,7 @@ java.lang.IllegalArgumentException: Line unsupported: interface SourceDataLine s
 [2025-07-28 00:36:18] [ERROR] Selected mixer 'WH-1000XM5' does not support the default audio format: PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
 [2025-07-28 00:36:18] [ERROR] An unexpected error occurred while selecting device 'WH-1000XM5': class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap') - ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
 java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
-	at com.quilot.audio.SystemAudioOutputService.selectOutputDevice(SystemAudioOutputService.java:48)
+	at com.quilot.audio.ouput.SystemAudioOutputService.selectOutputDevice(SystemAudioOutputService.java:48)
 	at com.quilot.ui.MainFrame.lambda$addListeners$2(MainFrame.java:121)
 	at java.desktop/javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1257)
 	at java.desktop/javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1318)
@@ -196,7 +196,7 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-28 00:36:33] [ERROR] Selected mixer 'WH-1000XM5' does not support the default audio format: PCM_SIGNED 44100.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian
 [2025-07-28 00:36:33] [ERROR] An unexpected error occurred while selecting device 'WH-1000XM5': class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap') - ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
 java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast to class javax.sound.sampled.DataLine$Info (javax.sound.sampled.Line$Info and javax.sound.sampled.DataLine$Info are in module java.desktop of loader 'bootstrap')
-	at com.quilot.audio.SystemAudioOutputService.selectOutputDevice(SystemAudioOutputService.java:48)
+	at com.quilot.audio.ouput.SystemAudioOutputService.selectOutputDevice(SystemAudioOutputService.java:48)
 	at com.quilot.ui.MainFrame.lambda$addListeners$2(MainFrame.java:121)
 	at java.desktop/javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1257)
 	at java.desktop/javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1318)
@@ -270,3 +270,9 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-28 00:55:38] [INFO] Output line closed.
 [2025-07-28 00:55:38] [INFO] SystemAudioOutputService resources released.
 [2025-07-28 00:55:38] [INFO] Application closing. Audio resources released.
+[2025-07-28 12:42:43] [INFO] Current time update timer started.
+[2025-07-28 12:42:43] [INFO] SystemAudioOutputService initialized.
+[2025-07-28 12:42:43] [INFO] Found 5 audio output devices.
+[2025-07-28 12:42:43] [INFO] Master Gain control found for the current device.
+[2025-07-28 12:42:43] [INFO] Selected audio output device: Default Audio Device
+[2025-07-28 12:42:43] [INFO] Quilot UI initialized.
