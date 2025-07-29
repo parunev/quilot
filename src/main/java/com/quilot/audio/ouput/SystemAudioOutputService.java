@@ -6,13 +6,9 @@ import lombok.Setter;
 
 import javax.sound.sampled.*;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 
-/**
- * Concrete implementation of AudioOutputService that interacts with the Java Sound API.
- * This class manages the selected audio output device, its volume, and plays sounds.
- * It delegates device discovery and tone generation to dedicated utility classes.
- */
 @Getter
 @Setter
 public class SystemAudioOutputService implements AudioOutputService{
@@ -21,9 +17,11 @@ public class SystemAudioOutputService implements AudioOutputService{
     private FloatControl masterGainControl;
     private SourceDataLine outputLine;
 
-    // Default audio format for opening the line
-    // 44.1kHz, 16-bit, mono, signed, little-endian
-    private static final AudioFormat DEFAULT_AUDIO_FORMAT = new AudioFormat(44100, 16, 1, true, false);
+    private static final AudioFormat DEFAULT_AUDIO_FORMAT = new AudioFormat
+            (44100,
+            16,
+            1, true,
+            false);
 
     public SystemAudioOutputService() {
         Logger.info("SystemAudioOutputService initialized.");
@@ -31,7 +29,6 @@ public class SystemAudioOutputService implements AudioOutputService{
 
     @Override
     public List<String> getAvailableOutputDevices() {
-        // Delegate device discovery to a separate utility class
         return AudioDeviceDiscoverer.discoverOutputDevices();
     }
 
@@ -41,154 +38,160 @@ public class SystemAudioOutputService implements AudioOutputService{
         for (Mixer.Info info : mixerInfos) {
             if (info.getName().equals(deviceName)) {
                 try {
-                    closeOutputLine(); // Close any previously open line
+                    closeOutputLine();
 
-                    this.selectedOutputMixer = AudioSystem.getMixer(info); // this. for clarity
+                    selectedOutputMixer = AudioSystem.getMixer(info);
                     DataLine.Info dataLineInfo = new DataLine.Info(SourceDataLine.class, DEFAULT_AUDIO_FORMAT);
 
                     if (!selectedOutputMixer.isLineSupported(dataLineInfo)) {
-                        Logger.error("Selected mixer '" + deviceName + "' does not support the default audio format: " + DEFAULT_AUDIO_FORMAT, null);
+                        Logger.error("Mixer '" + deviceName + "' does not support default format: " + DEFAULT_AUDIO_FORMAT);
 
-                        // Fallback: try to find a compatible format if the default isn't supported
-                        DataLine.Info supportedDataLineInfo = (DataLine.Info) selectedOutputMixer.getLineInfo();
-                        AudioFormat[] supportedFormats = supportedDataLineInfo.getFormats();
-                        if (supportedFormats.length > 0) {
-                            Logger.warn("Attempting to use first supported format: " + supportedFormats[0]);
-                            this.outputLine = (SourceDataLine) selectedOutputMixer.getLine(new DataLine.Info(SourceDataLine.class, supportedFormats[0]));
-                            outputLine.open(supportedFormats[0]);
+                        DataLine.Info[] lineInfos = (DataLine.Info[]) selectedOutputMixer.getSourceLineInfo();
+                        AudioFormat fallbackFormat = null;
+
+                        for (DataLine.Info lineInfo : lineInfos) {
+                            AudioFormat[] formats = lineInfo.getFormats();
+                            if (formats != null && formats.length > 0) {
+                                fallbackFormat = formats[0];
+                                break;
+                            }
+                        }
+
+                        if (fallbackFormat != null) {
+                            Logger.warn("Using fallback format " + fallbackFormat + " for mixer " + deviceName);
+                            outputLine = (SourceDataLine) selectedOutputMixer.getLine(new DataLine.Info(SourceDataLine.class, fallbackFormat));
+                            outputLine.open(fallbackFormat);
                         } else {
-                            Logger.error("No compatible formats found for device: " + deviceName, null);
-                            this.selectedOutputMixer = null;
-                            this.outputLine = null;
-                            this.masterGainControl = null;
+                            Logger.error("No compatible audio formats found for mixer: " + deviceName);
+                            resetState();
                             return false;
                         }
                     } else {
-                        this.outputLine = (SourceDataLine) selectedOutputMixer.getLine(dataLineInfo);
+                        outputLine = (SourceDataLine) selectedOutputMixer.getLine(dataLineInfo);
                         outputLine.open(DEFAULT_AUDIO_FORMAT);
                     }
 
                     outputLine.start();
-                    initializeVolumeControl(); // Attempt to get master gain control
+                    initializeVolumeControl();
 
                     Logger.info("Selected audio output device: " + deviceName);
                     return true;
+
                 } catch (LineUnavailableException e) {
-                    Logger.error("Audio line unavailable for device '" + deviceName + "': " + e.getMessage(), e);
+                    Logger.error("Line unavailable for mixer '" + deviceName + "': " + e.getMessage(), e);
                 } catch (IllegalArgumentException e) {
-                    Logger.error("Invalid argument when selecting device '" + deviceName + "': " + e.getMessage(), e);
+                    Logger.error("Illegal argument for mixer '" + deviceName + "': " + e.getMessage(), e);
                 } catch (Exception e) {
-                    Logger.error("An unexpected error occurred while selecting device '" + deviceName + "': " + e.getMessage(), e);
+                    Logger.error("Unexpected error selecting mixer '" + deviceName + "': " + e.getMessage(), e);
                 }
             }
         }
-        Logger.warn("Could not select audio output device: " + deviceName + ". Device not found or unsupported.");
-        selectedOutputMixer = null;
-        outputLine = null;
-        masterGainControl = null;
+
+        Logger.warn("Audio output device '" + deviceName + "' not found or unsupported.");
+        resetState();
         return false;
     }
 
-    /**
-     * Attempts to acquire the Master Gain control for the current output line.
-     */
+    private void resetState() {
+        selectedOutputMixer = null;
+        outputLine = null;
+        masterGainControl = null;
+    }
+
     private void initializeVolumeControl() {
         if (outputLine != null && outputLine.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
             masterGainControl = (FloatControl) outputLine.getControl(FloatControl.Type.MASTER_GAIN);
-            Logger.info("Master Gain control found for the current device.");
+            Logger.info("Master Gain control initialized.");
         } else {
             masterGainControl = null;
-            Logger.warn("Master Gain control not supported for the current device.");
+            Logger.warn("Master Gain control not supported by current output line.");
         }
     }
 
     @Override
     public void setVolume(float volume) {
         if (masterGainControl != null) {
-            // Clamp volume between 0.0 and 1.0
-            volume = Math.max(0.0f, Math.min(1.0f, volume));
-
+            float clampedVolume = Math.max(0.0f, Math.min(1.0f, volume));
             float min = masterGainControl.getMinimum();
             float max = masterGainControl.getMaximum();
+            float gain = min + (max - min) * clampedVolume;
 
-            // Convert 0-1.0 float to decibel range
-            float gain = min + (max - min) * volume;
             masterGainControl.setValue(gain);
-            Logger.info("Set volume to: " + String.format("%.2f", volume * 100) + "% (Gain: " + String.format("%.2f", gain) + " dB)");
+            Logger.info(String.format("Volume set to %.2f%% (Gain: %.2f dB)", clampedVolume * 100, gain));
         } else {
-            Logger.warn("Volume control not available for the current device. Cannot set volume.");
+            Logger.warn("Volume control unavailable; cannot set volume.");
         }
     }
 
     @Override
     public void playTestSound() {
         if (!isDeviceSelected()) {
-            Logger.warn("No output device selected or line not open to play test sound.");
+            Logger.warn("No audio device selected or output line not open.");
             return;
         }
 
-        Logger.info("Playing test sound...");
+        Logger.info("Playing test tone (440Hz, 500ms).");
         try {
-            // Delegate tone generation to AudioToneGenerator
-            byte[] buffer = AudioToneGenerator.generateSineWave(outputLine.getFormat(), 440, 500); // 440 Hz for 500ms
-            outputLine.write(buffer, 0, buffer.length);
+            byte[] tone = AudioToneGenerator.generateSineWave(outputLine.getFormat(), 440, 500);
+            outputLine.write(tone, 0, tone.length);
             outputLine.drain();
-            Logger.info("Test sound played.");
+            Logger.info("Test tone playback complete.");
         } catch (Exception e) {
-            Logger.error("Error playing test sound: " + e.getMessage(), e);
+            Logger.error("Error during test tone playback: " + e.getMessage(), e);
         }
     }
 
     @Override
     public void playAudioData(byte[] audioData, AudioFormat format) {
         if (outputLine == null || !outputLine.isOpen()) {
-            Logger.warn("Output line not open. Cannot play audio data.");
+            Logger.warn("Output line is not open. Cannot play audio data.");
             return;
         }
 
-        try (AudioInputStream audioInputStream = new AudioInputStream(new ByteArrayInputStream(audioData), format, audioData.length / format.getFrameSize())) {
-            AudioInputStream playbackStream = audioInputStream;
+        try (AudioInputStream ais = new AudioInputStream(new ByteArrayInputStream(audioData), format, audioData.length / format.getFrameSize())) {
+
+            AudioInputStream playbackStream = ais;
             AudioFormat targetFormat = outputLine.getFormat();
 
-            // Check if the input format matches the output line's format. If not, attempt conversion.
             if (!format.matches(targetFormat)) {
                 if (AudioSystem.isConversionSupported(targetFormat, format)) {
-                    playbackStream = AudioSystem.getAudioInputStream(targetFormat, audioInputStream);
-                    Logger.info("Converted audio format from " + format + " to " + targetFormat + " for playback.");
+                    playbackStream = AudioSystem.getAudioInputStream(targetFormat, ais);
+                    Logger.info("Converted audio format from " + format + " to " + targetFormat);
                 } else {
-                    Logger.error("Audio format conversion from " + format + " to " + targetFormat + " is not supported. Cannot play audio data.");
+                    Logger.error("Audio format conversion unsupported: " + format + " to " + targetFormat);
                     return;
                 }
             }
 
-            int bytesRead;
             byte[] buffer = new byte[outputLine.getBufferSize()];
-            while ((bytesRead = playbackStream.read(buffer, 0, buffer.length)) != -1) {
+            int bytesRead;
+
+            while ((bytesRead = playbackStream.read(buffer)) != -1) {
                 if (bytesRead > 0) {
                     outputLine.write(buffer, 0, bytesRead);
                 }
             }
 
-            // Ensure all data is played
             outputLine.drain();
-            Logger.info("Audio data played successfully.");
+            Logger.info("Audio data playback completed.");
+
+        } catch (IOException e) {
+            Logger.error("IOException during audio playback: " + e.getMessage(), e);
         } catch (Exception e) {
-            Logger.error("Error playing audio data: " + e.getMessage());
+            Logger.error("Unexpected error during audio playback: " + e.getMessage(), e);
         }
     }
 
     @Override
     public void close() {
         closeOutputLine();
-        Logger.info("SystemAudioOutputService resources released.");
+        Logger.info("SystemAudioOutputService closed.");
     }
 
-    /**
-     * Helper method to safely close the current output line if it's open.
-     */
     private void closeOutputLine() {
         if (outputLine != null && outputLine.isOpen()) {
             outputLine.stop();
+            outputLine.flush();
             outputLine.close();
             Logger.info("Output line closed.");
         }

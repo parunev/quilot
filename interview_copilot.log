@@ -2270,3 +2270,119 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-29 17:03:28] [WARN] No active streaming recognition to stop.
 [2025-07-29 17:03:28] [INFO] Google Cloud SpeechClient closed.
 [2025-07-29 17:03:28] [INFO] Application closing. Audio resources released.
+[2025-07-29 17:07:32] [INFO] Current time update timer started.
+[2025-07-29 17:07:32] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 17:07:32] [INFO] SystemAudioInputService initialized.
+[2025-07-29 17:07:32] [INFO] CredentialManager initialized.
+[2025-07-29 17:07:32] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 17:07:32] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 17:07:32] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 17:07:32] [WARN] No active streaming recognition to stop.
+[2025-07-29 17:07:33] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 17:07:34] [INFO] Discovered 7 audio output device(s).
+[2025-07-29 17:07:34] [INFO] Master Gain control found for the current device.
+[2025-07-29 17:07:34] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 17:07:34] [INFO] Found 6 audio input device(s).
+[2025-07-29 17:07:34] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 17:07:34] [INFO] Selected input device: Default Audio Device
+[2025-07-29 17:07:34] [INFO] Quilot UI initialized.
+[2025-07-29 17:07:55] [INFO] Playing test sound...
+[2025-07-29 17:07:56] [INFO] Test sound played.
+[2025-07-29 17:07:57] [INFO] Set volume to: 42.00% (Gain: -43.87 dB)
+[2025-07-29 17:07:57] [INFO] Playing test sound...
+[2025-07-29 17:07:57] [INFO] Test sound played.
+[2025-07-29 17:07:58] [INFO] Set volume to: 15.00% (Gain: -67.10 dB)
+[2025-07-29 17:07:59] [INFO] Playing test sound...
+[2025-07-29 17:07:59] [INFO] Test sound played.
+[2025-07-29 17:08:00] [INFO] Set volume to: 100.00% (Gain: 6.02 dB)
+[2025-07-29 17:08:00] [INFO] Playing test sound...
+[2025-07-29 17:08:01] [INFO] Test sound played.
+[2025-07-29 17:08:01] [INFO] Set volume to: 92.00% (Gain: -0.86 dB)
+[2025-07-29 17:08:02] [INFO] Set volume to: 56.00% (Gain: -31.83 dB)
+[2025-07-29 17:08:49] [INFO] Output line closed.
+[2025-07-29 17:08:49] [INFO] SystemAudioOutputService resources released.
+[2025-07-29 17:08:49] [WARN] Recording not active.
+[2025-07-29 17:08:49] [INFO] Input line closed.
+[2025-07-29 17:08:49] [INFO] SystemAudioInputService resources released.
+[2025-07-29 17:08:49] [WARN] No active streaming recognition to stop.
+[2025-07-29 17:08:49] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 17:08:49] [INFO] Application closing. Audio resources released.
+[2025-07-29 17:13:24] [INFO] Current time update timer started.
+[2025-07-29 17:13:24] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 17:13:24] [INFO] SystemAudioInputService initialized.
+[2025-07-29 17:13:24] [INFO] CredentialManager initialized.
+[2025-07-29 17:13:24] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 17:13:24] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 17:13:24] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 17:13:24] [WARN] No active streaming recognition to stop.
+[2025-07-29 17:13:25] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 17:13:25] [INFO] Discovered 7 audio output device(s).
+[2025-07-29 17:13:25] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:25] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 17:13:25] [INFO] Found 6 audio input device(s).
+[2025-07-29 17:13:25] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 17:13:25] [INFO] Selected input device: Default Audio Device
+[2025-07-29 17:13:25] [INFO] Quilot UI initialized.
+[2025-07-29 17:13:28] [INFO] Output line closed.
+[2025-07-29 17:13:28] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:28] [INFO] Selected audio output device: BlackHole 2ch
+[2025-07-29 17:13:28] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-29 17:13:29] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:29] [INFO] Test tone playback complete.
+[2025-07-29 17:13:30] [INFO] Output line closed.
+[2025-07-29 17:13:30] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:30] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 17:13:30] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-29 17:13:31] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:32] [INFO] Test tone playback complete.
+[2025-07-29 17:13:33] [INFO] Output line closed.
+[2025-07-29 17:13:33] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:33] [INFO] Selected audio output device: MacBook Pro Speakers
+[2025-07-29 17:13:33] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-29 17:13:33] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:34] [INFO] Test tone playback complete.
+[2025-07-29 17:13:35] [INFO] Output line closed.
+[2025-07-29 17:13:35] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:35] [INFO] Selected audio output device: Background Music (UI Sounds)
+[2025-07-29 17:13:35] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-29 17:13:36] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:36] [INFO] Test tone playback complete.
+[2025-07-29 17:13:38] [INFO] Output line closed.
+[2025-07-29 17:13:38] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:38] [INFO] Selected audio output device: Background Music
+[2025-07-29 17:13:38] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-29 17:13:38] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:39] [INFO] Test tone playback complete.
+[2025-07-29 17:13:39] [INFO] Output line closed.
+[2025-07-29 17:13:40] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:40] [INFO] Selected audio output device: LG ULTRAGEAR
+[2025-07-29 17:13:40] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-29 17:13:40] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:41] [INFO] Test tone playback complete.
+[2025-07-29 17:13:42] [INFO] Output line closed.
+[2025-07-29 17:13:42] [INFO] Master Gain control initialized.
+[2025-07-29 17:13:42] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 17:13:42] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-29 17:13:42] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:43] [INFO] Test tone playback complete.
+[2025-07-29 17:13:50] [INFO] Volume set to 93.00% (Gain: -0.00 dB)
+[2025-07-29 17:13:51] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:51] [INFO] Test tone playback complete.
+[2025-07-29 17:13:52] [INFO] Volume set to 48.00% (Gain: -38.71 dB)
+[2025-07-29 17:13:52] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:53] [INFO] Test tone playback complete.
+[2025-07-29 17:13:53] [INFO] Volume set to 29.00% (Gain: -55.05 dB)
+[2025-07-29 17:13:53] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:54] [INFO] Test tone playback complete.
+[2025-07-29 17:13:54] [INFO] Volume set to 8.00% (Gain: -73.12 dB)
+[2025-07-29 17:13:54] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:55] [INFO] Test tone playback complete.
+[2025-07-29 17:13:55] [INFO] Volume set to 40.00% (Gain: -45.59 dB)
+[2025-07-29 17:13:56] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:56] [INFO] Test tone playback complete.
+[2025-07-29 17:13:56] [INFO] Volume set to 60.00% (Gain: -28.39 dB)
+[2025-07-29 17:13:56] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:57] [INFO] Test tone playback complete.
+[2025-07-29 17:13:57] [INFO] Volume set to 67.00% (Gain: -22.37 dB)
+[2025-07-29 17:13:57] [INFO] Playing test tone (440Hz, 500ms).
+[2025-07-29 17:13:58] [INFO] Test tone playback complete.
