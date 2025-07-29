@@ -1,55 +1,60 @@
 package com.quilot.audio.ouput;
 
+import com.quilot.utils.Logger;
+
 import javax.sound.sampled.AudioFormat;
 
-/**
- * A utility class responsible for generating simple audio tones.
- * This separates the concern of sound generation from the audio output service,
- * making the code more modular and potentially allowing for different sound generation
- * strategies in the future.
- */
-public class AudioToneGenerator {
+public final class AudioToneGenerator {
 
-    /**
-     * Generates a byte array representing a simple sine wave tone.
-     * The tone is generated based on the provided audio format, frequency, and duration.
-     *
-     * @param format The AudioFormat for which to generate the tone.
-     * @param frequency The frequency of the sine wave in Hz (e.g., 440 for A4).
-     * @param durationMs The duration of the tone in milliseconds.
-     * @return A byte array containing the generated audio data.
-     */
+    private AudioToneGenerator() {
+        throw new UnsupportedOperationException("Utility class cannot be instantiated.");
+    }
+
     public static byte[] generateSineWave(AudioFormat format, int frequency, int durationMs) {
+        if (format == null || frequency <= 0 || durationMs <= 0) {
+            throw new IllegalArgumentException("Invalid parameters for tone generation.");
+        }
+
         int sampleRate = (int) format.getSampleRate();
         int frameSize = format.getFrameSize();
-        int numBytes = frameSize * sampleRate * durationMs / 1000;
+        int numSamples = sampleRate * durationMs / 1000;
+        int numBytes = numSamples * frameSize;
+
         byte[] buffer = new byte[numBytes];
 
-        if (format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED && format.getSampleSizeInBits() == 16) {
-            // 16-bit signed PCM (common case)
-            for (int i = 0; i < buffer.length / 2; i++) {
-                double angle = 2.0 * Math.PI * frequency * i / ((double) sampleRate / 2);
-                short sample = (short) (Math.sin(angle) * Short.MAX_VALUE);
-
-                // Convert short to little-endian bytes
-                buffer[2 * i] = (byte) (sample & 0xFF);
-                buffer[2 * i + 1] = (byte) ((sample >> 8) & 0xFF);
+        try {
+            // различни формати, защото не всеки output работи по един и същ начин.
+            if (format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED) {
+                switch (format.getSampleSizeInBits()) {
+                    case 16 -> fill16BitPCM(buffer, frequency, sampleRate);
+                    case 8 -> fill8BitPCM(buffer, frequency, sampleRate);
+                    default -> throw new UnsupportedOperationException("Unsupported sample size: " + format.getSampleSizeInBits());
+                }
+            } else {
+                Logger.warn("Unsupported encoding: " + format.getEncoding() + ". Falling back to basic 8-bit.");
+                fill8BitPCM(buffer, frequency, sampleRate);
             }
-        } else if (format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED && format.getSampleSizeInBits() == 8) {
-            // 8-bit signed PCM
-            for (int i = 0; i < buffer.length; i++) {
-                double angle = 2.0 * Math.PI * frequency * i / sampleRate;
-                buffer[i] = (byte) (Math.sin(angle) * 127);
-            }
-        } else {
-            // Fallback for unsupported formats, might not sound as clean
-            // Log a warning or throw an exception for production code
-            System.err.println("Warning: Tone generation for this AudioFormat is not fully optimized. Using basic 8-bit generation.");
-            for (int i = 0; i < buffer.length; i++) {
-                double angle = 2.0 * Math.PI * frequency * i / sampleRate;
-                buffer[i] = (byte) (Math.sin(angle) * 127);
-            }
+        } catch (Exception e) {
+            Logger.error("Failed to generate sine wave: " + e.getMessage());
         }
+
         return buffer;
+    }
+
+    private static void fill16BitPCM(byte[] buffer, int frequency, int sampleRate) {
+        for (int i = 0; i < buffer.length / 2; i++) {
+            double angle = 2.0 * Math.PI * frequency * i / sampleRate;
+            short sample = (short) (Math.sin(angle) * Short.MAX_VALUE);
+
+            buffer[2 * i] = (byte) (sample & 0xFF);
+            buffer[2 * i + 1] = (byte) ((sample >> 8) & 0xFF);
+        }
+    }
+
+    private static void fill8BitPCM(byte[] buffer, int frequency, int sampleRate) {
+        for (int i = 0; i < buffer.length; i++) {
+            double angle = 2.0 * Math.PI * frequency * i / sampleRate;
+            buffer[i] = (byte) (Math.sin(angle) * 127);
+        }
     }
 }
