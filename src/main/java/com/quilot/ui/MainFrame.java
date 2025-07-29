@@ -4,7 +4,15 @@ import com.quilot.audio.input.AudioInputService;
 import com.quilot.audio.input.SystemAudioInputService;
 import com.quilot.audio.ouput.AudioOutputService;
 import com.quilot.audio.ouput.SystemAudioOutputService;
+import com.quilot.stt.GoogleCloudSpeechToTextService;
+import com.quilot.stt.SpeechToTextService;
+import com.quilot.stt.ISpeechToTextSettingsManager;
+import com.quilot.stt.settings.SpeechToTextSettingsManager;
+import com.quilot.ui.help.CredentialsSetupDialog;
+import com.quilot.ui.help.GoogleCloudSetupGuideDialog;
 import com.quilot.ui.help.SetupGuideDialog;
+import com.quilot.ui.settings.STTSettingsDialog;
+import com.quilot.utils.CredentialManager;
 import com.quilot.utils.Logger;
 import lombok.Getter;
 
@@ -39,12 +47,18 @@ public class MainFrame extends JFrame {
     private final JButton stopInputRecordingButton;
     private final JButton playRecordedInputButton;
     private final JButton setupGuideButton;
+    private final JButton credentialsButton;
+    private final JButton googleCloudSetupGuideButton;
+    private final JButton sttSettingsButton;
 
     // Managers for specific functionalities
     private final InterviewTimerManager timerManager;
     private final UIBuilder uiBuilder;
     private final AudioOutputService audioOutputService;
     private final AudioInputService audioInputService;
+    private final SpeechToTextService speechToTextService;
+    private final CredentialManager credentialManager;
+    private final ISpeechToTextSettingsManager sttSettingsManager;
 
     /**
      * Constructor for the MainFrame.
@@ -54,7 +68,7 @@ public class MainFrame extends JFrame {
 
         // FRAME PROPERTIES
         setTitle("Quilot");
-        setSize(1000, 750); // Increased size to accommodate new input panel
+        setSize(1200, 800); // Increased size to accommodate new input panel
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -62,6 +76,13 @@ public class MainFrame extends JFrame {
         timerManager = new InterviewTimerManager();
         audioOutputService = new SystemAudioOutputService();
         audioInputService = new SystemAudioInputService();
+        this.credentialManager = new CredentialManager();
+        this.sttSettingsManager = new SpeechToTextSettingsManager();
+
+        // Load credential path at startup and initialize STT service
+        String savedCredentialPath = credentialManager.loadGoogleCloudCredentialPath();
+        // Pass the settings manager to the STT service
+        this.speechToTextService = new GoogleCloudSpeechToTextService(savedCredentialPath, sttSettingsManager);
 
         uiBuilder = new UIBuilder(audioOutputService, audioInputService, timerManager);
 
@@ -83,15 +104,17 @@ public class MainFrame extends JFrame {
         this.stopInputRecordingButton = uiBuilder.getStopInputRecordingButton();
         this.playRecordedInputButton = uiBuilder.getPlayRecordedInputButton();
         this.setupGuideButton = uiBuilder.getSetupGuideButton();
+        this.credentialsButton = uiBuilder.getCredentialsButton();
+        this.googleCloudSetupGuideButton = uiBuilder.getGoogleCloudSetupGuideButton();
+        this.sttSettingsButton = uiBuilder.getSttSettingsButton();
 
         // Set up audio data listener for input service
-        audioInputService.setAudioDataListener((_, bytesRead) -> {
-            Logger.info("Captured " + bytesRead + " bytes of audio data.");
-            SwingUtilities.invokeLater(() -> {
-                // transcribedAudioArea.append("Audio captured...\n"); // Uncomment later for testing
-            });
+        // Set up audio data listener for input service
+        audioInputService.setAudioDataListener((audioData, bytesRead) -> {
+            // In streaming mode, audio data is sent directly to the STT service's stream
+            // The STT service itself manages the streaming recognition lifecycle
+            ((GoogleCloudSpeechToTextService) speechToTextService).onAudioDataCaptured(audioData, bytesRead);
         });
-
 
         // LAYOUT
         JPanel mainPanel = new JPanel(new GridBagLayout());
@@ -102,8 +125,10 @@ public class MainFrame extends JFrame {
         addMainControlListeners();
         addAudioOutputListeners();
         addAudioInputListeners();
-        addWindowListeners(); // Moved to a dedicated method
+        addWindowListeners();
         addHelpListeners();
+        addSettingsListeners();
+        addSTTSettingsListeners();
 
         Logger.info("Quilot UI initialized.");
         appendToLogArea("UI initialized. Ready to start.");
@@ -199,41 +224,95 @@ public class MainFrame extends JFrame {
         inputDeviceComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 String selectedDevice = (String) e.getItem();
-
                 if (audioInputService.selectInputDevice(selectedDevice)) {
                     appendToLogArea("Selected audio input device: " + selectedDevice);
                     startInputRecordingButton.setEnabled(true);
+                    stopInputRecordingButton.setEnabled(false);
+                    playRecordedInputButton.setEnabled(false);
                 } else {
                     appendToLogArea("Failed to select audio input device: " + selectedDevice);
                     startInputRecordingButton.setEnabled(false);
+                    stopInputRecordingButton.setEnabled(false);
+                    playRecordedInputButton.setEnabled(false);
                 }
-
-                stopInputRecordingButton.setEnabled(false);
-                playRecordedInputButton.setEnabled(false); // Disable play button until something is recorded
             }
         });
 
         startInputRecordingButton.addActionListener(_ -> {
+            // Start both audio input recording and STT streaming
             if (audioInputService.startRecording()) {
                 appendToLogArea("Started capturing audio from input device.");
                 startInputRecordingButton.setEnabled(false);
                 stopInputRecordingButton.setEnabled(true);
                 playRecordedInputButton.setEnabled(false); // Disable play button while recording
+
+                if (!speechToTextService.startStreamingRecognition(audioInputService.getAudioFormat(), new SpeechToTextService.StreamingRecognitionListener() {
+                    private StringBuilder currentTranscription = new StringBuilder(); // FOR NOW NOT FINAL (WILL BE USED FOR AI PROBABLY)
+                    private String lastInterimText = "";
+
+                    @Override
+                    public void onTranscriptionResult(String transcription, boolean isFinal) {
+                        SwingUtilities.invokeLater(() -> {
+                            if (isFinal) {
+                                currentTranscription.append(transcription).append(" "); // ONLY ONE USAGE
+                                transcribedAudioArea.append("Interviewer (Final): '" + transcription.trim() + "'\n");
+
+                                // Clear last interim
+                                lastInterimText = "";
+                            } else {
+                                // Remove last interim and append updated interim
+                                String currentText = transcribedAudioArea.getText();
+                                if (!lastInterimText.isEmpty() && currentText.endsWith(lastInterimText)) {
+                                    transcribedAudioArea.setText(currentText.substring(0, currentText.length() - lastInterimText.length()));
+                                }
+                                lastInterimText = "Interviewer (Interim): '" + transcription + "'\n";
+                                transcribedAudioArea.append(lastInterimText);
+                            }
+
+                            transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
+                        });
+                    }
+
+                    @Override
+                    public void onTranscriptionError(String errorMessage) {
+                        SwingUtilities.invokeLater(() -> {
+                            transcribedAudioArea.append("Interviewer (STT Error): " + errorMessage + "\n");
+                            transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
+                        });
+                        appendToLogArea("STT Streaming Error: " + errorMessage);
+                    }
+
+                    @Override
+                    public void onStreamClosed() {
+                        appendToLogArea("STT Streaming session closed.");
+                    }
+                })) {
+                    appendToLogArea("Failed to start STT streaming recognition.");
+                    audioInputService.stopRecording(); // Stop audio input if STT streaming fails
+                    startInputRecordingButton.setEnabled(true);
+                    stopInputRecordingButton.setEnabled(false);
+                }
             } else {
                 appendToLogArea("Failed to start audio input capture.");
             }
         });
 
         stopInputRecordingButton.addActionListener(_ -> {
+            // Stop both audio input recording and STT streaming
             if (audioInputService.stopRecording()) {
                 appendToLogArea("Stopped capturing audio from input device.");
                 startInputRecordingButton.setEnabled(true);
                 stopInputRecordingButton.setEnabled(false);
-
                 // Enable play button only if there's actual data recorded
                 playRecordedInputButton.setEnabled(audioInputService.getRecordedAudioData().length > 0);
             } else {
                 appendToLogArea("Failed to stop audio input capture.");
+            }
+
+            if (speechToTextService.stopStreamingRecognition()) {
+                appendToLogArea("Stopped STT streaming recognition.");
+            } else {
+                appendToLogArea("Failed to stop STT streaming recognition.");
             }
         });
 
@@ -262,6 +341,10 @@ public class MainFrame extends JFrame {
             public void windowClosing(WindowEvent e) {
                 audioOutputService.close();
                 audioInputService.close(); // Close input audio resources
+                // Close the STT client if it has a close method
+                if (speechToTextService instanceof GoogleCloudSpeechToTextService) {
+                    ((GoogleCloudSpeechToTextService) speechToTextService).closeClient();
+                }
                 Logger.info("Application closing. Audio resources released.");
             }
         });
@@ -273,7 +356,37 @@ public class MainFrame extends JFrame {
     private void addHelpListeners() {
         setupGuideButton.addActionListener(_ -> {
             Logger.info("Setup Guide button clicked. Displaying Blackhole setup guide.");
-            SetupGuideDialog dialog = new SetupGuideDialog(this);
+            SetupGuideDialog dialog = new SetupGuideDialog(this); // 'this' refers to MainFrame (owner)
+            dialog.setVisible(true);
+        });
+
+        googleCloudSetupGuideButton.addActionListener(_ -> { // Listener for the new Google Cloud Setup Guide button
+            Logger.info("Google Cloud Setup Guide button clicked. Displaying Google Cloud setup guide.");
+            GoogleCloudSetupGuideDialog dialog = new GoogleCloudSetupGuideDialog(this);
+            dialog.setVisible(true);
+        });
+    }
+
+    /**
+     * Adds listeners for settings-related actions (e.g., showing credentials dialogs).
+     */
+    private void addSettingsListeners() {
+        credentialsButton.addActionListener(_ -> {
+            Logger.info("STT Credentials button clicked. Displaying credentials dialog.");
+            // Pass credentialManager and speechToTextService to the dialog
+            CredentialsSetupDialog dialog = new CredentialsSetupDialog(this, credentialManager, (GoogleCloudSpeechToTextService) speechToTextService);
+            dialog.setVisible(true);
+        });
+    }
+
+    /**
+     * Adds listeners for STT settings actions.
+     */
+    private void addSTTSettingsListeners() {
+        sttSettingsButton.addActionListener(_ -> {
+            Logger.info("STT Settings button clicked. Displaying STT settings dialog.");
+            // Pass the settings manager and the STT service (to update its internal config)
+            STTSettingsDialog dialog = new STTSettingsDialog(this, sttSettingsManager, (GoogleCloudSpeechToTextService) speechToTextService);
             dialog.setVisible(true);
         });
     }

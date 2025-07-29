@@ -1111,3 +1111,1093 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-28 16:36:03] [INFO] Input line closed.
 [2025-07-28 16:36:03] [INFO] SystemAudioInputService resources released.
 [2025-07-28 16:36:03] [INFO] Application closing. Audio resources released.
+[2025-07-29 12:18:46] [INFO] Current time update timer started.
+[2025-07-29 12:18:46] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 12:18:46] [INFO] SystemAudioInputService initialized.
+[2025-07-29 12:18:46] [INFO] Found 7 audio output devices.
+[2025-07-29 12:18:46] [INFO] Master Gain control found for the current device.
+[2025-07-29 12:18:46] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 12:18:46] [INFO] Found 6 audio input devices.
+[2025-07-29 12:18:46] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 12:18:46] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 12:18:46] [INFO] Quilot UI initialized.
+[2025-07-29 12:18:54] [INFO] Output line closed.
+[2025-07-29 12:18:54] [INFO] SystemAudioOutputService resources released.
+[2025-07-29 12:18:54] [WARN] No recording in progress to stop.
+[2025-07-29 12:18:54] [INFO] Input line closed.
+[2025-07-29 12:18:54] [INFO] SystemAudioInputService resources released.
+[2025-07-29 12:18:54] [INFO] Application closing. Audio resources released.
+[2025-07-29 13:35:11] [INFO] Current time update timer started.
+[2025-07-29 13:35:11] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 13:35:11] [INFO] SystemAudioInputService initialized.
+[2025-07-29 13:35:11] [INFO] CredentialManager initialized.
+[2025-07-29 13:35:11] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 13:35:11] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 13:35:11] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 13:35:11] [WARN] No active streaming recognition to stop.
+[2025-07-29 13:35:12] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 13:35:13] [INFO] Found 7 audio output devices.
+[2025-07-29 13:35:13] [INFO] Master Gain control found for the current device.
+[2025-07-29 13:35:13] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 13:35:13] [INFO] Found 6 audio input devices.
+[2025-07-29 13:35:13] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 13:35:13] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 13:35:13] [INFO] Quilot UI initialized.
+[2025-07-29 13:35:14] [INFO] STT Credentials button clicked. Displaying credentials dialog.
+[2025-07-29 13:35:14] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 13:35:18] [INFO] Google Cloud credential path saved: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 13:35:18] [INFO] Updating Google Cloud credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 13:35:18] [WARN] No active streaming recognition to stop.
+[2025-07-29 13:35:18] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 13:35:18] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 13:35:20] [INFO] Testing Google Cloud STT credentials...
+[2025-07-29 13:35:20] [INFO] Updating Google Cloud credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 13:35:20] [WARN] No active streaming recognition to stop.
+[2025-07-29 13:35:20] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 13:35:20] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 13:35:20] [INFO] Attempting to test Google Cloud SpeechClient credentials...
+[2025-07-29 13:35:20] [WARN] No active streaming recognition to stop.
+[2025-07-29 13:35:20] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 13:35:20] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 13:35:20] [INFO] Credentials test successful! SpeechClient initialized.
+[2025-07-29 13:35:23] [INFO] Playing test sound...
+[2025-07-29 13:35:23] [INFO] Test sound played.
+[2025-07-29 13:35:25] [INFO] Google Cloud Setup Guide button clicked. Displaying Google Cloud setup guide.
+[2025-07-29 13:35:42] [INFO] Output line closed.
+[2025-07-29 13:35:42] [INFO] Master Gain control found for the current device.
+[2025-07-29 13:35:42] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 13:35:42] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 13:35:44] [INFO] Input line closed.
+[2025-07-29 13:35:44] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 13:36:07] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 13:36:07] [INFO] Audio capture thread started.
+[2025-07-29 13:36:07] [INFO] Recording started from input device.
+[2025-07-29 13:36:07] [INFO] Starting new streaming recognition session...
+[2025-07-29 13:36:07] [INFO] STT settings loaded.
+[2025-07-29 13:36:07] [INFO] Streaming recognition response observer started.
+[2025-07-29 13:36:07] [INFO] Streaming recognition session started successfully.
+[2025-07-29 13:36:07] [ERROR] Streaming recognition error: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: Invalid recognition 'config': single_utterance=true not supported for this model.
+[2025-07-29 13:36:07] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 13:36:10] [INFO] Audio capture thread stopped.
+[2025-07-29 13:36:10] [INFO] Recording stopped from input device.
+[2025-07-29 13:36:10] [WARN] No active streaming recognition to stop.
+[2025-07-29 13:36:26] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 13:36:26] [INFO] STT settings loaded.
+[2025-07-29 13:36:26] [INFO] STT settings loaded into UI.
+[2025-07-29 13:39:22] [INFO] Current time update timer started.
+[2025-07-29 13:39:22] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 13:39:22] [INFO] SystemAudioInputService initialized.
+[2025-07-29 13:39:22] [INFO] CredentialManager initialized.
+[2025-07-29 13:39:22] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 13:39:22] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 13:39:22] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 13:39:22] [WARN] No active streaming recognition to stop.
+[2025-07-29 13:39:24] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 13:39:24] [INFO] Found 7 audio output devices.
+[2025-07-29 13:39:24] [INFO] Master Gain control found for the current device.
+[2025-07-29 13:39:24] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 13:39:24] [INFO] Found 6 audio input devices.
+[2025-07-29 13:39:24] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 13:39:24] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 13:39:24] [INFO] Quilot UI initialized.
+[2025-07-29 13:39:38] [INFO] Output line closed.
+[2025-07-29 13:39:38] [INFO] Master Gain control found for the current device.
+[2025-07-29 13:39:38] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 13:39:38] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 13:39:39] [INFO] Input line closed.
+[2025-07-29 13:39:39] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 13:39:43] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 13:39:43] [INFO] Recording started from input device.
+[2025-07-29 13:39:43] [INFO] Audio capture thread started.
+[2025-07-29 13:39:43] [INFO] Starting new streaming recognition session...
+[2025-07-29 13:39:43] [INFO] STT settings loaded.
+[2025-07-29 13:39:43] [INFO] Streaming recognition response observer started.
+[2025-07-29 13:39:43] [INFO] Streaming recognition session started successfully.
+[2025-07-29 13:39:44] [INFO] Streaming STT Result: "it's" (Final: false)
+[2025-07-29 13:39:44] [INFO] Streaming STT Result: "A." (Final: false)
+[2025-07-29 13:39:44] [INFO] Streaming STT Result: "A sermon." (Final: false)
+[2025-07-29 13:39:45] [INFO] Streaming STT Result: "A" (Final: false)
+[2025-07-29 13:39:45] [INFO] Streaming STT Result: "A sermon," (Final: false)
+[2025-07-29 13:39:45] [INFO] Streaming STT Result: "A sermon." (Final: false)
+[2025-07-29 13:39:46] [INFO] Streaming STT Result: "A sermon. Maybe" (Final: false)
+[2025-07-29 13:39:46] [INFO] Streaming STT Result: "A sermon. Maybe" (Final: false)
+[2025-07-29 13:39:46] [INFO] Streaming STT Result: "A sermon. Maybe it's" (Final: false)
+[2025-07-29 13:39:46] [INFO] Streaming STT Result: "A sermon, maybe it's" (Final: false)
+[2025-07-29 13:39:46] [INFO] Streaming STT Result: "A sermon. Maybe it's" (Final: false)
+[2025-07-29 13:39:46] [INFO] Streaming STT Result: "A sermon. Maybe it's a" (Final: false)
+[2025-07-29 13:39:46] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture." (Final: false)
+[2025-07-29 13:39:47] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture" (Final: false)
+[2025-07-29 13:39:47] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture" (Final: false)
+[2025-07-29 13:39:47] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture," (Final: false)
+[2025-07-29 13:39:47] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a" (Final: false)
+[2025-07-29 13:39:47] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar." (Final: false)
+[2025-07-29 13:39:48] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar" (Final: false)
+[2025-07-29 13:39:48] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar." (Final: false)
+[2025-07-29 13:39:48] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar." (Final: false)
+[2025-07-29 13:39:48] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture a seminar. Maybe" (Final: false)
+[2025-07-29 13:39:48] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture a seminar. Maybe it's" (Final: false)
+[2025-07-29 13:39:49] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture a seminar. Maybe it's the" (Final: false)
+[2025-07-29 13:39:49] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the" (Final: false)
+[2025-07-29 13:39:49] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the" (Final: false)
+[2025-07-29 13:39:49] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the" (Final: false)
+[2025-07-29 13:39:49] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation" (Final: false)
+[2025-07-29 13:39:49] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of" (Final: false)
+[2025-07-29 13:39:50] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of" (Final: false)
+[2025-07-29 13:39:50] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a" (Final: false)
+[2025-07-29 13:39:50] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend." (Final: false)
+[2025-07-29 13:39:50] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend," (Final: false)
+[2025-07-29 13:39:50] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend" (Final: false)
+[2025-07-29 13:39:50] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend a" (Final: false)
+[2025-07-29 13:39:51] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend, a" (Final: false)
+[2025-07-29 13:39:51] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend, a happening." (Final: false)
+[2025-07-29 13:39:51] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend, a happening," (Final: false)
+[2025-07-29 13:39:51] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend, a happening, an" (Final: false)
+[2025-07-29 13:39:52] [INFO] Streaming STT Result: "A sermon. Maybe it's a lecture, a seminar. Maybe it's the conversation of a friend, a happening, an event." (Final: true)
+[2025-07-29 13:39:53] [INFO] Streaming STT Result: " Who." (Final: false)
+[2025-07-29 13:39:54] [INFO] Streaming STT Result: " Who knows?" (Final: false)
+[2025-07-29 13:39:54] [INFO] Streaming STT Result: " Who" (Final: false)
+[2025-07-29 13:39:54] [INFO] Streaming STT Result: " Who knows?" (Final: false)
+[2025-07-29 13:39:55] [INFO] Streaming STT Result: " Who knows?" (Final: false)
+[2025-07-29 13:39:55] [INFO] Streaming STT Result: " Who knows" (Final: false)
+[2025-07-29 13:39:55] [INFO] Streaming STT Result: " Who knows" (Final: false)
+[2025-07-29 13:39:55] [INFO] Streaming STT Result: " Who knows the" (Final: false)
+[2025-07-29 13:39:55] [INFO] Streaming STT Result: " Who knows the best" (Final: false)
+[2025-07-29 13:39:55] [INFO] Streaming STT Result: " Who knows the best I can." (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can advice I can give you is" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can advice I can give you is" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can advice I can give you is" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can advice I can give you is" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can advice I can give you is what" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can advice I can give you is what I" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can advice I can give you is what I" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can advice I can give you is what I give" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can advice I can give you is what I give my" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my" (Final: false)
+[2025-07-29 13:39:58] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff." (Final: false)
+[2025-07-29 13:39:59] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff." (Final: false)
+[2025-07-29 13:39:59] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff." (Final: false)
+[2025-07-29 13:39:59] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff. It" (Final: false)
+[2025-07-29 13:39:59] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff. It goes" (Final: false)
+[2025-07-29 13:39:59] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff. It goes like" (Final: false)
+[2025-07-29 13:39:59] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff. It goes like this." (Final: false)
+[2025-07-29 13:39:59] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff. It goes like this." (Final: false)
+[2025-07-29 13:40:00] [INFO] Streaming STT Result: " Who knows the best? I can advice, I can give you is what I give my staff. It goes like this. Welcome!" (Final: false)
+[2025-07-29 13:40:00] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome" (Final: false)
+[2025-07-29 13:40:01] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome" (Final: false)
+[2025-07-29 13:40:01] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome every" (Final: false)
+[2025-07-29 13:40:01] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome every" (Final: false)
+[2025-07-29 13:40:01] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome every" (Final: false)
+[2025-07-29 13:40:01] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome every Human" (Final: false)
+[2025-07-29 13:40:02] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome every Human Experience." (Final: false)
+[2025-07-29 13:40:02] [INFO] Streaming STT Result: " Who knows the best. I can advice, I can give you is what I give my staff. It goes like this. Welcome every Human Experience." (Final: true)
+[2025-07-29 13:40:03] [INFO] Streaming STT Result: " You." (Final: false)
+[2025-07-29 13:40:03] [INFO] Streaming STT Result: " You never." (Final: false)
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You never know." (Final: false)
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You" (Final: false)
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You never" (Final: false)
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You never" (Final: false)
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You never know" (Final: false)
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You never know" (Final: false)
+[2025-07-29 13:40:04] [INFO] Audio capture thread stopped.
+[2025-07-29 13:40:04] [INFO] Recording stopped from input device.
+[2025-07-29 13:40:04] [INFO] Stopping streaming recognition session.
+[2025-07-29 13:40:04] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You never know which" (Final: false)
+[2025-07-29 13:40:04] [INFO] Streaming STT Result: " You never know which" (Final: false)
+[2025-07-29 13:40:05] [INFO] Streaming STT Result: " You never know which" (Final: false)
+[2025-07-29 13:40:05] [INFO] Streaming STT Result: " You never know which" (Final: false)
+[2025-07-29 13:40:05] [INFO] Streaming STT Result: " You never know which 1" (Final: false)
+[2025-07-29 13:40:05] [INFO] Streaming STT Result: " You never know which 1 is going to turn." (Final: true)
+[2025-07-29 13:40:05] [INFO] Streaming recognition completed.
+[2025-07-29 13:59:49] [INFO] Current time update timer started.
+[2025-07-29 13:59:49] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 13:59:49] [INFO] SystemAudioInputService initialized.
+[2025-07-29 13:59:49] [INFO] CredentialManager initialized.
+[2025-07-29 13:59:49] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 13:59:49] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 13:59:49] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 13:59:49] [WARN] No active streaming recognition to stop.
+[2025-07-29 13:59:50] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 13:59:51] [INFO] Found 7 audio output devices.
+[2025-07-29 13:59:51] [INFO] Master Gain control found for the current device.
+[2025-07-29 13:59:51] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 13:59:51] [INFO] Found 6 audio input devices.
+[2025-07-29 13:59:51] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 13:59:51] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 13:59:51] [INFO] Quilot UI initialized.
+[2025-07-29 13:59:54] [INFO] Output line closed.
+[2025-07-29 13:59:54] [INFO] Master Gain control found for the current device.
+[2025-07-29 13:59:54] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 13:59:54] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 13:59:55] [INFO] Input line closed.
+[2025-07-29 13:59:55] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 14:00:00] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 14:00:00] [INFO] Recording started from input device.
+[2025-07-29 14:00:00] [INFO] Audio capture thread started.
+[2025-07-29 14:00:00] [INFO] Starting new streaming recognition session...
+[2025-07-29 14:00:00] [INFO] STT settings loaded.
+[2025-07-29 14:00:00] [INFO] Streaming recognition response observer started.
+[2025-07-29 14:00:00] [INFO] Streaming recognition session started successfully.
+[2025-07-29 14:00:02] [INFO] Streaming STT Result: "Somet." (Final: false)
+[2025-07-29 14:00:02] [INFO] Streaming STT Result: "Sometimes." (Final: false)
+[2025-07-29 14:00:02] [INFO] Streaming STT Result: "sometimes from" (Final: false)
+[2025-07-29 14:00:02] [INFO] Streaming STT Result: "sometimes from the" (Final: false)
+[2025-07-29 14:00:03] [INFO] Streaming STT Result: "sometimes" (Final: false)
+[2025-07-29 14:00:03] [INFO] Streaming STT Result: "Sometimes" (Final: false)
+[2025-07-29 14:00:03] [INFO] Streaming STT Result: "Sometimes from" (Final: false)
+[2025-07-29 14:00:03] [INFO] Streaming STT Result: "Sometimes from the" (Final: false)
+[2025-07-29 14:00:03] [INFO] Streaming STT Result: "Sometimes from the" (Final: false)
+[2025-07-29 14:00:03] [INFO] Streaming STT Result: "Sometimes from the" (Final: false)
+[2025-07-29 14:00:03] [INFO] Streaming STT Result: "Sometimes from the" (Final: false)
+[2025-07-29 14:00:04] [INFO] Streaming STT Result: "Sometimes from the bitterest," (Final: false)
+[2025-07-29 14:00:04] [INFO] Streaming STT Result: "Sometimes from the bitterest" (Final: false)
+[2025-07-29 14:00:04] [INFO] Streaming STT Result: "Sometimes from The bitterest" (Final: false)
+[2025-07-29 14:00:04] [INFO] Streaming STT Result: "sometimes from The bitterest" (Final: false)
+[2025-07-29 14:00:04] [INFO] Streaming STT Result: "sometimes from The bitterest Experience" (Final: false)
+[2025-07-29 14:00:04] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience" (Final: false)
+[2025-07-29 14:00:04] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience comes" (Final: false)
+[2025-07-29 14:00:05] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience comes the" (Final: false)
+[2025-07-29 14:00:05] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience comes the greatest." (Final: false)
+[2025-07-29 14:00:05] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience comes the greatest" (Final: false)
+[2025-07-29 14:00:05] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience comes the greatest" (Final: false)
+[2025-07-29 14:00:05] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience comes the greatest" (Final: false)
+[2025-07-29 14:00:06] [INFO] Streaming STT Result: "Sometimes from The bitterest Experience comes the greatest Awakening." (Final: true)
+[2025-07-29 14:00:07] [INFO] Streaming STT Result: " so," (Final: false)
+[2025-07-29 14:00:07] [INFO] Streaming STT Result: " so, let" (Final: false)
+[2025-07-29 14:00:07] [INFO] Streaming STT Result: " so, let down" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " so, let down the" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " so," (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " So, let" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " So, let" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " So, let down" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " so, let down" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " so, let down the" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " So let down the" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " so let down the" (Final: false)
+[2025-07-29 14:00:08] [INFO] Streaming STT Result: " so let down the barriers," (Final: false)
+[2025-07-29 14:00:09] [INFO] Streaming STT Result: " So let down the barriers," (Final: false)
+[2025-07-29 14:00:09] [INFO] Streaming STT Result: " So let down the barriers, take" (Final: false)
+[2025-07-29 14:00:09] [INFO] Streaming STT Result: " So let down the barriers, take" (Final: false)
+[2025-07-29 14:00:09] [INFO] Streaming STT Result: " So let down the barriers, take down" (Final: false)
+[2025-07-29 14:00:09] [INFO] Streaming STT Result: " So let down the barriers, take down the" (Final: false)
+[2025-07-29 14:00:10] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls." (Final: false)
+[2025-07-29 14:00:10] [INFO] Streaming STT Result: " so let down the barriers, take down the Walls," (Final: false)
+[2025-07-29 14:00:10] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls," (Final: false)
+[2025-07-29 14:00:10] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the" (Final: false)
+[2025-07-29 14:00:10] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the" (Final: false)
+[2025-07-29 14:00:10] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " so let down the barriers, take down the Walls, the same" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " so let down the barriers, take down the Walls, the same" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " so let down the barriers, take down the Walls, the same wall" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps" (Final: false)
+[2025-07-29 14:00:11] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps" (Final: false)
+[2025-07-29 14:00:12] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out" (Final: false)
+[2025-07-29 14:00:12] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out" (Final: false)
+[2025-07-29 14:00:12] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out." (Final: false)
+[2025-07-29 14:00:12] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out. Disappointment" (Final: false)
+[2025-07-29 14:00:12] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out disappointment" (Final: false)
+[2025-07-29 14:00:13] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out disappointment. Keeps" (Final: false)
+[2025-07-29 14:00:13] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out disappointment. Keeps out" (Final: false)
+[2025-07-29 14:00:13] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out disappointment. Keeps out happiness." (Final: false)
+[2025-07-29 14:00:13] [INFO] Streaming STT Result: " So let down the barriers, take down the Walls, the same wall that keeps out disappointment. Keeps out happiness." (Final: true)
+[2025-07-29 14:00:15] [INFO] Streaming STT Result: " let," (Final: false)
+[2025-07-29 14:00:15] [INFO] Streaming STT Result: " Let life." (Final: false)
+[2025-07-29 14:00:15] [INFO] Streaming STT Result: " Let Life Touch." (Final: false)
+[2025-07-29 14:00:15] [INFO] Streaming STT Result: " Let life touch you." (Final: false)
+[2025-07-29 14:00:15] [INFO] Streaming STT Result: " Let" (Final: false)
+[2025-07-29 14:00:16] [INFO] Streaming STT Result: " Let Life" (Final: false)
+[2025-07-29 14:00:16] [INFO] Streaming STT Result: " Let Life Touch" (Final: false)
+[2025-07-29 14:00:16] [INFO] Streaming STT Result: " let Life Touch" (Final: false)
+[2025-07-29 14:00:16] [INFO] Streaming STT Result: " let Life Touch you" (Final: false)
+[2025-07-29 14:00:16] [INFO] Streaming STT Result: " Let Life Touch you." (Final: false)
+[2025-07-29 14:00:16] [INFO] Streaming STT Result: " Let Life Touch you. Don't" (Final: false)
+[2025-07-29 14:00:16] [INFO] Streaming STT Result: " Let Life Touch you. Don't" (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " Let Life Touch you. Don't let" (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " Let Life Touch you. Don't let it" (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " let Life Touch you don't let it" (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " let Life Touch you don't let it kill" (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " let Life Touch you don't let it kill you," (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you," (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you," (Final: false)
+[2025-07-29 14:00:17] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you, but" (Final: false)
+[2025-07-29 14:00:18] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you, but let" (Final: false)
+[2025-07-29 14:00:18] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you, but let it" (Final: false)
+[2025-07-29 14:00:18] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you, but let it" (Final: false)
+[2025-07-29 14:00:18] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you, but let it touch" (Final: false)
+[2025-07-29 14:00:19] [INFO] Streaming STT Result: " Let Life Touch. You don't let it kill you, but let it touch you." (Final: true)
+[2025-07-29 14:00:21] [INFO] Streaming STT Result: " here's," (Final: false)
+[2025-07-29 14:00:21] [INFO] Streaming STT Result: " Here's the." (Final: false)
+[2025-07-29 14:00:21] [INFO] Streaming STT Result: " Here's the last." (Final: false)
+[2025-07-29 14:00:21] [INFO] Streaming STT Result: " Here's the last 1." (Final: false)
+[2025-07-29 14:00:22] [INFO] Streaming STT Result: " Here's" (Final: false)
+[2025-07-29 14:00:22] [INFO] Streaming STT Result: " Here's the" (Final: false)
+[2025-07-29 14:00:22] [INFO] Streaming STT Result: " Here's the last" (Final: false)
+[2025-07-29 14:00:22] [INFO] Streaming STT Result: " Here's the last 1." (Final: true)
+[2025-07-29 14:00:22] [INFO] Streaming STT Result: " This." (Final: false)
+[2025-07-29 14:00:23] [INFO] Streaming STT Result: " This 1." (Final: false)
+[2025-07-29 14:00:23] [INFO] Streaming STT Result: " This 1's." (Final: false)
+[2025-07-29 14:00:23] [INFO] Streaming STT Result: " This 1's power." (Final: false)
+[2025-07-29 14:00:23] [INFO] Streaming STT Result: " This" (Final: false)
+[2025-07-29 14:00:23] [INFO] Streaming STT Result: " This 1's," (Final: false)
+[2025-07-29 14:00:24] [INFO] Streaming STT Result: " This 1's, powerful." (Final: false)
+[2025-07-29 14:00:24] [INFO] Streaming STT Result: " This 1's, powerful" (Final: false)
+[2025-07-29 14:00:24] [INFO] Streaming STT Result: " This 1's powerful" (Final: false)
+[2025-07-29 14:00:24] [INFO] Streaming STT Result: " this 1's, powerful" (Final: false)
+[2025-07-29 14:00:25] [INFO] Streaming STT Result: " this 1's, powerful resolve" (Final: true)
+[2025-07-29 14:00:27] [INFO] Audio capture thread stopped.
+[2025-07-29 14:00:27] [INFO] Recording stopped from input device.
+[2025-07-29 14:00:27] [INFO] Stopping streaming recognition session.
+[2025-07-29 14:00:27] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 14:00:27] [INFO] Streaming STT Result: " res." (Final: false)
+[2025-07-29 14:00:27] [INFO] Streaming STT Result: " resolves." (Final: false)
+[2025-07-29 14:00:27] [INFO] Streaming STT Result: " Resolve." (Final: false)
+[2025-07-29 14:00:27] [INFO] Streaming STT Result: " resolve says," (Final: false)
+[2025-07-29 14:00:27] [INFO] Streaming STT Result: " resolve says," (Final: true)
+[2025-07-29 14:00:27] [INFO] Streaming recognition completed.
+[2025-07-29 14:03:08] [INFO] Current time update timer started.
+[2025-07-29 14:03:08] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 14:03:08] [INFO] SystemAudioInputService initialized.
+[2025-07-29 14:03:08] [INFO] CredentialManager initialized.
+[2025-07-29 14:03:08] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 14:03:08] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 14:03:08] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 14:03:08] [WARN] No active streaming recognition to stop.
+[2025-07-29 14:03:09] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 14:03:09] [INFO] Found 7 audio output devices.
+[2025-07-29 14:03:09] [INFO] Master Gain control found for the current device.
+[2025-07-29 14:03:09] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 14:03:09] [INFO] Found 5 audio input devices.
+[2025-07-29 14:03:09] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 14:03:09] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 14:03:09] [INFO] Quilot UI initialized.
+[2025-07-29 14:03:11] [INFO] Output line closed.
+[2025-07-29 14:03:11] [INFO] Master Gain control found for the current device.
+[2025-07-29 14:03:11] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 14:03:11] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 14:03:13] [INFO] Input line closed.
+[2025-07-29 14:03:13] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 14:03:15] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 14:03:15] [INFO] Audio capture thread started.
+[2025-07-29 14:03:15] [INFO] Recording started from input device.
+[2025-07-29 14:03:15] [INFO] Starting new streaming recognition session...
+[2025-07-29 14:03:15] [INFO] STT settings loaded.
+[2025-07-29 14:03:15] [INFO] Streaming recognition response observer started.
+[2025-07-29 14:03:15] [INFO] Streaming recognition session started successfully.
+[2025-07-29 14:03:17] [INFO] Streaming STT Result: "which," (Final: false)
+[2025-07-29 14:03:18] [INFO] Streaming STT Result: "which I" (Final: false)
+[2025-07-29 14:03:18] [INFO] Streaming STT Result: "Which I will." (Final: false)
+[2025-07-29 14:03:18] [INFO] Streaming STT Result: "Which" (Final: false)
+[2025-07-29 14:03:18] [INFO] Streaming STT Result: "Which I" (Final: false)
+[2025-07-29 14:03:18] [INFO] Streaming STT Result: "Which I will." (Final: false)
+[2025-07-29 14:03:19] [INFO] Streaming STT Result: "Which I will." (Final: true)
+[2025-07-29 14:03:20] [INFO] Streaming STT Result: " Been." (Final: false)
+[2025-07-29 14:03:20] [INFO] Streaming STT Result: " Benj." (Final: false)
+[2025-07-29 14:03:20] [INFO] Streaming STT Result: " Benjamin." (Final: false)
+[2025-07-29 14:03:20] [INFO] Streaming STT Result: " Benjamin is." (Final: false)
+[2025-07-29 14:03:20] [INFO] Streaming STT Result: " Benjamin Israel." (Final: false)
+[2025-07-29 14:03:20] [INFO] Streaming STT Result: " Benjamin" (Final: false)
+[2025-07-29 14:03:20] [INFO] Streaming STT Result: " Benjamin" (Final: false)
+[2025-07-29 14:03:21] [INFO] Streaming STT Result: " Benjamin" (Final: false)
+[2025-07-29 14:03:21] [INFO] Streaming STT Result: " Benjamin" (Final: false)
+[2025-07-29 14:03:21] [INFO] Streaming STT Result: " Benjamin Israeli" (Final: false)
+[2025-07-29 14:03:21] [INFO] Streaming STT Result: " Benjamin Israeli" (Final: false)
+[2025-07-29 14:03:21] [INFO] Streaming STT Result: " Benjamin Israeli once" (Final: false)
+[2025-07-29 14:03:21] [INFO] Streaming STT Result: " Benjamin Israeli once said" (Final: false)
+[2025-07-29 14:03:22] [INFO] Streaming STT Result: " Benjamin Israeli once said" (Final: false)
+[2025-07-29 14:03:22] [INFO] Streaming STT Result: " Benjamin Israeli once said nothing" (Final: false)
+[2025-07-29 14:03:22] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing" (Final: false)
+[2025-07-29 14:03:22] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can" (Final: false)
+[2025-07-29 14:03:23] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can" (Final: false)
+[2025-07-29 14:03:23] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can resist" (Final: false)
+[2025-07-29 14:03:23] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can resist" (Final: false)
+[2025-07-29 14:03:23] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can resist a" (Final: false)
+[2025-07-29 14:03:24] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can resist a human." (Final: false)
+[2025-07-29 14:03:24] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can resist a human" (Final: false)
+[2025-07-29 14:03:24] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can resist a human will." (Final: false)
+[2025-07-29 14:03:25] [INFO] Streaming STT Result: " Benjamin Israeli once said, nothing can resist a human will." (Final: true)
+[2025-07-29 14:03:25] [INFO] Streaming STT Result: " That." (Final: false)
+[2025-07-29 14:03:25] [INFO] Streaming STT Result: " That will." (Final: false)
+[2025-07-29 14:03:25] [INFO] Streaming STT Result: " That" (Final: false)
+[2025-07-29 14:03:26] [INFO] Streaming STT Result: " That" (Final: false)
+[2025-07-29 14:03:26] [INFO] Streaming STT Result: " That will" (Final: false)
+[2025-07-29 14:03:26] [INFO] Streaming STT Result: " That will" (Final: false)
+[2025-07-29 14:03:26] [INFO] Streaming STT Result: " that will" (Final: false)
+[2025-07-29 14:03:26] [INFO] Streaming STT Result: " that will stake" (Final: false)
+[2025-07-29 14:03:27] [INFO] Streaming STT Result: " That will stake even" (Final: false)
+[2025-07-29 14:03:27] [INFO] Streaming STT Result: " That will stake even" (Final: false)
+[2025-07-29 14:03:27] [INFO] Streaming STT Result: " That will stake even its" (Final: false)
+[2025-07-29 14:03:27] [INFO] Streaming STT Result: " That will stake, even its" (Final: false)
+[2025-07-29 14:03:27] [INFO] Streaming STT Result: " that will stake, even its" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " that will stake, even its existence" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " That will stake even its existence" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " That will stake even its existence" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " that will stake even its existence on" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " that will stake even its existence on the" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " That will stake even its existence on the" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " that will stake, even its existence on the" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " That will stake, even its existence on the extent" (Final: false)
+[2025-07-29 14:03:28] [INFO] Streaming STT Result: " That will stake, even its existence on the extent of" (Final: false)
+[2025-07-29 14:03:29] [INFO] Streaming STT Result: " That will stake, even its existence on the extent of its" (Final: false)
+[2025-07-29 14:03:29] [INFO] Streaming STT Result: " That will stake, even its existence on the extent of its purpose." (Final: true)
+[2025-07-29 14:03:30] [INFO] Streaming STT Result: " Short." (Final: false)
+[2025-07-29 14:03:31] [INFO] Streaming STT Result: " Shortly." (Final: false)
+[2025-07-29 14:03:31] [INFO] Streaming STT Result: " shortly put," (Final: false)
+[2025-07-29 14:03:31] [INFO] Streaming STT Result: " shortly" (Final: false)
+[2025-07-29 14:03:31] [INFO] Streaming STT Result: " shortly put," (Final: false)
+[2025-07-29 14:03:31] [INFO] Streaming STT Result: " Shortly put" (Final: false)
+[2025-07-29 14:03:32] [INFO] Streaming STT Result: " Shortly. Put," (Final: false)
+[2025-07-29 14:03:32] [INFO] Streaming STT Result: " Shortly put" (Final: false)
+[2025-07-29 14:03:32] [INFO] Streaming STT Result: " Shortly put," (Final: false)
+[2025-07-29 14:03:32] [INFO] Streaming STT Result: " shortly put I'll" (Final: false)
+[2025-07-29 14:03:32] [INFO] Streaming STT Result: " shortly put I'll do" (Final: false)
+[2025-07-29 14:03:32] [INFO] Streaming STT Result: " shortly put I'll do it" (Final: false)
+[2025-07-29 14:03:33] [INFO] Streaming STT Result: " Shortly put I'll do it" (Final: false)
+[2025-07-29 14:03:33] [INFO] Streaming STT Result: " Shortly put I'll do it or" (Final: false)
+[2025-07-29 14:03:33] [INFO] Streaming STT Result: " Shortly put I'll do it or die." (Final: false)
+[2025-07-29 14:03:34] [INFO] Streaming STT Result: " Shortly put I'll do it or die." (Final: true)
+[2025-07-29 14:03:34] [INFO] Streaming STT Result: " See." (Final: false)
+[2025-07-29 14:03:34] [INFO] Streaming STT Result: " see, that's" (Final: false)
+[2025-07-29 14:03:35] [INFO] Streaming STT Result: " See," (Final: false)
+[2025-07-29 14:03:35] [INFO] Streaming STT Result: " See," (Final: false)
+[2025-07-29 14:03:35] [INFO] Streaming STT Result: " See, that's" (Final: false)
+[2025-07-29 14:03:35] [INFO] Streaming STT Result: " See, that's powerful" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " see, that's powerful" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " See, that's powerful" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " see, that's powerful" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " see, that's powerful that" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " See, that's powerful that" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " See, that's powerful that could" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " See, that's powerful. That could be" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " See, that's powerful. That could be" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " See, that's powerful. That could be the" (Final: false)
+[2025-07-29 14:03:36] [INFO] Streaming STT Result: " See, that's powerful. That could be the" (Final: false)
+[2025-07-29 14:03:37] [INFO] Streaming STT Result: " See, that's powerful. That could be the day" (Final: false)
+[2025-07-29 14:03:37] [INFO] Streaming STT Result: " See, that's powerful that could be the day that" (Final: false)
+[2025-07-29 14:03:37] [INFO] Streaming STT Result: " See, that's powerful that could be the day that turns" (Final: false)
+[2025-07-29 14:03:37] [INFO] Streaming STT Result: " See, that's powerful that could be the day that turns your life" (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " See, that's powerful that could be the day that turns your life around." (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " see, that's powerful that could be the day that turns your life around" (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " See, that's powerful that could be the day that turns your life around" (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " See, that's powerful. That could be the day that turns your life around" (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " See, that's powerful. That could be the day that turns your life around the" (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " See, that's powerful. That could be the day that turns your life around the" (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " See, that's powerful. That could be the day that turns your life around the world" (Final: false)
+[2025-07-29 14:03:38] [INFO] Streaming STT Result: " See, that's powerful that could be the day that turns your life around the world" (Final: false)
+[2025-07-29 14:03:39] [INFO] Streaming STT Result: " See, that's powerful that could be the day that turns your life around the world has" (Final: false)
+[2025-07-29 14:03:39] [INFO] Streaming STT Result: " See that's powerful. That could be the day that turns your life around the world has" (Final: false)
+[2025-07-29 14:03:39] [INFO] Streaming STT Result: " See that's powerful. That could be the day that turns your life around the world has a" (Final: false)
+[2025-07-29 14:03:39] [INFO] Streaming STT Result: " See that's powerful. That could be the day that turns your life. Around the world has a" (Final: false)
+[2025-07-29 14:03:39] [INFO] Streaming STT Result: " See that's powerful. That could be the day that turns your life. Around the world has a strange" (Final: false)
+[2025-07-29 14:03:39] [INFO] Streaming STT Result: " See that's powerful. That could be the day that turns your life around the world has a strange way of" (Final: false)
+[2025-07-29 14:03:40] [INFO] Streaming STT Result: " See that's powerful. That could be the day that turns your life. Around the world has a strange way of stepping" (Final: false)
+[2025-07-29 14:03:40] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping" (Final: false)
+[2025-07-29 14:03:40] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside" (Final: false)
+[2025-07-29 14:03:40] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside" (Final: false)
+[2025-07-29 14:03:40] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when" (Final: false)
+[2025-07-29 14:03:40] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says I'll" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says I'll do" (Final: false)
+[2025-07-29 14:03:41] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says I'll do it" (Final: false)
+[2025-07-29 14:03:42] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says I'll do it or" (Final: false)
+[2025-07-29 14:03:42] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says I'll do it or" (Final: false)
+[2025-07-29 14:03:42] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says I'll do it or die." (Final: false)
+[2025-07-29 14:03:43] [INFO] Streaming STT Result: " See that's powerful that could be the day that turns your life. Around the world has a strange way of stepping aside when somebody says I'll do it or die." (Final: true)
+[2025-07-29 14:03:44] [INFO] Streaming STT Result: " The." (Final: false)
+[2025-07-29 14:03:44] [INFO] Streaming STT Result: " The man." (Final: false)
+[2025-07-29 14:03:44] [INFO] Streaming STT Result: " the man says," (Final: false)
+[2025-07-29 14:03:44] [INFO] Streaming STT Result: " the" (Final: false)
+[2025-07-29 14:03:44] [INFO] Streaming STT Result: " the man" (Final: false)
+[2025-07-29 14:03:45] [INFO] Streaming STT Result: " The man" (Final: false)
+[2025-07-29 14:03:45] [INFO] Streaming STT Result: " The man says," (Final: false)
+[2025-07-29 14:03:45] [INFO] Streaming STT Result: " The man says, I" (Final: false)
+[2025-07-29 14:03:45] [INFO] Streaming STT Result: " the man says, I" (Final: false)
+[2025-07-29 14:03:45] [INFO] Streaming STT Result: " the man says, I will" (Final: false)
+[2025-07-29 14:03:45] [INFO] Streaming STT Result: " the man says, I will" (Final: false)
+[2025-07-29 14:03:46] [INFO] Streaming STT Result: " The man says, I will" (Final: false)
+[2025-07-29 14:03:46] [INFO] Streaming STT Result: " The man says, I will climb" (Final: false)
+[2025-07-29 14:03:46] [INFO] Streaming STT Result: " The man says, I will climb the" (Final: false)
+[2025-07-29 14:03:46] [INFO] Streaming STT Result: " The man says, I will climb the mountain." (Final: false)
+[2025-07-29 14:03:46] [INFO] Streaming STT Result: " The man says, I will climb the mountain." (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain." (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain." (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain." (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain." (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've" (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told" (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me," (Final: false)
+[2025-07-29 14:03:47] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me" (Final: false)
+[2025-07-29 14:03:48] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me," (Final: false)
+[2025-07-29 14:03:48] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me, it's" (Final: false)
+[2025-07-29 14:03:48] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's" (Final: false)
+[2025-07-29 14:03:48] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too" (Final: false)
+[2025-07-29 14:03:48] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high." (Final: false)
+[2025-07-29 14:03:48] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's" (Final: false)
+[2025-07-29 14:03:48] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's" (Final: false)
+[2025-07-29 14:03:49] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's" (Final: false)
+[2025-07-29 14:03:49] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too" (Final: false)
+[2025-07-29 14:03:49] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far." (Final: false)
+[2025-07-29 14:03:49] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far." (Final: false)
+[2025-07-29 14:03:50] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far." (Final: false)
+[2025-07-29 14:03:50] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far." (Final: false)
+[2025-07-29 14:03:50] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's" (Final: false)
+[2025-07-29 14:03:50] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's" (Final: false)
+[2025-07-29 14:03:50] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too" (Final: false)
+[2025-07-29 14:03:50] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep." (Final: false)
+[2025-07-29 14:03:51] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep." (Final: false)
+[2025-07-29 14:03:51] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's" (Final: false)
+[2025-07-29 14:03:51] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's" (Final: false)
+[2025-07-29 14:03:51] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's" (Final: false)
+[2025-07-29 14:03:51] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too" (Final: false)
+[2025-07-29 14:03:51] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky." (Final: false)
+[2025-07-29 14:03:52] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky." (Final: false)
+[2025-07-29 14:03:52] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's" (Final: false)
+[2025-07-29 14:03:52] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too" (Final: false)
+[2025-07-29 14:03:52] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult." (Final: false)
+[2025-07-29 14:03:52] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult." (Final: false)
+[2025-07-29 14:03:53] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult" (Final: false)
+[2025-07-29 14:03:53] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult" (Final: false)
+[2025-07-29 14:03:53] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult but" (Final: false)
+[2025-07-29 14:03:53] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult, but" (Final: false)
+[2025-07-29 14:03:53] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult, but it's" (Final: false)
+[2025-07-29 14:03:54] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult, but it's my" (Final: false)
+[2025-07-29 14:03:54] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult, but it's my mountain." (Final: false)
+[2025-07-29 14:03:54] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult, but it's my Mountain." (Final: false)
+[2025-07-29 14:03:54] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain." (Final: false)
+[2025-07-29 14:03:54] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain." (Final: false)
+[2025-07-29 14:03:55] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain." (Final: false)
+[2025-07-29 14:03:55] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain." (Final: false)
+[2025-07-29 14:03:55] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain. I" (Final: false)
+[2025-07-29 14:03:55] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain. I will" (Final: false)
+[2025-07-29 14:03:55] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain. I will climb" (Final: false)
+[2025-07-29 14:03:55] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain. I will climb it." (Final: false)
+[2025-07-29 14:03:55] [INFO] Streaming STT Result: " The man says, I will climb the mountain. They've told me it's too high. It's too far. It's too steep. It's too Rocky. It's too difficult. But it's my Mountain. I will climb it." (Final: true)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty." (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon." (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon, you." (Final: false)
+[2025-07-29 14:03:56] [INFO] Audio capture thread stopped.
+[2025-07-29 14:03:56] [INFO] Recording stopped from input device.
+[2025-07-29 14:03:56] [INFO] Stopping streaming recognition session.
+[2025-07-29 14:03:56] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon, you will." (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty" (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon," (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon," (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon," (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon, you" (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon, you will" (Final: false)
+[2025-07-29 14:03:56] [INFO] Streaming STT Result: " Pretty soon, you will see me." (Final: true)
+[2025-07-29 14:03:56] [INFO] Streaming recognition completed.
+[2025-07-29 14:08:30] [INFO] Current time update timer started.
+[2025-07-29 14:08:30] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 14:08:30] [INFO] SystemAudioInputService initialized.
+[2025-07-29 14:08:30] [INFO] CredentialManager initialized.
+[2025-07-29 14:08:30] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 14:08:30] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 14:08:30] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 14:08:30] [WARN] No active streaming recognition to stop.
+[2025-07-29 14:08:31] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 14:08:32] [INFO] Found 7 audio output devices.
+[2025-07-29 14:08:32] [INFO] Master Gain control found for the current device.
+[2025-07-29 14:08:32] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 14:08:32] [INFO] Found 5 audio input devices.
+[2025-07-29 14:08:32] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 14:08:32] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 14:08:32] [INFO] Quilot UI initialized.
+[2025-07-29 14:08:34] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 14:08:34] [INFO] STT settings loaded.
+[2025-07-29 14:08:34] [INFO] STT settings loaded into UI.
+[2025-07-29 14:09:14] [INFO] Current time update timer started.
+[2025-07-29 14:09:14] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 14:09:14] [INFO] SystemAudioInputService initialized.
+[2025-07-29 14:09:14] [INFO] CredentialManager initialized.
+[2025-07-29 14:09:14] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 14:09:14] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 14:09:14] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 14:09:14] [WARN] No active streaming recognition to stop.
+[2025-07-29 14:09:15] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 14:09:15] [INFO] Found 7 audio output devices.
+[2025-07-29 14:09:15] [INFO] Master Gain control found for the current device.
+[2025-07-29 14:09:15] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 14:09:15] [INFO] Found 5 audio input devices.
+[2025-07-29 14:09:15] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 14:09:16] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 14:09:16] [INFO] Quilot UI initialized.
+[2025-07-29 14:09:19] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 14:09:19] [INFO] STT settings loaded.
+[2025-07-29 14:09:19] [INFO] STT settings loaded into UI.
+[2025-07-29 15:22:09] [INFO] Current time update timer started.
+[2025-07-29 15:22:09] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 15:22:09] [INFO] SystemAudioInputService initialized.
+[2025-07-29 15:22:09] [INFO] CredentialManager initialized.
+[2025-07-29 15:22:09] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 15:22:09] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:22:09] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 15:22:09] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:22:10] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:22:10] [INFO] Found 7 audio output devices.
+[2025-07-29 15:22:10] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:22:10] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 15:22:10] [INFO] Found 6 audio input devices.
+[2025-07-29 15:22:10] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 15:22:10] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 15:22:10] [INFO] Quilot UI initialized.
+[2025-07-29 15:22:12] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:22:12] [INFO] STT settings loaded.
+[2025-07-29 15:22:12] [INFO] STT settings loaded into UI.
+[2025-07-29 15:22:46] [INFO] Current time update timer started.
+[2025-07-29 15:22:46] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 15:22:46] [INFO] SystemAudioInputService initialized.
+[2025-07-29 15:22:46] [INFO] CredentialManager initialized.
+[2025-07-29 15:22:46] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 15:22:46] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:22:46] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 15:22:46] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:22:47] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:22:47] [INFO] Found 7 audio output devices.
+[2025-07-29 15:22:47] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:22:47] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 15:22:47] [INFO] Found 6 audio input devices.
+[2025-07-29 15:22:47] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 15:22:47] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 15:22:47] [INFO] Quilot UI initialized.
+[2025-07-29 15:22:49] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:22:49] [INFO] STT settings loaded.
+[2025-07-29 15:22:49] [INFO] STT settings loaded into UI.
+[2025-07-29 15:23:05] [INFO] Current time update timer started.
+[2025-07-29 15:23:05] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 15:23:05] [INFO] SystemAudioInputService initialized.
+[2025-07-29 15:23:05] [INFO] CredentialManager initialized.
+[2025-07-29 15:23:05] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 15:23:05] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:23:05] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 15:23:05] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:23:06] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:23:06] [INFO] Found 7 audio output devices.
+[2025-07-29 15:23:06] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:23:06] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 15:23:06] [INFO] Found 6 audio input devices.
+[2025-07-29 15:23:06] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 15:23:06] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 15:23:06] [INFO] Quilot UI initialized.
+[2025-07-29 15:23:08] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:23:08] [INFO] STT settings loaded.
+[2025-07-29 15:23:08] [INFO] STT settings loaded into UI.
+[2025-07-29 15:24:04] [INFO] Current time update timer started.
+[2025-07-29 15:24:04] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 15:24:04] [INFO] SystemAudioInputService initialized.
+[2025-07-29 15:24:04] [INFO] CredentialManager initialized.
+[2025-07-29 15:24:04] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 15:24:04] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:24:04] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 15:24:04] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:24:05] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:24:05] [INFO] Found 7 audio output devices.
+[2025-07-29 15:24:06] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:24:06] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 15:24:06] [INFO] Found 6 audio input devices.
+[2025-07-29 15:24:06] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 15:24:06] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 15:24:06] [INFO] Quilot UI initialized.
+[2025-07-29 15:26:58] [INFO] Current time update timer started.
+[2025-07-29 15:26:58] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 15:26:58] [INFO] SystemAudioInputService initialized.
+[2025-07-29 15:26:58] [INFO] CredentialManager initialized.
+[2025-07-29 15:26:58] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 15:26:58] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:26:58] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 15:26:58] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:26:59] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:27:00] [INFO] Found 7 audio output devices.
+[2025-07-29 15:27:00] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:27:00] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 15:27:00] [INFO] Found 6 audio input devices.
+[2025-07-29 15:27:00] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 15:27:00] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 15:27:00] [INFO] Quilot UI initialized.
+[2025-07-29 15:27:13] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:27:13] [INFO] STT settings loaded.
+[2025-07-29 15:27:13] [INFO] STT settings loaded into UI.
+[2025-07-29 15:28:11] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:28:11] [INFO] STT settings loaded.
+[2025-07-29 15:28:11] [INFO] STT settings loaded into UI.
+[2025-07-29 15:28:13] [INFO] STT settings saved.
+[2025-07-29 15:28:13] [INFO] Updating Google Cloud credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:28:13] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:28:13] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 15:28:13] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:28:13] [INFO] STT settings saved from UI and applied to service.
+[2025-07-29 15:28:18] [INFO] Output line closed.
+[2025-07-29 15:28:18] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:28:18] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 15:28:18] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 15:28:20] [INFO] Input line closed.
+[2025-07-29 15:28:20] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 15:28:24] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 15:28:24] [INFO] Recording started from input device.
+[2025-07-29 15:28:24] [INFO] Audio capture thread started.
+[2025-07-29 15:28:24] [INFO] Starting new streaming recognition session...
+[2025-07-29 15:28:24] [INFO] STT settings loaded.
+[2025-07-29 15:28:24] [INFO] Streaming recognition response observer started.
+[2025-07-29 15:28:24] [INFO] Streaming recognition session started successfully.
+[2025-07-29 15:28:27] [INFO] Streaming STT Result: "I'm not coming back." (Final: true)
+[2025-07-29 15:28:29] [INFO] Streaming STT Result: " Hey, that's powerful." (Final: true)
+[2025-07-29 15:28:42] [INFO] Streaming STT Result: " Time and fate and Circumstance, call a hasty conference and they all agree. We might as well. Let John have it. He says he's going to get it or die." (Final: true)
+[2025-07-29 15:28:43] [INFO] Streaming STT Result: " Wow, that's it." (Final: true)
+[2025-07-29 15:28:45] [INFO] Streaming STT Result: " Resolved." (Final: true)
+[2025-07-29 15:28:48] [INFO] Audio capture thread stopped.
+[2025-07-29 15:28:48] [INFO] Recording stopped from input device.
+[2025-07-29 15:28:48] [INFO] Stopping streaming recognition session.
+[2025-07-29 15:28:48] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 15:28:49] [INFO] Streaming recognition completed.
+[2025-07-29 15:28:51] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:28:51] [INFO] STT settings loaded.
+[2025-07-29 15:28:51] [INFO] STT settings loaded into UI.
+[2025-07-29 15:28:54] [INFO] STT settings saved.
+[2025-07-29 15:28:54] [INFO] Updating Google Cloud credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:28:54] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:28:54] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 15:28:54] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:28:54] [INFO] STT settings saved from UI and applied to service.
+[2025-07-29 15:28:57] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 15:28:57] [INFO] Recording started from input device.
+[2025-07-29 15:28:57] [INFO] Audio capture thread started.
+[2025-07-29 15:28:57] [INFO] Starting new streaming recognition session...
+[2025-07-29 15:28:57] [INFO] STT settings loaded.
+[2025-07-29 15:28:57] [INFO] Streaming recognition response observer started.
+[2025-07-29 15:28:57] [INFO] Streaming recognition session started successfully.
+[2025-07-29 15:29:01] [INFO] Streaming STT Result: "The." (Final: false)
+[2025-07-29 15:29:01] [INFO] Streaming STT Result: "The best." (Final: false)
+[2025-07-29 15:29:01] [INFO] Streaming STT Result: "The best definition." (Final: false)
+[2025-07-29 15:29:01] [INFO] Streaming STT Result: "The" (Final: false)
+[2025-07-29 15:29:01] [INFO] Streaming STT Result: "The best" (Final: false)
+[2025-07-29 15:29:01] [INFO] Streaming STT Result: "The best definition" (Final: false)
+[2025-07-29 15:29:02] [INFO] Streaming STT Result: "The best definition" (Final: false)
+[2025-07-29 15:29:02] [INFO] Streaming STT Result: "The best definition of" (Final: false)
+[2025-07-29 15:29:03] [INFO] Streaming STT Result: "the best definition of" (Final: false)
+[2025-07-29 15:29:03] [INFO] Streaming STT Result: "The best definition of" (Final: false)
+[2025-07-29 15:29:03] [INFO] Streaming STT Result: "The best definition of" (Final: false)
+[2025-07-29 15:29:03] [INFO] Streaming STT Result: "The best definition of resolve" (Final: false)
+[2025-07-29 15:29:03] [INFO] Streaming STT Result: "The best definition of resolve I" (Final: false)
+[2025-07-29 15:29:03] [INFO] Streaming STT Result: "The best definition of resolve I ever" (Final: false)
+[2025-07-29 15:29:03] [INFO] Streaming STT Result: "the best definition of resolve I ever heard" (Final: false)
+[2025-07-29 15:29:04] [INFO] Streaming STT Result: "the best definition of resolve I ever heard" (Final: false)
+[2025-07-29 15:29:04] [INFO] Streaming STT Result: "the best definition of resolve I ever heard was" (Final: false)
+[2025-07-29 15:29:04] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was" (Final: false)
+[2025-07-29 15:29:04] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from" (Final: false)
+[2025-07-29 15:29:04] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a" (Final: false)
+[2025-07-29 15:29:04] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a" (Final: false)
+[2025-07-29 15:29:05] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a junior" (Final: false)
+[2025-07-29 15:29:05] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior," (Final: false)
+[2025-07-29 15:29:05] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior, High" (Final: false)
+[2025-07-29 15:29:05] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior, High" (Final: false)
+[2025-07-29 15:29:05] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior, High girl" (Final: false)
+[2025-07-29 15:29:05] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl" (Final: false)
+[2025-07-29 15:29:05] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl" (Final: false)
+[2025-07-29 15:29:06] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl" (Final: false)
+[2025-07-29 15:29:06] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl in" (Final: false)
+[2025-07-29 15:29:06] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl in Foster" (Final: false)
+[2025-07-29 15:29:06] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl in Foster City," (Final: false)
+[2025-07-29 15:29:07] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl in Foster City, California" (Final: false)
+[2025-07-29 15:29:07] [INFO] Streaming STT Result: "The best definition of resolve I ever heard was from a Junior. High girl in Foster City, California" (Final: true)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm" (Final: false)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm talking." (Final: false)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm talking to." (Final: false)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm talking to the." (Final: false)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm" (Final: false)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm talking" (Final: false)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm talking" (Final: false)
+[2025-07-29 15:29:08] [INFO] Streaming STT Result: " I'm talking to" (Final: false)
+[2025-07-29 15:29:09] [INFO] Streaming STT Result: " I'm talking to the" (Final: false)
+[2025-07-29 15:29:09] [INFO] Streaming STT Result: " I'm talking to the" (Final: false)
+[2025-07-29 15:29:09] [INFO] Streaming STT Result: " I'm talking to the junior" (Final: false)
+[2025-07-29 15:29:09] [INFO] Streaming STT Result: " I'm talking to the Junior" (Final: false)
+[2025-07-29 15:29:09] [INFO] Streaming STT Result: " I'm talking to the Junior High" (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids." (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids" (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids" (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids," (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids," (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids, and" (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids, and I" (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids, and I" (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids, and I asked" (Final: false)
+[2025-07-29 15:29:10] [INFO] Streaming STT Result: " I'm talking to the Junior High kids, and I asked the" (Final: false)
+[2025-07-29 15:29:11] [INFO] Streaming STT Result: " I'm talking to the Junior High kids, and I asked the question." (Final: true)
+[2025-07-29 15:29:11] [INFO] Streaming STT Result: " Who." (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who can?" (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who can tell?" (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who can tell me?" (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who can tell me what?" (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who" (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who can" (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who can tell" (Final: false)
+[2025-07-29 15:29:12] [INFO] Streaming STT Result: " Who can tell me" (Final: false)
+[2025-07-29 15:29:13] [INFO] Streaming STT Result: " Who can tell me what?" (Final: false)
+[2025-07-29 15:29:13] [INFO] Streaming STT Result: " Who can tell me what?" (Final: false)
+[2025-07-29 15:29:13] [INFO] Streaming STT Result: " Who can tell me what" (Final: false)
+[2025-07-29 15:29:13] [INFO] Streaming STT Result: " Who can tell me what" (Final: false)
+[2025-07-29 15:29:13] [INFO] Streaming STT Result: " Who can tell me what" (Final: false)
+[2025-07-29 15:29:14] [INFO] Streaming STT Result: " Who can tell me what resolve" (Final: false)
+[2025-07-29 15:29:14] [INFO] Streaming STT Result: " Who can tell me what resolve means." (Final: false)
+[2025-07-29 15:29:14] [INFO] Streaming STT Result: " Who can tell me what resolve means." (Final: true)
+[2025-07-29 15:29:15] [INFO] Streaming STT Result: " I," (Final: false)
+[2025-07-29 15:29:15] [INFO] Streaming STT Result: " I got." (Final: false)
+[2025-07-29 15:29:15] [INFO] Streaming STT Result: " I" (Final: false)
+[2025-07-29 15:29:15] [INFO] Streaming STT Result: " I got." (Final: true)
+[2025-07-29 15:29:15] [INFO] Audio capture thread stopped.
+[2025-07-29 15:29:15] [INFO] Recording stopped from input device.
+[2025-07-29 15:29:15] [INFO] Stopping streaming recognition session.
+[2025-07-29 15:29:15] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 15:29:15] [INFO] Streaming recognition completed.
+[2025-07-29 15:30:31] [INFO] Current time update timer started.
+[2025-07-29 15:30:31] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 15:30:31] [INFO] SystemAudioInputService initialized.
+[2025-07-29 15:30:31] [INFO] CredentialManager initialized.
+[2025-07-29 15:30:31] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 15:30:31] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:30:31] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 15:30:31] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:30:32] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:30:32] [INFO] Found 7 audio output devices.
+[2025-07-29 15:30:32] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:30:32] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 15:30:32] [INFO] Found 6 audio input devices.
+[2025-07-29 15:30:32] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 15:30:32] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 15:30:32] [INFO] Quilot UI initialized.
+[2025-07-29 15:31:07] [INFO] Playing test sound...
+[2025-07-29 15:31:08] [INFO] Test sound played.
+[2025-07-29 15:31:12] [INFO] Output line closed.
+[2025-07-29 15:31:12] [INFO] Master Gain control found for the current device.
+[2025-07-29 15:31:12] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 15:31:12] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 15:31:16] [INFO] Input line closed.
+[2025-07-29 15:31:16] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 15:31:17] [INFO] Setup Guide button clicked. Displaying Blackhole setup guide.
+[2025-07-29 15:31:21] [INFO] STT Credentials button clicked. Displaying credentials dialog.
+[2025-07-29 15:31:21] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:31:25] [INFO] Google Cloud Setup Guide button clicked. Displaying Google Cloud setup guide.
+[2025-07-29 15:31:29] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:31:29] [INFO] STT settings loaded.
+[2025-07-29 15:31:29] [INFO] STT settings loaded into UI.
+[2025-07-29 15:31:40] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 15:31:40] [INFO] Recording started from input device.
+[2025-07-29 15:31:40] [INFO] Audio capture thread started.
+[2025-07-29 15:31:40] [INFO] Starting new streaming recognition session...
+[2025-07-29 15:31:40] [INFO] STT settings loaded.
+[2025-07-29 15:31:40] [INFO] Streaming recognition response observer started.
+[2025-07-29 15:31:40] [INFO] Streaming recognition session started successfully.
+[2025-07-29 15:31:41] [INFO] Streaming STT Result: "Was." (Final: false)
+[2025-07-29 15:31:41] [INFO] Streaming STT Result: "Was the best." (Final: false)
+[2025-07-29 15:31:42] [INFO] Streaming STT Result: "Was" (Final: false)
+[2025-07-29 15:31:42] [INFO] Streaming STT Result: "Was the best." (Final: false)
+[2025-07-29 15:31:42] [INFO] Streaming STT Result: "was the best" (Final: false)
+[2025-07-29 15:31:42] [INFO] Streaming STT Result: "was the best" (Final: false)
+[2025-07-29 15:31:43] [INFO] Streaming STT Result: "was the best she" (Final: false)
+[2025-07-29 15:31:43] [INFO] Streaming STT Result: "was the best she said," (Final: false)
+[2025-07-29 15:31:43] [INFO] Streaming STT Result: "Was the best. She said," (Final: false)
+[2025-07-29 15:31:43] [INFO] Streaming STT Result: "Was the best. She said," (Final: false)
+[2025-07-29 15:31:44] [INFO] Streaming STT Result: "Was the best. She said, I" (Final: false)
+[2025-07-29 15:31:44] [INFO] Streaming STT Result: "Was the best. She said, I think" (Final: false)
+[2025-07-29 15:31:44] [INFO] Streaming STT Result: "Was the best. She said, I think" (Final: false)
+[2025-07-29 15:31:44] [INFO] Streaming STT Result: "Was the best. She said, I think" (Final: false)
+[2025-07-29 15:31:44] [INFO] Streaming STT Result: "Was the best. She said, I think" (Final: false)
+[2025-07-29 15:31:45] [INFO] Streaming STT Result: "Was the best. She said, I think resolve" (Final: false)
+[2025-07-29 15:31:45] [INFO] Streaming STT Result: "Was the best. She said, I think resolve" (Final: false)
+[2025-07-29 15:31:45] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means" (Final: false)
+[2025-07-29 15:31:45] [INFO] Streaming STT Result: "Was the best. She said, I think, resolve means" (Final: false)
+[2025-07-29 15:31:46] [INFO] Streaming STT Result: "Was the best. She said, I think, resolve means promising" (Final: false)
+[2025-07-29 15:31:46] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means promising yourself" (Final: false)
+[2025-07-29 15:31:47] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means promising yourself," (Final: false)
+[2025-07-29 15:31:47] [INFO] Streaming STT Result: "Was the best. She said, I think, resolve means promising yourself." (Final: false)
+[2025-07-29 15:31:47] [INFO] Streaming STT Result: "Was the best. She said, I think, resolve means promising yourself. You" (Final: false)
+[2025-07-29 15:31:47] [INFO] Streaming STT Result: "Was the best. She said, I think, resolve means promising yourself. You" (Final: false)
+[2025-07-29 15:31:47] [INFO] Streaming STT Result: "Was the best. She said, I think, resolve means promising yourself. You will" (Final: false)
+[2025-07-29 15:31:47] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means promising yourself. You will" (Final: false)
+[2025-07-29 15:31:47] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means promising yourself. You will never" (Final: false)
+[2025-07-29 15:31:48] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means promising yourself. You will never give" (Final: false)
+[2025-07-29 15:31:48] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means promising yourself. You will never give up." (Final: false)
+[2025-07-29 15:31:48] [INFO] Streaming STT Result: "Was the best. She said, I think resolve means promising yourself. You will never give up." (Final: true)
+[2025-07-29 15:31:49] [INFO] Streaming STT Result: " I," (Final: false)
+[2025-07-29 15:31:49] [INFO] Streaming STT Result: " I said," (Final: false)
+[2025-07-29 15:31:49] [INFO] Streaming STT Result: " I" (Final: false)
+[2025-07-29 15:31:49] [INFO] Streaming STT Result: " I said," (Final: false)
+[2025-07-29 15:31:49] [INFO] Streaming STT Result: " I said" (Final: false)
+[2025-07-29 15:31:50] [INFO] Streaming STT Result: " I said that's" (Final: false)
+[2025-07-29 15:31:50] [INFO] Streaming STT Result: " I said that's it." (Final: false)
+[2025-07-29 15:31:50] [INFO] Streaming STT Result: " I said that's it." (Final: false)
+[2025-07-29 15:31:51] [INFO] Streaming STT Result: " I said, that's it" (Final: false)
+[2025-07-29 15:31:51] [INFO] Streaming STT Result: " I said, that's it" (Final: false)
+[2025-07-29 15:31:51] [INFO] Streaming STT Result: " I said, that's it best" (Final: false)
+[2025-07-29 15:31:51] [INFO] Streaming STT Result: " I said, that's it best I've" (Final: false)
+[2025-07-29 15:31:51] [INFO] Streaming STT Result: " I said, that's it best I've heard." (Final: false)
+[2025-07-29 15:31:52] [INFO] Streaming STT Result: " I said that's it best. I've heard" (Final: false)
+[2025-07-29 15:31:52] [INFO] Streaming STT Result: " I said that's it. Best, I've heard" (Final: false)
+[2025-07-29 15:31:53] [INFO] Streaming STT Result: " I said, that's it best. I've heard" (Final: false)
+[2025-07-29 15:31:53] [INFO] Streaming STT Result: " I said, that's it best. I've heard promise" (Final: false)
+[2025-07-29 15:31:53] [INFO] Streaming STT Result: " I said, that's it best. I've heard promise yourself." (Final: false)
+[2025-07-29 15:31:53] [INFO] Streaming STT Result: " I said, that's it best. I've heard. Promise yourself," (Final: false)
+[2025-07-29 15:31:53] [INFO] Streaming STT Result: " I said, that's it best. I've heard, promise yourself," (Final: false)
+[2025-07-29 15:31:54] [INFO] Audio capture thread stopped.
+[2025-07-29 15:31:54] [INFO] Recording stopped from input device.
+[2025-07-29 15:31:54] [INFO] Stopping streaming recognition session.
+[2025-07-29 15:31:54] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 15:31:54] [INFO] Streaming STT Result: " I said, that's it best. I've heard, promise yourself," (Final: false)
+[2025-07-29 15:31:54] [INFO] Streaming STT Result: " I said, that's it best. I've heard, promise yourself. You" (Final: false)
+[2025-07-29 15:31:54] [INFO] Streaming STT Result: " I said, that's it best. I've heard, promise yourself. You will" (Final: false)
+[2025-07-29 15:31:54] [INFO] Streaming STT Result: " I said, that's it best. I've heard promise yourself. You will" (Final: false)
+[2025-07-29 15:31:54] [INFO] Streaming STT Result: " I said, that's it best. I've heard promise yourself. You will never" (Final: false)
+[2025-07-29 15:31:54] [INFO] Streaming STT Result: " I said, that's it best. I've heard promise yourself. You will never give" (Final: false)
+[2025-07-29 15:31:54] [INFO] Streaming STT Result: " I said, that's it best. I've heard promise yourself. You will never give up." (Final: true)
+[2025-07-29 15:31:54] [INFO] Streaming recognition completed.
+[2025-07-29 15:32:12] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 15:32:12] [INFO] STT settings loaded.
+[2025-07-29 15:32:12] [INFO] STT settings loaded into UI.
+[2025-07-29 15:32:15] [INFO] STT settings saved.
+[2025-07-29 15:32:15] [INFO] Updating Google Cloud credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 15:32:15] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:32:15] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 15:32:15] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 15:32:15] [INFO] STT settings saved from UI and applied to service.
+[2025-07-29 15:32:23] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 15:32:23] [INFO] Recording started from input device.
+[2025-07-29 15:32:23] [INFO] Audio capture thread started.
+[2025-07-29 15:32:23] [INFO] Starting new streaming recognition session...
+[2025-07-29 15:32:23] [INFO] STT settings loaded.
+[2025-07-29 15:32:23] [INFO] Streaming recognition response observer started.
+[2025-07-29 15:32:23] [INFO] Streaming recognition session started successfully.
+[2025-07-29 15:32:25] [INFO] Streaming STT Result: "Before you shut him off." (Final: true)
+[2025-07-29 15:32:33] [INFO] Streaming STT Result: " You say that's crazy. Any mother in the world would say my baby is going to keep trying until it learns how to walk?" (Final: true)
+[2025-07-29 15:32:41] [INFO] Streaming STT Result: " No wonder almost everyone walks what a magic formula the until formula." (Final: true)
+[2025-07-29 15:32:42] [INFO] Streaming STT Result: " Good question." (Final: true)
+[2025-07-29 15:32:52] [INFO] Streaming STT Result: " How long are you going to work to make your dreams of wealth and happiness? Come true. I suggest the until formula. It's the best" (Final: true)
+[2025-07-29 15:32:57] [INFO] Audio capture thread stopped.
+[2025-07-29 15:32:57] [INFO] Recording stopped from input device.
+[2025-07-29 15:32:57] [INFO] Stopping streaming recognition session.
+[2025-07-29 15:32:57] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 15:32:57] [INFO] Streaming STT Result: " Emotions, disgust decision, desire resolve." (Final: true)
+[2025-07-29 15:32:57] [INFO] Streaming recognition completed.
+[2025-07-29 15:37:01] [INFO] Output line closed.
+[2025-07-29 15:37:01] [INFO] SystemAudioOutputService resources released.
+[2025-07-29 15:37:01] [WARN] No recording in progress to stop.
+[2025-07-29 15:37:01] [INFO] Input line closed.
+[2025-07-29 15:37:01] [INFO] SystemAudioInputService resources released.
+[2025-07-29 15:37:01] [WARN] No active streaming recognition to stop.
+[2025-07-29 15:37:01] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 15:37:01] [INFO] Application closing. Audio resources released.
+[2025-07-29 16:18:59] [INFO] Current time update timer started.
+[2025-07-29 16:18:59] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 16:18:59] [INFO] SystemAudioInputService initialized.
+[2025-07-29 16:18:59] [INFO] CredentialManager initialized.
+[2025-07-29 16:18:59] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 16:18:59] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 16:18:59] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 16:18:59] [WARN] No active streaming recognition to stop.
+[2025-07-29 16:19:00] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 16:19:01] [INFO] Found 7 audio output devices.
+[2025-07-29 16:19:01] [INFO] Master Gain control found for the current device.
+[2025-07-29 16:19:01] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 16:19:01] [INFO] Found 5 audio input devices.
+[2025-07-29 16:19:01] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 16:19:01] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 16:19:01] [INFO] Quilot UI initialized.
+[2025-07-29 16:19:33] [INFO] STT Settings button clicked. Displaying STT settings dialog.
+[2025-07-29 16:19:33] [INFO] STT settings loaded.
+[2025-07-29 16:19:33] [INFO] STT settings loaded into UI.
+[2025-07-29 16:19:39] [INFO] STT settings saved.
+[2025-07-29 16:19:39] [INFO] Updating Google Cloud credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 16:19:39] [WARN] No active streaming recognition to stop.
+[2025-07-29 16:19:39] [INFO] Google Cloud SpeechClient closed.
+[2025-07-29 16:19:39] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 16:19:39] [INFO] STT settings saved from UI and applied to service.
+[2025-07-29 16:19:45] [INFO] Output line closed.
+[2025-07-29 16:19:45] [INFO] Master Gain control found for the current device.
+[2025-07-29 16:19:45] [INFO] Selected audio output device: MacBook Pro Speakers
+[2025-07-29 16:19:45] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 16:19:47] [INFO] Output line closed.
+[2025-07-29 16:19:47] [INFO] Master Gain control found for the current device.
+[2025-07-29 16:19:47] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 16:19:47] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 16:19:48] [INFO] Input line closed.
+[2025-07-29 16:19:48] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 16:19:51] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 16:19:51] [INFO] Recording started from input device.
+[2025-07-29 16:19:51] [INFO] Audio capture thread started.
+[2025-07-29 16:19:51] [INFO] Starting new streaming recognition session...
+[2025-07-29 16:19:51] [INFO] STT settings loaded.
+[2025-07-29 16:19:51] [INFO] Streaming recognition response observer started.
+[2025-07-29 16:19:51] [INFO] Streaming recognition session started successfully.
+[2025-07-29 16:20:08] [INFO] Streaming STT Result: "Future any longer get at it today. Get some new books. Make a new plan set. A new goal, ask some new questions lock on to a new resolve. Make a new effort and do it all now." (Final: true)
+[2025-07-29 16:20:13] [INFO] Streaming STT Result: " So, if I had a word with you tonight, 1-on-1?" (Final: true)
+[2025-07-29 16:20:14] [INFO] Streaming STT Result: " Just you and me." (Final: true)
+[2025-07-29 16:20:17] [INFO] Streaming STT Result: " I think my personal advice to you would be" (Final: true)
+[2025-07-29 16:20:23] [INFO] Streaming STT Result: " This year, 1981 reached down inside of you." (Final: true)
+[2025-07-29 16:20:27] [INFO] Streaming STT Result: " And come up with some more of those remarkable human gifts." (Final: true)
+[2025-07-29 16:20:30] [INFO] Streaming STT Result: " They're there waiting to be utilized." (Final: true)
+[2025-07-29 16:20:33] [INFO] Audio capture thread stopped.
+[2025-07-29 16:20:33] [INFO] Recording stopped from input device.
+[2025-07-29 16:20:33] [INFO] Stopping streaming recognition session.
+[2025-07-29 16:20:33] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 16:20:34] [INFO] Streaming recognition completed.
+[2025-07-29 16:21:18] [INFO] Audio data played successfully.
+[2025-07-29 16:21:18] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 16:21:18] [INFO] Set volume to: 98.00% (Gain: 4.30 dB)
+[2025-07-29 16:21:18] [INFO] Set volume to: 71.00% (Gain: -18.93 dB)
+[2025-07-29 16:23:57] [INFO] Current time update timer started.
+[2025-07-29 16:23:57] [INFO] SystemAudioOutputService initialized.
+[2025-07-29 16:23:57] [INFO] SystemAudioInputService initialized.
+[2025-07-29 16:23:57] [INFO] CredentialManager initialized.
+[2025-07-29 16:23:57] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-29 16:23:57] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 16:23:57] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-29 16:23:57] [WARN] No active streaming recognition to stop.
+[2025-07-29 16:23:58] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-29 16:23:58] [INFO] Found 7 audio output devices.
+[2025-07-29 16:23:58] [INFO] Master Gain control found for the current device.
+[2025-07-29 16:23:58] [INFO] Selected audio output device: Default Audio Device
+[2025-07-29 16:23:58] [INFO] Found 6 audio input devices.
+[2025-07-29 16:23:58] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-29 16:23:58] [INFO] Selected audio input device: Default Audio Device
+[2025-07-29 16:23:58] [INFO] Quilot UI initialized.
+[2025-07-29 16:24:00] [INFO] Output line closed.
+[2025-07-29 16:24:00] [INFO] Master Gain control found for the current device.
+[2025-07-29 16:24:00] [INFO] Selected audio output device: MacBook Pro Speakers
+[2025-07-29 16:24:00] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 16:24:01] [INFO] Output line closed.
+[2025-07-29 16:24:01] [INFO] Master Gain control found for the current device.
+[2025-07-29 16:24:01] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-29 16:24:01] [INFO] Set volume to: 70.00% (Gain: -19.79 dB)
+[2025-07-29 16:24:02] [INFO] Input line closed.
+[2025-07-29 16:24:02] [INFO] Selected audio input device: BlackHole 2ch
+[2025-07-29 16:24:03] [INFO] Recorded audio data buffer cleared.
+[2025-07-29 16:24:03] [INFO] Recording started from input device.
+[2025-07-29 16:24:03] [INFO] Audio capture thread started.
+[2025-07-29 16:24:03] [INFO] Starting new streaming recognition session...
+[2025-07-29 16:24:03] [INFO] STT settings loaded.
+[2025-07-29 16:24:03] [INFO] Streaming recognition response observer started.
+[2025-07-29 16:24:03] [INFO] Streaming recognition session started successfully.
+[2025-07-29 16:25:14] [INFO] Audio capture thread stopped.
+[2025-07-29 16:25:14] [INFO] Recording stopped from input device.
+[2025-07-29 16:25:14] [INFO] Stopping streaming recognition session.
+[2025-07-29 16:25:14] [INFO] Executor service for streaming recognition shut down.
+[2025-07-29 16:25:15] [INFO] Streaming recognition completed.
+[2025-07-29 16:25:15] [INFO] STT Credentials button clicked. Displaying credentials dialog.
+[2025-07-29 16:25:15] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-29 16:25:22] [INFO] STT Credentials button clicked. Displaying credentials dialog.
+[2025-07-29 16:25:22] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json

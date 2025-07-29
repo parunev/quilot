@@ -89,4 +89,7 @@ public class UIBuilder {
     public JButton getStopInputRecordingButton() { return audioInputSettingsPanelBuilder.getStopInputRecordingButton(); }
     public JButton getPlayRecordedInputButton() { return audioInputSettingsPanelBuilder.getPlayRecordedInputButton(); }
     public JButton getSetupGuideButton() { return audioInputSettingsPanelBuilder.getSetupGuideButton(); }
+    public JButton getCredentialsButton() { return audioInputSettingsPanelBuilder.getCredentialsButton(); }
+    public JButton getGoogleCloudSetupGuideButton() { return audioInputSettingsPanelBuilder.getGoogleCloudSetupGuideButton(); }
+    public JButton getSttSettingsButton() { return audioInputSettingsPanelBuilder.getSttSettingsButton(); }
 }

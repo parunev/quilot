@@ -19,6 +19,9 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
     private final JButton stopInputRecordingButton;
     private final JButton playRecordedInputButton;
     private final JButton setupGuideButton;
+    private final JButton credentialsButton;
+    private final JButton googleCloudSetupGuideButton;
+    private final JButton sttSettingsButton;
 
     private final AudioInputService audioInputService;
 
@@ -29,6 +32,9 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
         this.stopInputRecordingButton = new JButton("Stop Input Capture");
         this.playRecordedInputButton = new JButton("Play Recorded Input");
         this.setupGuideButton = new JButton("Setup Guide (macOS)");
+        this.credentialsButton = new JButton("STT Credentials");
+        this.googleCloudSetupGuideButton = new JButton("Google Cloud Setup Guide");
+        this.sttSettingsButton = new JButton("STT Settings");
 
         setupComponentProperties();
     }
@@ -86,12 +92,13 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
         inputButtonsPanel.add(playRecordedInputButton);
         panel.add(inputButtonsPanel, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.fill = GridBagConstraints.NONE;
-        panel.add(setupGuideButton, gbc);
+        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2; gbc.anchor = GridBagConstraints.CENTER; gbc.fill = GridBagConstraints.NONE;
+        JPanel helpButtonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+        helpButtonsPanel.add(setupGuideButton);
+        helpButtonsPanel.add(credentialsButton);
+        helpButtonsPanel.add(googleCloudSetupGuideButton);
+        helpButtonsPanel.add(sttSettingsButton);
+        panel.add(helpButtonsPanel, gbc);
 
         return panel;
     }
