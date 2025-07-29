@@ -10,201 +10,92 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Concrete implementation of AudioInputService that interacts with the Java Sound API
- * to capture audio from an input device (e.g., microphone, stereo mix).
- * This class handles device discovery, recording, and providing captured audio data.
- */
 @Getter
 @Setter
-public class SystemAudioInputService implements AudioInputService{
+public class SystemAudioInputService implements AudioInputService {
 
-    private TargetDataLine targetDataLine;
-    private AudioFormat audioFormat;
-    private Thread captureThread;
+    private static final AudioFormat DEFAULT_AUDIO_FORMAT = new AudioFormat(
+            44100,
+            16,
+            1,
+            true,
+            false);
+
+    private static final int JOIN_TIMEOUT_MS = 1000;
+
     private final AtomicBoolean isRecording = new AtomicBoolean(false);
-    private AudioDataListener audioDataListener;
-    private final ByteArrayOutputStream recordedAudioBuffer;
+    private final ByteArrayOutputStream recordedAudioBuffer = new ByteArrayOutputStream();
 
-    // Default audio format for capturing audio
-    // 44.1kHz, 16-bit, mono, signed, little-endian
-    private static final AudioFormat DEFAULT_AUDIO_FORMAT = new AudioFormat(44100, 16, 1, true, false);
+    private AudioFormat audioFormat = DEFAULT_AUDIO_FORMAT;
+    private TargetDataLine targetDataLine;
+    private Thread captureThread;
+    private AudioDataListener audioDataListener;
 
     public SystemAudioInputService() {
         Logger.info("SystemAudioInputService initialized.");
-        this.audioFormat = DEFAULT_AUDIO_FORMAT; // Initialize with default format
-        this.recordedAudioBuffer = new ByteArrayOutputStream(); // Initialize buffer
     }
 
     @Override
     public List<String> getAvailableInputDevices() {
         List<String> deviceNames = new ArrayList<>();
-        Mixer.Info[] mixerInfos = AudioSystem.getMixerInfo();
-        for (Mixer.Info info : mixerInfos) {
-            Mixer mixer = AudioSystem.getMixer(info);
+        for (Mixer.Info info : AudioSystem.getMixerInfo()) {
             try {
+                Mixer mixer = AudioSystem.getMixer(info);
                 if (mixer.isLineSupported(new Line.Info(TargetDataLine.class))) {
                     deviceNames.add(info.getName());
                 }
             } catch (IllegalArgumentException e) {
-                Logger.warn("Mixer " + info.getName() + " does not support TargetDataLine as expected: " + e.getMessage());
+                Logger.warn("Unsupported mixer: " + info.getName() + " - " + e.getMessage());
             }
         }
-        if (deviceNames.isEmpty()) {
-            Logger.warn("No audio input devices found.");
-        } else {
-            Logger.info("Found " + deviceNames.size() + " audio input devices.");
-        }
+        logDeviceDiscoveryResult(deviceNames);
         return deviceNames;
     }
 
     @Override
     public boolean selectInputDevice(String deviceName) {
-        Mixer.Info[] mixerInfos = AudioSystem.getMixerInfo();
-        for (Mixer.Info info : mixerInfos) {
+        for (Mixer.Info info : AudioSystem.getMixerInfo()) {
             if (info.getName().equals(deviceName)) {
-                try {
-                    closeInputLine(); // Close any previously open line
-
-                    Mixer mixer = AudioSystem.getMixer(info);
-                    DataLine.Info dataLineInfo = new DataLine.Info(TargetDataLine.class, audioFormat);
-
-                    if (!mixer.isLineSupported(dataLineInfo)) {
-                        Logger.error("Selected mixer '" + deviceName + "' does not support the default audio format: " + audioFormat);
-
-                        // Fallback: try to find a compatible format
-                        // Get all supported target line infos
-                        Line.Info[] supportedLineInfos = mixer.getTargetLineInfo();
-                        AudioFormat foundFormat = null;
-
-                        for (Line.Info lineInfo : supportedLineInfos) {
-                            if (lineInfo instanceof DataLine.Info dli) {
-                                for (AudioFormat format : dli.getFormats()) {
-
-                                    // Prioritize the default format if it's found among supported ones
-                                    if (format.matches(DEFAULT_AUDIO_FORMAT)) {
-                                        foundFormat = format;
-                                        break;
-                                    }
-
-                                    // Otherwise, just take the first compatible format that is PCM_SIGNED and 16-bit
-                                    if (foundFormat == null && format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED && format.getSampleSizeInBits() == 16) {
-                                        foundFormat = format;
-                                    }
-                                }
-                            }
-                            if (foundFormat != null) break;
-                        }
-
-                        if (foundFormat != null) {
-                            Logger.warn("Attempting to use a compatible format for input: " + foundFormat);
-                            audioFormat = foundFormat; // Update the format
-                            targetDataLine = (TargetDataLine) mixer.getLine(new DataLine.Info(TargetDataLine.class, audioFormat));
-                            targetDataLine.open(audioFormat);
-                        } else {
-                            Logger.error("No compatible formats found for input device: " + deviceName);
-                            targetDataLine = null;
-                            return false;
-                        }
-                    } else {
-                        targetDataLine = (TargetDataLine) mixer.getLine(dataLineInfo);
-                        targetDataLine.open(audioFormat);
-                    }
-
-                    Logger.info("Selected audio input device: " + deviceName);
-                    return true;
-                } catch (LineUnavailableException e) {
-                    Logger.error("Audio line unavailable for input device '" + deviceName + "': " + e.getMessage());
-                } catch (IllegalArgumentException e) {
-                    Logger.error("Invalid argument when selecting input device '" + deviceName + "': " + e.getMessage());
-                } catch (Exception e) {
-                    Logger.error("An unexpected error occurred while selecting input device '" + deviceName + "': " + e.getMessage());
-                }
+                return configureDevice(AudioSystem.getMixer(info), deviceName);
             }
         }
-        Logger.warn("Could not select audio input device: " + deviceName + ". Device not found or unsupported.");
+        Logger.warn("Input device not found or unsupported: " + deviceName);
         targetDataLine = null;
         return false;
     }
 
     @Override
     public boolean startRecording() {
-        if (targetDataLine == null || !targetDataLine.isOpen()) {
-            Logger.warn("No input device selected or line not open to start recording.");
-            return false;
-        }
-        if (isRecording.get()) {
-            Logger.warn("Recording is already in progress.");
-            return true;
-        }
+        if (!validateRecordingStart()) return false;
 
-        clearRecordedAudioData(); // Clear previous recording before starting new one
+        clearRecordedAudioData();
         isRecording.set(true);
         targetDataLine.start();
 
-        captureThread = new Thread(() -> {
-            Logger.info("Audio capture thread started.");
-            int bufferSize = (int) audioFormat.getSampleRate() * audioFormat.getFrameSize();
-            byte[] buffer = new byte[bufferSize];
-
-            while (isRecording.get()) {
-                int bytesRead = targetDataLine.read(buffer, 0, buffer.length);
-                if (bytesRead > 0) {
-                    recordedAudioBuffer.write(buffer, 0, bytesRead);
-                    if (audioDataListener != null) {
-                        byte[] capturedData = new byte[bytesRead];
-                        System.arraycopy(buffer, 0, capturedData, 0, bytesRead);
-                        audioDataListener.onAudioDataCaptured(capturedData, bytesRead);
-                    }
-                }
-            }
-            Logger.info("Audio capture thread stopped.");
-        }, "AudioCaptureThread");
+        captureThread = new Thread(this::captureAudioLoop, "AudioCaptureThread");
         captureThread.start();
-        Logger.info("Recording started from input device.");
+        Logger.info("Recording started.");
         return true;
     }
 
     @Override
     public boolean stopRecording() {
         if (!isRecording.get()) {
-            Logger.warn("No recording in progress to stop.");
+            Logger.warn("Recording not active.");
             return false;
         }
+
         isRecording.set(false);
-        if (targetDataLine != null) {
-            targetDataLine.stop();
-        }
-        if (captureThread != null) {
-            try {
-                captureThread.join(1000);
-                if (captureThread.isAlive()) {
-                    Logger.warn("Audio capture thread did not terminate gracefully.");
-                }
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                Logger.error("Interruption while waiting for audio capture thread to stop: " + e.getMessage());
-            }
-        }
-        Logger.info("Recording stopped from input device.");
+        stopAndJoinCaptureThread();
+        Logger.info("Recording stopped.");
         return true;
     }
 
     @Override
     public void close() {
-        stopRecording(); // Ensure recording is stopped before closing line
+        stopRecording();
         closeInputLine();
         Logger.info("SystemAudioInputService resources released.");
-    }
-
-    /**
-     * Helper method to safely close the current input line if it's open.
-     */
-    private void closeInputLine() {
-        if (targetDataLine != null && targetDataLine.isOpen()) {
-            targetDataLine.close();
-            Logger.info("Input line closed.");
-        }
     }
 
     @Override
@@ -224,12 +115,118 @@ public class SystemAudioInputService implements AudioInputService{
 
     @Override
     public void clearRecordedAudioData() {
-        recordedAudioBuffer.reset(); // Resets the buffer, effectively clearing it
-        Logger.info("Recorded audio data buffer cleared.");
+        recordedAudioBuffer.reset();
+        Logger.info("Recorded audio buffer cleared.");
     }
 
-    @Override
-    public AudioFormat getAudioFormat() {
-        return audioFormat;
+    // PRIVATE HELPERS
+
+    private boolean configureDevice(Mixer mixer, String deviceName) {
+        closeInputLine();
+        try {
+            DataLine.Info dataLineInfo = new DataLine.Info(TargetDataLine.class, audioFormat);
+
+            if (!mixer.isLineSupported(dataLineInfo)) {
+                Logger.warn("Default format unsupported on " + deviceName);
+                audioFormat = findCompatibleFormat(mixer);
+                if (audioFormat == null) {
+                    Logger.error("No compatible format found for device: " + deviceName);
+                    return false;
+                }
+                Logger.warn("Using fallback format: " + audioFormat);
+            }
+
+            targetDataLine = (TargetDataLine) mixer.getLine(new DataLine.Info(TargetDataLine.class, audioFormat));
+            targetDataLine.open(audioFormat);
+            Logger.info("Selected input device: " + deviceName);
+            return true;
+
+        } catch (LineUnavailableException | IllegalArgumentException e) {
+            Logger.error("Failed to open audio line for '" + deviceName + "': " + e.getMessage());
+            return false;
+        }
+    }
+
+    private AudioFormat findCompatibleFormat(Mixer mixer) {
+        for (Line.Info info : mixer.getTargetLineInfo()) {
+            if (info instanceof DataLine.Info dli) {
+                for (AudioFormat format : dli.getFormats()) {
+                    if (format.matches(DEFAULT_AUDIO_FORMAT)) {
+                        return DEFAULT_AUDIO_FORMAT;
+                    }
+                    if (format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED && format.getSampleSizeInBits() == 16) {
+                        return format;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private void closeInputLine() {
+        if (targetDataLine != null && targetDataLine.isOpen()) {
+            targetDataLine.close();
+            Logger.info("Input line closed.");
+        }
+    }
+
+    private boolean validateRecordingStart() {
+        if (targetDataLine == null || !targetDataLine.isOpen()) {
+            Logger.warn("Cannot start recording: no input device selected.");
+            return false;
+        }
+        if (isRecording.get()) {
+            Logger.warn("Recording already in progress.");
+            return true;
+        }
+        return true;
+    }
+
+    private void stopAndJoinCaptureThread() {
+        if (targetDataLine != null) {
+            targetDataLine.stop();
+        }
+        if (captureThread != null) {
+            try {
+                captureThread.join(JOIN_TIMEOUT_MS);
+                if (captureThread.isAlive()) {
+                    Logger.warn("Audio capture thread did not terminate gracefully.");
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                Logger.error("Interrupted while stopping capture thread: " + e.getMessage());
+            }
+        }
+    }
+
+    private void captureAudioLoop() {
+        Logger.info("Audio capture thread started.");
+        int bufferSize = (int) audioFormat.getSampleRate() * audioFormat.getFrameSize();
+        byte[] buffer = new byte[bufferSize];
+
+        while (isRecording.get()) {
+            int bytesRead = targetDataLine.read(buffer, 0, buffer.length);
+            if (bytesRead > 0) {
+                recordedAudioBuffer.write(buffer, 0, bytesRead);
+                notifyAudioListener(buffer, bytesRead);
+            }
+        }
+        Logger.info("Audio capture thread stopped.");
+    }
+
+    private void notifyAudioListener(byte[] buffer, int bytesRead) {
+        if (audioDataListener != null) {
+            byte[] capturedData = new byte[bytesRead];
+            System.arraycopy(buffer, 0, capturedData, 0, bytesRead);
+            audioDataListener.onAudioDataCaptured(capturedData, bytesRead);
+        }
+    }
+
+    private void logDeviceDiscoveryResult(List<String> devices) {
+        if (devices.isEmpty()) {
+            Logger.warn("No audio input devices found.");
+        } else {
+            Logger.info("Found " + devices.size() + " audio input device(s).");
+        }
     }
 }
