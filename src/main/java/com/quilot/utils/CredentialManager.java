@@ -3,8 +3,7 @@ package com.quilot.utils;
 import java.util.prefs.Preferences;
 
 /**
- * Manages the persistence of application credentials, specifically the Google Cloud
- * service account key file path. Uses Java's Preferences API for simple, cross-platform storage.
+ * Manages saving and loading of credentials using Java Preferences API.
  */
 public class CredentialManager {
 
@@ -19,17 +18,21 @@ public class CredentialManager {
     }
 
     /**
-     * Saves the provided Google Cloud service account key file path.
-     * @param path The absolute path to the JSON key file.
+     * Saves the path to Google Cloud credential file.
+     * @param path the file path to save; must not be null or empty.
      */
     public void saveGoogleCloudCredentialPath(String path) {
+        if (path == null || path.isEmpty()) {
+            Logger.warn("Attempted to save empty or null Google Cloud credential path; operation skipped.");
+            return;
+        }
         prefs.put(GOOGLE_CREDENTIAL_PATH_KEY, path);
         Logger.info("Google Cloud credential path saved: " + path);
     }
 
     /**
-     * Loads the previously saved Google Cloud service account key file path.
-     * @return The saved path, or an empty string if not found.
+     * Loads the stored Google Cloud credential path.
+     * @return the credential path, or empty string if none stored.
      */
     public String loadGoogleCloudCredentialPath() {
         String path = prefs.get(GOOGLE_CREDENTIAL_PATH_KEY, "");
