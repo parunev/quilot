@@ -2,48 +2,51 @@ package com.quilot.audio.ouput;
 
 import com.quilot.utils.Logger;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Line;
-import javax.sound.sampled.Mixer;
-import javax.sound.sampled.SourceDataLine;
+import javax.sound.sampled.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-/**
- * A utility class responsible solely for discovering available audio output devices.
- * This adheres to the Single Responsibility Principle by separating device discovery
- * from device management and playback.
- */
-public class AudioDeviceDiscoverer {
+public final class AudioDeviceDiscoverer {
 
-    /**
-     * Discovers and returns a list of names of available audio output devices.
-     * A device is considered an "output device" if it supports a SourceDataLine.
-     * @return A List of String containing the names of available output devices.
-     */
+    private AudioDeviceDiscoverer() {
+        throw new UnsupportedOperationException("AudioDeviceDiscoverer is a utility class.");
+    }
+
     public static List<String> discoverOutputDevices() {
-        List<String> deviceNames = new ArrayList<>();
         Mixer.Info[] mixerInfos = AudioSystem.getMixerInfo();
+        if (mixerInfos == null || mixerInfos.length == 0) {
+            Logger.warn("No mixers found in system.");
+            return Collections.emptyList();
+        }
+
+        List<String> outputDevices = new ArrayList<>();
 
         for (Mixer.Info info : mixerInfos) {
-            Mixer mixer = AudioSystem.getMixer(info);
-
-            try {
-                if (mixer.isLineSupported(new Line.Info(SourceDataLine.class))) {
-                    deviceNames.add(info.getName());
-                }
-            } catch (IllegalArgumentException e) {
-                // This can happen if the Line.Info is not properly constructed or supported
-                Logger.warn("Mixer " + info.getName() + " does not support SourceDataLine as expected: " + e.getMessage());
+            if (isOutputDevice(info)) {
+                outputDevices.add(info.getName());
             }
         }
 
-        if (deviceNames.isEmpty()) {
+        logDiscoverySummary(outputDevices);
+        return outputDevices;
+    }
+
+    private static boolean isOutputDevice(Mixer.Info mixerInfo) {
+        try {
+            Mixer mixer = AudioSystem.getMixer(mixerInfo);
+            return mixer.isLineSupported(new Line.Info(SourceDataLine.class));
+        } catch (IllegalArgumentException e) {
+            Logger.warn("Mixer '" + mixerInfo.getName() + "' does not support SourceDataLine: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private static void logDiscoverySummary(List<String> devices) {
+        if (devices.isEmpty()) {
             Logger.warn("No audio output devices found.");
         } else {
-            Logger.info("Found " + deviceNames.size() + " audio output devices.");
+            Logger.info("Discovered " + devices.size() + " audio output device(s).");
         }
-
-        return deviceNames;
     }
 }
