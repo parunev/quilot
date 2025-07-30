@@ -18,16 +18,13 @@ import javax.sound.sampled.AudioFormat;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
-/**
- * Concrete implementation of ISpeechToTextService for Google Cloud Speech-to-Text.
- * This class handles live-streaming audio transcription using the StreamingRecognize API.
- */
 @Getter
 public class GoogleCloudSpeechToTextService implements SpeechToTextService, AudioInputService.AudioDataListener {
 
@@ -41,11 +38,6 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
     private final AtomicBoolean isStreamingActive = new AtomicBoolean(false);
     private ScheduledExecutorService executorService;
 
-    /**
-     * Constructor for GoogleCloudSpeechToTextService.
-     * @param initialCredentialPath The initial absolute path to the Google Cloud service account JSON key file (can be empty).
-     * @param settingsManager The manager for STT recognition configuration settings.
-     */
     public GoogleCloudSpeechToTextService(String initialCredentialPath, ISpeechToTextSettingsManager settingsManager) {
         this.credentialPath = initialCredentialPath;
         this.settingsManager = settingsManager;
@@ -53,10 +45,6 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         initializeClient();
     }
 
-    /**
-     * Attempts to initialize the Google Cloud SpeechClient.
-     * This method should be called when the credential path is set or updated.
-     */
     private void initializeClient() {
         if (credentialPath == null || credentialPath.isEmpty()) {
             Logger.warn("Google Cloud credential path is not set. SpeechClient cannot be initialized.");
@@ -64,10 +52,12 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
             return;
         }
 
+        if (speechClient != null && isClientInitialized) return;
+
         closeClient();
 
-        try {
-            GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream(credentialPath));
+        try (FileInputStream credentialsStream = new FileInputStream(credentialPath)) {
+            GoogleCredentials credentials = GoogleCredentials.fromStream(credentialsStream);
             CredentialsProvider credentialsProvider = FixedCredentialsProvider.create(credentials);
 
             SpeechSettings speechSettings = SpeechSettings.newBuilder()
@@ -81,17 +71,13 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
             Logger.error("Failed to create Google Cloud SpeechClient from credentials: " + e.getMessage());
             isClientInitialized = false;
         } catch (Exception e) {
-            Logger.error("An unexpected error occurred during SpeechClient initialization: " + e.getMessage());
+            Logger.error("Unexpected error during SpeechClient initialization: " + e.getMessage());
             isClientInitialized = false;
         }
     }
 
-    /**
-     * Sets a new credential path and attempts to re-initialize the client.
-     * This method is public so it can be called from the CredentialsDialog.
-     * @param newCredentialPath The new path to the JSON key file.
-     */
     public void setCredentialPath(String newCredentialPath) {
+        if (Objects.equals(this.credentialPath, newCredentialPath)) return;
         this.credentialPath = newCredentialPath;
         Logger.info("Updating Google Cloud credential path to: " + newCredentialPath);
         initializeClient();
@@ -100,7 +86,7 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
     @Override
     public boolean startStreamingRecognition(AudioFormat audioFormat, StreamingRecognitionListener listener) {
         if (!isClientInitialized || speechClient == null) {
-            Logger.error("Google Cloud SpeechClient is not initialized. Cannot start streaming recognition.");
+            Logger.error("Google Cloud SpeechClient not initialized. Cannot start streaming recognition.");
             if (listener != null) listener.onTranscriptionError("[STT Client Not Initialized. Please set credentials.]");
             return false;
         }
@@ -121,31 +107,7 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
 
         try {
             RecognitionConfigSettings currentSettings = settingsManager.loadSettings();
-
-            RecognitionConfig.AudioEncoding encoding = RecognitionConfig.AudioEncoding.LINEAR16;
-            if (audioFormat.getEncoding() == AudioFormat.Encoding.ULAW) {
-                encoding = RecognitionConfig.AudioEncoding.MULAW;
-            }
-
-            RecognitionConfig.Builder recognitionConfigBuilder = RecognitionConfig.newBuilder()
-                    .setEncoding(encoding)
-                    .setSampleRateHertz((int) audioFormat.getSampleRate())
-                    .setLanguageCode(currentSettings.getLanguageCode())
-                    .setEnableAutomaticPunctuation(currentSettings.isEnableAutomaticPunctuation())
-                    .setEnableWordTimeOffsets(currentSettings.isEnableWordTimeOffsets())
-                    .setModel(currentSettings.getModel());
-
-            List<SpeechContext> speechContexts = currentSettings.getSpeechContextsAsList().stream()
-                    .map(phrase -> SpeechContext.newBuilder().addPhrases(phrase).build())
-                    .collect(Collectors.toList());
-            recognitionConfigBuilder.addAllSpeechContexts(speechContexts);
-
-
-            StreamingRecognitionConfig streamingConfig = StreamingRecognitionConfig.newBuilder()
-                    .setConfig(recognitionConfigBuilder.build())
-                    .setInterimResults(currentSettings.isInterimTranscription())
-                    .setSingleUtterance(currentSettings.isEnableSingleUtterance())
-                    .build();
+            StreamingRecognitionConfig streamingConfig = buildStreamingConfig(audioFormat, currentSettings);
 
             ResponseObserver<StreamingRecognizeResponse> responseObserver = new ResponseObserver<>() {
                 @Override
@@ -155,24 +117,13 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
 
                 @Override
                 public void onResponse(StreamingRecognizeResponse response) {
-                    if (streamingRecognitionListener != null) {
-                        if (response.getResultsList().isEmpty()) {
-                            // This can happen for interim responses with no speech yet
-                            return;
-                        }
-
-                        // Get the first result
+                    if (streamingRecognitionListener != null && !response.getResultsList().isEmpty()) {
                         StreamingRecognitionResult result = response.getResultsList().getFirst();
-                        if (result.getAlternativesList().isEmpty()) return;
-
-                        // Get the first alternative (most likely transcription)
-                        SpeechRecognitionAlternative alternative = result.getAlternativesList().getFirst();
-
-                        String transcription = alternative.getTranscript();
-                        boolean isFinal = result.getIsFinal();
-
-                        streamingRecognitionListener.onTranscriptionResult(transcription, isFinal);
-                        Logger.info(String.format("Streaming STT Result: \"%s\" (Final: %b)", transcription, isFinal));
+                        if (!result.getAlternativesList().isEmpty()) {
+                            String transcription = result.getAlternativesList().getFirst().getTranscript();
+                            streamingRecognitionListener.onTranscriptionResult(transcription, result.getIsFinal());
+                            Logger.info(String.format("Streaming STT Result: \"%s\" (Final: %b)", transcription, result.getIsFinal()));
+                        }
                     }
                 }
 
@@ -182,7 +133,7 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
                     Logger.error("Streaming recognition error: " + t.getMessage());
                     if (streamingRecognitionListener != null)
                         streamingRecognitionListener.onTranscriptionError(t.getMessage());
-                    closeClientStream(); // Ensure stream is closed on error
+                    closeClientStream();
                 }
 
                 @Override
@@ -191,26 +142,21 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
                     Logger.info("Streaming recognition completed.");
                     if (streamingRecognitionListener != null)
                         streamingRecognitionListener.onStreamClosed();
-                    closeClientStream(); // Ensure stream is closed on completion
+                    closeClientStream();
                 }
             };
 
-            // Start the bidirectional stream
             clientStream = speechClient.streamingRecognizeCallable().splitCall(responseObserver);
-
-            // Send the first request with the streaming config
             clientStream.send(StreamingRecognizeRequest.newBuilder().setStreamingConfig(streamingConfig).build());
-            Logger.info("Streaming recognition session started successfully.");
 
-            // Schedule a task to send empty audio data or close stream if inactive
-            // This is a workaround for some streaming APIs that might time out without continuous data
             executorService = Executors.newSingleThreadScheduledExecutor();
             executorService.scheduleAtFixedRate(() -> {
                 if (isStreamingActive.get() && clientStream != null) {
                     clientStream.send(StreamingRecognizeRequest.newBuilder().setAudioContent(ByteString.EMPTY).build());
                 }
-            }, 30, 30, TimeUnit.SECONDS); // Send every 30 seconds
+            }, 30, 30, TimeUnit.SECONDS);
 
+            Logger.info("Streaming recognition session started successfully.");
             return true;
         } catch (Exception e) {
             isStreamingActive.set(false);
@@ -219,6 +165,32 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
             closeClientStream();
             return false;
         }
+    }
+
+    private StreamingRecognitionConfig buildStreamingConfig(AudioFormat audioFormat, RecognitionConfigSettings settings) {
+        RecognitionConfig.AudioEncoding encoding = RecognitionConfig.AudioEncoding.LINEAR16;
+        if (audioFormat.getEncoding() == AudioFormat.Encoding.ULAW) {
+            encoding = RecognitionConfig.AudioEncoding.MULAW;
+        }
+
+        RecognitionConfig.Builder configBuilder = RecognitionConfig.newBuilder()
+                .setEncoding(encoding)
+                .setSampleRateHertz((int) audioFormat.getSampleRate())
+                .setLanguageCode(settings.getLanguageCode())
+                .setEnableAutomaticPunctuation(settings.isEnableAutomaticPunctuation())
+                .setEnableWordTimeOffsets(settings.isEnableWordTimeOffsets())
+                .setModel(settings.getModel());
+
+        List<SpeechContext> contexts = settings.getSpeechContextsAsList().stream()
+                .map(phrase -> SpeechContext.newBuilder().addPhrases(phrase).build())
+                .collect(Collectors.toList());
+        configBuilder.addAllSpeechContexts(contexts);
+
+        return StreamingRecognitionConfig.newBuilder()
+                .setConfig(configBuilder.build())
+                .setInterimResults(settings.isInterimTranscription())
+                .setSingleUtterance(settings.isEnableSingleUtterance())
+                .build();
     }
 
     @Override
@@ -233,13 +205,10 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         return true;
     }
 
-    /**
-     * Closes the gRPC client stream and shuts down the executor service.
-     */
     private void closeClientStream() {
         if (clientStream != null) {
             try {
-                clientStream.closeSend(); // Signal end of client stream
+                clientStream.closeSend();
             } catch (Exception e) {
                 Logger.error("Error closing client stream send: " + e.getMessage());
             }
@@ -252,17 +221,30 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
     }
 
     @Override
+    public void onAudioDataCaptured(byte[] audioData, int bytesRead) {
+        if (isStreamingActive.get() && clientStream != null) {
+            try {
+                clientStream.send(StreamingRecognizeRequest.newBuilder()
+                        .setAudioContent(ByteString.copyFrom(audioData, 0, bytesRead))
+                        .build());
+            } catch (Exception e) {
+                Logger.error("Error sending audio data to STT stream: " + e.getMessage());
+                if (streamingRecognitionListener != null)
+                    streamingRecognitionListener.onTranscriptionError("Audio stream error: " + e.getMessage());
+                stopStreamingRecognition();
+            }
+        }
+    }
+
+    @Override
     public boolean testCredentials() {
         Logger.info("Attempting to test Google Cloud SpeechClient credentials...");
         initializeClient();
         return isClientInitialized && speechClient != null;
     }
 
-    /**
-     * Closes the Google Cloud SpeechClient permanently.
-     */
     public void closeClient() {
-        stopStreamingRecognition(); // Ensure streaming is stopped first
+        stopStreamingRecognition();
         if (speechClient != null) {
             try {
                 speechClient.close();
@@ -273,21 +255,5 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         }
         isClientInitialized = false;
         speechClient = null;
-    }
-
-    @Override
-    public void onAudioDataCaptured(byte[] audioData, int bytesRead) {
-        if (isStreamingActive.get() && clientStream != null) {
-            try {
-                clientStream.send(StreamingRecognizeRequest.newBuilder()
-                        .setAudioContent(ByteString.copyFrom(audioData, 0, bytesRead))
-                        .build());
-                // Logger.info("Sent " + bytesRead + " bytes to STT stream."); // Too verbose, uncomment for deep debug
-            } catch (Exception e) {
-                Logger.error("Error sending audio data to STT stream: " + e.getMessage());
-                if (streamingRecognitionListener != null) streamingRecognitionListener.onTranscriptionError("Audio stream error: " + e.getMessage());
-                stopStreamingRecognition();
-            }
-        }
     }
 }
