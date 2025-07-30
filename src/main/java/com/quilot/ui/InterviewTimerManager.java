@@ -15,72 +15,66 @@ import java.time.format.DateTimeFormatter;
 @Getter
 public class InterviewTimerManager {
 
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+    private static final String CURRENT_TIME_PREFIX = "Current Time: ";
+    private static final String ELAPSED_TIME_PREFIX = "Elapsed: ";
+
     private final JLabel currentTimeLabel;
     private final JLabel elapsedTimeLabel;
 
-    private Timer currentTimeUpdateTimer;
-    private Timer elapsedTimeUpdateTimer;
+    private Timer currentTimeTimer;
+    private Timer elapsedTimeTimer;
     private long interviewStartTimeMillis;
 
-    /**
-     * Initializes the time display labels and starts the current time timer.
-     */
     public InterviewTimerManager() {
-        this.currentTimeLabel = new JLabel("Current Time: --:--:--");
-        this.elapsedTimeLabel = new JLabel("Elapsed: 00:00:00");
-        startCurrentTimeTimer(); // Start updating current time immediately
+        currentTimeLabel = new JLabel(CURRENT_TIME_PREFIX + "--:--:--");
+        elapsedTimeLabel = new JLabel(ELAPSED_TIME_PREFIX + "00:00:00");
+        startCurrentTimeTimer();
     }
 
-    /**
-     * Starts a timer to update the current time label every second.
-     */
     private void startCurrentTimeTimer() {
-        currentTimeUpdateTimer = new Timer(1000, _ -> {
-            // Update current time label
-            String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            currentTimeLabel.setText("Current Time: " + time);
-        });
-
-        currentTimeUpdateTimer.start();
+        currentTimeTimer = new Timer(1000, _ ->
+                currentTimeLabel.setText(CURRENT_TIME_PREFIX + LocalDateTime.now().format(TIME_FORMATTER))
+        );
+        currentTimeTimer.start();
         Logger.info("Current time update timer started.");
     }
 
     /**
-     * Starts the elapsed time timer.
-     * This method should be called when the interview begins.
+     * Starts the elapsed interview timer.
+     * Records the start time and updates elapsed time every second.
      */
     public void startInterviewTimer() {
         interviewStartTimeMillis = System.currentTimeMillis();
 
-        if (elapsedTimeUpdateTimer != null) {
-            elapsedTimeUpdateTimer.stop(); // Stop any existing timer first
+        if (elapsedTimeTimer != null && elapsedTimeTimer.isRunning()) {
+            elapsedTimeTimer.stop();
         }
 
-        elapsedTimeUpdateTimer = new Timer(1000, _ -> {
-            long elapsedMillis = System.currentTimeMillis() - interviewStartTimeMillis;
-            Duration duration = Duration.ofMillis(elapsedMillis);
-
-            long hours = duration.toHours();
-            long minutes = duration.toMinutes() % 60;
-            long seconds = duration.getSeconds() % 60;
-
-            String formattedTime = String.format("%02d:%02d:%02d", hours, minutes, seconds);
-            elapsedTimeLabel.setText("Elapsed: " + formattedTime);
-        });
-
-        elapsedTimeUpdateTimer.start();
+        elapsedTimeTimer = new Timer(1000, _ -> updateElapsedTimeLabel());
+        elapsedTimeTimer.start();
         Logger.info("Elapsed time timer started for interview.");
     }
 
+    private void updateElapsedTimeLabel() {
+        Duration elapsed = Duration.ofMillis(System.currentTimeMillis() - interviewStartTimeMillis);
+        long hours = elapsed.toHours();
+        long minutes = elapsed.toMinutesPart();
+        long seconds = elapsed.toSecondsPart();
+
+        String formattedElapsed = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        elapsedTimeLabel.setText(ELAPSED_TIME_PREFIX + formattedElapsed);
+    }
+
     /**
-     * Stops the elapsed time timer and resets the elapsed time label.
-     * This method should be called when the interview ends.
+     * Stops the elapsed interview timer and resets the elapsed time display.
      */
     public void stopInterviewTimer() {
-        if (elapsedTimeUpdateTimer != null) {
-            elapsedTimeUpdateTimer.stop();
+        if (elapsedTimeTimer != null && elapsedTimeTimer.isRunning()) {
+            elapsedTimeTimer.stop();
             Logger.info("Elapsed time timer stopped.");
         }
-        elapsedTimeLabel.setText("Elapsed: 00:00:00");
+        elapsedTimeLabel.setText(ELAPSED_TIME_PREFIX + "00:00:00");
     }
+
 }

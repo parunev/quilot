@@ -25,13 +25,9 @@ public class UIBuilder {
     private final AIResponsePanelBuilder aiResponsePanelBuilder;
     private final LogPanelBuilder logPanelBuilder;
 
-    /**
-     * Initializes all the specific panel builders.
-     * @param audioOutputService The service for audio output.
-     * @param audioInputService The service for audio input.
-     * @param timerManager The manager for interview timers.
-     */
-    public UIBuilder(AudioOutputService audioOutputService, AudioInputService audioInputService, InterviewTimerManager timerManager) {
+    public UIBuilder(AudioOutputService audioOutputService,
+                     AudioInputService audioInputService,
+                     InterviewTimerManager timerManager) {
         this.buttonPanelBuilder = new ButtonPanelBuilder();
         this.audioOutputSettingsPanelBuilder = new AudioOutputSettingsPanelBuilder(audioOutputService);
         this.audioInputSettingsPanelBuilder = new AudioInputSettingsPanelBuilder(audioInputService);
@@ -41,49 +37,53 @@ public class UIBuilder {
     }
 
     /**
+     * Adds a component to the main panel with specified GridBagConstraints parameters.
+     */
+    private void addComponent(JPanel panel, Component comp, int x, int y,
+                              int gridWidth, double weightX, double weightY) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = x;
+        gbc.gridy = y;
+        gbc.gridwidth = gridWidth;
+        gbc.weightx = weightX;
+        gbc.weighty = weightY;
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.fill = GridBagConstraints.BOTH;
+        panel.add(comp, gbc);
+    }
+
+    /**
      * Sets up the layout of the UI components on the main panel.
-     * This method orchestrates the building of individual panels using their respective builders.
      * @param mainPanel The JPanel to which components will be added.
      */
     public void setupLayout(JPanel mainPanel) {
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add some padding
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // Padding between components
-        gbc.fill = GridBagConstraints.BOTH; // Components fill their display area
+        // Row 0: Main Interview Control Buttons (full width)
+        addComponent(mainPanel, buttonPanelBuilder.build(), 0, 0, 2, 1.0, 0);
 
-        // Row 0: Main Interview Control Buttons
-        gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2; gbc.weightx = 1.0;
-        mainPanel.add(buttonPanelBuilder.build(), gbc);
+        // Row 1: Audio Output and Input Settings Panels side-by-side
+        addComponent(mainPanel, audioOutputSettingsPanelBuilder.build(), 0, 1, 1, 0.5, 0.1);
+        addComponent(mainPanel, audioInputSettingsPanelBuilder.build(), 1, 1, 1, 0.5, 0.1);
 
-        // Row 1: Audio Output and Input Settings Panels (side-by-side)
-        gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.1;
-        mainPanel.add(audioOutputSettingsPanelBuilder.build(), gbc);
+        // Row 2: Transcribed Audio and AI Response Panels side-by-side
+        addComponent(mainPanel, transcribedAudioPanelBuilder.build(), 0, 2, 1, 0.5, 0.4);
+        addComponent(mainPanel, aiResponsePanelBuilder.build(), 1, 2, 1, 0.5, 0.4);
 
-        gbc.gridx = 1; gbc.gridy = 1; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.1;
-        mainPanel.add(audioInputSettingsPanelBuilder.build(), gbc);
-
-        // Row 2: Transcribed Audio and AI Response Panels (side-by-side)
-        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.4;
-        mainPanel.add(transcribedAudioPanelBuilder.build(), gbc);
-
-        gbc.gridx = 1; gbc.gridy = 2; gbc.gridwidth = 1; gbc.weightx = 0.5; gbc.weighty = 0.4;
-        mainPanel.add(aiResponsePanelBuilder.build(), gbc);
-
-        // Row 3: Application Logs Panel
-        gbc.gridx = 0; gbc.gridy = 3; gbc.gridwidth = 2; gbc.weightx = 1.0; gbc.weighty = 0.2;
-        mainPanel.add(logPanelBuilder.build(), gbc);
+        // Row 3: Application Logs Panel (full width)
+        addComponent(mainPanel, logPanelBuilder.build(), 0, 3, 2, 1.0, 0.2);
     }
 
-    // Getters for all individual UI components, delegated from their respective builders
+    // Getters for Buttons (ButtonPanel)
     public JButton getStartButton() { return buttonPanelBuilder.getStartButton(); }
     public JButton getStopButton() { return buttonPanelBuilder.getStopButton(); }
-    public JTextArea getTranscribedAudioArea() { return transcribedAudioPanelBuilder.getTranscribedAudioArea(); }
-    public JTextArea getAiResponseArea() { return aiResponsePanelBuilder.getAiResponseArea(); }
-    public JTextArea getLogArea() { return logPanelBuilder.getLogArea(); }
+
+    // Getters for Audio Output Settings Panel
     public JComboBox<String> getOutputDeviceComboBox() { return audioOutputSettingsPanelBuilder.getOutputDeviceComboBox(); }
     public JSlider getVolumeSlider() { return audioOutputSettingsPanelBuilder.getVolumeSlider(); }
     public JButton getTestVolumeButton() { return audioOutputSettingsPanelBuilder.getTestVolumeButton(); }
+
+    // Getters for Audio Input Settings Panel
     public JComboBox<String> getInputDeviceComboBox() { return audioInputSettingsPanelBuilder.getInputDeviceComboBox(); }
     public JButton getStartInputRecordingButton() { return audioInputSettingsPanelBuilder.getStartInputRecordingButton(); }
     public JButton getStopInputRecordingButton() { return audioInputSettingsPanelBuilder.getStopInputRecordingButton(); }
@@ -92,4 +92,11 @@ public class UIBuilder {
     public JButton getCredentialsButton() { return audioInputSettingsPanelBuilder.getCredentialsButton(); }
     public JButton getGoogleCloudSetupGuideButton() { return audioInputSettingsPanelBuilder.getGoogleCloudSetupGuideButton(); }
     public JButton getSttSettingsButton() { return audioInputSettingsPanelBuilder.getSttSettingsButton(); }
+
+    // Getters for Transcribed Audio and AI Response Panels
+    public JTextArea getTranscribedAudioArea() { return transcribedAudioPanelBuilder.getTranscribedAudioArea(); }
+    public JTextArea getAiResponseArea() { return aiResponsePanelBuilder.getResponseTextArea(); }
+
+    // Getter for Log Panel
+    public JTextArea getLogArea() { return logPanelBuilder.getLogArea(); }
 }

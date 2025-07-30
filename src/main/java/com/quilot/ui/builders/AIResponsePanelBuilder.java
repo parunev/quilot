@@ -9,27 +9,33 @@ import java.awt.*;
  * Builds the panel for AI Response display.
  */
 @Getter
-public class AIResponsePanelBuilder implements ComponentPanelBuilder{
+public class AIResponsePanelBuilder implements ComponentPanelBuilder {
 
-    private final JTextArea aiResponseArea;
+    private final JTextArea responseTextArea;
 
     public AIResponsePanelBuilder() {
-        this.aiResponseArea = new JTextArea(10, 40);
-        setupComponentProperties();
+        this.responseTextArea = createResponseTextArea();
     }
 
-    private void setupComponentProperties() {
-        aiResponseArea.setEditable(false);
-        aiResponseArea.setLineWrap(true);
-        aiResponseArea.setWrapStyleWord(true);
+    private JTextArea createResponseTextArea() {
+        JTextArea textArea = new JTextArea(10, 40);
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        return textArea;
     }
 
     @Override
     public JPanel build() {
         JPanel panel = new JPanel(new BorderLayout());
-        panel.add(new JLabel("AI Response (Your Answer):", SwingConstants.LEFT), BorderLayout.NORTH);
-        panel.add(new JScrollPane(aiResponseArea), BorderLayout.CENTER);
         panel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
+
+        JLabel titleLabel = new JLabel("AI Response (Your Answer):", SwingConstants.LEFT);
+        JScrollPane scrollPane = new JScrollPane(responseTextArea);
+
+        panel.add(titleLabel, BorderLayout.NORTH);
+        panel.add(scrollPane, BorderLayout.CENTER);
+
         return panel;
     }
 }

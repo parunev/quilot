@@ -12,7 +12,7 @@ import java.util.List;
  * Builds the panel for Audio Input Settings.
  */
 @Getter
-public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
+public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
 
     private final JComboBox<String> inputDeviceComboBox;
     private final JButton startInputRecordingButton;
@@ -27,79 +27,97 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder{
 
     public AudioInputSettingsPanelBuilder(AudioInputService audioInputService) {
         this.audioInputService = audioInputService;
-        this.inputDeviceComboBox = new JComboBox<>();
-        this.startInputRecordingButton = new JButton("Start Input Capture");
-        this.stopInputRecordingButton = new JButton("Stop Input Capture");
-        this.playRecordedInputButton = new JButton("Play Recorded Input");
-        this.setupGuideButton = new JButton("Setup Guide (macOS)");
-        this.credentialsButton = new JButton("STT Credentials");
-        this.googleCloudSetupGuideButton = new JButton("Google Cloud Setup Guide");
-        this.sttSettingsButton = new JButton("STT Settings");
 
-        setupComponentProperties();
+        inputDeviceComboBox = new JComboBox<>();
+        startInputRecordingButton = new JButton("Start Input Capture");
+        stopInputRecordingButton = new JButton("Stop Input Capture");
+        playRecordedInputButton = new JButton("Play Recorded Input");
+        setupGuideButton = new JButton("Setup Guide (macOS)");
+        credentialsButton = new JButton("STT Credentials");
+        googleCloudSetupGuideButton = new JButton("Google Cloud Setup Guide");
+        sttSettingsButton = new JButton("STT Settings");
+
+        configureInitialButtonStates();
+        populateInputDevices();
     }
 
-    private void setupComponentProperties() {
-        stopInputRecordingButton.setEnabled(false); // Disable stop input button initially
-        playRecordedInputButton.setEnabled(false); // Disable play recorded input button initially
+    private void configureInitialButtonStates() {
+        stopInputRecordingButton.setEnabled(false);
+        playRecordedInputButton.setEnabled(false);
+    }
+
+    private void populateInputDevices() {
+        List<String> devices = audioInputService.getAvailableInputDevices();
+        Logger.info("Available Input Devices detected by SystemAudioInputService: " + devices);
+
+        if (devices.isEmpty()) {
+            inputDeviceComboBox.addItem("No Devices Found");
+            inputDeviceComboBox.setEnabled(false);
+            startInputRecordingButton.setEnabled(false);
+            stopInputRecordingButton.setEnabled(false);
+            playRecordedInputButton.setEnabled(false);
+        } else {
+            devices.forEach(inputDeviceComboBox::addItem);
+            inputDeviceComboBox.setSelectedIndex(0);
+            audioInputService.selectInputDevice(devices.getFirst());
+        }
     }
 
     @Override
     public JPanel build() {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBorder(BorderFactory.createTitledBorder("Audio Input Settings (Interviewer Voice Transcription)"));
+        GridBagConstraints gbc = createDefaultGbc();
+
+        addInputDeviceRow(panel, gbc);
+        addRecordingButtonsRow(panel, gbc);
+        addHelpButtonsRow(panel, gbc);
+
+        return panel;
+    }
+
+    private GridBagConstraints createDefaultGbc() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(2, 5, 2, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.weightx = 0;
+        return gbc;
+    }
 
+    private void addInputDeviceRow(JPanel panel, GridBagConstraints gbc) {
         panel.add(new JLabel("Input Device:"), gbc);
 
         gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.weightx = 1.0;
-
-        List<String> inputDevices = audioInputService.getAvailableInputDevices();
-        Logger.info("Available Input Devices detected by SystemAudioInputService: " + inputDevices);
-
-        for (String device : inputDevices) {
-            inputDeviceComboBox.addItem(device);
-        }
-
-        if (!inputDevices.isEmpty()) {
-            inputDeviceComboBox.setSelectedIndex(0);
-            audioInputService.selectInputDevice(inputDevices.getFirst());
-        } else {
-            inputDeviceComboBox.addItem("No Devices Found");
-            inputDeviceComboBox.setEnabled(false);
-            startInputRecordingButton.setEnabled(false);
-            stopInputRecordingButton.setEnabled(false);
-            playRecordedInputButton.setEnabled(false);
-        }
-
         panel.add(inputDeviceComboBox, gbc);
+    }
 
+    private void addRecordingButtonsRow(JPanel panel, GridBagConstraints gbc) {
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy++;
         gbc.gridwidth = 2;
-        JPanel inputButtonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
 
-        inputButtonsPanel.add(startInputRecordingButton);
-        inputButtonsPanel.add(stopInputRecordingButton);
-        inputButtonsPanel.add(playRecordedInputButton);
-        panel.add(inputButtonsPanel, gbc);
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+        buttonPanel.add(startInputRecordingButton);
+        buttonPanel.add(stopInputRecordingButton);
+        buttonPanel.add(playRecordedInputButton);
 
-        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2; gbc.anchor = GridBagConstraints.CENTER; gbc.fill = GridBagConstraints.NONE;
-        JPanel helpButtonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
-        helpButtonsPanel.add(setupGuideButton);
-        helpButtonsPanel.add(credentialsButton);
-        helpButtonsPanel.add(googleCloudSetupGuideButton);
-        helpButtonsPanel.add(sttSettingsButton);
-        panel.add(helpButtonsPanel, gbc);
+        panel.add(buttonPanel, gbc);
+    }
 
-        return panel;
+    private void addHelpButtonsRow(JPanel panel, GridBagConstraints gbc) {
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.NONE;
+
+        JPanel helpPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+        helpPanel.add(setupGuideButton);
+        helpPanel.add(credentialsButton);
+        helpPanel.add(googleCloudSetupGuideButton);
+        helpPanel.add(sttSettingsButton);
+
+        panel.add(helpPanel, gbc);
     }
 }

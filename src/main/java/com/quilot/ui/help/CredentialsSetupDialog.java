@@ -5,6 +5,7 @@ import com.quilot.utils.CredentialManager;
 import com.quilot.utils.Logger;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 
@@ -17,10 +18,10 @@ public class CredentialsSetupDialog extends JDialog {
 
     private final CredentialManager credentialManager;
     private final GoogleCloudSpeechToTextService speechToTextService;
-    private final JFrame ownerFrame; // Reference to the main frame for centering
+    private final JFrame ownerFrame;
 
     public CredentialsSetupDialog(JFrame owner, CredentialManager credentialManager, GoogleCloudSpeechToTextService speechToTextService) {
-        super(owner, "Google Cloud STT Credentials", true); // Modal dialog
+        super(owner, "Google Cloud STT Credentials", true);
         this.ownerFrame = owner;
         this.credentialManager = credentialManager;
         this.speechToTextService = speechToTextService;
@@ -40,90 +41,93 @@ public class CredentialsSetupDialog extends JDialog {
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Label for path
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         add(new JLabel("Service Account Key Path:"), gbc);
 
-        // Text field for path
-        gbc.gridx = 1; gbc.gridy = 0; gbc.weightx = 1.0;
+        gbc.gridx = 1;
+        gbc.weightx = 1.0;
         add(credentialPathField, gbc);
 
-        // Browse button
-        gbc.gridx = 2; gbc.gridy = 0; gbc.weightx = 0;
+        gbc.gridx = 2;
+        gbc.weightx = 0;
         add(browseButton, gbc);
 
-        // Buttons panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         buttonPanel.add(saveButton);
         buttonPanel.add(testButton);
 
-        gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 3;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 3;
         add(buttonPanel, gbc);
 
-        pack(); // Adjusts dialog size to fit components
-        setLocationRelativeTo(ownerFrame); // Center relative to the main frame
+        pack();
+        setLocationRelativeTo(ownerFrame);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     private void addListeners() {
-        browseButton.addActionListener(_ -> {
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setDialogTitle("Select Google Cloud Service Account JSON Key File");
-            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            fileChooser.setAcceptAllFileFilterUsed(false);
-            fileChooser.addChoosableFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("JSON Key Files", "json"));
+        browseButton.addActionListener(_ -> openFileChooser());
+        saveButton.addActionListener(_ -> saveCredentials());
+        testButton.addActionListener(_ -> testCredentials());
+    }
 
-            int returnValue = fileChooser.showOpenDialog(this);
-            if (returnValue == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
-                credentialPathField.setText(selectedFile.getAbsolutePath());
-                Logger.info("Selected credential file: " + selectedFile.getAbsolutePath());
-            }
-        });
+    private void openFileChooser() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Select Google Cloud Service Account JSON Key File");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON Key Files", "json"));
 
-        saveButton.addActionListener(_ -> {
-            String path = credentialPathField.getText().trim();
-            if (path.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Credential path cannot be empty.", "Save Error", JOptionPane.ERROR_MESSAGE);
-                Logger.warn("Attempted to save empty credential path.");
+        int result = fileChooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            credentialPathField.setText(selectedFile.getAbsolutePath());
+            Logger.info("Selected credential file: " + selectedFile.getAbsolutePath());
+        }
+    }
+
+    private void saveCredentials() {
+        String path = credentialPathField.getText().trim();
+        if (path.isEmpty()) {
+            showMessage("Credential path cannot be empty.", "Save Error", JOptionPane.ERROR_MESSAGE);
+            Logger.warn("Attempted to save empty credential path.");
+            return;
+        }
+
+        credentialManager.saveGoogleCloudCredentialPath(path);
+        speechToTextService.setCredentialPath(path);
+        showMessage("Credential path saved successfully.", "Save Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void testCredentials() {
+        Logger.info("Testing Google Cloud STT credentials...");
+        try {
+            speechToTextService.setCredentialPath(credentialPathField.getText().trim());
+            boolean success = speechToTextService.testCredentials();
+
+            if (success) {
+                showMessage("Credentials test successful! SpeechClient initialized.", "Test Result", JOptionPane.INFORMATION_MESSAGE);
+                Logger.info("Credentials test successful.");
             } else {
-                credentialManager.saveGoogleCloudCredentialPath(path);
-                speechToTextService.setCredentialPath(path); // Update the STT service with new path
-                JOptionPane.showMessageDialog(this, "Credential path saved successfully.", "Save Success", JOptionPane.INFORMATION_MESSAGE);
+                String errorMsg = "Credentials test failed. Check logs for details (e.g., invalid path, network issues).";
+                showMessage(errorMsg, "Test Result", JOptionPane.ERROR_MESSAGE);
+                Logger.error(errorMsg);
             }
-        });
-
-        testButton.addActionListener(_ -> {
-            Logger.info("Testing Google Cloud STT credentials...");
-            String testResult;
-            try {
-                // Ensure the STT service is initialized with the current path from the text field
-                // This call to setCredentialPath will trigger initializeClient() inside the service
-                speechToTextService.setCredentialPath(credentialPathField.getText().trim());
-
-                // Now, call the testCredentials method on the service
-                boolean success = speechToTextService.testCredentials();
-
-                if (success) {
-                    testResult = "Credentials test successful! SpeechClient initialized.";
-                    Logger.info(testResult);
-                    JOptionPane.showMessageDialog(this, testResult, "Test Result", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    testResult = "Credentials test failed. Check logs for details (e.g., invalid path, network issues).";
-                    Logger.error(testResult);
-                    JOptionPane.showMessageDialog(this, testResult, "Test Result", JOptionPane.ERROR_MESSAGE);
-                }
-
-            } catch (Exception ex) {
-                testResult = "Credentials test failed unexpectedly: " + ex.getMessage();
-                Logger.error(testResult);
-                JOptionPane.showMessageDialog(this, testResult, "Test Result", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+        } catch (Exception ex) {
+            String errorMsg = "Credentials test failed unexpectedly: " + ex.getMessage();
+            showMessage(errorMsg, "Test Result", JOptionPane.ERROR_MESSAGE);
+            Logger.error(errorMsg);
+        }
     }
 
     private void loadSavedCredentialPath() {
         String savedPath = credentialManager.loadGoogleCloudCredentialPath();
         credentialPathField.setText(savedPath);
+    }
+
+    private void showMessage(String message, String title, int messageType) {
+        JOptionPane.showMessageDialog(this, message, title, messageType);
     }
 }

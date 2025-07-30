@@ -9,15 +9,20 @@ import java.awt.*;
  * Builds the panel containing the main Start/Stop Interview buttons.
  */
 @Getter
-public class ButtonPanelBuilder implements ComponentPanelBuilder{
+public class ButtonPanelBuilder implements ComponentPanelBuilder {
 
     private final JButton startButton;
     private final JButton stopButton;
 
     public ButtonPanelBuilder() {
-        this.startButton = new JButton("Start Interview");
-        this.stopButton = new JButton("Stop Interview");
-        this.stopButton.setEnabled(false); // Disable stop button initially
+        this.startButton = createButton("Start Interview", true);
+        this.stopButton = createButton("Stop Interview", false);
+    }
+
+    private JButton createButton(String text, boolean enabled) {
+        JButton button = new JButton(text);
+        button.setEnabled(enabled);
+        return button;
     }
 
     @Override

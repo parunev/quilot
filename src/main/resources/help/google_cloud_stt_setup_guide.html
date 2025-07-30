@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Google Cloud Speech-to-Text API Setup Guide</title>
+</head>
+<body>
+<h2>Google Cloud Speech-to-Text API Setup Guide</h2>
+<p>To enable speech-to-text transcription for the interviewer's voice, you need to set up the Google Cloud Speech-to-Text API.</p>
+<p>Follow these steps:</p>
+<ol>
+    <li><strong>Create a Google Cloud Project:</strong><br />
+        If you don't have one, create a new project in the Google Cloud Console:<br />
+        <a href="https://console.cloud.google.com/projectcreate" target="_blank" rel="noopener noreferrer">https://console.cloud.google.com/projectcreate</a>
+    </li>
+    <li><strong>Enable the Speech-to-Text API:</strong><br />
+        Navigate to the APIs &amp; Services Dashboard and enable the 'Cloud Speech-to-Text API' for your project:<br />
+        <a href="https://console.cloud.google.com/apis/library/speech.googleapis.com" target="_blank" rel="noopener noreferrer">https://console.cloud.google.com/apis/library/speech.googleapis.com</a>
+    </li>
+    <li><strong>Create a Service Account Key:</strong><br />
+        This JSON key file will be used by the application to authenticate with Google Cloud.<br />
+        <ul>
+            <li>Go to <code>APIs &amp; Services &gt; Credentials</code> in the Google Cloud Console.</li>
+            <li>Click <code>CREATE CREDENTIALS &gt; Service account</code>.</li>
+            <li>Follow the prompts to create a new service account. Grant it the <code>Cloud Speech-to-Text User</code> role.</li>
+            <li>In the final step, make sure to select <code>JSON</code> as the key type and click <code>CREATE</code>. This will download a JSON file to your computer.</li>
+            <li><strong>Remember where you save this file!</strong> You will need its full path in the application settings.</li>
+        </ul>
+    </li>
+    <li><strong>Install Google Cloud Client Libraries:</strong><br />
+        You need to add the Google Cloud Speech-to-Text client library as a dependency to your Java project.<br />
+        Add the following to your <code>pom.xml</code> (Maven) or <code>build.gradle</code> (Gradle) file and refresh your project dependencies:<br />
+        <pre style="background-color:#eee; padding:5px;">
+<b>Maven (pom.xml):</b>
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.google.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;google-cloud-bom&lt;/artifactId&gt;
+            &lt;version&gt;0.207.0&lt;/version&gt; &lt;!-- Use a recent stable version of the BOM --&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;com.google.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;google-cloud-speech&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.grpc&lt;/groupId&gt;
+    &lt;artifactId&gt;grpc-netty-shaded&lt;/artifactId&gt;
+    &lt;version&gt;1.60.0&lt;/version&gt; &lt;!-- Compatible with BOM 0.207.0 --&gt;
+&lt;/dependency&gt;
+
+<b>Gradle (build.gradle):</b>
+implementation platform('com.google.cloud:google-cloud-bom:0.207.0')
+implementation 'com.google.cloud:google-cloud-speech'
+implementation 'io.grpc:grpc-netty-shaded:1.60.0'
+            </pre>
+    </li>
+    <li><strong>Configure Credentials in Application:</strong><br />
+        <ul>
+            <li>In the main application window, click the 'STT Credentials' button in the 'Audio Input Settings' panel.</li>
+            <li>In the 'Google Cloud STT Credentials' dialog, click 'Browse' and select the JSON key file you downloaded.</li>
+            <li>Click 'Save Credentials'.</li>
+            <li>(Optional) Click 'Test Credentials' to verify the setup.</li>
+        </ul>
+    </li>
+</ol>
+<p>Once configured, the application will attempt to use this API for transcription.</p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Blackhole Setup Guide for macOS</title>
+</head>
+<body>
+<h2>macOS: Setting up Blackhole for System Audio Recording</h2>
+<p>To transcribe the interviewer's voice (audio output from your computer), you need to capture the system's playback audio. On macOS, this typically requires a virtual audio device like <strong>Blackhole</strong>.</p>
+<p>Follow these steps to configure Blackhole:</p>
+<ol>
+    <li><strong>Install Blackhole:</strong><br />
+        If you haven't already, download and install Blackhole 2ch from GitHub:
+        <a href="https://github.com/ExistentialAudio/BlackHole/releases" target="_blank" rel="noopener noreferrer">https://github.com/ExistentialAudio/BlackHole/releases</a><br />
+        (Choose the <code>BlackHole 2ch.pkg</code> installer.)
+    </li>
+    <li><strong>Open Audio MIDI Setup:</strong><br />
+        Go to <code>Applications &gt; Utilities &gt; Audio MIDI Setup</code>.
+    </li>
+    <li><strong>Create a Multi-Output Device:</strong><br />
+        This allows audio to go to both Blackhole (for recording) and your speakers/headphones (for listening).
+        <ul>
+            <li>In the bottom-left corner, click the <code>+</code> button.</li>
+            <li>Select <code>Create Multi-Output Device</code>.</li>
+            <li>In the right-hand panel (for your new Multi-Output Device):</li>
+            <ul>
+                <li>Check the <code>Use</code> checkbox next to <code>Blackhole 2ch</code>.</li>
+                <li>Check the <code>Use</code> checkbox next to your actual <strong>built-in output</strong> or your <strong>headphones/speakers</strong> (e.g., 'MacBook Pro Speakers', 'External Headphones').</li>
+                <li><strong>Crucially:</strong> Select your <strong>built-in output</strong> or your <strong>headphones/speakers</strong> as the <code>Master Device</code>. This ensures your system volume controls work correctly.</li>
+                <li>(Optional) Double-click the new device name and rename it (e.g., 'System Audio + Blackhole') for clarity.</li>
+            </ul>
+        </ul>
+    </li>
+    <li><strong>Set System Output to Your New Multi-Output Device:</strong><br />
+        <ul>
+            <li>Go to <code>System Settings</code> (or <code>System Preferences</code> on older macOS) &gt; <code>Sound</code> &gt; <code>Output</code>.</li>
+            <li>Select your newly created <code>Multi-Output Device</code> (e.g., 'System Audio + Blackhole') as your default sound output.</li>
+            <li>Now, any sound your Mac plays (including this application's interviewer voice) will go to both your listening device AND Blackhole.</li>
+        </ul>
+    </li>
+    <li><strong>Configure This Application's Input:</strong><br />
+        <ul>
+            <li>Restart this application if it was running during the setup.</li>
+            <li>In the 'Audio Input Settings' panel, open the 'Input Device' dropdown.</li>
+            <li>You should now see <code>Blackhole 2ch</code> listed as an available input device. Select it.</li>
+        </ul>
+    </li>
+    <li><strong>Test Recording:</strong><br />
+        Click 'Start Input Capture' in this application, play some system audio (e.g., the 'Test Sound' from the Output Settings), then 'Stop Input Capture', and finally 'Play Recorded Input' to verify.
+    </li>
+</ol>
+<p>If you encounter issues, ensure Blackhole is installed, and check your macOS Sound settings for disabled or hidden devices. Feel free to contact me at <a href="mailto:parunev@gmail.com">parunev@gmail.com</a></p>
+</body>
+</html>
