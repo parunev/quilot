@@ -3,6 +3,8 @@ package com.quilot.ui.settings;
 import com.quilot.ai.settings.AIConfigSettings;
 import com.quilot.ai.settings.IAISettingsManager;
 import com.quilot.ai.VertexAIService;
+import com.quilot.exceptions.AIInitializationException;
+import com.quilot.exceptions.AISettingsException;
 import com.quilot.utils.Logger;
 
 import javax.swing.*;
@@ -16,7 +18,7 @@ import java.text.NumberFormat;
 public class AISettingsDialog extends JDialog {
 
     private final IAISettingsManager settingsManager;
-    private final VertexAIService aiService; // To update AI service with new settings
+    private final VertexAIService aiService;
 
     // UI Components
     private JTextField projectIdField;
@@ -150,35 +152,67 @@ public class AISettingsDialog extends JDialog {
     }
 
     private void saveSettingsFromUI() {
-        AIConfigSettings settings = new AIConfigSettings();
         try {
-            settings.setProjectId(projectIdField.getText().trim());
-            settings.setLocation(locationField.getText().trim());
-            settings.setModelId(modelIdField.getText().trim());
-            settings.setTemperature(((Number) temperatureField.getValue()).doubleValue());
-            settings.setMaxOutputTokens(((Number) maxOutputTokensField.getValue()).intValue());
-            settings.setTopP(((Number) topPField.getValue()).doubleValue());
-            settings.setTopK(((Number) topKField.getValue()).intValue());
+            // CHANGE: Use the builder pattern to construct the immutable settings object.
+            AIConfigSettings.AIConfigSettingsBuilder settingsBuilder = AIConfigSettings.builder()
+                    .projectId(projectIdField.getText().trim())
+                    .location(locationField.getText().trim())
+                    .modelId(modelIdField.getText().trim());
 
-            settingsManager.saveSettings(settings); // Save to preferences
-            // Re-initialize AI service with new settings
-            aiService.setCredentialPath(aiService.getCredentialPath()); // This will trigger client re-init with new settings
+            // CHANGE: Safely parse numbers from formatted fields.
+            // This prevents NullPointerExceptions if a field is empty.
+            Object tempValue = temperatureField.getValue();
+            if (tempValue instanceof Number) {
+                settingsBuilder.temperature(((Number) tempValue).doubleValue());
+            }
+
+            Object tokensValue = maxOutputTokensField.getValue();
+            if (tokensValue instanceof Number) {
+                settingsBuilder.maxOutputTokens(((Number) tokensValue).intValue());
+            }
+
+            Object topPValue = topPField.getValue();
+            if (topPValue instanceof Number) {
+                settingsBuilder.topP(((Number) topPValue).doubleValue());
+            }
+
+            Object topKValue = topKField.getValue();
+            if (topKValue instanceof Number) {
+                settingsBuilder.topK(((Number) topKValue).intValue());
+            }
+
+            AIConfigSettings newSettings = settingsBuilder.build();
+
+            settingsManager.saveSettings(newSettings); // Save to preferences
+            aiService.setCredentialPath(aiService.getCredentialPath()); // Re-initialize AI service
+
             Logger.info("AI settings saved from UI and applied to service.");
-            JOptionPane.showMessageDialog(this, "AI settings saved successfully!", "Settings Saved", JOptionPane.INFORMATION_MESSAGE);
-        } catch (NumberFormatException ex) {
-            Logger.error("Invalid number format in AI settings: " + ex.getMessage());
-            JOptionPane.showMessageDialog(this, "Invalid number format in settings. Please check your input.", "Input Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception ex) {
-            Logger.error("Error saving AI settings: " + ex.getMessage());
-            JOptionPane.showMessageDialog(this, "Error saving settings: " + ex.getMessage(), "Save Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Settings saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            // CHANGE: Catch our specific, custom exceptions first.
+        } catch (AISettingsException ex) {
+            Logger.error("Failed to save settings to persistent storage.", ex);
+            JOptionPane.showMessageDialog(this, "Error saving settings: " + ex.getMessage(), "Storage Error", JOptionPane.ERROR_MESSAGE);
+        } catch (AIInitializationException ex) {
+            Logger.error("Failed to re-initialize the AI service with new settings.", ex);
+            JOptionPane.showMessageDialog(this, "Could not apply settings to AI service: " + ex.getMessage(), "Service Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) { // Catch any other unexpected errors.
+            Logger.error("An unexpected error occurred while saving settings.", ex);
+            JOptionPane.showMessageDialog(this, "An unexpected error occurred. Please check logs.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void loadDefaultsIntoUI() {
-        AIConfigSettings defaultSettings = settingsManager.resetToDefaults(); // Resets and saves defaults
-        loadSettingsIntoUI(defaultSettings); // Load the newly reset defaults into the UI
-        aiService.setCredentialPath(aiService.getCredentialPath()); // Re-initialize client with current path
-        Logger.info("AI settings reset to defaults and applied to service.");
-        JOptionPane.showMessageDialog(this, "AI settings reset to defaults!", "Defaults Loaded", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            AIConfigSettings defaultSettings = settingsManager.resetToDefaults();
+            loadSettingsIntoUI(defaultSettings);
+            aiService.setCredentialPath(aiService.getCredentialPath());
+
+            Logger.info("AI settings reset to defaults and applied to service.");
+            JOptionPane.showMessageDialog(this, "Settings have been reset to their defaults.", "Defaults Loaded", JOptionPane.INFORMATION_MESSAGE);
+        } catch (AISettingsException | AIInitializationException ex) {
+            Logger.error("Failed to load default settings.", ex);
+            JOptionPane.showMessageDialog(this, "Could not load defaults: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.quilot.ai;
 
+import com.google.api.gax.rpc.ApiException;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.vertexai.VertexAI;
 import com.google.cloud.vertexai.api.Content;
@@ -10,12 +11,17 @@ import com.google.cloud.vertexai.generativeai.GenerativeModel;
 import com.google.cloud.vertexai.generativeai.ResponseStream;
 import com.quilot.ai.settings.AIConfigSettings;
 import com.quilot.ai.settings.IAISettingsManager;
+import com.quilot.exceptions.AIException;
+import com.quilot.exceptions.AIInitializationException;
 import com.quilot.utils.Logger;
 import lombok.Data;
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -34,6 +40,12 @@ public class VertexAIService implements IAIService {
     private final AtomicBoolean isGenerating = new AtomicBoolean(false);
 
     private List<Content> chatHistory;
+    private final String ADMIN_PROMPT = """
+            Please respond concisely and clearly. \
+            Do not include any special characters like : * - or emojis. \
+            Avoid extra blank lines or spaces. \
+            Keep the response under 300 words.
+            """;
 
     /**
      * Constructor for VertexAIService.
@@ -41,8 +53,8 @@ public class VertexAIService implements IAIService {
      * @param settingsManager The manager for AI configuration settings.
      */
     public VertexAIService(String initialCredentialPath, IAISettingsManager settingsManager) {
+        this.settingsManager = Objects.requireNonNull(settingsManager, "IAISettingsManager cannot be null.");
         this.credentialPath = initialCredentialPath;
-        this.settingsManager = settingsManager;
         this.chatHistory = new ArrayList<>();
         Logger.info("VertexAIService initialized. Client initialization deferred.");
         initializeClient();
@@ -58,11 +70,12 @@ public class VertexAIService implements IAIService {
             return;
         }
 
-        closeClient();
+        closeClient(); // Ensures any existing client is properly closed before re-initializing.
 
-        try {
+        // Using try-with-resources for FileInputStream to ensure it's always closed.
+        try (InputStream credentialsStream = new FileInputStream(credentialPath)) {
             AIConfigSettings currentSettings = settingsManager.loadSettings();
-            GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream(credentialPath))
+            GoogleCredentials credentials = GoogleCredentials.fromStream(credentialsStream)
                     .createScoped(List.of("https://www.googleapis.com/auth/cloud-platform"));
 
             this.vertexAI = new VertexAI.Builder()
@@ -72,10 +85,17 @@ public class VertexAIService implements IAIService {
                     .build();
 
             isClientInitialized = true;
-            Logger.info("Vertex AI GenerativeModel client created successfully for model: " + currentSettings.getModelId());
-        } catch (Exception e) {
-            Logger.error("An unexpected error occurred during Vertex AI client initialization: " + e.getMessage());
+            Logger.info("Vertex AI client created successfully for model: " + currentSettings.getModelId());
+
+        } catch (IOException e) {
+            Logger.error("Failed to read or process credential file: " + credentialPath, e);
             isClientInitialized = false;
+            throw new AIInitializationException("Error during AI client setup from credentials.", e);
+
+        } catch (Exception e) {
+            Logger.error("An unexpected error occurred during Vertex AI client initialization.", e);
+            isClientInitialized = false;
+            throw new AIInitializationException("An unexpected error occurred during AI client initialization.", e);
         }
     }
 
@@ -91,45 +111,36 @@ public class VertexAIService implements IAIService {
 
     @Override
     public void generateResponse(String prompt, AIResponseListener listener) {
+        Objects.requireNonNull(listener, "AIResponseListener cannot be null.");
+
         if (!isClientInitialized || vertexAI == null) {
             Logger.error("Vertex AI client is not initialized. Cannot generate response.");
-            if (listener != null) listener.onError("[AI: Vertex AI client not initialized. Please set credentials.]");
-            return;
-        }
-        if (listener == null) {
-            Logger.error("AIResponseListener cannot be null.");
+            listener.onError("[AI: Client not initialized. Check credentials and configuration.]");
             return;
         }
         if (prompt == null || prompt.trim().isEmpty()) {
-            listener.onResponse("[AI: Please provide a valid prompt.]");
+            listener.onError("[AI: Please provide a valid prompt.]");
             return;
         }
 
         if (!isGenerating.compareAndSet(false, true)) {
-            Logger.warn("Another request is already being processed. Ignoring this one.");
+            Logger.warn("Another generation request is already in progress. Ignoring new request.");
+            listener.onError("[AI: Another request is already being processed.]");
             return;
         }
 
-        String adminPrompt = """
-            Please respond concisely and clearly. \
-            Do not include any special characters like : * - or emojis. \
-            Avoid extra blank lines or spaces. \
-            Keep the response under 300 words.
-            """;
-
-        String combinedPrompt = adminPrompt + prompt;
-
-        chatHistory.add(Content.newBuilder()
-                .addParts(Part.newBuilder().setText(combinedPrompt).build())
-                .setRole("user")
-                .build());
-
-        Logger.info("Sending prompt to AI: " + prompt);
-
         CompletableFuture.runAsync(() -> {
             try {
-                AIConfigSettings currentSettings = settingsManager.loadSettings();
+                String combinedPrompt = ADMIN_PROMPT + prompt;
 
+                chatHistory.add(Content.newBuilder()
+                        .addParts(Part.newBuilder().setText(combinedPrompt).build())
+                        .setRole("user")
+                        .build());
+
+                Logger.info("Sending prompt to AI: " + prompt);
+
+                AIConfigSettings currentSettings = settingsManager.loadSettings();
                 GenerationConfig generationConfig = GenerationConfig.newBuilder()
                         .setTemperature((float) currentSettings.getTemperature())
                         .setMaxOutputTokens(currentSettings.getMaxOutputTokens())
@@ -143,9 +154,7 @@ public class VertexAIService implements IAIService {
                         .setGenerationConfig(generationConfig)
                         .build();
 
-                ResponseStream<GenerateContentResponse> responseStream =
-                        generativeModel.generateContentStream(combinedPrompt);
-
+                ResponseStream<GenerateContentResponse> responseStream = generativeModel.generateContentStream(combinedPrompt);
                 StringBuilder aiResponseBuilder = new StringBuilder();
 
                 responseStream.forEach(response -> {
@@ -173,17 +182,25 @@ public class VertexAIService implements IAIService {
                             .setRole("model")
                             .build());
                     Logger.info("AI responded: " + finalResponse);
-                    listener.onResponse(finalResponse); // ✅ Only once
+                    listener.onResponse(finalResponse);
                 }
 
+            } catch (ApiException e) {
+                Logger.error("A Google Cloud API error occurred while generating response.", e);
+                listener.onError("[AI Error: Could not connect to the service. Code: " + e.getStatusCode().getCode() + "]");
+
+            } catch (AIException e) {
+                Logger.error("An AI service error occurred during response generation.", e);
+                listener.onError("[AI Error: A service configuration issue occurred. " + e.getMessage() + "]");
+
             } catch (Exception e) {
-                Logger.error("Error calling Vertex AI: " + e.getMessage());
-                listener.onError("[AI Error: " + e.getMessage() + "]");
+                Logger.error("An unexpected error occurred during response generation.", e);
+                listener.onError("[AI Error: An unexpected issue occurred. " + e.getMessage() + "]");
+
             } finally {
                 isGenerating.set(false);
             }
         });
-
     }
 
     @Override
@@ -192,25 +209,18 @@ public class VertexAIService implements IAIService {
         Logger.info("AI conversation history cleared.");
     }
 
-    /**
-     * Returns the settings manager associated with this AI service.
-     * @return The IAISettingsManager instance.
-     */
     @Override
     public IAISettingsManager getSettingsManager() {
         return settingsManager;
     }
-
-    /**
-     * Closes the Vertex AI client permanently.
-     */
+    
     public void closeClient() {
         if (vertexAI != null) {
             try {
                 vertexAI.close();
                 Logger.info("Vertex AI client closed.");
             } catch (Exception e) {
-                Logger.error("Error closing Vertex AI client: " + e.getMessage());
+                Logger.error("Error closing Vertex AI client: ", e);
             }
         }
         isClientInitialized = false;
