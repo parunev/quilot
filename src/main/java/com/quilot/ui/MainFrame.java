@@ -180,14 +180,10 @@ public class MainFrame extends JFrame {
                 String selectedDevice = (String) e.getItem();
                 if (audioInputService.selectInputDevice(selectedDevice)) {
                     appendToLogArea("Selected audio input device: " + selectedDevice);
-                    startInputRecordingButton.setEnabled(true);
                 } else {
                     appendToLogArea("Failed to select audio input device: " + selectedDevice);
-                    startInputRecordingButton.setEnabled(false);
                 }
-
-                stopInputRecordingButton.setEnabled(false);
-                playRecordedInputButton.setEnabled(false);
+                updateAudioInputButtonStates();
             }
         });
 
@@ -297,6 +293,13 @@ public class MainFrame extends JFrame {
                 playRecordedInputButton.setEnabled(false);
             }
         });
+    }
+
+    private void updateAudioInputButtonStates() {
+        boolean deviceIsSelected = audioInputService.isDeviceSelected();
+        startInputRecordingButton.setEnabled(deviceIsSelected);
+        stopInputRecordingButton.setEnabled(false);
+        playRecordedInputButton.setEnabled(false);
     }
 
     private void addWindowListeners() {
