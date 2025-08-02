@@ -34,8 +34,6 @@ import java.awt.event.*;
 public class MainFrame extends JFrame {
 
     // UI COMPONENTS
-    private final JButton startButton;
-    private final JButton stopButton;
     private final JTextArea transcribedAudioArea;
     private final JTextArea aiResponseArea;
     private final JTextArea logArea;
@@ -94,8 +92,6 @@ public class MainFrame extends JFrame {
         uiBuilder = new UIBuilder(audioOutputService, audioInputService, timerManager);
 
         // UI COMPONENTS
-        startButton = uiBuilder.getStartButton();
-        stopButton = uiBuilder.getStopButton();
         transcribedAudioArea = uiBuilder.getTranscribedAudioArea();
         aiResponseArea = uiBuilder.getAiResponseArea();
         logArea = uiBuilder.getLogArea();
@@ -126,7 +122,6 @@ public class MainFrame extends JFrame {
         add(mainPanel);
 
         // Add listeners
-        addMainControlListeners();
         addAudioOutputListeners();
         addAudioInputListeners();
         addWindowListeners();
@@ -145,48 +140,6 @@ public class MainFrame extends JFrame {
             // Pass the AI service and its settings manager
             AISettingsDialog dialog = new AISettingsDialog(this, aiService.getSettingsManager(), (VertexAIService) aiService); // Cast to concrete types
             dialog.setVisible(true);
-        });
-    }
-
-    private void addMainControlListeners() {
-        startButton.addActionListener(_ -> {
-            try {
-                Logger.info("Start button clicked.");
-                appendToLogArea("Starting interview simulation...");
-                startButton.setEnabled(false);
-                stopButton.setEnabled(true);
-
-                timerManager.startInterviewTimer();
-
-                String interviewerQuestion = "Hello, welcome to the interview. Please tell me about yourself.";
-                aiResponseArea.setText("AI (Interviewer): '" + interviewerQuestion + "'");
-                transcribedAudioArea.setText("Interviewer (Transcribed): '" + interviewerQuestion + "'");
-            } catch (Exception ex) {
-                Logger.error("Error starting interview: " + ex.getMessage());
-                appendToLogArea("ERROR: Could not start interview. Check logs.");
-            }
-        });
-
-        stopButton.addActionListener(_ -> {
-            try {
-                Logger.info("Stop button clicked.");
-                appendToLogArea("Stopping interview simulation...");
-                startButton.setEnabled(true);
-                stopButton.setEnabled(false);
-
-                timerManager.stopInterviewTimer();
-
-                audioInputService.stopRecording();
-                startInputRecordingButton.setEnabled(true);
-                stopInputRecordingButton.setEnabled(false);
-                playRecordedInputButton.setEnabled(true);
-
-                transcribedAudioArea.append("\nInterview ended.");
-                aiResponseArea.append("\nAI (Interviewer): 'Thank you for your time.'");
-            } catch (Exception ex) {
-                Logger.error("Error stopping interview: " + ex.getMessage());
-                appendToLogArea("ERROR: Could not stop interview. Check logs.");
-            }
         });
     }
 

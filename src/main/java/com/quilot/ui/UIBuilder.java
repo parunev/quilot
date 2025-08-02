@@ -18,7 +18,6 @@ import java.awt.*;
 public class UIBuilder {
 
     // Panel Builders
-    private final ButtonPanelBuilder buttonPanelBuilder;
     private final AudioOutputSettingsPanelBuilder audioOutputSettingsPanelBuilder;
     private final AudioInputSettingsPanelBuilder audioInputSettingsPanelBuilder;
     private final TranscribedAudioPanelBuilder transcribedAudioPanelBuilder;
@@ -28,7 +27,6 @@ public class UIBuilder {
     public UIBuilder(AudioOutputService audioOutputService,
                      AudioInputService audioInputService,
                      InterviewTimerManager timerManager) {
-        this.buttonPanelBuilder = new ButtonPanelBuilder();
         this.audioOutputSettingsPanelBuilder = new AudioOutputSettingsPanelBuilder(audioOutputService);
         this.audioInputSettingsPanelBuilder = new AudioInputSettingsPanelBuilder(audioInputService);
         this.transcribedAudioPanelBuilder = new TranscribedAudioPanelBuilder();
@@ -59,9 +57,6 @@ public class UIBuilder {
     public void setupLayout(JPanel mainPanel) {
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding
 
-        // Row 0: Main Interview Control Buttons (full width)
-        addComponent(mainPanel, buttonPanelBuilder.build(), 0, 0, 2, 1.0, 0);
-
         // Row 1: Audio Output and Input Settings Panels side-by-side
         addComponent(mainPanel, audioOutputSettingsPanelBuilder.build(), 0, 1, 1, 0.5, 0.1);
         addComponent(mainPanel, audioInputSettingsPanelBuilder.build(), 1, 1, 1, 0.5, 0.1);
@@ -73,10 +68,6 @@ public class UIBuilder {
         // Row 3: Application Logs Panel (full width)
         addComponent(mainPanel, logPanelBuilder.build(), 0, 3, 2, 1.0, 0.2);
     }
-
-    // Getters for Buttons (ButtonPanel)
-    public JButton getStartButton() { return buttonPanelBuilder.getStartButton(); }
-    public JButton getStopButton() { return buttonPanelBuilder.getStopButton(); }
 
     // Getters for Audio Output Settings Panel
     public JComboBox<String> getOutputDeviceComboBox() { return audioOutputSettingsPanelBuilder.getOutputDeviceComboBox(); }

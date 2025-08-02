@@ -4802,3 +4802,66 @@ Java uses the `extends` keyword to implement inheritance. A subclass can reuse m
 [2025-08-02 11:29:58] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
 [2025-08-02 11:29:58] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
 [2025-08-02 11:29:58] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-02 11:37:04] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-02 11:37:04] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-02 11:37:04] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-02 11:37:04] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 11:37:04] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 11:37:04] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:37:04] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 11:37:04] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 11:37:04] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:37:04] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-02 11:37:04] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:37:04] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 11:37:04] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 11:37:04] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-02 11:37:05] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 11:37:05] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:37:05] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-02 11:37:05] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-02 11:37:05] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 11:37:05] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-02 11:37:05] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 11:38:31] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-02 11:38:31] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-02 11:38:31] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-02 11:38:31] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 11:38:31] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 11:38:31] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:38:31] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 11:38:31] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 11:38:31] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:38:31] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-02 11:38:31] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:38:31] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 11:38:31] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 11:38:32] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-02 11:38:32] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 11:38:32] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:38:32] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-02 11:38:32] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-02 11:38:32] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 11:38:32] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-02 11:38:32] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 11:39:17] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-02 11:39:17] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-02 11:39:17] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-02 11:39:17] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 11:39:17] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 11:39:17] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:39:17] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 11:39:17] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 11:39:17] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:39:17] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-02 11:39:17] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:39:17] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 11:39:17] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 11:39:18] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-02 11:39:18] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 11:39:18] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:39:18] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-02 11:39:18] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-02 11:39:18] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 11:39:18] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-02 11:39:18] [INFO] [MainFrame.<init>()] Quilot UI initialized.
