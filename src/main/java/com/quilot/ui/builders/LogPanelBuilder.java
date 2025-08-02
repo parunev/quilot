@@ -1,6 +1,6 @@
 package com.quilot.ui.builders;
 
-import com.quilot.ui.InterviewTimerManager;
+import com.quilot.ui.ElapsedTimerManager;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -13,9 +13,9 @@ import java.awt.*;
 public class LogPanelBuilder implements ComponentPanelBuilder {
 
     private final JTextArea logArea;
-    private final InterviewTimerManager timerManager;
+    private final ElapsedTimerManager timerManager;
 
-    public LogPanelBuilder(InterviewTimerManager timerManager) {
+    public LogPanelBuilder(ElapsedTimerManager timerManager) {
         this.timerManager = timerManager;
         this.logArea = createLogArea();
     }
@@ -29,9 +29,8 @@ public class LogPanelBuilder implements ComponentPanelBuilder {
     }
 
     private JPanel buildHeaderPanel() {
-        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
-        headerPanel.add(new JLabel("Application Logs:"));
-        headerPanel.add(timerManager.getCurrentTimeLabel());
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        headerPanel.add(new JLabel("Application Logs + "));
         headerPanel.add(timerManager.getElapsedTimeLabel());
         return headerPanel;
     }

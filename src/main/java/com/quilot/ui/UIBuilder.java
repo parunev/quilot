@@ -26,7 +26,7 @@ public class UIBuilder {
 
     public UIBuilder(AudioOutputService audioOutputService,
                      AudioInputService audioInputService,
-                     InterviewTimerManager timerManager) {
+                     ElapsedTimerManager timerManager) {
         this.audioOutputSettingsPanelBuilder = new AudioOutputSettingsPanelBuilder(audioOutputService);
         this.audioInputSettingsPanelBuilder = new AudioInputSettingsPanelBuilder(audioInputService);
         this.transcribedAudioPanelBuilder = new TranscribedAudioPanelBuilder();

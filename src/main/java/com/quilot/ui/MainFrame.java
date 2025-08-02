@@ -55,7 +55,7 @@ public class MainFrame extends JFrame {
     private final JButton aiSettingsButton;
 
     // Managers for specific functionalities
-    private final InterviewTimerManager timerManager;
+    private final ElapsedTimerManager timerManager;
     private final UIBuilder uiBuilder;
     private final AudioOutputService audioOutputService;
     private final AudioInputService audioInputService;
@@ -78,7 +78,7 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
 
         // MANAGERS
-        timerManager = new InterviewTimerManager();
+        timerManager = new ElapsedTimerManager();
         audioOutputService = new SystemAudioOutputService();
         audioInputService = new SystemAudioInputService();
         credentialManager = new CredentialManager();
@@ -195,6 +195,7 @@ public class MainFrame extends JFrame {
             // Start both audio input recording and STT streaming
             if (audioInputService.startRecording()) {
                 appendToLogArea("Started capturing audio from input device.");
+                timerManager.startElapsedTimer();
                 startInputRecordingButton.setEnabled(false);
                 stopInputRecordingButton.setEnabled(true);
                 playRecordedInputButton.setEnabled(false); // Disable play button while recording
@@ -267,6 +268,7 @@ public class MainFrame extends JFrame {
         stopInputRecordingButton.addActionListener(_ -> {
             if (audioInputService.stopRecording()) {
                 appendToLogArea("Stopped capturing audio from input device.");
+                timerManager.stopElapsedTimer();
                 startInputRecordingButton.setEnabled(true);
                 stopInputRecordingButton.setEnabled(false);
                 playRecordedInputButton.setEnabled(audioInputService.getRecordedAudioData().length > 0);
