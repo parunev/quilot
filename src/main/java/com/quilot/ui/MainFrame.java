@@ -8,6 +8,7 @@ import com.quilot.audio.input.SystemAudioInputService;
 import com.quilot.audio.ouput.AudioOutputService;
 import com.quilot.audio.ouput.SystemAudioOutputService;
 import com.quilot.exceptions.audio.AudioDeviceException;
+import com.quilot.exceptions.audio.AudioException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.stt.SpeechToTextService;
 import com.quilot.stt.ISpeechToTextSettingsManager;
@@ -147,15 +148,20 @@ public class MainFrame extends JFrame {
         outputDeviceComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 String selectedDevice = (String) e.getItem();
-                if (audioOutputService.selectOutputDevice(selectedDevice)) {
+                try {
+                    audioOutputService.selectOutputDevice(selectedDevice);
                     appendToLogArea("Selected audio output device: " + selectedDevice);
                     volumeSlider.setEnabled(true);
                     testVolumeButton.setEnabled(true);
                     audioOutputService.setVolume(volumeSlider.getValue() / 100.0f);
-                } else {
+                } catch (AudioDeviceException ex) {
                     appendToLogArea("Failed to select audio output device: " + selectedDevice);
                     volumeSlider.setEnabled(false);
                     testVolumeButton.setEnabled(false);
+                    JOptionPane.showMessageDialog(this,
+                            "Could not open audio output device: " + selectedDevice + "\nIt may be in use or disconnected.",
+                            "Audio Device Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -169,8 +175,16 @@ public class MainFrame extends JFrame {
         });
 
         testVolumeButton.addActionListener(_ -> {
-            audioOutputService.playTestSound();
-            appendToLogArea("Test sound played.");
+            try {
+                audioOutputService.playTestSound();
+                appendToLogArea("Test sound played.");
+            } catch (AudioDeviceException e) {
+                appendToLogArea("Failed to play test sound: " + e.getMessage());
+                JOptionPane.showMessageDialog(this,
+                        "Could not play test sound. Please ensure an output device is selected.",
+                        "Playback Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         });
     }
 
@@ -284,10 +298,18 @@ public class MainFrame extends JFrame {
             AudioFormat format = audioInputService.getAudioFormat();
             if (recordedData.length > 0 && format != null) {
                 appendToLogArea("Playing recorded input audio...");
-                audioOutputService.playAudioData(recordedData, format);
-                audioInputService.clearRecordedAudioData();
-                playRecordedInputButton.setEnabled(false);
-                appendToLogArea("Recorded input audio played and cleared.");
+                try {
+                    audioOutputService.playAudioData(recordedData, format);
+                    audioInputService.clearRecordedAudioData();
+                    playRecordedInputButton.setEnabled(false);
+                    appendToLogArea("Recorded input audio played and cleared.");
+                } catch (AudioException ex) {
+                    appendToLogArea("Failed to play recorded audio: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(this,
+                            "Could not play recorded audio.\n" + ex.getMessage(),
+                            "Playback Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             } else {
                 appendToLogArea("No recorded audio data to play.");
                 playRecordedInputButton.setEnabled(false);

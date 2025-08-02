@@ -1,6 +1,8 @@
 package com.quilot.ui.builders;
 
 import com.quilot.audio.ouput.AudioOutputService;
+import com.quilot.exceptions.audio.AudioDeviceException;
+import com.quilot.utils.Logger;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -50,15 +52,18 @@ public class AudioOutputSettingsPanelBuilder implements ComponentPanelBuilder {
         } else {
             devices.forEach(outputDeviceComboBox::addItem);
 
-            // Check if a device was already selected by the service from preferences
             String selectedDevice = audioOutputService.getSelectedDeviceName();
-            if (selectedDevice != null) {
-                // Find and set the selected item in the combo box
+            if (selectedDevice != null && devices.contains(selectedDevice)) {
                 outputDeviceComboBox.setSelectedItem(selectedDevice);
             } else {
-                // No saved device found, or selection failed, so default to the first one
-                outputDeviceComboBox.setSelectedIndex(0);
-                audioOutputService.selectOutputDevice(devices.getFirst());
+                String defaultDevice = devices.getFirst();
+                outputDeviceComboBox.setSelectedItem(defaultDevice);
+
+                try {
+                    audioOutputService.selectOutputDevice(defaultDevice);
+                } catch (AudioDeviceException e) {
+                    Logger.warn("Could not auto-select the default audio output device '" + defaultDevice + "': " + e.getMessage());
+                }
             }
         }
     }

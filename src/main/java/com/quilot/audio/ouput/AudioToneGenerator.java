@@ -1,7 +1,5 @@
 package com.quilot.audio.ouput;
 
-import com.quilot.utils.Logger;
-
 import javax.sound.sampled.AudioFormat;
 
 public final class AudioToneGenerator {
@@ -19,24 +17,18 @@ public final class AudioToneGenerator {
         int frameSize = format.getFrameSize();
         int numSamples = sampleRate * durationMs / 1000;
         int numBytes = numSamples * frameSize;
-
         byte[] buffer = new byte[numBytes];
 
-        try {
-            // различни формати, защото не всеки output работи по един и същ начин.
-            if (format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED) {
-                switch (format.getSampleSizeInBits()) {
-                    case 16 -> fill16BitPCM(buffer, frequency, sampleRate);
-                    case 8 -> fill8BitPCM(buffer, frequency, sampleRate);
-                    default -> throw new UnsupportedOperationException("Unsupported sample size: " + format.getSampleSizeInBits());
-                }
-            } else {
-                Logger.warn("Unsupported encoding: " + format.getEncoding() + ". Falling back to basic 8-bit.");
-                fill8BitPCM(buffer, frequency, sampleRate);
+        if (format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED) {
+            switch (format.getSampleSizeInBits()) {
+                case 16 -> fill16BitPCM(buffer, frequency, sampleRate);
+                case 8 -> fill8BitPCM(buffer, frequency, sampleRate);
+                default -> throw new UnsupportedOperationException("Unsupported sample size: " + format.getSampleSizeInBits());
             }
-        } catch (Exception e) {
-            Logger.error("Failed to generate sine wave: " + e.getMessage());
+        } else {
+            throw new UnsupportedOperationException("Unsupported audio encoding: " + format.getEncoding());
         }
+
 
         return buffer;
     }

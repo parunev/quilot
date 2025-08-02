@@ -1,5 +1,8 @@
 package com.quilot.audio.ouput;
 
+import com.quilot.exceptions.audio.AudioDeviceException;
+import com.quilot.exceptions.audio.AudioException;
+
 import javax.sound.sampled.AudioFormat;
 import java.util.List;
 
@@ -20,9 +23,8 @@ public interface AudioOutputService {
      * Selects and initializes the specified audio output device.
      * If a device is already selected and open, it will be closed first.
      * @param deviceName The name of the audio device to select.
-     * @return true if the device was successfully selected and opened, false otherwise.
      */
-    boolean selectOutputDevice(String deviceName);
+    void selectOutputDevice(String deviceName) throws AudioDeviceException;
 
     /**
      * Sets the master volume for the currently selected audio output device.
@@ -36,14 +38,14 @@ public interface AudioOutputService {
      * Plays a short test sound through the currently selected audio output device.
      * If no device is selected or the line is not open, the sound will not play.
      */
-    void playTestSound();
+    void playTestSound() throws AudioDeviceException;
 
     /**
      * Plays raw audio data through the currently selected audio output device.
      * @param audioData The byte array containing the audio data to play.
      * @param format The AudioFormat of the provided audio data.
      */
-    void playAudioData(byte[] audioData, AudioFormat format);
+    void playAudioData(byte[] audioData, AudioFormat format) throws AudioException;
 
     /**
      * Closes the currently open audio output line and releases associated resources.
@@ -51,12 +53,6 @@ public interface AudioOutputService {
      * output is no longer needed.
      */
     void close();
-
-    /**
-     * Checks if an audio output device is currently selected and its line is open.
-     * @return true if a device is selected and open, false otherwise.
-     */
-    boolean isDeviceSelected();
 
     String getSelectedDeviceName();
 }

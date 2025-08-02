@@ -36,8 +36,8 @@ public final class AudioDeviceDiscoverer {
         try {
             Mixer mixer = AudioSystem.getMixer(mixerInfo);
             return mixer.isLineSupported(new Line.Info(SourceDataLine.class));
-        } catch (IllegalArgumentException e) {
-            Logger.warn("Mixer '" + mixerInfo.getName() + "' does not support SourceDataLine: " + e.getMessage());
+        } catch (IllegalArgumentException | SecurityException e) {
+            Logger.warn("Could not query mixer '" + mixerInfo.getName() + "': " + e.getMessage());
             return false;
         }
     }
