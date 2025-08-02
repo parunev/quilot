@@ -11,8 +11,8 @@ import com.google.cloud.vertexai.generativeai.GenerativeModel;
 import com.google.cloud.vertexai.generativeai.ResponseStream;
 import com.quilot.ai.settings.AIConfigSettings;
 import com.quilot.ai.settings.IAISettingsManager;
-import com.quilot.exceptions.AIException;
-import com.quilot.exceptions.AIInitializationException;
+import com.quilot.exceptions.ai.AIException;
+import com.quilot.exceptions.ai.AIInitializationException;
 import com.quilot.utils.Logger;
 import lombok.Data;
 
@@ -213,7 +213,7 @@ public class VertexAIService implements IAIService {
     public IAISettingsManager getSettingsManager() {
         return settingsManager;
     }
-    
+
     public void closeClient() {
         if (vertexAI != null) {
             try {

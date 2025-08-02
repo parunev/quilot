@@ -7,6 +7,7 @@ import com.quilot.audio.input.AudioInputService;
 import com.quilot.audio.input.SystemAudioInputService;
 import com.quilot.audio.ouput.AudioOutputService;
 import com.quilot.audio.ouput.SystemAudioOutputService;
+import com.quilot.exceptions.audio.AudioDeviceException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.stt.SpeechToTextService;
 import com.quilot.stt.ISpeechToTextSettingsManager;
@@ -137,8 +138,7 @@ public class MainFrame extends JFrame {
     private void addAISettingsListeners() {
         aiSettingsButton.addActionListener(_ -> {
             Logger.info("AI Settings button clicked. Displaying AI settings dialog.");
-            // Pass the AI service and its settings manager
-            AISettingsDialog dialog = new AISettingsDialog(this, aiService.getSettingsManager(), (VertexAIService) aiService); // Cast to concrete types
+            AISettingsDialog dialog = new AISettingsDialog(this, aiService.getSettingsManager(), (VertexAIService) aiService);
             dialog.setVisible(true);
         });
     }
@@ -174,44 +174,47 @@ public class MainFrame extends JFrame {
         });
     }
 
+    // --- ENTIRE METHOD REPLACED ---
     private void addAudioInputListeners() {
         inputDeviceComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 String selectedDevice = (String) e.getItem();
-                if (audioInputService.selectInputDevice(selectedDevice)) {
+                try {
+                    audioInputService.selectInputDevice(selectedDevice);
                     appendToLogArea("Selected audio input device: " + selectedDevice);
-                } else {
-                    appendToLogArea("Failed to select audio input device: " + selectedDevice);
+                } catch (AudioDeviceException ex) {
+                    appendToLogArea("Failed to select audio input device: " + selectedDevice + " - " + ex.getMessage());
+                    JOptionPane.showMessageDialog(this,
+                            "Could not open audio device: " + selectedDevice + "\nIt may be in use by another application or disconnected.",
+                            "Audio Device Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
                 updateAudioInputButtonStates();
             }
         });
 
         startInputRecordingButton.addActionListener(_ -> {
-            // Start both audio input recording and STT streaming
-            if (audioInputService.startRecording()) {
+            try {
+                audioInputService.startRecording();
                 appendToLogArea("Started capturing audio from input device.");
                 timerManager.startElapsedTimer();
                 startInputRecordingButton.setEnabled(false);
                 stopInputRecordingButton.setEnabled(true);
-                playRecordedInputButton.setEnabled(false); // Disable play button while recording
+                playRecordedInputButton.setEnabled(false);
 
-                // Start STT streaming recognition
                 if (!speechToTextService.startStreamingRecognition(audioInputService.getAudioFormat(), new SpeechToTextService.StreamingRecognitionListener() {
-                    private final StringBuilder currentInterimTranscription = new StringBuilder(); // For interim results
-                    private String lastFinalTranscription = ""; // To track the last final transcription
+                    private final StringBuilder currentInterimTranscription = new StringBuilder();
+                    private String lastFinalTranscription = "";
 
                     @Override
                     public void onTranscriptionResult(String transcription, boolean isFinal) {
                         SwingUtilities.invokeLater(() -> {
                             if (isFinal) {
-                                // Append final transcription
                                 transcribedAudioArea.append("Interviewer (Final): '" + transcription + "'\n");
-                                lastFinalTranscription = transcription; // Store the final transcription
-                                currentInterimTranscription.setLength(0); // Clear interim buffer
+                                lastFinalTranscription = transcription;
+                                currentInterimTranscription.setLength(0);
                                 transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
 
-                                // Send final transcription to AI service
                                 aiService.generateResponse(transcription, new IAIService.AIResponseListener() {
                                     @Override
                                     public void onResponse(String aiResponse) {
@@ -232,19 +235,12 @@ public class MainFrame extends JFrame {
                                 });
 
                             } else {
-                                // Display interim results by updating the last line
                                 String existingText = transcribedAudioArea.getText();
                                 int lastNewline = existingText.lastIndexOf('\n');
-
                                 if (lastNewline != -1 && existingText.substring(lastNewline + 1).startsWith("Interviewer (Interim):")) {
-                                    // Replace existing interim line
                                     transcribedAudioArea.replaceRange("Interviewer (Interim): '" + transcription + "'", lastNewline + 1, existingText.length());
-                                } else if (lastNewline != -1 && existingText.substring(lastNewline + 1).startsWith("Interviewer (Final):")) {
-                                    // If the last line was final, append interim on a new line
-                                    transcribedAudioArea.append("Interviewer (Interim): '" + transcription + "'");
                                 } else {
-                                    // If no newline or no specific prefix, just set the text
-                                    transcribedAudioArea.setText("Interviewer (Interim): '" + transcription + "'");
+                                    transcribedAudioArea.append("Interviewer (Interim): '" + transcription + "'\n");
                                 }
                                 transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
                             }
@@ -252,12 +248,16 @@ public class MainFrame extends JFrame {
                     }
                 })) {
                     appendToLogArea("Failed to start STT streaming recognition.");
-                    audioInputService.stopRecording(); // Stop audio input if STT streaming fails
+                    audioInputService.stopRecording();
                     startInputRecordingButton.setEnabled(true);
                     stopInputRecordingButton.setEnabled(false);
                 }
-            } else {
-                appendToLogArea("Failed to start audio input capture.");
+            } catch (AudioDeviceException ex) {
+                appendToLogArea("Failed to start audio input capture: " + ex.getMessage());
+                JOptionPane.showMessageDialog(this,
+                        "Could not start recording.\nPlease ensure your microphone is properly connected and not in use.",
+                        "Recording Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -307,12 +307,10 @@ public class MainFrame extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 audioOutputService.close();
-                audioInputService.close(); // Close input audio resources
-                // Close the STT client if it has a close method
+                audioInputService.close();
                 if (speechToTextService instanceof GoogleCloudSpeechToTextService) {
                     ((GoogleCloudSpeechToTextService) speechToTextService).closeClient();
                 }
-                // Close the AI client if it has a close method
                 if (aiService instanceof VertexAIService) {
                     ((VertexAIService) aiService).closeClient();
                 }

@@ -3,8 +3,8 @@ package com.quilot.ui.settings;
 import com.quilot.ai.settings.AIConfigSettings;
 import com.quilot.ai.settings.IAISettingsManager;
 import com.quilot.ai.VertexAIService;
-import com.quilot.exceptions.AIInitializationException;
-import com.quilot.exceptions.AISettingsException;
+import com.quilot.exceptions.ai.AIInitializationException;
+import com.quilot.exceptions.ai.AISettingsException;
 import com.quilot.utils.Logger;
 
 import javax.swing.*;

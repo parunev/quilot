@@ -1,5 +1,7 @@
 package com.quilot.audio.input;
 
+import com.quilot.exceptions.audio.AudioDeviceException;
+
 import javax.sound.sampled.AudioFormat;
 import java.util.List;
 
@@ -22,15 +24,13 @@ public interface AudioInputService {
      * Selects and initializes the specified audio input device for recording.
      * If a device is already selected and open, it will be closed first.
      * @param deviceName The name of the audio device to select.
-     * @return true if the device was successfully selected and opened, false otherwise.
      */
-    boolean selectInputDevice(String deviceName);
+    void selectInputDevice(String deviceName) throws AudioDeviceException;
 
     /**
      * Starts recording audio from the currently selected input device.
-     * @return true if recording successfully started, false otherwise.
      */
-    boolean startRecording();
+    void startRecording() throws AudioDeviceException;
 
     /**
      * Stops recording audio from the current input device.

@@ -1,4 +1,4 @@
-package com.quilot.exceptions;
+package com.quilot.exceptions.ai;
 
 /**
  * Thrown when there is a failure during the initialization of an AI client,

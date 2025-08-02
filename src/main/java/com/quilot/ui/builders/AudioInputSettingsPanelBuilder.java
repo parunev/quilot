@@ -1,6 +1,7 @@
 package com.quilot.ui.builders;
 
 import com.quilot.audio.input.AudioInputService;
+import com.quilot.exceptions.audio.AudioDeviceException;
 import com.quilot.utils.Logger;
 import lombok.Getter;
 
@@ -8,9 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-/**
- * Builds the panel for Audio Input Settings.
- */
 @Getter
 public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
 
@@ -57,17 +55,22 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
             inputDeviceComboBox.addItem("No Devices Found");
             inputDeviceComboBox.setEnabled(false);
             startInputRecordingButton.setEnabled(false);
-            stopInputRecordingButton.setEnabled(false);
-            playRecordedInputButton.setEnabled(false);
         } else {
             devices.forEach(inputDeviceComboBox::addItem);
+            inputDeviceComboBox.setEnabled(true);
+            startInputRecordingButton.setEnabled(true);
 
-            String selectedDevice = audioInputService.getSelectedDeviceName();
-            if (selectedDevice != null) {
-                inputDeviceComboBox.setSelectedItem(selectedDevice);
-            } else {
-                inputDeviceComboBox.setSelectedIndex(0);
-                audioInputService.selectInputDevice(devices.getFirst());
+            String selectedDeviceName = audioInputService.getSelectedDeviceName();
+            if (selectedDeviceName != null && devices.contains(selectedDeviceName)) {
+                inputDeviceComboBox.setSelectedItem(selectedDeviceName);
+            } else if (!devices.isEmpty()) {
+                String defaultDevice = devices.getFirst();
+                inputDeviceComboBox.setSelectedItem(defaultDevice);
+                try {
+                    audioInputService.selectInputDevice(defaultDevice);
+                } catch (AudioDeviceException e) {
+                    Logger.warn("Could not auto-select the default audio device '" + defaultDevice + "': " + e.getMessage());
+                }
             }
         }
     }

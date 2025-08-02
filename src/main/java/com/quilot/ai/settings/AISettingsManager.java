@@ -1,6 +1,6 @@
 package com.quilot.ai.settings;
 
-import com.quilot.exceptions.AISettingsException;
+import com.quilot.exceptions.ai.AISettingsException;
 import com.quilot.utils.Logger;
 
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.quilot.exceptions;
+package com.quilot.exceptions.ai;
 
 /**
  * Base exception for all errors originating from the AI service module.
