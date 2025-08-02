@@ -2585,3 +2585,2220 @@ java.lang.ClassCastException: class javax.sound.sampled.Line$Info cannot be cast
 [2025-07-30 14:21:03] [WARN] No active streaming recognition to stop.
 [2025-07-30 14:21:03] [INFO] Google Cloud SpeechClient closed.
 [2025-07-30 14:21:03] [INFO] Application closing. Audio resources released.
+[2025-07-31 16:04:14] [INFO] Current time update timer started.
+[2025-07-31 16:04:14] [INFO] SystemAudioOutputService initialized.
+[2025-07-31 16:04:14] [INFO] SystemAudioInputService initialized.
+[2025-07-31 16:04:14] [INFO] CredentialManager initialized.
+[2025-07-31 16:04:14] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-31 16:04:14] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:04:14] [INFO] AISettingsManager initialized.
+[2025-07-31 16:04:14] [INFO] VertexAIService initialized. Client initialization deferred.
+[2025-07-31 16:04:15] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-07-31 16:04:15] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:04:15] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-31 16:04:15] [WARN] No active streaming recognition to stop.
+[2025-07-31 16:04:15] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-31 16:04:16] [INFO] Discovered 7 audio output device(s).
+[2025-07-31 16:04:16] [INFO] Master Gain control initialized.
+[2025-07-31 16:04:16] [INFO] Selected audio output device: Default Audio Device
+[2025-07-31 16:04:16] [INFO] Found 6 audio input device(s).
+[2025-07-31 16:04:16] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-31 16:04:16] [INFO] Selected input device: Default Audio Device
+[2025-07-31 16:04:16] [INFO] Quilot UI initialized.
+[2025-07-31 16:04:22] [INFO] AI Settings button clicked. Displaying AI settings dialog.
+[2025-07-31 16:04:22] [INFO] AI settings loaded.
+[2025-07-31 16:04:22] [INFO] AI settings loaded into UI.
+[2025-07-31 16:04:24] [INFO] AI settings saved.
+[2025-07-31 16:04:24] [INFO] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:04:24] [INFO] Vertex AI PredictionServiceClient closed.
+[2025-07-31 16:04:24] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-07-31 16:04:24] [INFO] AI settings saved from UI and applied to service.
+[2025-07-31 16:04:58] [INFO] Output line closed.
+[2025-07-31 16:04:58] [INFO] Master Gain control initialized.
+[2025-07-31 16:04:58] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-31 16:04:58] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-31 16:04:59] [INFO] Input line closed.
+[2025-07-31 16:04:59] [INFO] Selected input device: BlackHole 2ch
+[2025-07-31 16:05:22] [INFO] Start button clicked.
+[2025-07-31 16:05:22] [INFO] Elapsed time timer started for interview.
+[2025-07-31 16:05:52] [INFO] Stop button clicked.
+[2025-07-31 16:05:52] [INFO] Elapsed time timer stopped.
+[2025-07-31 16:05:52] [WARN] Recording not active.
+[2025-07-31 16:07:15] [INFO] Recorded audio buffer cleared.
+[2025-07-31 16:07:15] [INFO] Audio capture thread started.
+[2025-07-31 16:07:15] [INFO] Recording started.
+[2025-07-31 16:07:15] [INFO] Starting new streaming recognition session...
+[2025-07-31 16:07:15] [INFO] STT settings loaded.
+[2025-07-31 16:07:15] [INFO] Streaming recognition response observer started.
+[2025-07-31 16:07:15] [INFO] Streaming recognition session started successfully.
+[2025-07-31 16:07:38] [INFO] Streaming STT Result: "Interview. Okay. Uh, I would I would like to ask you, please to tell me a little bit more about your professional background, your professional experience, okay? And what kind of language and framework, uh, are you familiar with? And then I can take from that, sounds good." (Final: true)
+[2025-07-31 16:07:38] [INFO] Sending prompt to AI: Interview. Okay. Uh, I would I would like to ask you, please to tell me a little bit more about your professional background, your professional experience, okay? And what kind of language and framework, uh, are you familiar with? And then I can take from that, sounds good.
+[2025-07-31 16:07:38] [INFO] AI settings loaded.
+[2025-07-31 16:07:41] [INFO] Streaming STT Result: " Sounds good. Uh, okay." (Final: true)
+[2025-07-31 16:07:41] [INFO] Sending prompt to AI:  Sounds good. Uh, okay.
+[2025-07-31 16:07:41] [INFO] AI settings loaded.
+[2025-07-31 16:07:50] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: PERMISSION_DENIED: Permission denied on resource project your-gcp-project-id.
+[2025-07-31 16:07:50] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: PERMISSION_DENIED: Permission denied on resource project your-gcp-project-id.
+[2025-07-31 16:07:50] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: PERMISSION_DENIED: Permission denied on resource project your-gcp-project-id.]
+[2025-07-31 16:07:50] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: PERMISSION_DENIED: Permission denied on resource project your-gcp-project-id.]
+[2025-07-31 16:08:00] [INFO] Audio capture thread stopped.
+[2025-07-31 16:08:00] [INFO] Recording stopped.
+[2025-07-31 16:08:00] [INFO] Stopping streaming recognition session.
+[2025-07-31 16:08:00] [INFO] Executor service for streaming recognition shut down.
+[2025-07-31 16:08:00] [INFO] Streaming recognition completed.
+[2025-07-31 16:08:00] [INFO] Streaming STT session closed.
+[2025-07-31 16:08:01] [INFO] AI Settings button clicked. Displaying AI settings dialog.
+[2025-07-31 16:08:01] [INFO] AI settings loaded.
+[2025-07-31 16:08:01] [INFO] AI settings loaded into UI.
+[2025-07-31 16:09:08] [INFO] AI Settings button clicked. Displaying AI settings dialog.
+[2025-07-31 16:09:08] [INFO] AI settings loaded.
+[2025-07-31 16:09:08] [INFO] AI settings loaded into UI.
+[2025-07-31 16:09:21] [INFO] AI settings saved.
+[2025-07-31 16:09:21] [INFO] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:09:21] [INFO] Vertex AI PredictionServiceClient closed.
+[2025-07-31 16:09:21] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-07-31 16:09:21] [INFO] AI settings saved from UI and applied to service.
+[2025-07-31 16:09:36] [INFO] Recorded audio buffer cleared.
+[2025-07-31 16:09:36] [INFO] Recording started.
+[2025-07-31 16:09:36] [INFO] Audio capture thread started.
+[2025-07-31 16:09:36] [INFO] Starting new streaming recognition session...
+[2025-07-31 16:09:36] [INFO] STT settings loaded.
+[2025-07-31 16:09:36] [INFO] Streaming recognition response observer started.
+[2025-07-31 16:09:36] [INFO] Streaming recognition session started successfully.
+[2025-07-31 16:09:56] [INFO] Streaming STT Result: "Okay. Uh, I would I would like to ask you, please to tell me a little bit more about your professional background, your professional experience, okay? And what kind of language and framework, uh, are you familiar with? And then I can take from that, sounds good." (Final: true)
+[2025-07-31 16:09:56] [INFO] Sending prompt to AI: Okay. Uh, I would I would like to ask you, please to tell me a little bit more about your professional background, your professional experience, okay? And what kind of language and framework, uh, are you familiar with? And then I can take from that, sounds good.
+[2025-07-31 16:09:56] [INFO] AI settings loaded.
+[2025-07-31 16:09:58] [INFO] Streaming STT Result: " Sounds good." (Final: true)
+[2025-07-31 16:09:58] [INFO] Sending prompt to AI:  Sounds good.
+[2025-07-31 16:09:58] [INFO] AI settings loaded.
+[2025-07-31 16:10:06] [ERROR] Streaming recognition error: io.grpc.StatusRuntimeException: CANCELLED: Failed to stream message
+[2025-07-31 16:10:06] [ERROR] Streaming STT Error: io.grpc.StatusRuntimeException: CANCELLED: Failed to stream message
+[2025-07-31 16:10:06] [INFO] Executor service for streaming recognition shut down.
+[2025-07-31 16:10:07] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: Invalid Endpoint name: projects/quilot/locations/us-central1/endpoints/text-bison@001.
+[2025-07-31 16:10:07] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: Invalid Endpoint name: projects/quilot/locations/us-central1/endpoints/text-bison@001.]
+[2025-07-31 16:10:07] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: Invalid Endpoint name: projects/quilot/locations/us-central1/endpoints/text-bison@001.
+[2025-07-31 16:10:07] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: Invalid Endpoint name: projects/quilot/locations/us-central1/endpoints/text-bison@001.]
+[2025-07-31 16:10:50] [INFO] AI Settings button clicked. Displaying AI settings dialog.
+[2025-07-31 16:10:50] [INFO] AI settings loaded.
+[2025-07-31 16:10:50] [INFO] AI settings loaded into UI.
+[2025-07-31 16:20:50] [INFO] Current time update timer started.
+[2025-07-31 16:20:50] [INFO] SystemAudioOutputService initialized.
+[2025-07-31 16:20:50] [INFO] SystemAudioInputService initialized.
+[2025-07-31 16:20:50] [INFO] CredentialManager initialized.
+[2025-07-31 16:20:50] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-31 16:20:50] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:20:50] [INFO] AISettingsManager initialized.
+[2025-07-31 16:20:50] [INFO] VertexAIService initialized. Client initialization deferred.
+[2025-07-31 16:20:51] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-07-31 16:20:51] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:20:51] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-31 16:20:51] [WARN] No active streaming recognition to stop.
+[2025-07-31 16:20:51] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-31 16:20:51] [INFO] Discovered 7 audio output device(s).
+[2025-07-31 16:20:51] [INFO] Master Gain control initialized.
+[2025-07-31 16:20:51] [INFO] Selected audio output device: Default Audio Device
+[2025-07-31 16:20:51] [INFO] Found 6 audio input device(s).
+[2025-07-31 16:20:51] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-31 16:20:51] [INFO] Selected input device: Default Audio Device
+[2025-07-31 16:20:51] [INFO] Quilot UI initialized.
+[2025-07-31 16:20:56] [INFO] Output line closed.
+[2025-07-31 16:20:56] [INFO] Master Gain control initialized.
+[2025-07-31 16:20:56] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-31 16:20:56] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-31 16:20:58] [INFO] Input line closed.
+[2025-07-31 16:20:58] [INFO] Selected input device: BlackHole 2ch
+[2025-07-31 16:21:07] [INFO] Recorded audio buffer cleared.
+[2025-07-31 16:21:07] [INFO] Recording started.
+[2025-07-31 16:21:07] [INFO] Audio capture thread started.
+[2025-07-31 16:21:07] [INFO] Starting new streaming recognition session...
+[2025-07-31 16:21:07] [INFO] STT settings loaded.
+[2025-07-31 16:21:07] [INFO] Streaming recognition response observer started.
+[2025-07-31 16:21:07] [INFO] Streaming recognition session started successfully.
+[2025-07-31 16:21:27] [INFO] Streaming STT Result: "You, okay? Uh, I would I would like to ask you, please to tell me a little bit more about your professional background, your professional experience, okay? And what kind of language and framework, uh, are you familiar with? And then I can take from that, sounds good." (Final: true)
+[2025-07-31 16:21:27] [INFO] Sending prompt to AI: You, okay? Uh, I would I would like to ask you, please to tell me a little bit more about your professional background, your professional experience, okay? And what kind of language and framework, uh, are you familiar with? And then I can take from that, sounds good.
+[2025-07-31 16:21:27] [INFO] AI settings loaded.
+[2025-07-31 16:21:29] [INFO] Streaming STT Result: " Sounds good. Uh, okay." (Final: true)
+[2025-07-31 16:21:29] [INFO] Sending prompt to AI:  Sounds good. Uh, okay.
+[2025-07-31 16:21:29] [INFO] AI settings loaded.
+[2025-07-31 16:21:38] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+[2025-07-31 16:21:38] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+[2025-07-31 16:21:38] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions]
+[2025-07-31 16:21:38] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions]
+[2025-07-31 16:25:14] [INFO] Current time update timer started.
+[2025-07-31 16:25:14] [INFO] SystemAudioOutputService initialized.
+[2025-07-31 16:25:14] [INFO] SystemAudioInputService initialized.
+[2025-07-31 16:25:14] [INFO] CredentialManager initialized.
+[2025-07-31 16:25:14] [INFO] SpeechToTextSettingsManager initialized.
+[2025-07-31 16:25:14] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:25:14] [INFO] AISettingsManager initialized.
+[2025-07-31 16:25:14] [INFO] VertexAIService initialized. Client initialization deferred.
+[2025-07-31 16:25:14] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-07-31 16:25:14] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:25:14] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-07-31 16:25:14] [WARN] No active streaming recognition to stop.
+[2025-07-31 16:25:14] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-07-31 16:25:15] [INFO] Discovered 7 audio output device(s).
+[2025-07-31 16:25:15] [INFO] Master Gain control initialized.
+[2025-07-31 16:25:15] [INFO] Selected audio output device: Default Audio Device
+[2025-07-31 16:25:15] [INFO] Found 6 audio input device(s).
+[2025-07-31 16:25:15] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-07-31 16:25:15] [INFO] Selected input device: Default Audio Device
+[2025-07-31 16:25:15] [INFO] Quilot UI initialized.
+[2025-07-31 16:25:16] [INFO] AI Settings button clicked. Displaying AI settings dialog.
+[2025-07-31 16:25:16] [INFO] AI settings loaded.
+[2025-07-31 16:25:16] [INFO] AI settings loaded into UI.
+[2025-07-31 16:25:40] [INFO] AI settings saved.
+[2025-07-31 16:25:40] [INFO] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:25:40] [INFO] Vertex AI PredictionServiceClient closed.
+[2025-07-31 16:25:40] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-07-31 16:25:40] [INFO] AI settings saved from UI and applied to service.
+[2025-07-31 16:25:44] [INFO] AI Settings button clicked. Displaying AI settings dialog.
+[2025-07-31 16:25:44] [INFO] AI settings loaded.
+[2025-07-31 16:25:44] [INFO] AI settings loaded into UI.
+[2025-07-31 16:25:54] [INFO] AI settings saved.
+[2025-07-31 16:25:54] [INFO] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-07-31 16:25:54] [INFO] Vertex AI PredictionServiceClient closed.
+[2025-07-31 16:25:54] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-07-31 16:25:54] [INFO] AI settings saved from UI and applied to service.
+[2025-07-31 16:25:56] [INFO] Output line closed.
+[2025-07-31 16:25:56] [INFO] Master Gain control initialized.
+[2025-07-31 16:25:56] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-07-31 16:25:56] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-07-31 16:26:01] [INFO] Input line closed.
+[2025-07-31 16:26:02] [INFO] Selected input device: BlackHole 2ch
+[2025-07-31 16:28:22] [INFO] Recorded audio buffer cleared.
+[2025-07-31 16:28:22] [INFO] Recording started.
+[2025-07-31 16:28:22] [INFO] Audio capture thread started.
+[2025-07-31 16:28:22] [INFO] Starting new streaming recognition session...
+[2025-07-31 16:28:22] [INFO] STT settings loaded.
+[2025-07-31 16:28:22] [INFO] Streaming recognition response observer started.
+[2025-07-31 16:28:22] [INFO] Streaming recognition session started successfully.
+[2025-07-31 16:28:26] [INFO] Streaming STT Result: "Here we go." (Final: true)
+[2025-07-31 16:28:26] [INFO] Sending prompt to AI: Here we go.
+[2025-07-31 16:28:26] [INFO] AI settings loaded.
+[2025-07-31 16:28:31] [INFO] Streaming STT Result: " The first question is, what is Java? And why is it platform independent?" (Final: true)
+[2025-07-31 16:28:31] [INFO] Sending prompt to AI:  The first question is, what is Java? And why is it platform independent?
+[2025-07-31 16:28:31] [INFO] AI settings loaded.
+[2025-07-31 16:28:36] [INFO] Streaming STT Result: " Java is a high-level." (Final: true)
+[2025-07-31 16:28:36] [INFO] Sending prompt to AI:  Java is a high-level.
+[2025-07-31 16:28:36] [INFO] AI settings loaded.
+[2025-07-31 16:28:38] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-07-31 16:28:38] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-07-31 16:28:38] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-07-31 16:28:38] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-07-31 16:28:38] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-07-31 16:28:38] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-07-31 16:33:28] [ERROR] Streaming recognition error: io.grpc.StatusRuntimeException: OUT_OF_RANGE: Exceeded maximum allowed stream duration of 305 seconds.
+[2025-07-31 16:33:28] [ERROR] Streaming STT Error: io.grpc.StatusRuntimeException: OUT_OF_RANGE: Exceeded maximum allowed stream duration of 305 seconds.
+[2025-07-31 16:33:28] [INFO] Executor service for streaming recognition shut down.
+[2025-08-01 11:18:05] [INFO] Current time update timer started.
+[2025-08-01 11:18:05] [INFO] SystemAudioOutputService initialized.
+[2025-08-01 11:18:05] [INFO] SystemAudioInputService initialized.
+[2025-08-01 11:18:05] [INFO] CredentialManager initialized.
+[2025-08-01 11:18:05] [INFO] SpeechToTextSettingsManager initialized.
+[2025-08-01 11:18:05] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 11:18:05] [INFO] AISettingsManager initialized.
+[2025-08-01 11:18:05] [INFO] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 11:18:05] [INFO] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 11:18:05] [INFO] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 11:18:05] [INFO] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 11:18:05] [WARN] No active streaming recognition to stop.
+[2025-08-01 11:18:05] [INFO] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 11:18:06] [INFO] Discovered 7 audio output device(s).
+[2025-08-01 11:18:06] [INFO] Master Gain control initialized.
+[2025-08-01 11:18:06] [INFO] Selected audio output device: Default Audio Device
+[2025-08-01 11:18:06] [INFO] Found 6 audio input device(s).
+[2025-08-01 11:18:06] [INFO] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 11:18:06] [INFO] Selected input device: Default Audio Device
+[2025-08-01 11:18:06] [INFO] Quilot UI initialized.
+[2025-08-01 11:18:23] [INFO] Output line closed.
+[2025-08-01 11:18:23] [INFO] Master Gain control initialized.
+[2025-08-01 11:18:23] [INFO] Selected audio output device: System Audio + BlackHole
+[2025-08-01 11:18:23] [INFO] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 11:18:25] [INFO] Input line closed.
+[2025-08-01 11:18:25] [INFO] Selected input device: BlackHole 2ch
+[2025-08-01 11:18:56] [INFO] Recorded audio buffer cleared.
+[2025-08-01 11:18:56] [INFO] Recording started.
+[2025-08-01 11:18:56] [INFO] Audio capture thread started.
+[2025-08-01 11:18:56] [INFO] Starting new streaming recognition session...
+[2025-08-01 11:18:56] [INFO] STT settings loaded.
+[2025-08-01 11:18:56] [INFO] Streaming recognition response observer started.
+[2025-08-01 11:18:56] [INFO] Streaming recognition session started successfully.
+[2025-08-01 11:19:08] [INFO] Audio capture thread stopped.
+[2025-08-01 11:19:08] [INFO] Recording stopped.
+[2025-08-01 11:19:08] [INFO] Stopping streaming recognition session.
+[2025-08-01 11:19:08] [INFO] Executor service for streaming recognition shut down.
+[2025-08-01 11:19:08] [INFO] Streaming recognition completed.
+[2025-08-01 11:19:08] [INFO] Streaming STT session closed.
+[2025-08-01 11:19:24] [INFO] Recorded audio buffer cleared.
+[2025-08-01 11:19:24] [INFO] Audio capture thread started.
+[2025-08-01 11:19:24] [INFO] Recording started.
+[2025-08-01 11:19:24] [INFO] Starting new streaming recognition session...
+[2025-08-01 11:19:24] [INFO] STT settings loaded.
+[2025-08-01 11:19:24] [INFO] Streaming recognition response observer started.
+[2025-08-01 11:19:24] [INFO] Streaming recognition session started successfully.
+[2025-08-01 11:19:31] [INFO] Streaming STT Result: "What is Java? And why is it platform independent?" (Final: true)
+[2025-08-01 11:19:31] [INFO] Sending prompt to AI: What is Java? And why is it platform independent?
+[2025-08-01 11:19:31] [INFO] AI settings loaded.
+[2025-08-01 11:19:42] [ERROR] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-08-01 11:19:42] [INFO] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-08-01 11:19:53] [INFO] Audio capture thread stopped.
+[2025-08-01 11:19:53] [INFO] Recording stopped.
+[2025-08-01 11:19:53] [INFO] Stopping streaming recognition session.
+[2025-08-01 11:19:53] [INFO] Executor service for streaming recognition shut down.
+[2025-08-01 11:19:53] [INFO] Streaming recognition completed.
+[2025-08-01 11:19:53] [INFO] Streaming STT session closed.
+[2025-08-01 11:26:29] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 11:26:29] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 11:26:29] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 11:26:29] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 11:26:29] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 11:26:29] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 11:26:29] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 11:26:29] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 11:26:30] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 11:26:30] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 11:26:30] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 11:26:30] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 11:26:30] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 11:26:30] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 11:26:30] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 11:26:30] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 11:26:30] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 11:26:30] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 11:26:30] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 11:26:30] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 11:26:34] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 11:26:34] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 11:26:34] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 11:26:34] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 11:26:35] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 11:26:35] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 11:26:46] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 11:26:46] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 11:26:46] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 11:26:46] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 11:26:46] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 11:26:46] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 11:26:46] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 11:26:53] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "The first question is, what is Java? And why is it platform independent?" (Final: true)
+[2025-08-01 11:26:54] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: The first question is, what is Java? And why is it platform independent?
+[2025-08-01 11:26:54] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 11:27:05] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-08-01 11:27:05] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-08-01 11:27:05] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 11:27:05] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 11:27:05] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 11:27:05] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 11:27:05] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 11:27:05] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 11:28:59] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 11:28:59] [INFO] [SystemAudioOutputService.close()] SystemAudioOutputService closed.
+[2025-08-01 11:28:59] [WARN] [SystemAudioInputService.stopRecording()] Recording not active.
+[2025-08-01 11:28:59] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 11:28:59] [INFO] [SystemAudioInputService.close()] SystemAudioInputService resources released.
+[2025-08-01 11:28:59] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 11:28:59] [INFO] [GoogleCloudSpeechToTextService.closeClient()] Google Cloud SpeechClient closed.
+[2025-08-01 11:28:59] [INFO] [VertexAIService.closeClient()] Vertex AI PredictionServiceClient closed.
+[2025-08-01 11:28:59] [INFO] [MainFrame$2.windowClosing()] Application closing. Audio resources released.
+[2025-08-01 12:12:12] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 12:12:12] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 12:12:12] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 12:12:12] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 12:12:12] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 12:12:12] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:12:12] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 12:12:12] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 12:12:13] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:12:13] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:12:13] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 12:12:13] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 12:12:13] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 12:12:13] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 12:12:13] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:12:13] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 12:12:13] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 12:12:13] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 12:12:13] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 12:12:13] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 12:12:18] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 12:12:18] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:12:18] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: BlackHole 2ch
+[2025-08-01 12:12:18] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 12:12:20] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 12:12:20] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 12:12:33] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:12:33] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:12:33] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:12:33] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:12:33] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:12:33] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:12:33] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:12:36] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "" (Final: true)
+[2025-08-01 12:12:41] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "explain the concept of object-oriented programming, or" (Final: true)
+[2025-08-01 12:12:41] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: explain the concept of object-oriented programming, or
+[2025-08-01 12:12:41] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:12:52] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-08-01 12:12:52] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-08-01 12:14:19] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:14:19] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:14:19] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:14:19] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:14:19] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:14:19] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:15:54] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 12:15:54] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:15:54] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 12:15:58] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 12:15:58] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:15:58] [INFO] [VertexAIService.closeClient()] Vertex AI PredictionServiceClient closed.
+[2025-08-01 12:15:58] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:15:58] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 12:16:13] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:16:13] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:16:13] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:16:13] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:16:13] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:16:13] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:16:13] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:16:22] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Explain the concept of object-oriented programming, or oop." (Final: true)
+[2025-08-01 12:16:22] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Explain the concept of object-oriented programming, or oop.
+[2025-08-01 12:16:22] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:16:33] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/europe-west1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+[2025-08-01 12:16:33] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/europe-west1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions]
+[2025-08-01 12:16:49] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:16:49] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:16:49] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:16:49] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:16:49] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:16:49] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:17:33] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 12:17:34] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:17:34] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 12:17:38] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 12:17:38] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:17:38] [INFO] [VertexAIService.closeClient()] Vertex AI PredictionServiceClient closed.
+[2025-08-01 12:17:38] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:17:38] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 12:18:02] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:18:02] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:18:02] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:18:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:18:02] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:18:02] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:18:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:18:07] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Let's move to question 2." (Final: true)
+[2025-08-01 12:18:07] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Let's move to question 2.
+[2025-08-01 12:18:07] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:18:13] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  Explain the concept of object-oriented programming, or oop.
+[2025-08-01 12:18:13] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " Explain the concept of object-oriented programming, or oop." (Final: true)
+[2025-08-01 12:18:13] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:18:18] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+[2025-08-01 12:18:18] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions]
+[2025-08-01 12:18:18] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+[2025-08-01 12:18:18] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions]
+[2025-08-01 12:18:23] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:18:23] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:18:23] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:18:23] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:18:23] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:18:23] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:21:32] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 12:21:32] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:21:32] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 12:21:35] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 12:21:35] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:21:35] [INFO] [VertexAIService.closeClient()] Vertex AI PredictionServiceClient closed.
+[2025-08-01 12:21:35] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:21:35] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 12:21:47] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 12:21:47] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 12:21:47] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 12:21:47] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 12:21:47] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 12:21:47] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:21:47] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 12:21:47] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 12:21:48] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:21:48] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:21:48] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 12:21:48] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 12:21:48] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 12:21:48] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 12:21:48] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:21:48] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 12:21:48] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 12:21:48] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 12:21:48] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 12:21:48] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 12:21:51] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 12:21:51] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:21:51] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 12:21:51] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 12:21:52] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 12:21:52] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 12:22:02] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:22:02] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:22:02] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:22:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:22:02] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:22:02] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:22:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:22:09] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Explain the concept of object-oriented programming, or oop." (Final: true)
+[2025-08-01 12:22:09] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Explain the concept of object-oriented programming, or oop.
+[2025-08-01 12:22:09] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:22:21] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@002` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+[2025-08-01 12:22:21] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: NOT_FOUND: Publisher Model `projects/quilot/locations/us-central1/publishers/google/models/text-bison@002` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions]
+[2025-08-01 12:22:46] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 12:22:46] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:22:46] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 12:22:51] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 12:22:51] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:22:51] [INFO] [VertexAIService.closeClient()] Vertex AI PredictionServiceClient closed.
+[2025-08-01 12:22:51] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:22:51] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 12:23:00] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 12:23:00] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 12:23:00] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 12:23:00] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 12:23:00] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 12:23:00] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:23:00] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 12:23:00] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 12:23:00] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:23:00] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:23:00] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 12:23:00] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 12:23:00] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 12:23:01] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 12:23:01] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:23:01] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 12:23:01] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 12:23:01] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 12:23:01] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 12:23:01] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 12:23:02] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:23:02] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:23:02] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:23:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:23:02] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:23:02] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:23:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:23:03] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:23:03] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:23:03] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:23:03] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:23:03] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:23:03] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:23:04] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 12:23:04] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 12:23:06] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 12:23:06] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:23:06] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: MacBook Pro Speakers
+[2025-08-01 12:23:06] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 12:23:07] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 12:23:07] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:23:07] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 12:23:07] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 12:23:17] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:23:17] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:23:17] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:23:17] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:23:17] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:23:17] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:23:17] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:23:20] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Moved to question 2." (Final: true)
+[2025-08-01 12:23:20] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Moved to question 2.
+[2025-08-01 12:23:20] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:23:26] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " Explain the concept of object-oriented programming, or oop." (Final: true)
+[2025-08-01 12:23:26] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  Explain the concept of object-oriented programming, or oop.
+[2025-08-01 12:23:26] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:23:31] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-08-01 12:23:31] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-08-01 12:23:31] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-08-01 12:23:31] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-08-01 12:23:39] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:23:39] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:23:39] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:23:39] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:23:39] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:23:39] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:25:47] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 12:25:47] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:25:47] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 12:25:57] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 12:25:57] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:25:57] [INFO] [VertexAIService.closeClient()] Vertex AI PredictionServiceClient closed.
+[2025-08-01 12:25:57] [INFO] [VertexAIService.initializeClient()] Vertex AI PredictionServiceClient created successfully using provided credentials.
+[2025-08-01 12:25:57] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 12:26:09] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:26:09] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:26:09] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:26:09] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:26:09] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:26:09] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:26:09] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:26:23] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Programming Paradigm based on objects, which represent real world entities, it includes 4 main principles, encapsulation inheritance, polymorphism and abstraction.
+[2025-08-01 12:26:23] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Programming Paradigm based on objects, which represent real world entities, it includes 4 main principles, encapsulation inheritance, polymorphism and abstraction." (Final: true)
+[2025-08-01 12:26:23] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:26:26] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " These principles make Java code." (Final: true)
+[2025-08-01 12:26:26] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  These principles make Java code.
+[2025-08-01 12:26:26] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:26:34] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-08-01 12:26:34] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-08-01 12:26:34] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.
+[2025-08-01 12:26:34] [INFO] [VertexAIService.lambda$generateResponse$1()] AI responded: [AI Error: io.grpc.StatusRuntimeException: FAILED_PRECONDITION: Gemini cannot be accessed through Vertex Predict/RawPredict API. Please follow https://cloud.google.com/vertex-ai/docs/generative-ai/start/quickstarts/quickstart-multimodal for Gemini usage.]
+[2025-08-01 12:26:48] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:26:48] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:26:48] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:26:48] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:26:48] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:26:48] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:53:21] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 12:53:21] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 12:53:21] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 12:53:21] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 12:53:21] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 12:53:21] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:53:21] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 12:53:21] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 12:53:21] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:53:21] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 12:53:21] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:53:21] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 12:53:21] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 12:53:21] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 12:53:22] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 12:53:22] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:53:22] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 12:53:22] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 12:53:22] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 12:53:22] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 12:53:22] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 12:53:28] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 12:53:28] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:53:28] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: BlackHole 2ch
+[2025-08-01 12:53:28] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 12:53:29] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 12:53:29] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 12:53:49] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:53:49] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:53:49] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:53:49] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:53:49] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:53:49] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:53:49] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:53:55] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Is what is Java and why is it platform independent?" (Final: true)
+[2025-08-01 12:53:55] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Is what is Java and why is it platform independent?
+[2025-08-01 12:53:55] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:53:55] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+[2025-08-01 12:54:01] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:54:01] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:54:01] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:54:01] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:54:01] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:54:01] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:58:00] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 12:58:00] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 12:58:00] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 12:58:00] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 12:58:00] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 12:58:00] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:58:00] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 12:58:00] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 12:58:00] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:58:01] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 12:58:01] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:58:01] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 12:58:01] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 12:58:01] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 12:58:02] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 12:58:02] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:58:02] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 12:58:02] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 12:58:02] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 12:58:02] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 12:58:02] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 12:58:06] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 12:58:06] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:58:06] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 12:58:06] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 12:58:07] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 12:58:07] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 12:58:12] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 12:58:13] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:58:13] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 12:58:28] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:58:28] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:58:28] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:58:28] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:58:28] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:58:28] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:58:28] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:58:47] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Java is a high-level object-oriented programming language its platform independent because Java programs are compiled into byte code which can run on any system with a Java virtual machine or jvm." (Final: true)
+[2025-08-01 12:58:47] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Java is a high-level object-oriented programming language its platform independent because Java programs are compiled into byte code which can run on any system with a Java virtual machine or jvm.
+[2025-08-01 12:58:47] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:58:47] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+[2025-08-01 12:58:51] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:58:51] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:58:51] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:58:51] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:58:52] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:58:52] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 12:59:07] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 12:59:07] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 12:59:07] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 12:59:07] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 12:59:07] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 12:59:07] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:59:07] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 12:59:07] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 12:59:07] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:59:07] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 12:59:07] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 12:59:07] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 12:59:07] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 12:59:08] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 12:59:08] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 12:59:08] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:59:08] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 12:59:08] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 12:59:08] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 12:59:08] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 12:59:08] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 12:59:15] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 12:59:15] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 12:59:15] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 12:59:15] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 12:59:16] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 12:59:16] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 12:59:31] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 12:59:31] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 12:59:31] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 12:59:31] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 12:59:31] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 12:59:31] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 12:59:31] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 12:59:39] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Explain the concept of object-oriented programming, or oop." (Final: true)
+[2025-08-01 12:59:39] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Explain the concept of object-oriented programming, or oop.
+[2025-08-01 12:59:39] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 12:59:39] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+[2025-08-01 12:59:42] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 12:59:42] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 12:59:42] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 12:59:42] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 12:59:42] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 12:59:42] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 13:01:53] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:01:53] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:01:53] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:01:53] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:01:53] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:01:53] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:01:53] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:01:53] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:01:58] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:02:12] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 13:02:12] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:02:12] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:02:12] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:02:21] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:02:21] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:02:21] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:02:21] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:02:21] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:02:21] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:02:21] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:02:21] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:02:21] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:02:21] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 13:02:21] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:02:21] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:02:21] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:02:22] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 13:02:22] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 13:02:22] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:02:22] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 13:02:22] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 13:02:22] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 13:02:22] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 13:02:22] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 13:02:41] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:02:41] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:02:41] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 13:02:41] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 13:02:42] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:02:42] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 13:02:45] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 13:02:45] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 13:02:45] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 13:02:45] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 13:02:45] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 13:02:45] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 13:02:45] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 13:02:47] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Main features of java." (Final: true)
+[2025-08-01 13:02:47] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Main features of java.
+[2025-08-01 13:02:47] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:02:49] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-08-01 13:02:52] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 13:02:52] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 13:02:52] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 13:02:52] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 13:02:52] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 13:02:52] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 13:13:04] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:13:04] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:13:04] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:13:04] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:13:04] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:13:04] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:13:04] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:13:04] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:13:04] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:13:04] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 13:13:04] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:13:04] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:13:04] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:13:05] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 13:13:05] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 13:13:05] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:13:05] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 13:13:05] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 13:13:05] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 13:13:05] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 13:13:05] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 13:13:08] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:13:08] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:13:08] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 13:13:08] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 13:13:09] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:13:09] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: MacBook Pro Microphone
+[2025-08-01 13:13:10] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:13:10] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 13:13:36] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 13:13:36] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 13:13:36] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 13:13:36] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 13:13:36] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 13:13:36] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 13:13:36] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 13:13:38] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "4." (Final: true)
+[2025-08-01 13:13:38] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: 4.
+[2025-08-01 13:13:38] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:13:42] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " What is the Java virtual machine or jvm?" (Final: true)
+[2025-08-01 13:13:42] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: Index: 0
+[2025-08-01 13:13:42] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  What is the Java virtual machine or jvm?
+[2025-08-01 13:13:42] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:13:46] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: Index: 0
+[2025-08-01 13:13:47] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 13:13:47] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 13:13:47] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 13:13:47] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 13:13:48] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 13:13:48] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 13:15:49] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:15:49] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:15:49] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:15:49] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:15:49] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:15:49] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:15:49] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:15:49] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:15:49] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:15:49] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 13:15:49] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:15:49] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:15:49] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:15:50] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 13:15:50] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 13:15:50] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:15:50] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 13:15:50] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 13:15:50] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 13:15:51] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 13:15:51] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 13:15:53] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:15:53] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:15:53] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: BlackHole 2ch
+[2025-08-01 13:15:53] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 13:15:54] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:15:54] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:15:54] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 13:15:54] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 13:15:55] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:15:55] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 13:16:10] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 13:16:10] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 13:16:10] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 13:16:10] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 13:16:10] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 13:16:10] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 13:16:10] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 13:16:14] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Moving forward to question 5." (Final: true)
+[2025-08-01 13:16:14] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Moving forward to question 5.
+[2025-08-01 13:16:14] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:16:19] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:16:19] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:16:19] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 0
+[2025-08-01 13:16:19] [WARN] [VertexAIService.lambda$generateResponse$1()] Candidate content or parts missing.
+[2025-08-01 13:16:19] [WARN] [VertexAIService.lambda$generateResponse$0()] Received empty response from Vertex AI.
+[2025-08-01 13:16:19] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " What's the difference between jdk JRE and jvm?" (Final: true)
+[2025-08-01 13:16:19] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  What's the difference between jdk JRE and jvm?
+[2025-08-01 13:16:19] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:16:23] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:16:23] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:16:23] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 0
+[2025-08-01 13:16:23] [WARN] [VertexAIService.lambda$generateResponse$1()] Candidate content or parts missing.
+[2025-08-01 13:16:23] [WARN] [VertexAIService.lambda$generateResponse$0()] Received empty response from Vertex AI.
+[2025-08-01 13:16:24] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 13:16:24] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 13:16:24] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 13:16:24] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 13:16:24] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 13:16:24] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 13:18:24] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:18:24] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:18:24] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:18:24] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:18:24] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:18:24] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:18:24] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:18:24] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:18:24] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:18:24] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 13:18:24] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:18:24] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:18:24] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:18:25] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 13:18:26] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 13:18:26] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:18:26] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 13:18:26] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 13:18:26] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 13:18:26] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 13:18:26] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 13:18:28] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:18:28] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:18:28] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 13:18:28] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 13:18:29] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:18:29] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 13:19:02] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 13:19:02] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 13:19:02] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 13:19:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 13:19:02] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 13:19:02] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 13:19:02] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 13:19:06] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 13:19:06] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 13:19:06] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 13:19:06] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 13:19:07] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Explain." (Final: true)
+[2025-08-01 13:19:07] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 13:19:07] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 13:19:18] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Explain.
+[2025-08-01 13:19:38] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:19:48] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+  }
+  finish_reason: MAX_TOKENS
+}
+usage_metadata {
+  prompt_token_count: 2
+  total_token_count: 257
+  8: 1
+  9: {
+    1: 1
+    2: 2
+  }
+  14: 255
+}
+11: "gemini-2.5-pro"
+12: {
+  1: 1754043585
+  2: 197614000
+}
+13: "wZSMaO6HDPbygLUPrajR6Qw"
+
+[2025-08-01 13:19:48] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:19:48] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:19:48] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 0
+[2025-08-01 13:19:48] [WARN] [VertexAIService.lambda$generateResponse$1()] Candidate content or parts missing.
+[2025-08-01 13:19:48] [WARN] [VertexAIService.lambda$generateResponse$0()] Received empty response from Vertex AI.
+[2025-08-01 13:20:28] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:20:28] [INFO] [SystemAudioOutputService.close()] SystemAudioOutputService closed.
+[2025-08-01 13:20:28] [WARN] [SystemAudioInputService.stopRecording()] Recording not active.
+[2025-08-01 13:20:28] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:20:28] [INFO] [SystemAudioInputService.close()] SystemAudioInputService resources released.
+[2025-08-01 13:20:28] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:20:28] [INFO] [GoogleCloudSpeechToTextService.closeClient()] Google Cloud SpeechClient closed.
+[2025-08-01 13:20:28] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:20:28] [INFO] [MainFrame$2.windowClosing()] Application closing. Audio resources released.
+[2025-08-01 13:21:55] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:21:55] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:21:55] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:21:55] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:21:55] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:21:55] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:21:55] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:21:55] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:21:55] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:21:55] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 13:21:55] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:21:55] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:21:55] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:21:55] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 13:21:56] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 13:21:56] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:21:56] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 13:21:56] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 13:21:56] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 13:21:56] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 13:21:56] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 13:21:57] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 13:21:57] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:21:57] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 13:22:02] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 13:22:02] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:22:02] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:22:02] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:22:02] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-pro
+[2025-08-01 13:22:02] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 13:24:13] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 13:24:13] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:24:13] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:24:13] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:24:13] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-01 13:24:13] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 13:24:16] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:24:16] [INFO] [SystemAudioOutputService.close()] SystemAudioOutputService closed.
+[2025-08-01 13:24:16] [WARN] [SystemAudioInputService.stopRecording()] Recording not active.
+[2025-08-01 13:24:16] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:24:16] [INFO] [SystemAudioInputService.close()] SystemAudioInputService resources released.
+[2025-08-01 13:24:16] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:24:16] [INFO] [GoogleCloudSpeechToTextService.closeClient()] Google Cloud SpeechClient closed.
+[2025-08-01 13:24:16] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:24:16] [INFO] [MainFrame$2.windowClosing()] Application closing. Audio resources released.
+[2025-08-01 13:24:19] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:24:19] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:24:19] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:24:19] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:24:19] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:24:19] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:24:19] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:24:19] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:24:19] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:24:19] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-01 13:24:19] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:24:19] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:24:19] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:24:20] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 13:24:20] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 13:24:20] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:24:20] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 13:24:20] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 13:24:20] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 13:24:20] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 13:24:20] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 13:24:33] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 13:24:33] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:24:33] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 13:24:37] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:24:37] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:24:37] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 13:24:37] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 13:24:39] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:24:39] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 13:24:59] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 13:24:59] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 13:24:59] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 13:24:59] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 13:24:59] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 13:24:59] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 13:24:59] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 13:25:03] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "As garbage collection process." (Final: true)
+[2025-08-01 13:25:03] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: As garbage collection process.
+[2025-08-01 13:25:03] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:25:03] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: UNIMPLEMENTED: HTTP status code 404
+invalid content-type: text/html; charset=UTF-8
+headers: Metadata(:status=404,content-type=text/html; charset=UTF-8,referrer-policy=no-referrer,date=Fri, 01 Aug 2025 10:25:03 GMT,alt-svc=h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,content-length=1627)
+DATA-----------------------------
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/google.cloud.aiplatform.v1.PredictionService/StreamGenerateContent</code> was not found on this server.  <ins>That’s all we know.</ins>
+
+[2025-08-01 13:25:06] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 13:25:06] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 13:25:06] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 13:25:06] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 13:25:06] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " Java's garbage collection automatically." (Final: true)
+[2025-08-01 13:25:06] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  Java's garbage collection automatically.
+[2025-08-01 13:25:06] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:25:06] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 13:25:06] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 13:25:07] [ERROR] [VertexAIService.lambda$generateResponse$0()] Error calling Vertex AI: io.grpc.StatusRuntimeException: UNIMPLEMENTED: HTTP status code 404
+invalid content-type: text/html; charset=UTF-8
+headers: Metadata(:status=404,content-type=text/html; charset=UTF-8,referrer-policy=no-referrer,date=Fri, 01 Aug 2025 10:25:07 GMT,alt-svc=h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,content-length=1627)
+DATA-----------------------------
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/google.cloud.aiplatform.v1.PredictionService/StreamGenerateContent</code> was not found on this server.  <ins>That’s all we know.</ins>
+
+[2025-08-01 13:25:45] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 13:25:45] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:25:45] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 13:26:43] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 13:26:43] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:26:43] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:26:43] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:26:43] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-01 13:26:43] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 13:26:47] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 13:26:47] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 13:26:47] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 13:26:47] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 13:26:47] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 13:26:47] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 13:26:47] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 13:26:48] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "" (Final: true)
+[2025-08-01 13:27:03] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Moves unused objects from memory. This process, improves efficiency and helps prevent memory leaks by freeing up space for new objects." (Final: true)
+[2025-08-01 13:27:03] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Moves unused objects from memory. This process, improves efficiency and helps prevent memory leaks by freeing up space for new objects.
+[2025-08-01 13:27:03] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:27:06] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "This process is called **Garbage Collection**."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 24
+  candidates_token_count: 8
+  total_token_count: 522
+  8: 1
+  9: {
+    1: 1
+    2: 24
+  }
+  11: {
+    1: 1
+    2: 8
+  }
+  14: 490
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044024
+  2: 342340000
+}
+13: "eJaMaMTyFJ_D1PIPrJSxmAI"
+
+[2025-08-01 13:27:06] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:27:06] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:27:06] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:27:06] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: This process is called **Garbage Collection**.
+[2025-08-01 13:27:55] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  Let's keep it going with question, 7.
+[2025-08-01 13:27:55] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " Let's keep it going with question, 7." (Final: true)
+[2025-08-01 13:27:55] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "Alright, let\'s keep the momentum going!\n\nWhat is **Question 7**? I\'m ready when"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044075
+  2: 513923000
+}
+13: "q5aMaIOvH6mM1PIPqZ7XsAQ"
+
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " you are."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 12
+  candidates_token_count: 27
+  total_token_count: 86
+  8: 1
+  9: {
+    1: 1
+    2: 12
+  }
+  11: {
+    1: 1
+    2: 27
+  }
+  14: 47
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044075
+  2: 513923000
+}
+13: "q5aMaIOvH6mM1PIPqZ7XsAQ"
+
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:27:56] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: Alright, let's keep the momentum going!
+
+What is **Question 7**? I'm ready when you are.
+[2025-08-01 13:28:08] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " What is a class in Java?" (Final: true)
+[2025-08-01 13:28:08] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI:  What is a class in Java?
+[2025-08-01 13:28:08] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:28:11] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+  }
+  finish_reason: MAX_TOKENS
+}
+usage_metadata {
+  prompt_token_count: 7
+  total_token_count: 518
+  8: 1
+  9: {
+    1: 1
+    2: 7
+  }
+  14: 511
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044088
+  2: 912587000
+}
+13: "uJaMaMvZN7O71PIP2dSJ8QU"
+
+[2025-08-01 13:28:11] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:28:11] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:28:11] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 0
+[2025-08-01 13:28:11] [WARN] [VertexAIService.lambda$generateResponse$1()] Candidate content or parts missing.
+[2025-08-01 13:28:11] [WARN] [VertexAIService.lambda$generateResponse$0()] Received empty response from Vertex AI.
+[2025-08-01 13:28:17] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "" (Final: true)
+[2025-08-01 13:28:34] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 13:28:34] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:28:34] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 13:28:40] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 13:28:40] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:28:40] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:28:40] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:28:40] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-01 13:28:40] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 13:28:42] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 13:28:42] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 13:28:42] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 13:28:42] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 13:28:42] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 13:28:42] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-01 13:28:44] [INFO] [MainFrame.lambda$addAISettingsListeners$0()] AI Settings button clicked. Displaying AI settings dialog.
+[2025-08-01 13:28:44] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:28:44] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-01 13:28:46] [INFO] [AISettingsManager.saveSettings()] AI settings saved.
+[2025-08-01 13:28:46] [INFO] [VertexAIService.setCredentialPath()] Updating Vertex AI credential path to: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:28:46] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:28:46] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:28:46] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-01 13:28:46] [INFO] [AISettingsDialog.saveSettingsFromUI()] AI settings saved from UI and applied to service.
+[2025-08-01 13:28:49] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:28:49] [INFO] [SystemAudioOutputService.close()] SystemAudioOutputService closed.
+[2025-08-01 13:28:49] [WARN] [SystemAudioInputService.stopRecording()] Recording not active.
+[2025-08-01 13:28:49] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:28:49] [INFO] [SystemAudioInputService.close()] SystemAudioInputService resources released.
+[2025-08-01 13:28:49] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:28:49] [INFO] [GoogleCloudSpeechToTextService.closeClient()] Google Cloud SpeechClient closed.
+[2025-08-01 13:28:49] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-01 13:28:49] [INFO] [MainFrame$2.windowClosing()] Application closing. Audio resources released.
+[2025-08-01 13:28:52] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-01 13:28:52] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-01 13:28:52] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-01 13:28:52] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-01 13:28:52] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-01 13:28:52] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:28:52] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-01 13:28:52] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-01 13:28:52] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:28:52] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-01 13:28:52] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-01 13:28:52] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-01 13:28:52] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-01 13:28:53] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-01 13:28:53] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-01 13:28:53] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:28:53] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-01 13:28:53] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-01 13:28:53] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-01 13:28:53] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-01 13:28:53] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-01 13:29:03] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-01 13:29:04] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-01 13:29:04] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-01 13:29:04] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-01 13:29:05] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-01 13:29:05] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-01 13:29:15] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-01 13:29:15] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-01 13:29:15] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-01 13:29:15] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-01 13:29:15] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-01 13:29:15] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-01 13:29:15] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-01 13:29:19] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "What is an object in Java?" (Final: true)
+[2025-08-01 13:29:19] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: What is an object in Java?
+[2025-08-01 13:29:19] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "In Java, an **object** is a fundamental concept in Object-Oriented Programming (OOP). It is a concrete, runtime entity that is an **instance of a class"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "**.\n\nThink of it this way:\n\n*   A **class** is like a **blueprint** or a **template** for creating objects. It defines the structure (what data it holds) and behavior (what actions it can perform) that all objects of that type will have.\n*   An **object** is the"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " actual **thing** built from that blueprint. You can create many objects from a single class blueprint, and each object will be a unique, independent entity in memory.\n\nLet\'s break down what an object possesses:\n\n1.  **State (Attributes/Data):**\n    *   This refers to the data or"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:25] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " characteristics that an object holds. These are represented by instance variables (fields) defined in its class.\n    *   **Example:** If you have a `Car` class, a `Car` object might have a state like `color=\"red\"`, `make=\"Toyota\"`, `speed=60`.\n\n2.  "
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "**Behavior (Methods/Functions):**\n    *   This refers to the actions an object can perform or the actions that can be performed on it. These are defined by methods in its class.\n    *   **Example:** A `Car` object might have behaviors like `start()`, `accelerate()`, `brake"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "()`, `turn()`.\n\n3.  **Identity:**\n    *   Each object has a unique identity (a memory address) that distinguishes it from other objects, even if they have the exact same state.\n\n---\n\n**Analogy:**\n\nImagine a **cookie cutter** and **cookies**:\n\n*   The **cookie"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " cutter** is the **Class**. It defines the shape (structure) and how the cookie will look (behavior, e.g., \"is edible\").\n*   A **cookie** baked using that cutter is an **Object**. You can bake many cookies from the same cutter, and each cookie is a distinct, physical entity"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:26] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: ". Each cookie has its own state (e.g., \"chocolate chip,\" \"oatmeal raisin\") and can perform its behavior (e.g., \"be eaten\").\n\n---\n\n**How Objects are Created in Java:**\n\nObjects are typically created using the `new` keyword followed by a call to a constructor of"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " the class.\n\n**Example:**\n\n```java\n// 1. Define a Class (the blueprint)\nclass Dog {\n    // State (Attributes/Data)\n    String name;\n    String breed;\n    int age;\n\n    // Constructor (a special method to initialize objects)\n    public Dog"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "(String name, String breed, int age) {\n        this.name = name;\n        this.breed = breed;\n        this.age = age;\n    }\n\n    // Behavior (Methods/Functions)\n    public void bark() {\n        System.out.println(name + \" says"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " Woof!\");\n    }\n\n    public void eat(String food) {\n        System.out.println(name + \" is eating \" + food + \".\");\n    }\n\n    public void displayInfo() {\n        System.out.println(\"Name: \" + name + \", Breed: \" + breed"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:27] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " + \", Age: \" + age);\n    }\n}\n\n// 2. Create Objects (instances of the class)\npublic class ObjectExample {\n    public static void main(String[] args) {\n        // Creating the first Dog object\n        Dog myDog = new Dog(\"Buddy\", \"Golden Retriever\", 3"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: ");\n\n        // Creating the second Dog object\n        Dog anotherDog = new Dog(\"Lucy\", \"Labrador\", 5);\n\n        // Accessing state and invoking behavior of myDog\n        System.out.println(\"My dog\'s name is: \" + myDog.name); // Accessing state\n        myDog"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: ".bark(); // Invoking behavior\n        myDog.eat(\"kibble\");\n        myDog.displayInfo();\n\n        System.out.println(\"\\n---\");\n\n        // Accessing state and invoking behavior of anotherDog\n        System.out.println(\"Another dog\'s breed is: \" + anotherDog"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: ".breed); // Accessing state\n        anotherDog.bark(); // Invoking behavior\n        anotherDog.eat(\"chicken\");\n        anotherDog.displayInfo();\n\n        // Even though they are both \'Dog\' objects, they are distinct:\n        System.out.println(myDog == anotherDog); //"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:28] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " This will print \'false\' because they are different objects in memory.\n    }\n}\n```\n\n**Output of the example:**\n\n```\nMy dog\'s name is: Buddy\nBuddy says Woof!\nBuddy is eating kibble.\nName: Buddy, Breed: Golden Retriever, Age: "
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "3\n\n---\nAnother dog\'s breed is: Labrador\nLucy says Woof!\nLucy is eating chicken.\nName: Lucy, Breed: Labrador, Age: 5\nfalse\n```\n\n---\n\n**In summary:**\n\nAn **object in Java** is a concrete, self-contained unit that"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " encapsulates data (its state) and the operations that act on that data (its behavior). It\'s a real-world entity (or a conceptual one) represented in code, built from the blueprint of a class. Objects are the core building blocks of Java applications, enabling modularity, reusability, and maintain"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "ability."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 7
+  candidates_token_count: 1166
+  total_token_count: 2144
+  8: 1
+  9: {
+    1: 1
+    2: 7
+  }
+  11: {
+    1: 1
+    2: 1166
+  }
+  14: 971
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754044160
+  2: 498292000
+}
+13: "AJeMaPS0Hp_D1PIPrJSxmAI"
+
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-01 13:29:29] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: In Java, an **object** is a fundamental concept in Object-Oriented Programming (OOP). It is a concrete, runtime entity that is an **instance of a class**.
+
+Think of it this way:
+
+*   A **class** is like a **blueprint** or a **template** for creating objects. It defines the structure (what data it holds) and behavior (what actions it can perform) that all objects of that type will have.
+*   An **object** is the actual **thing** built from that blueprint. You can create many objects from a single class blueprint, and each object will be a unique, independent entity in memory.
+
+Let's break down what an object possesses:
+
+1.  **State (Attributes/Data):**
+    *   This refers to the data or characteristics that an object holds. These are represented by instance variables (fields) defined in its class.
+    *   **Example:** If you have a `Car` class, a `Car` object might have a state like `color="red"`, `make="Toyota"`, `speed=60`.
+
+2.  **Behavior (Methods/Functions):**
+    *   This refers to the actions an object can perform or the actions that can be performed on it. These are defined by methods in its class.
+    *   **Example:** A `Car` object might have behaviors like `start()`, `accelerate()`, `brake()`, `turn()`.
+
+3.  **Identity:**
+    *   Each object has a unique identity (a memory address) that distinguishes it from other objects, even if they have the exact same state.
+
+---
+
+**Analogy:**
+
+Imagine a **cookie cutter** and **cookies**:
+
+*   The **cookie cutter** is the **Class**. It defines the shape (structure) and how the cookie will look (behavior, e.g., "is edible").
+*   A **cookie** baked using that cutter is an **Object**. You can bake many cookies from the same cutter, and each cookie is a distinct, physical entity. Each cookie has its own state (e.g., "chocolate chip," "oatmeal raisin") and can perform its behavior (e.g., "be eaten").
+
+---
+
+**How Objects are Created in Java:**
+
+Objects are typically created using the `new` keyword followed by a call to a constructor of the class.
+
+**Example:**
+
+```java
+// 1. Define a Class (the blueprint)
+class Dog {
+    // State (Attributes/Data)
+    String name;
+    String breed;
+    int age;
+
+    // Constructor (a special method to initialize objects)
+    public Dog(String name, String breed, int age) {
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+    }
+
+    // Behavior (Methods/Functions)
+    public void bark() {
+        System.out.println(name + " says Woof!");
+    }
+
+    public void eat(String food) {
+        System.out.println(name + " is eating " + food + ".");
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", Breed: " + breed + ", Age: " + age);
+    }
+}
+
+// 2. Create Objects (instances of the class)
+public class ObjectExample {
+    public static void main(String[] args) {
+        // Creating the first Dog object
+        Dog myDog = new Dog("Buddy", "Golden Retriever", 3);
+
+        // Creating the second Dog object
+        Dog anotherDog = new Dog("Lucy", "Labrador", 5);
+
+        // Accessing state and invoking behavior of myDog
+        System.out.println("My dog's name is: " + myDog.name); // Accessing state
+        myDog.bark(); // Invoking behavior
+        myDog.eat("kibble");
+        myDog.displayInfo();
+
+        System.out.println("\n---");
+
+        // Accessing state and invoking behavior of anotherDog
+        System.out.println("Another dog's breed is: " + anotherDog.breed); // Accessing state
+        anotherDog.bark(); // Invoking behavior
+        anotherDog.eat("chicken");
+        anotherDog.displayInfo();
+
+        // Even though they are both 'Dog' objects, they are distinct:
+        System.out.println(myDog == anotherDog); // This will print 'false' because they are different objects in memory.
+    }
+}
+```
+
+**Output of the example:**
+
+```
+My dog's name is: Buddy
+Buddy says Woof!
+Buddy is eating kibble.
+Name: Buddy, Breed: Golden Retriever, Age: 3
+
+---
+Another dog's breed is: Labrador
+Lucy says Woof!
+Lucy is eating chicken.
+Name: Lucy, Breed: Labrador, Age: 5
+false
+```
+
+---
+
+**In summary:**
+
+An **object in Java** is a concrete, self-contained unit that encapsulates data (its state) and the operations that act on that data (its behavior). It's a real-world entity (or a conceptual one) represented in code, built from the blueprint of a class. Objects are the core building blocks of Java applications, enabling modularity, reusability, and maintainability.
+[2025-08-01 13:29:41] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-01 13:29:41] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-01 13:29:41] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-01 13:29:41] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-01 13:29:41] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-01 13:29:41] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-02 11:13:53] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-02 11:13:53] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-02 11:13:53] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-02 11:13:53] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 11:13:53] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 11:13:53] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:13:53] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 11:13:53] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 11:13:53] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:13:53] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-02 11:13:53] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:13:53] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 11:13:53] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 11:13:54] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-02 11:13:54] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 11:13:54] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:13:54] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-02 11:13:54] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-02 11:13:54] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 11:13:54] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-02 11:13:54] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 11:14:05] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-02 11:14:05] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:14:05] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: MacBook Pro Speakers
+[2025-08-02 11:14:05] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-02 11:14:06] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-02 11:14:06] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:14:06] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-02 11:14:06] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-02 11:14:09] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-02 11:14:09] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-02 11:14:17] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-02 11:14:17] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-02 11:14:17] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-02 11:14:17] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-02 11:14:17] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-02 11:14:17] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-02 11:14:17] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-02 11:14:23] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "Explain Java's garbage collection process." (Final: true)
+[2025-08-02 11:14:23] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: Explain Java's garbage collection process.
+[2025-08-02 11:14:23] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "Java garbage collection is an automatic memory management process. It reclaims memory occupied by objects no longer referenced by the running program. The Java Virtual Machine JVM handles this automatically, freeing developers from manual memory deallocation.\n\nThe process"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754122463
+  2: 763667000
+}
+13: "38iNaJPOLp661PIPs7GVqAE"
+
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " typically involves two main phases. First, the Marking phase identifies all reachable objects. This starts from a set of root references such as stack variables and static fields, traversing the object graph to find all objects that are still in use. Objects not marked as reachable are considered garbage.\n\nSecond, the Sweeping or Compacting phase"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754122463
+  2: 763667000
+}
+13: "38iNaJPOLp661PIPs7GVqAE"
+
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-02 11:14:30] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " reclaims the memory. Sweeping simply deletes the unreachable objects. Compacting is an optional step that moves the remaining live objects to consolidate free space, reducing memory fragmentation and creating larger contiguous blocks for new object allocation.\n\nGarbage collection runs periodically or when memory becomes low, ensuring efficient memory usage and preventing memory leaks."
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754122463
+  2: 763667000
+}
+13: "38iNaJPOLp661PIPs7GVqAE"
+
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " Modern JVMs often employ generational garbage collection, optimizing collection frequency based on object age. Younger objects are collected more frequently as they tend to become unreachable sooner. This automated system significantly simplifies memory management for Java developers."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 50
+  candidates_token_count: 215
+  total_token_count: 1158
+  8: 1
+  9: {
+    1: 1
+    2: 50
+  }
+  11: {
+    1: 1
+    2: 215
+  }
+  14: 893
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754122463
+  2: 763667000
+}
+13: "38iNaJPOLp661PIPs7GVqAE"
+
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidates count: 1
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate has content: true
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Candidate content parts count: 1
+[2025-08-02 11:14:31] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: Java garbage collection is an automatic memory management process. It reclaims memory occupied by objects no longer referenced by the running program. The Java Virtual Machine JVM handles this automatically, freeing developers from manual memory deallocation.
+
+The process typically involves two main phases. First, the Marking phase identifies all reachable objects. This starts from a set of root references such as stack variables and static fields, traversing the object graph to find all objects that are still in use. Objects not marked as reachable are considered garbage.
+
+Second, the Sweeping or Compacting phase reclaims the memory. Sweeping simply deletes the unreachable objects. Compacting is an optional step that moves the remaining live objects to consolidate free space, reducing memory fragmentation and creating larger contiguous blocks for new object allocation.
+
+Garbage collection runs periodically or when memory becomes low, ensuring efficient memory usage and preventing memory leaks. Modern JVMs often employ generational garbage collection, optimizing collection frequency based on object age. Younger objects are collected more frequently as they tend to become unreachable sooner. This automated system significantly simplifies memory management for Java developers.
+[2025-08-02 11:14:32] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-02 11:14:32] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-02 11:14:32] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-02 11:14:32] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-02 11:14:33] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-02 11:14:33] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-02 11:18:49] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-02 11:18:49] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-02 11:18:49] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-02 11:18:49] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 11:18:49] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 11:18:49] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:18:49] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 11:18:49] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 11:18:49] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:18:49] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-02 11:18:49] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:18:49] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 11:18:49] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 11:18:50] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-02 11:18:50] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 11:18:50] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:18:50] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-02 11:18:50] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-02 11:18:50] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 11:18:50] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-02 11:18:50] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 11:18:54] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-02 11:18:54] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:18:54] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: MacBook Pro Speakers
+[2025-08-02 11:18:54] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-02 11:18:55] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-02 11:18:55] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:18:55] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-02 11:18:55] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-02 11:18:56] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-02 11:18:56] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-02 11:19:23] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-02 11:19:23] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-02 11:19:23] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-02 11:19:23] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-02 11:19:23] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-02 11:19:23] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-02 11:19:23] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-02 11:19:27] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "What is a class in Java?" (Final: true)
+[2025-08-02 11:19:27] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: What is a class in Java?
+[2025-08-02 11:19:27] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:19:31] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "A class in Java is a blueprint or a template for creating objects. It defines the structure and behavior that objects of that class will possess.\n\nThink of a class as a design specification. It describes the common characteristics and actions that all instances of that class will share. For example, a \""
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754122768
+  2: 359472000
+}
+13: "EMqNaLD4Fa2O1PIP8aWRcQ"
+
+[2025-08-02 11:19:32] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "Car\" class might define attributes like color and speed, and actions like accelerate and brake.\n\nA class encapsulates data, known as fields or attributes, and methods, which are functions that operate on that data. Fields represent the state of an object, while methods define its actions or capabilities.\n\nClasses are fundamental to object-oriented programming in"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754122768
+  2: 359472000
+}
+13: "EMqNaLD4Fa2O1PIP8aWRcQ"
+
+[2025-08-02 11:19:32] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " Java. They provide a mechanism for organizing code, promoting reusability, and enabling modular design. When you create an object from a class, you are instantiating it. Each object is a distinct instance of its class, holding its own unique set of data values according to the class\'s definition."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 45
+  candidates_token_count: 188
+  total_token_count: 643
+  8: 1
+  9: {
+    1: 1
+    2: 45
+  }
+  11: {
+    1: 1
+    2: 188
+  }
+  14: 410
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754122768
+  2: 359472000
+}
+13: "EMqNaLD4Fa2O1PIP8aWRcQ"
+
+[2025-08-02 11:19:32] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: A class in Java is a blueprint or a template for creating objects. It defines the structure and behavior that objects of that class will possess.
+
+Think of a class as a design specification. It describes the common characteristics and actions that all instances of that class will share. For example, a "Car" class might define attributes like color and speed, and actions like accelerate and brake.
+
+A class encapsulates data, known as fields or attributes, and methods, which are functions that operate on that data. Fields represent the state of an object, while methods define its actions or capabilities.
+
+Classes are fundamental to object-oriented programming in Java. They provide a mechanism for organizing code, promoting reusability, and enabling modular design. When you create an object from a class, you are instantiating it. Each object is a distinct instance of its class, holding its own unique set of data values according to the class's definition.
+[2025-08-02 11:19:44] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-02 11:19:44] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-02 11:19:44] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-02 11:19:44] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-02 11:19:44] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-02 11:19:44] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-02 11:28:58] [INFO] [InterviewTimerManager.startCurrentTimeTimer()] Current time update timer started.
+[2025-08-02 11:28:58] [INFO] [SystemAudioOutputService.<init>()] SystemAudioOutputService initialized.
+[2025-08-02 11:28:58] [INFO] [SystemAudioInputService.<init>()] SystemAudioInputService initialized.
+[2025-08-02 11:28:58] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 11:28:58] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 11:28:58] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:28:58] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 11:28:58] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 11:28:58] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:28:58] [INFO] [VertexAIService.initializeClient()] Vertex AI GenerativeModel client created successfully for model: gemini-2.5-flash
+[2025-08-02 11:28:58] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 11:28:58] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 11:28:58] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 11:28:59] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully using provided credentials.
+[2025-08-02 11:28:59] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 11:28:59] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:28:59] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: Default Audio Device
+[2025-08-02 11:28:59] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-02 11:28:59] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 11:28:59] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: Default Audio Device
+[2025-08-02 11:28:59] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 11:29:18] [INFO] [SystemAudioOutputService.closeOutputLine()] Output line closed.
+[2025-08-02 11:29:18] [INFO] [SystemAudioOutputService.initializeVolumeControl()] Master Gain control initialized.
+[2025-08-02 11:29:18] [INFO] [SystemAudioOutputService.selectOutputDevice()] Selected audio output device: System Audio + BlackHole
+[2025-08-02 11:29:18] [INFO] [SystemAudioOutputService.setVolume()] Volume set to 70.00% (Gain: -19.79 dB)
+[2025-08-02 11:29:19] [INFO] [SystemAudioInputService.closeInputLine()] Input line closed.
+[2025-08-02 11:29:19] [INFO] [SystemAudioInputService.configureDevice()] Selected input device: BlackHole 2ch
+[2025-08-02 11:29:39] [INFO] [SystemAudioInputService.clearRecordedAudioData()] Recorded audio buffer cleared.
+[2025-08-02 11:29:39] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-02 11:29:39] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-02 11:29:39] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-02 11:29:39] [INFO] [SpeechToTextSettingsManager.loadSettings()] STT settings loaded.
+[2025-08-02 11:29:39] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-02 11:29:39] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-02 11:29:42] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "" (Final: true)
+[2025-08-02 11:29:44] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "What is inheritance in Java?" (Final: true)
+[2025-08-02 11:29:44] [INFO] [VertexAIService.generateResponse()] Sending prompt to AI: What is inheritance in Java?
+[2025-08-02 11:29:44] [INFO] [AISettingsManager.loadSettings()] AI settings loaded.
+[2025-08-02 11:29:48] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "Inheritance in Java is a mechanism where one class acquires the properties and behaviors of another class. It is a fundamental concept of object oriented programming.\n\nThe primary purpose of inheritance is to promote code reusability and establish"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754123385
+  2: 178501000
+}
+13: "ecyNaMXyCp661PIPs7GVqAE"
+
+[2025-08-02 11:29:48] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " an IS A relationship between classes. The class that inherits is known as the subclass or child class. The class from which properties are inherited is called the superclass or parent class.\n\nJava uses the `extends` keyword to implement inheritance. A subclass can reuse methods and fields from its superclass. It can also add"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754123385
+  2: 178501000
+}
+13: "ecyNaMXyCp661PIPs7GVqAE"
+
+[2025-08-02 11:29:48] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " its own unique functionalities or override existing ones to provide a specialized implementation. This creates a hierarchical structure among classes, making code more organized and maintainable."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 44
+  candidates_token_count: 136
+  total_token_count: 539
+  8: 1
+  9: {
+    1: 1
+    2: 44
+  }
+  11: {
+    1: 1
+    2: 136
+  }
+  14: 359
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754123385
+  2: 178501000
+}
+13: "ecyNaMXyCp661PIPs7GVqAE"
+
+[2025-08-02 11:29:48] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: Inheritance in Java is a mechanism where one class acquires the properties and behaviors of another class. It is a fundamental concept of object oriented programming.
+
+The primary purpose of inheritance is to promote code reusability and establish an IS A relationship between classes. The class that inherits is known as the subclass or child class. The class from which properties are inherited is called the superclass or parent class.
+
+Java uses the `extends` keyword to implement inheritance. A subclass can reuse methods and fields from its superclass. It can also add its own unique functionalities or override existing ones to provide a specialized implementation. This creates a hierarchical structure among classes, making code more organized and maintainable.
+[2025-08-02 11:29:58] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-02 11:29:58] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-02 11:29:58] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-02 11:29:58] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-02 11:29:58] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-02 11:29:58] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.

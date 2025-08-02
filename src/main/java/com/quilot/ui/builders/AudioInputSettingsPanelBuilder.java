@@ -22,6 +22,7 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
     private final JButton credentialsButton;
     private final JButton googleCloudSetupGuideButton;
     private final JButton sttSettingsButton;
+    private final JButton aiSettingsButton;
 
     private final AudioInputService audioInputService;
 
@@ -36,6 +37,7 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
         credentialsButton = new JButton("STT Credentials");
         googleCloudSetupGuideButton = new JButton("Google Cloud Setup Guide");
         sttSettingsButton = new JButton("STT Settings");
+        this.aiSettingsButton = new JButton("AI Settings");
 
         configureInitialButtonStates();
         populateInputDevices();
@@ -117,6 +119,7 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
         helpPanel.add(credentialsButton);
         helpPanel.add(googleCloudSetupGuideButton);
         helpPanel.add(sttSettingsButton);
+        helpPanel.add(aiSettingsButton);
 
         panel.add(helpPanel, gbc);
     }

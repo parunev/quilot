@@ -1,5 +1,8 @@
 package com.quilot.ui;
 
+import com.quilot.ai.IAIService;
+import com.quilot.ai.VertexAIService;
+import com.quilot.ai.settings.AISettingsManager;
 import com.quilot.audio.input.AudioInputService;
 import com.quilot.audio.input.SystemAudioInputService;
 import com.quilot.audio.ouput.AudioOutputService;
@@ -11,6 +14,7 @@ import com.quilot.stt.settings.SpeechToTextSettingsManager;
 import com.quilot.ui.help.CredentialsSetupDialog;
 import com.quilot.ui.help.GoogleCloudSetupGuideDialog;
 import com.quilot.ui.help.SetupGuideDialog;
+import com.quilot.ui.settings.AISettingsDialog;
 import com.quilot.ui.settings.STTSettingsDialog;
 import com.quilot.utils.CredentialManager;
 import com.quilot.utils.Logger;
@@ -50,6 +54,7 @@ public class MainFrame extends JFrame {
     private final JButton credentialsButton;
     private final JButton googleCloudSetupGuideButton;
     private final JButton sttSettingsButton;
+    private final JButton aiSettingsButton;
 
     // Managers for specific functionalities
     private final InterviewTimerManager timerManager;
@@ -59,6 +64,7 @@ public class MainFrame extends JFrame {
     private final SpeechToTextService speechToTextService;
     private final CredentialManager credentialManager;
     private final ISpeechToTextSettingsManager sttSettingsManager;
+    private final IAIService aiService;
 
     /**
      * Constructor for the MainFrame.
@@ -79,6 +85,7 @@ public class MainFrame extends JFrame {
         audioInputService = new SystemAudioInputService();
         credentialManager = new CredentialManager();
         sttSettingsManager = new SpeechToTextSettingsManager();
+        this.aiService = new VertexAIService(credentialManager.loadGoogleCloudCredentialPath(), new AISettingsManager());
 
         // Load credential path and initialize STT service
         String savedCredentialPath = credentialManager.loadGoogleCloudCredentialPath();
@@ -107,6 +114,7 @@ public class MainFrame extends JFrame {
         credentialsButton = uiBuilder.getCredentialsButton();
         googleCloudSetupGuideButton = uiBuilder.getGoogleCloudSetupGuideButton();
         sttSettingsButton = uiBuilder.getSttSettingsButton();
+        aiSettingsButton = uiBuilder.getAiSettingsButton();
 
         // Audio input data listener
         audioInputService.setAudioDataListener((audioData, bytesRead) ->
@@ -125,9 +133,19 @@ public class MainFrame extends JFrame {
         addHelpListeners();
         addSettingsListeners();
         addSTTSettingsListeners();
+        addAISettingsListeners();
 
         Logger.info("Quilot UI initialized.");
         appendToLogArea("UI initialized. Ready to start.");
+    }
+
+    private void addAISettingsListeners() {
+        aiSettingsButton.addActionListener(_ -> {
+            Logger.info("AI Settings button clicked. Displaying AI settings dialog.");
+            // Pass the AI service and its settings manager
+            AISettingsDialog dialog = new AISettingsDialog(this, aiService.getSettingsManager(), (VertexAIService) aiService); // Cast to concrete types
+            dialog.setVisible(true);
+        });
     }
 
     private void addMainControlListeners() {
@@ -214,59 +232,77 @@ public class MainFrame extends JFrame {
                     appendToLogArea("Failed to select audio input device: " + selectedDevice);
                     startInputRecordingButton.setEnabled(false);
                 }
+
                 stopInputRecordingButton.setEnabled(false);
                 playRecordedInputButton.setEnabled(false);
             }
         });
 
         startInputRecordingButton.addActionListener(_ -> {
+            // Start both audio input recording and STT streaming
             if (audioInputService.startRecording()) {
                 appendToLogArea("Started capturing audio from input device.");
                 startInputRecordingButton.setEnabled(false);
                 stopInputRecordingButton.setEnabled(true);
-                playRecordedInputButton.setEnabled(false);
+                playRecordedInputButton.setEnabled(false); // Disable play button while recording
 
-                boolean startedStreaming = speechToTextService.startStreamingRecognition(audioInputService.getAudioFormat(), new SpeechToTextService.StreamingRecognitionListener() {
-                    private final StringBuilder currentTranscription = new StringBuilder();
-                    private String lastInterimText = "";
+                // Start STT streaming recognition
+                if (!speechToTextService.startStreamingRecognition(audioInputService.getAudioFormat(), new SpeechToTextService.StreamingRecognitionListener() {
+                    private final StringBuilder currentInterimTranscription = new StringBuilder(); // For interim results
+                    private String lastFinalTranscription = ""; // To track the last final transcription
 
                     @Override
                     public void onTranscriptionResult(String transcription, boolean isFinal) {
                         SwingUtilities.invokeLater(() -> {
                             if (isFinal) {
-                                currentTranscription.append(transcription).append(" ");
-                                transcribedAudioArea.append("Interviewer (Final): '" + transcription.trim() + "'\n");
-                                lastInterimText = "";
+                                // Append final transcription
+                                transcribedAudioArea.append("Interviewer (Final): '" + transcription + "'\n");
+                                lastFinalTranscription = transcription; // Store the final transcription
+                                currentInterimTranscription.setLength(0); // Clear interim buffer
+                                transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
+
+                                // Send final transcription to AI service
+                                aiService.generateResponse(transcription, new IAIService.AIResponseListener() {
+                                    @Override
+                                    public void onResponse(String aiResponse) {
+                                        SwingUtilities.invokeLater(() -> {
+                                            aiResponseArea.append("AI (Response): '" + aiResponse + "'\n");
+                                            aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                                        });
+                                    }
+
+                                    @Override
+                                    public void onError(String errorMessage) {
+                                        SwingUtilities.invokeLater(() -> {
+                                            aiResponseArea.append("AI (Error): " + errorMessage + "\n");
+                                            aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                                        });
+                                        appendToLogArea("AI Response Error: " + errorMessage);
+                                    }
+                                });
+
                             } else {
-                                String currentText = transcribedAudioArea.getText();
-                                if (!lastInterimText.isEmpty() && currentText.endsWith(lastInterimText)) {
-                                    transcribedAudioArea.setText(currentText.substring(0, currentText.length() - lastInterimText.length()));
+                                // Display interim results by updating the last line
+                                String existingText = transcribedAudioArea.getText();
+                                int lastNewline = existingText.lastIndexOf('\n');
+
+                                if (lastNewline != -1 && existingText.substring(lastNewline + 1).startsWith("Interviewer (Interim):")) {
+                                    // Replace existing interim line
+                                    transcribedAudioArea.replaceRange("Interviewer (Interim): '" + transcription + "'", lastNewline + 1, existingText.length());
+                                } else if (lastNewline != -1 && existingText.substring(lastNewline + 1).startsWith("Interviewer (Final):")) {
+                                    // If the last line was final, append interim on a new line
+                                    transcribedAudioArea.append("Interviewer (Interim): '" + transcription + "'");
+                                } else {
+                                    // If no newline or no specific prefix, just set the text
+                                    transcribedAudioArea.setText("Interviewer (Interim): '" + transcription + "'");
                                 }
-                                lastInterimText = "Interviewer (Interim): '" + transcription + "'\n";
-                                transcribedAudioArea.append(lastInterimText);
+                                transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
                             }
-                            transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
                         });
                     }
-
-                    @Override
-                    public void onTranscriptionError(String errorMessage) {
-                        SwingUtilities.invokeLater(() -> {
-                            transcribedAudioArea.append("Interviewer (STT Error): " + errorMessage + "\n");
-                            transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
-                        });
-                        appendToLogArea("STT Streaming Error: " + errorMessage);
-                    }
-
-                    @Override
-                    public void onStreamClosed() {
-                        appendToLogArea("STT Streaming session closed.");
-                    }
-                });
-
-                if (!startedStreaming) {
+                })) {
                     appendToLogArea("Failed to start STT streaming recognition.");
-                    audioInputService.stopRecording();
+                    audioInputService.stopRecording(); // Stop audio input if STT streaming fails
                     startInputRecordingButton.setEnabled(true);
                     stopInputRecordingButton.setEnabled(false);
                 }
@@ -313,9 +349,14 @@ public class MainFrame extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 audioOutputService.close();
-                audioInputService.close();
+                audioInputService.close(); // Close input audio resources
+                // Close the STT client if it has a close method
                 if (speechToTextService instanceof GoogleCloudSpeechToTextService) {
                     ((GoogleCloudSpeechToTextService) speechToTextService).closeClient();
+                }
+                // Close the AI client if it has a close method
+                if (aiService instanceof VertexAIService) {
+                    ((VertexAIService) aiService).closeClient();
                 }
                 Logger.info("Application closing. Audio resources released.");
             }
