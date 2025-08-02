@@ -10,6 +10,9 @@ import com.google.cloud.speech.v1.*;
 import com.google.cloud.speech.v1.SpeechContext;
 import com.google.protobuf.ByteString;
 import com.quilot.audio.input.AudioInputService;
+import com.quilot.exceptions.stt.STTAuthenticationException;
+import com.quilot.exceptions.stt.STTException;
+import com.quilot.exceptions.stt.STTInitializationException;
 import com.quilot.stt.settings.RecognitionConfigSettings;
 import com.quilot.utils.Logger;
 import lombok.Getter;
@@ -39,20 +42,24 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
     private ScheduledExecutorService executorService;
 
     public GoogleCloudSpeechToTextService(String initialCredentialPath, ISpeechToTextSettingsManager settingsManager) {
+        this.settingsManager = Objects.requireNonNull(settingsManager, "Settings manager cannot be null.");
         this.credentialPath = initialCredentialPath;
-        this.settingsManager = settingsManager;
+
         Logger.info("GoogleCloudSpeechToTextService instantiated. Client initialization deferred.");
-        initializeClient();
+
+        try {
+            initializeClient();
+        } catch (STTAuthenticationException e) {
+            throw new STTInitializationException("Failed to initialize STT service with provided credentials.", e);
+        }
     }
 
-    private void initializeClient() {
+    private void initializeClient() throws STTAuthenticationException {
         if (credentialPath == null || credentialPath.isEmpty()) {
-            Logger.warn("Google Cloud credential path is not set. SpeechClient cannot be initialized.");
             isClientInitialized = false;
+            Logger.warn("Google Cloud credential path is not set. SpeechClient cannot be initialized.");
             return;
         }
-
-        if (speechClient != null && isClientInitialized) return;
 
         closeClient();
 
@@ -66,17 +73,19 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
 
             this.speechClient = SpeechClient.create(speechSettings);
             isClientInitialized = true;
-            Logger.info("Google Cloud SpeechClient created successfully using provided credentials.");
+            Logger.info("Google Cloud SpeechClient created successfully.");
         } catch (IOException e) {
-            Logger.error("Failed to create Google Cloud SpeechClient from credentials: " + e.getMessage());
             isClientInitialized = false;
+            Logger.error("Failed to read or process Google Cloud credential file.", e);
+            throw new STTAuthenticationException("Credential file not found or invalid: " + e.getMessage(), e);
         } catch (Exception e) {
-            Logger.error("Unexpected error during SpeechClient initialization: " + e.getMessage());
             isClientInitialized = false;
+            Logger.error("Unexpected error during SpeechClient initialization.", e);
+            throw new STTAuthenticationException("Failed to initialize Google Cloud client, check credentials and project settings.", e);
         }
     }
 
-    public void setCredentialPath(String newCredentialPath) {
+    public void setCredentialPath(String newCredentialPath) throws STTAuthenticationException {
         if (Objects.equals(this.credentialPath, newCredentialPath)) return;
         this.credentialPath = newCredentialPath;
         Logger.info("Updating Google Cloud credential path to: " + newCredentialPath);
@@ -84,25 +93,22 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
     }
 
     @Override
-    public boolean startStreamingRecognition(AudioFormat audioFormat, StreamingRecognitionListener listener) {
+    public void startStreamingRecognition(AudioFormat audioFormat, StreamingRecognitionListener listener) throws STTException {
         if (!isClientInitialized || speechClient == null) {
-            Logger.error("Google Cloud SpeechClient not initialized. Cannot start streaming recognition.");
-            if (listener != null) listener.onTranscriptionError("[STT Client Not Initialized. Please set credentials.]");
-            return false;
+            throw new STTException("STT client is not initialized. Please set valid credentials.");
         }
+
         if (isStreamingActive.get()) {
             Logger.warn("Streaming recognition is already active.");
-            return true;
+            return;
         }
+
         if (audioFormat == null) {
-            Logger.error("AudioFormat is null. Cannot start streaming recognition.");
-            if (listener != null) listener.onTranscriptionError("[Error: Invalid audio format for streaming.]");
-            return false;
+            throw new STTException("An invalid audio format was provided.");
         }
 
         this.streamingRecognitionListener = listener;
         isStreamingActive.set(true);
-
         Logger.info("Starting new streaming recognition session...");
 
         try {
@@ -130,9 +136,10 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
                 @Override
                 public void onError(Throwable t) {
                     isStreamingActive.set(false);
-                    Logger.error("Streaming recognition error: " + t.getMessage());
-                    if (streamingRecognitionListener != null)
-                        streamingRecognitionListener.onTranscriptionError(t.getMessage());
+                    Logger.error("Streaming recognition error.", t);
+                    if (streamingRecognitionListener != null) {
+                        streamingRecognitionListener.onTranscriptionError(new Exception(t));
+                    }
                     closeClientStream();
                 }
 
@@ -157,13 +164,11 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
             }, 30, 30, TimeUnit.SECONDS);
 
             Logger.info("Streaming recognition session started successfully.");
-            return true;
         } catch (Exception e) {
             isStreamingActive.set(false);
-            Logger.error("Failed to start streaming recognition: " + e.getMessage());
-            if (listener != null) listener.onTranscriptionError("Failed to start streaming: " + e.getMessage());
             closeClientStream();
-            return false;
+            Logger.error("Failed to start streaming recognition.", e);
+            throw new STTException("Failed to start streaming session: " + e.getMessage(), e);
         }
     }
 
@@ -195,11 +200,10 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
 
     @Override
     public boolean stopStreamingRecognition() {
-        if (!isStreamingActive.get() || clientStream == null) {
+        if (!isStreamingActive.getAndSet(false)) {
             Logger.warn("No active streaming recognition to stop.");
             return false;
         }
-        isStreamingActive.set(false);
         Logger.info("Stopping streaming recognition session.");
         closeClientStream();
         return true;
@@ -228,19 +232,22 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
                         .setAudioContent(ByteString.copyFrom(audioData, 0, bytesRead))
                         .build());
             } catch (Exception e) {
-                Logger.error("Error sending audio data to STT stream: " + e.getMessage());
-                if (streamingRecognitionListener != null)
-                    streamingRecognitionListener.onTranscriptionError("Audio stream error: " + e.getMessage());
+                Logger.error("Error sending audio data to STT stream.", e);
+                if (streamingRecognitionListener != null) {
+                    streamingRecognitionListener.onTranscriptionError(e);
+                }
                 stopStreamingRecognition();
             }
         }
     }
 
     @Override
-    public boolean testCredentials() {
-        Logger.info("Attempting to test Google Cloud SpeechClient credentials...");
+    public void testCredentials() throws STTAuthenticationException {
+        Logger.info("Testing Google Cloud SpeechClient credentials by re-initializing...");
         initializeClient();
-        return isClientInitialized && speechClient != null;
+        if (!isClientInitialized) {
+            throw new STTAuthenticationException("Credentials are not set.", null);
+        }
     }
 
     public void closeClient() {
@@ -250,7 +257,7 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
                 speechClient.close();
                 Logger.info("Google Cloud SpeechClient closed.");
             } catch (Exception e) {
-                Logger.error("Error closing Google Cloud SpeechClient: " + e.getMessage());
+                Logger.error("Error closing Google Cloud SpeechClient.", e);
             }
         }
         isClientInitialized = false;

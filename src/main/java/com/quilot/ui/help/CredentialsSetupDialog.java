@@ -1,5 +1,6 @@
 package com.quilot.ui.help;
 
+import com.quilot.exceptions.stt.STTAuthenticationException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.utils.CredentialManager;
 import com.quilot.utils.Logger;
@@ -91,34 +92,43 @@ public class CredentialsSetupDialog extends JDialog {
     private void saveCredentials() {
         String path = credentialPathField.getText().trim();
         if (path.isEmpty()) {
-            showMessage("Credential path cannot be empty.", "Save Error", JOptionPane.ERROR_MESSAGE);
+            showErrorMessage("Credential path cannot be empty.", "Save Error");
             Logger.warn("Attempted to save empty credential path.");
             return;
         }
 
-        credentialManager.saveGoogleCloudCredentialPath(path);
-        speechToTextService.setCredentialPath(path);
-        showMessage("Credential path saved successfully.", "Save Success", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            credentialManager.saveGoogleCloudCredentialPath(path);
+            speechToTextService.setCredentialPath(path);
+            showInfoMessage("Credential path saved and applied successfully.", "Save Success");
+        } catch (STTAuthenticationException e) {
+            Logger.error("Failed to apply new credential path.", e);
+            showErrorMessage("Saved path, but failed to apply it to the service:\n" + e.getMessage(), "Credential Error");
+        }
     }
 
     private void testCredentials() {
         Logger.info("Testing Google Cloud STT credentials...");
-        try {
-            speechToTextService.setCredentialPath(credentialPathField.getText().trim());
-            boolean success = speechToTextService.testCredentials();
+        String path = credentialPathField.getText().trim();
+        if (path.isEmpty()) {
+            showWarningMessage("Please provide a credential path before testing.", "Input Error");
+            return;
+        }
 
-            if (success) {
-                showMessage("Credentials test successful! SpeechClient initialized.", "Test Result", JOptionPane.INFORMATION_MESSAGE);
-                Logger.info("Credentials test successful.");
-            } else {
-                String errorMsg = "Credentials test failed. Check logs for details (e.g., invalid path, network issues).";
-                showMessage(errorMsg, "Test Result", JOptionPane.ERROR_MESSAGE);
-                Logger.error(errorMsg);
-            }
-        } catch (Exception ex) {
-            String errorMsg = "Credentials test failed unexpectedly: " + ex.getMessage();
-            showMessage(errorMsg, "Test Result", JOptionPane.ERROR_MESSAGE);
-            Logger.error(errorMsg);
+        try {
+            speechToTextService.setCredentialPath(path);
+            speechToTextService.testCredentials();
+
+            showInfoMessage("Credentials test successful! The service is ready.", "Test Success");
+            Logger.info("Credentials test successful.");
+        } catch (STTAuthenticationException e) {
+            String errorMessage = "Authentication Failed: " + e.getMessage();
+            showErrorMessage(errorMessage, "Test Failed");
+            Logger.error(errorMessage, e.getCause());
+        } catch (Exception e) {
+            String errorMessage = "An unexpected error occurred during testing: " + e.getMessage();
+            showErrorMessage(errorMessage, "Test Error");
+            Logger.error(errorMessage, e);
         }
     }
 
@@ -127,7 +137,15 @@ public class CredentialsSetupDialog extends JDialog {
         credentialPathField.setText(savedPath);
     }
 
-    private void showMessage(String message, String title, int messageType) {
-        JOptionPane.showMessageDialog(this, message, title, messageType);
+    private void showInfoMessage(String message, String title) {
+        JOptionPane.showMessageDialog(this, message, title, JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void showErrorMessage(String message, String title) {
+        JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
+    }
+
+    private void showWarningMessage(String message, String title) {
+        JOptionPane.showMessageDialog(this, message, title, JOptionPane.WARNING_MESSAGE);
     }
 }

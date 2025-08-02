@@ -1,5 +1,6 @@
 package com.quilot.stt;
 
+import com.quilot.exceptions.stt.STTSettingsException;
 import com.quilot.stt.settings.RecognitionConfigSettings;
 
 /**
@@ -18,11 +19,11 @@ public interface ISpeechToTextSettingsManager {
      * Saves the provided STT settings.
      * @param settings The RecognitionConfigSettings object to save.
      */
-    void saveSettings(RecognitionConfigSettings settings);
+    void saveSettings(RecognitionConfigSettings settings) throws STTSettingsException;
 
     /**
      * Resets the STT settings to their default values.
      * @return The default RecognitionConfigSettings object.
      */
-    RecognitionConfigSettings resetToDefaults();
+    RecognitionConfigSettings resetToDefaults() throws STTSettingsException ;
 }

@@ -9,6 +9,7 @@ import com.quilot.audio.ouput.AudioOutputService;
 import com.quilot.audio.ouput.SystemAudioOutputService;
 import com.quilot.exceptions.audio.AudioDeviceException;
 import com.quilot.exceptions.audio.AudioException;
+import com.quilot.exceptions.stt.STTException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.stt.SpeechToTextService;
 import com.quilot.stt.ISpeechToTextSettingsManager;
@@ -216,53 +217,61 @@ public class MainFrame extends JFrame {
                 stopInputRecordingButton.setEnabled(true);
                 playRecordedInputButton.setEnabled(false);
 
-                if (!speechToTextService.startStreamingRecognition(audioInputService.getAudioFormat(), new SpeechToTextService.StreamingRecognitionListener() {
-                    private final StringBuilder currentInterimTranscription = new StringBuilder();
-                    private String lastFinalTranscription = "";
+                try {
+                    speechToTextService.startStreamingRecognition(audioInputService.getAudioFormat(), new SpeechToTextService.StreamingRecognitionListener() {
+                        @Override
+                        public void onTranscriptionResult(String transcription, boolean isFinal) {
+                            SwingUtilities.invokeLater(() -> {
+                                if (isFinal) {
+                                    transcribedAudioArea.append("Interviewer (Final): '" + transcription + "'\n");
+                                    transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
 
-                    @Override
-                    public void onTranscriptionResult(String transcription, boolean isFinal) {
-                        SwingUtilities.invokeLater(() -> {
-                            if (isFinal) {
-                                transcribedAudioArea.append("Interviewer (Final): '" + transcription + "'\n");
-                                lastFinalTranscription = transcription;
-                                currentInterimTranscription.setLength(0);
-                                transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
+                                    aiService.generateResponse(transcription, new IAIService.AIResponseListener() {
+                                        @Override
+                                        public void onResponse(String aiResponse) {
+                                            SwingUtilities.invokeLater(() -> {
+                                                aiResponseArea.append("AI (Response): '" + aiResponse + "'\n");
+                                                aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                                            });
+                                        }
 
-                                aiService.generateResponse(transcription, new IAIService.AIResponseListener() {
-                                    @Override
-                                    public void onResponse(String aiResponse) {
-                                        SwingUtilities.invokeLater(() -> {
-                                            aiResponseArea.append("AI (Response): '" + aiResponse + "'\n");
-                                            aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
-                                        });
-                                    }
+                                        @Override
+                                        public void onError(String errorMessage) {
+                                            SwingUtilities.invokeLater(() -> {
+                                                aiResponseArea.append("AI (Error): " + errorMessage + "\n");
+                                                aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                                            });
+                                            appendToLogArea("AI Response Error: " + errorMessage);
+                                        }
+                                    });
 
-                                    @Override
-                                    public void onError(String errorMessage) {
-                                        SwingUtilities.invokeLater(() -> {
-                                            aiResponseArea.append("AI (Error): " + errorMessage + "\n");
-                                            aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
-                                        });
-                                        appendToLogArea("AI Response Error: " + errorMessage);
-                                    }
-                                });
-
-                            } else {
-                                String existingText = transcribedAudioArea.getText();
-                                int lastNewline = existingText.lastIndexOf('\n');
-                                if (lastNewline != -1 && existingText.substring(lastNewline + 1).startsWith("Interviewer (Interim):")) {
-                                    transcribedAudioArea.replaceRange("Interviewer (Interim): '" + transcription + "'", lastNewline + 1, existingText.length());
                                 } else {
-                                    transcribedAudioArea.append("Interviewer (Interim): '" + transcription + "'\n");
+                                    String existingText = transcribedAudioArea.getText();
+                                    int lastNewline = existingText.lastIndexOf('\n');
+                                    if (lastNewline != -1 && existingText.substring(lastNewline + 1).startsWith("Interviewer (Interim):")) {
+                                        transcribedAudioArea.replaceRange("Interviewer (Interim): '" + transcription + "'", lastNewline + 1, existingText.length());
+                                    } else {
+                                        transcribedAudioArea.append("Interviewer (Interim): '" + transcription + "'\n");
+                                    }
+                                    transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
                                 }
-                                transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
-                            }
-                        });
-                    }
-                })) {
-                    appendToLogArea("Failed to start STT streaming recognition.");
-                    audioInputService.stopRecording();
+                            });
+                        }
+
+                        @Override
+                        public void onTranscriptionError(Exception error) {
+                            String errorMessage = "A transcription error occurred: " + error.getMessage();
+                            appendToLogArea(errorMessage);
+                            aiResponseArea.append("STT (Error): " + errorMessage + "\n");
+                        }
+                    });
+                } catch (STTException ex) {
+                    appendToLogArea("Failed to start STT streaming recognition: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(this,
+                            "Could not start transcription service:\n" + ex.getMessage() + "\nPlease check credentials and network connection.",
+                            "Speech-to-Text Error",
+                            JOptionPane.ERROR_MESSAGE);
+                    audioInputService.stopRecording(); // Stop audio input if STT streaming fails
                     startInputRecordingButton.setEnabled(true);
                     stopInputRecordingButton.setEnabled(false);
                 }

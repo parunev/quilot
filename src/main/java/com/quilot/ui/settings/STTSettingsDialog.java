@@ -1,6 +1,8 @@
 package com.quilot.ui.settings;
 
 
+import com.quilot.exceptions.stt.STTAuthenticationException;
+import com.quilot.exceptions.stt.STTSettingsException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.stt.ISpeechToTextSettingsManager;
 import com.quilot.stt.settings.RecognitionConfigSettings;
@@ -37,13 +39,13 @@ public class STTSettingsDialog extends JDialog {
 
 
     public STTSettingsDialog(JFrame owner, ISpeechToTextSettingsManager settingsManager, GoogleCloudSpeechToTextService speechToTextService) {
-        super(owner, "Google Cloud STT Settings", true); // Modal dialog
+        super(owner, "Google Cloud STT Settings", true);
         this.settingsManager = settingsManager;
         this.speechToTextService = speechToTextService;
 
         initComponents();
         addListeners();
-        loadSettingsIntoUI(settingsManager.loadSettings()); // Load initial settings on dialog open
+        loadSettingsIntoUI(settingsManager.loadSettings());
     }
 
     private void initComponents() {
@@ -142,7 +144,6 @@ public class STTSettingsDialog extends JDialog {
     }
 
     private void loadSettingsIntoUI(RecognitionConfigSettings settings) {
-        // Set selected item, adding it if it's a custom editable entry
         setComboBoxSelectedItem(languageCodeComboBox, settings.getLanguageCode());
         setComboBoxSelectedItem(modelComboBox, settings.getModel());
 
@@ -156,43 +157,53 @@ public class STTSettingsDialog extends JDialog {
     }
 
     private void saveSettingsFromUI() {
-        RecognitionConfigSettings settings = getRecognitionConfigSettings();
+        try {
+            RecognitionConfigSettings settings = getRecognitionConfigSettingsFromUI();
+            settingsManager.saveSettings(settings);
 
-        settingsManager.saveSettings(settings); // Save to preferences
+            speechToTextService.setCredentialPath(speechToTextService.getCredentialPath());
 
-        // Update the GoogleCloudSpeechToTextService with the new settings
-        // This is crucial so the service uses the latest configuration
-        speechToTextService.setCredentialPath(speechToTextService.getCredentialPath()); // Re-initialize client with current path and new settings
-        Logger.info("STT settings saved from UI and applied to service.");
-        JOptionPane.showMessageDialog(this, "STT settings saved successfully!", "Settings Saved", JOptionPane.INFORMATION_MESSAGE);
+            Logger.info("STT settings saved from UI and applied to service.");
+            JOptionPane.showMessageDialog(this, "STT settings saved successfully!", "Settings Saved", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (STTSettingsException e) {
+            Logger.error("Failed to save STT settings.", e);
+            JOptionPane.showMessageDialog(this, "Could not save settings: " + e.getMessage(), "Save Error", JOptionPane.ERROR_MESSAGE);
+        } catch (STTAuthenticationException e) {
+            Logger.error("Failed to re-initialize STT service with new settings.", e);
+            JOptionPane.showMessageDialog(this, "Settings saved, but failed to apply to service: " + e.getMessage(), "Service Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    private RecognitionConfigSettings getRecognitionConfigSettings() {
-        RecognitionConfigSettings settings = new RecognitionConfigSettings();
-        // Get values from UI components
-        settings.setLanguageCode((String) languageCodeComboBox.getSelectedItem());
-        settings.setEnableAutomaticPunctuation(enableAutomaticPunctuationCheckBox.isSelected());
-        settings.setEnableWordTimeOffsets(enableWordTimeOffsetsCheckBox.isSelected());
-        settings.setModel((String) modelComboBox.getSelectedItem());
-        settings.setSpeechContexts(speechContextsTextArea.getText());
-        settings.setEnableSingleUtterance(enableSingleUtterance.isSelected());
-        settings.setInterimTranscription(enableInterimTranscription.isSelected());
-        return settings;
+    private RecognitionConfigSettings getRecognitionConfigSettingsFromUI() {
+        return RecognitionConfigSettings.builder()
+                .languageCode((String) languageCodeComboBox.getSelectedItem())
+                .enableAutomaticPunctuation(enableAutomaticPunctuationCheckBox.isSelected())
+                .enableWordTimeOffsets(enableWordTimeOffsetsCheckBox.isSelected())
+                .model((String) modelComboBox.getSelectedItem())
+                .speechContexts(speechContextsTextArea.getText())
+                .enableSingleUtterance(enableSingleUtterance.isSelected())
+                .interimTranscription(enableInterimTranscription.isSelected())
+                .build();
     }
 
     private void loadDefaultsIntoUI() {
-        RecognitionConfigSettings defaultSettings = settingsManager.resetToDefaults(); // Resets and saves defaults
-        loadSettingsIntoUI(defaultSettings); // Load the newly reset defaults into the UI
-        speechToTextService.setCredentialPath(speechToTextService.getCredentialPath()); // Re-initialize client with current path
-        JOptionPane.showMessageDialog(this, "STT settings reset to defaults!", "Defaults Loaded", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            RecognitionConfigSettings defaultSettings = settingsManager.resetToDefaults();
+            loadSettingsIntoUI(defaultSettings);
+
+            speechToTextService.setCredentialPath(speechToTextService.getCredentialPath());
+
+            JOptionPane.showMessageDialog(this, "STT settings reset to defaults!", "Defaults Loaded", JOptionPane.INFORMATION_MESSAGE);
+        } catch (STTSettingsException | STTAuthenticationException e) {
+            Logger.error("Failed to load and apply default STT settings.", e);
+            JOptionPane.showMessageDialog(this, "Could not reset settings: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    /**
-     * Helper method to set selected item in a JComboBox, adding it if it's editable and not present.
-     */
     private void setComboBoxSelectedItem(JComboBox<String> comboBox, String item) {
         if (item == null || item.isEmpty()) {
-            comboBox.setSelectedIndex(0); // Select first item if empty
+            comboBox.setSelectedIndex(0);
             return;
         }
         boolean found = false;
@@ -207,7 +218,6 @@ public class STTSettingsDialog extends JDialog {
             comboBox.addItem(item);
             comboBox.setSelectedItem(item);
         } else if (!found && !comboBox.isEditable()) {
-            // If not found and not editable, fallback to default or first item
             Logger.warn("Attempted to set unsupported non-editable combo box item: " + item + ". Falling back to default.");
             comboBox.setSelectedIndex(0);
         }

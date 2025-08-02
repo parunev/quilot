@@ -1,8 +1,9 @@
 package com.quilot.stt;
 
-import javax.sound.sampled.AudioFormat;
-
+import com.quilot.exceptions.stt.STTException;
 import com.quilot.utils.Logger;
+
+import javax.sound.sampled.AudioFormat;
 
 /**
  * Defines the contract for a Speech-to-Text (STT) service.
@@ -12,51 +13,35 @@ import com.quilot.utils.Logger;
 public interface SpeechToTextService {
 
     /**
-     * Starts a continuous streaming recognition session.
-     * Audio data should be fed via the registered AudioDataListener in IAudioInputService,
-     * which will then forward to this streaming service.
-     * @param audioFormat The AudioFormat of the audio data that will be streamed.
-     * @param listener A listener to receive transcription results in real-time.
-     * @return true if streaming successfully started, false otherwise.
+     * CHANGE: Now throws a specific exception if starting the stream fails.
      */
-    boolean startStreamingRecognition(AudioFormat audioFormat, StreamingRecognitionListener listener);
+    void startStreamingRecognition(AudioFormat audioFormat, StreamingRecognitionListener listener) throws STTException;
 
     /**
      * Stops the current continuous streaming recognition session.
-     * @return true if streaming successfully stopped, false otherwise.
+     * @return true if stopping was clean, false if issues occurred.
      */
     boolean stopStreamingRecognition();
 
     /**
-     * Tests the credentials and initialization of the STT service client.
-     * This method should attempt a lightweight operation to verify connectivity and authentication.
-     * @return true if the client is successfully initialized and can connect, false otherwise.
+     * CHANGE: Now throws a specific exception for auth failures, making it more informative.
      */
-    boolean testCredentials();
+    void testCredentials() throws STTException;
 
     /**
-     * Listener interface for receiving real-time transcription results from a streaming STT service.
+     * Listener interface for receiving real-time transcription results.
      */
     @FunctionalInterface
     interface StreamingRecognitionListener {
-        /**
-         * Called when a new transcription result (partial or final) is available.
-         * @param transcription The transcribed text.
-         * @param isFinal True if this is a final transcription result, false for interim.
-         */
         void onTranscriptionResult(String transcription, boolean isFinal);
 
         /**
-         * Called when an error occurs during streaming recognition.
-         * @param errorMessage A description of the error.
+         * CHANGE: Now provides the full Exception object for better error details.
          */
-        default void onTranscriptionError(String errorMessage) {
-            Logger.error("Streaming STT Error: " + errorMessage);
+        default void onTranscriptionError(Exception error) {
+            Logger.error("Streaming STT Error: " + error.getMessage(), error);
         }
 
-        /**
-         * Called when the streaming recognition session is closed.
-         */
         default void onStreamClosed() {
             Logger.info("Streaming STT session closed.");
         }
