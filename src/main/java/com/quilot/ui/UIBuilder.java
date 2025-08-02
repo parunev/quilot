@@ -11,8 +11,10 @@ import java.awt.*;
 
 /**
  * A utility class responsible for initializing and laying out the Swing UI components.
- * This helps in separating UI construction logic from the MainFrame's event handling.
- * It uses the Builder pattern to construct different panels of the UI.
+ * <p>
+ * This class encapsulates the UI construction logic, separating it from the event handling
+ * and application logic in the {@link MainFrame}. It uses a composition of more specific
+ * panel builders (e.g., {@link AudioInputSettingsPanelBuilder}) to construct the final UI.
  */
 @Getter
 public class UIBuilder {

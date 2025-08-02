@@ -7,8 +7,9 @@ import javax.swing.*;
 import java.time.Duration;
 
 /**
- * Manages the elapsed time display.
- * This class encapsulates the timer logic and the JLabel components for time display.
+ * Manages an elapsed time display for the UI.
+ * This class encapsulates the timer logic and the {@link JLabel} used for displaying
+ * the formatted time, ensuring that UI updates are performed on the Swing Event Dispatch Thread.
  */
 @Getter
 public class ElapsedTimerManager {

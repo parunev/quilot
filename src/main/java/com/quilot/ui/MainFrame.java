@@ -29,82 +29,111 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * The main user interface frame for the AI Interview Copilot.
- * This class now primarily focuses on setting up the frame,
- * orchestrating UI components via UIBuilder, and handling user interactions.
+ * The main user interface frame for the application.
+ * <p>
+ * This class serves as the central hub of the application, responsible for:
+ * <ul>
+ * <li>Initializing all core services (AI, STT, Audio I/O).</li>
+ * <li>Constructing the main UI layout using a {@link UIBuilder}.</li>
+ * <li>Binding all event listeners for user interactions.</li>
+ * <li>Handling graceful shutdown of services when the window is closed.</li>
+ * <li>Orchestrating the flow of data between the UI and the backend services.</li>
+ * </ul>
+ * It is designed to handle startup failures gracefully by guiding the user
+ * through the initial configuration process if necessary.
  */
 @Getter
 public class MainFrame extends JFrame {
 
-    // UI COMPONENTS
-    private final JTextArea transcribedAudioArea;
-    private final JTextArea aiResponseArea;
-    private final JTextArea logArea;
+    // UI Components
+    private JTextArea transcribedAudioArea;
+    private JTextArea aiResponseArea;
+    private JTextArea logArea;
+    private JComboBox<String> outputDeviceComboBox;
+    private JSlider volumeSlider;
+    private JButton testVolumeButton;
+    private JComboBox<String> inputDeviceComboBox;
+    private JButton startInputRecordingButton;
+    private JButton stopInputRecordingButton;
+    private JButton playRecordedInputButton;
+    private JButton setupGuideButton;
+    private JButton credentialsButton;
+    private JButton googleCloudSetupGuideButton;
+    private JButton sttSettingsButton;
+    private JButton aiSettingsButton;
 
-    // Audio output components
-    private final JComboBox<String> outputDeviceComboBox;
-    private final JSlider volumeSlider;
-    private final JButton testVolumeButton;
-
-    // Audio input components
-    private final JComboBox<String> inputDeviceComboBox;
-    private final JButton startInputRecordingButton;
-    private final JButton stopInputRecordingButton;
-    private final JButton playRecordedInputButton;
-    private final JButton setupGuideButton;
-    private final JButton credentialsButton;
-    private final JButton googleCloudSetupGuideButton;
-    private final JButton sttSettingsButton;
-    private final JButton aiSettingsButton;
-
-    // Managers for specific functionalities
-    private final ElapsedTimerManager timerManager;
-    private final UIBuilder uiBuilder;
-    private final AudioOutputService audioOutputService;
-    private final AudioInputService audioInputService;
-    private final SpeechToTextService speechToTextService;
-    private final CredentialManager credentialManager;
-    private final ISpeechToTextSettingsManager sttSettingsManager;
-    private final IAIService aiService;
+    // Services and Managers
+    private ElapsedTimerManager timerManager;
+    private AudioOutputService audioOutputService;
+    private AudioInputService audioInputService;
+    private SpeechToTextService speechToTextService;
+    private CredentialManager credentialManager;
+    private ISpeechToTextSettingsManager sttSettingsManager;
+    private IAIService aiService;
 
     /**
-     * Constructor for the MainFrame.
-     * Initializes the UI components and sets up the layout.
+     * Constructs the MainFrame.
+     * This constructor orchestrates the initialization of all backend services and UI components.
+     * If a critical service fails to initialize, it displays a fatal error dialog and exits.
+     * If non-critical services (like AI or STT) are unconfigured, it prompts the user
+     * to set them up after the UI is visible.
      */
     public MainFrame() {
+        initializeServices();
+        initializeUI();
+        bindListeners();
 
-        // FRAME PROPERTIES
+        Logger.info("Quilot UI initialized.");
+        appendToLogArea("UI initialized. Ready to start.");
+
+        performPostStartupChecks();
+    }
+
+    private void performPostStartupChecks() {
+        SwingUtilities.invokeLater(() -> {
+            boolean isAiServiceReady = ((VertexAIService) aiService).isClientInitialized();
+            boolean isSttServiceReady = ((GoogleCloudSpeechToTextService) speechToTextService).isClientInitialized();
+
+            if (!isAiServiceReady || !isSttServiceReady) {
+                JOptionPane.showMessageDialog(this,
+                        "Welcome! To get started, please set your Google Cloud credentials.",
+                        "Configuration Needed",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                CredentialsSetupDialog dialog = new CredentialsSetupDialog(this, credentialManager, (GoogleCloudSpeechToTextService) speechToTextService);
+                dialog.setVisible(true);
+            }
+        });
+    }
+
+    private void initializeServices() {
+        timerManager = new ElapsedTimerManager();
+        credentialManager = new CredentialManager();
+
+        audioOutputService = new SystemAudioOutputService();
+        audioInputService = new SystemAudioInputService();
+        sttSettingsManager = new SpeechToTextSettingsManager();
+
+        String savedCredentialPath = credentialManager.loadGoogleCloudCredentialPath();
+
+        aiService = new VertexAIService(savedCredentialPath, new AISettingsManager());
+        speechToTextService = new GoogleCloudSpeechToTextService(savedCredentialPath, sttSettingsManager);
+    }
+
+    private void initializeUI() {
         setTitle("Quilot");
-        pack();
         setMinimumSize(new Dimension(1200, 800));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // MANAGERS
-        timerManager = new ElapsedTimerManager();
-        audioOutputService = new SystemAudioOutputService();
-        audioInputService = new SystemAudioInputService();
-        credentialManager = new CredentialManager();
-        sttSettingsManager = new SpeechToTextSettingsManager();
-        this.aiService = new VertexAIService(credentialManager.loadGoogleCloudCredentialPath(), new AISettingsManager());
+        UIBuilder uiBuilder = new UIBuilder(audioOutputService, audioInputService, timerManager);
 
-        // Load credential path and initialize STT service
-        String savedCredentialPath = credentialManager.loadGoogleCloudCredentialPath();
-        speechToTextService = new GoogleCloudSpeechToTextService(savedCredentialPath, sttSettingsManager);
-
-        uiBuilder = new UIBuilder(audioOutputService, audioInputService, timerManager);
-
-        // UI COMPONENTS
         transcribedAudioArea = uiBuilder.getTranscribedAudioArea();
         aiResponseArea = uiBuilder.getAiResponseArea();
         logArea = uiBuilder.getLogArea();
-
-        // AUDIO OUTPUT COMPONENTS
         outputDeviceComboBox = uiBuilder.getOutputDeviceComboBox();
         volumeSlider = uiBuilder.getVolumeSlider();
         testVolumeButton = uiBuilder.getTestVolumeButton();
-
-        // AUDIO INPUT COMPONENTS
         inputDeviceComboBox = uiBuilder.getInputDeviceComboBox();
         startInputRecordingButton = uiBuilder.getStartInputRecordingButton();
         stopInputRecordingButton = uiBuilder.getStopInputRecordingButton();
@@ -115,16 +144,16 @@ public class MainFrame extends JFrame {
         sttSettingsButton = uiBuilder.getSttSettingsButton();
         aiSettingsButton = uiBuilder.getAiSettingsButton();
 
-        // Audio input data listener
-        audioInputService.setAudioDataListener((audioData, bytesRead) ->
-                ((GoogleCloudSpeechToTextService) speechToTextService).onAudioDataCaptured(audioData, bytesRead));
-
-        // LAYOUT
         JPanel mainPanel = new JPanel(new GridBagLayout());
         uiBuilder.setupLayout(mainPanel);
         add(mainPanel);
+        pack();
+    }
 
-        // Add listeners
+    private void bindListeners() {
+        audioInputService.setAudioDataListener((audioData, bytesRead) ->
+                ((GoogleCloudSpeechToTextService) speechToTextService).onAudioDataCaptured(audioData, bytesRead));
+
         addAudioOutputListeners();
         addAudioInputListeners();
         addWindowListeners();
@@ -132,9 +161,6 @@ public class MainFrame extends JFrame {
         addSettingsListeners();
         addSTTSettingsListeners();
         addAISettingsListeners();
-
-        Logger.info("Quilot UI initialized.");
-        appendToLogArea("UI initialized. Ready to start.");
     }
 
     private void addAISettingsListeners() {

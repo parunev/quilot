@@ -12,6 +12,13 @@ import java.util.List;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+/**
+ * A concrete implementation of {@link AudioOutputService} that uses the Java Sound API
+ * to interact with the system's audio output devices.
+ * <p>
+ * This class manages device discovery, selection, volume control, and playback of raw audio data.
+ * It persists the user's last selected device using Java Preferences.
+ */
 @Getter
 public class SystemAudioOutputService implements AudioOutputService {
 
@@ -24,6 +31,12 @@ public class SystemAudioOutputService implements AudioOutputService {
     private SourceDataLine outputLine;
     private FloatControl masterGainControl;
 
+    /**
+     * Constructs a new SystemAudioOutputService.
+     * Initializes Java Preferences and attempts to select the last used audio device.
+     *
+     * @throws RuntimeException if the Java Preferences API cannot be accessed due to security restrictions.
+     */
     public SystemAudioOutputService() {
         try {
             this.prefs = Preferences.userRoot().node(PREF_NODE_NAME);
@@ -43,11 +56,17 @@ public class SystemAudioOutputService implements AudioOutputService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<String> getAvailableOutputDevices() {
         return AudioDeviceDiscoverer.discoverOutputDevices();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void selectOutputDevice(String deviceName) throws AudioDeviceException {
         Mixer.Info[] mixerInfos = AudioSystem.getMixerInfo();
@@ -114,6 +133,9 @@ public class SystemAudioOutputService implements AudioOutputService {
         return bestMatch;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setVolume(float volume) {
         if (masterGainControl != null) {
@@ -130,6 +152,9 @@ public class SystemAudioOutputService implements AudioOutputService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void playTestSound() throws AudioDeviceException {
         ensureDeviceIsReady();
@@ -145,6 +170,9 @@ public class SystemAudioOutputService implements AudioOutputService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void playAudioData(byte[] audioData, AudioFormat format) throws AudioException {
         ensureDeviceIsReady();
@@ -171,6 +199,9 @@ public class SystemAudioOutputService implements AudioOutputService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void close() {
         closeOutputLine();
@@ -195,6 +226,9 @@ public class SystemAudioOutputService implements AudioOutputService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getSelectedDeviceName() {
         return selectedOutputMixer != null ? selectedOutputMixer.getMixerInfo().getName() : null;

@@ -26,9 +26,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * * Concrete implementation of IAIService that interacts with Google Cloud Vertex AI.
- * This service handles sending prompts and receiving AI-generated responses,
- * including conversation history management and configurable generation parameters.
+ * Concrete implementation of {@link IAIService} that interacts with Google Cloud Vertex AI.
+ * This service handles sending prompts, managing conversation history, and receiving
+ * AI-generated responses using the Vertex AI API. It supports dynamic credential
+ * and settings updates.
  */
 @Data
 public class VertexAIService implements IAIService {
@@ -48,20 +49,33 @@ public class VertexAIService implements IAIService {
             """;
 
     /**
-     * Constructor for VertexAIService.
-     * @param initialCredentialPath The initial absolute path to the Google Cloud service account JSON key file.
-     * @param settingsManager The manager for AI configuration settings.
+     * Constructs a new VertexAIService.
+     * <p>
+     * The constructor attempts to initialize the Vertex AI client with the provided
+     * credential path. If the initial path is invalid or missing, the service will
+     * remain in an uninitialized state, logging a warning.
+     *
+     * @param initialCredentialPath The absolute path to the Google Cloud service account JSON key file.
+     * @param settingsManager The manager for loading and saving AI configuration settings.
      */
     public VertexAIService(String initialCredentialPath, IAISettingsManager settingsManager) {
         this.settingsManager = Objects.requireNonNull(settingsManager, "IAISettingsManager cannot be null.");
         this.credentialPath = initialCredentialPath;
         this.chatHistory = new ArrayList<>();
         Logger.info("VertexAIService initialized. Client initialization deferred.");
-        initializeClient();
+
+        try {
+            initializeClient();
+        } catch (AIInitializationException e) {
+            Logger.warn("Initial AI client initialization failed. The service will remain inactive until configured: " + e.getMessage());
+        }
     }
 
     /**
-     * Attempts to initialize the Google Cloud VertexAI client.
+     * Attempts to initialize the Google Cloud VertexAI client using the current credential path and settings.
+     * If a client is already active, it will be closed first.
+     *
+     * @throws AIInitializationException if the credential file cannot be read or if the client fails to build.
      */
     private void initializeClient() {
         if (credentialPath == null || credentialPath.isEmpty()) {
@@ -70,9 +84,8 @@ public class VertexAIService implements IAIService {
             return;
         }
 
-        closeClient(); // Ensures any existing client is properly closed before re-initializing.
+        closeClient();
 
-        // Using try-with-resources for FileInputStream to ensure it's always closed.
         try (InputStream credentialsStream = new FileInputStream(credentialPath)) {
             AIConfigSettings currentSettings = settingsManager.loadSettings();
             GoogleCredentials credentials = GoogleCredentials.fromStream(credentialsStream)
@@ -100,8 +113,10 @@ public class VertexAIService implements IAIService {
     }
 
     /**
-     * Sets a new credential path and attempts to re-initialize the client.
+     * Sets a new credential path and re-initializes the client.
+     *
      * @param newCredentialPath The new path to the JSON key file.
+     * @throws AIInitializationException if re-initialization with the new path fails.
      */
     public void setCredentialPath(String newCredentialPath) {
         this.credentialPath = newCredentialPath;
@@ -109,6 +124,13 @@ public class VertexAIService implements IAIService {
         initializeClient();
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>
+     * This implementation sends the prompt to the Vertex AI model asynchronously. It builds
+     * the request using the current settings from the {@link IAISettingsManager} and
+     * adds the new prompt and response to the conversation history.
+     */
     @Override
     public void generateResponse(String prompt, AIResponseListener listener) {
         Objects.requireNonNull(listener, "AIResponseListener cannot be null.");
@@ -203,17 +225,27 @@ public class VertexAIService implements IAIService {
         });
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void clearHistory() {
         this.chatHistory.clear();
         Logger.info("AI conversation history cleared.");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IAISettingsManager getSettingsManager() {
         return settingsManager;
     }
 
+    /**
+     * Closes the Vertex AI client and releases all associated resources.
+     * This method should be called on application shutdown.
+     */
     public void closeClient() {
         if (vertexAI != null) {
             try {

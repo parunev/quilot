@@ -4,12 +4,11 @@ import com.quilot.utils.Logger;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -39,12 +38,11 @@ public class SetupGuideDialog extends JDialog {
         String htmlContent = loadHtmlFromResource();
         textPane.setText(Objects.requireNonNullElse(htmlContent, "<html><body><h3>Error loading help content.</h3></body></html>"));
 
-        // Make links clickable
         textPane.addHyperlinkListener(e -> {
             if (e.getEventType() == javax.swing.event.HyperlinkEvent.EventType.ACTIVATED) {
                 try {
                     Desktop.getDesktop().browse(e.getURL().toURI());
-                } catch (Exception ex) {
+                } catch (IOException | URISyntaxException | UnsupportedOperationException ex) {
                     Logger.error("Error opening URL: " + ex.getMessage());
                     JOptionPane.showMessageDialog(this,
                             "Could not open link: " + e.getURL(),
@@ -75,11 +73,10 @@ public class SetupGuideDialog extends JDialog {
                 Logger.error("Resource not found: " + SetupGuideDialog.RESOURCE_PATH);
                 return null;
             }
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
-                return reader.lines().collect(Collectors.joining("\n"));
-            }
-        } catch (Exception e) {
-            Logger.error("Failed to load resource " + SetupGuideDialog.RESOURCE_PATH + ": " + e.getMessage());
+
+            return new String(in.readAllBytes(), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            Logger.error("Failed to load resource " + SetupGuideDialog.RESOURCE_PATH, e);
             return null;
         }
     }

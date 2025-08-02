@@ -7,6 +7,7 @@ import javax.swing.event.HyperlinkEvent;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -40,7 +41,7 @@ public class GoogleCloudSetupGuideDialog extends JDialog {
             if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
                 try {
                     Desktop.getDesktop().browse(e.getURL().toURI());
-                } catch (Exception ex) {
+                } catch (IOException | URISyntaxException | UnsupportedOperationException ex) {
                     Logger.error("Error opening URL: " + ex.getMessage());
                     JOptionPane.showMessageDialog(this,
                             "Could not open link:\n" + e.getURL() + "\n\nReason: " + ex.getMessage(),

@@ -8,7 +8,8 @@ import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 /**
- * Manages the persistence of AI configuration settings using Java's Preferences API.
+ * Manages the persistence of AI configuration settings using Java's {@link Preferences} API.
+ * This class handles loading, saving, and resetting settings to their default values.
  */
 public class AISettingsManager implements IAISettingsManager {
 
@@ -24,6 +25,11 @@ public class AISettingsManager implements IAISettingsManager {
     private static final String KEY_TOP_P = "topP";
     private static final String KEY_TOP_K = "topK";
 
+    /**
+     * Constructs a new AISettingsManager.
+     *
+     * @throws RuntimeException if the Java Preferences API cannot be accessed due to security restrictions.
+     */
     public AISettingsManager() {
         try {
             prefs = Preferences.userRoot().node(PREF_NODE_NAME);
@@ -34,6 +40,9 @@ public class AISettingsManager implements IAISettingsManager {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public AIConfigSettings loadSettings() {
         AIConfigSettings defaults = AIConfigSettings.builder().build();
@@ -48,6 +57,9 @@ public class AISettingsManager implements IAISettingsManager {
                 .build();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void saveSettings(AIConfigSettings settings) {
         Objects.requireNonNull(settings, "AIConfigSettings object cannot be null.");
@@ -73,6 +85,9 @@ public class AISettingsManager implements IAISettingsManager {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public AIConfigSettings resetToDefaults() {
         AIConfigSettings defaultSettings = AIConfigSettings.builder().build();

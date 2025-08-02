@@ -8,6 +8,10 @@ import java.util.Objects;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+/**
+ * Manages the persistence of Speech-to-Text (STT) configuration settings
+ * using Java's {@link Preferences} API.
+ */
 public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager {
 
     private static final String PREF_NODE_NAME = "com/quilot/stt_settings";
@@ -35,6 +39,9 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public RecognitionConfigSettings loadSettings() {
         RecognitionConfigSettings defaults = RecognitionConfigSettings.builder().build();
@@ -54,6 +61,9 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
                 .build();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void saveSettings(RecognitionConfigSettings settings) throws STTSettingsException {
         Objects.requireNonNull(settings, "RecognitionConfigSettings object cannot be null.");
@@ -79,6 +89,9 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public RecognitionConfigSettings resetToDefaults() throws STTSettingsException {
         RecognitionConfigSettings defaultSettings = RecognitionConfigSettings.builder().build();

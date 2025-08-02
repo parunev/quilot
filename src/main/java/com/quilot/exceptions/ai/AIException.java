@@ -1,8 +1,7 @@
 package com.quilot.exceptions.ai;
 
 /**
- * Base exception for all errors originating from the AI service module.
- * <p>
+ * Base exception for all checked errors originating from the AI service module.
  * Using a common base exception allows higher-level error handlers to catch
  * any AI-related issue with a single catch block.
  */

@@ -107,3 +107,129 @@ The primary purpose of an abstract class is to define a common interface and pro
 [2025-08-02 16:18:48] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
 [2025-08-02 16:18:48] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
 [2025-08-02 16:18:48] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-02 16:36:06] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-02 16:36:06] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-02 16:36:06] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-02 16:36:06] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-02 16:36:06] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 16:36:06] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 16:36:06] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:36:06] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 16:36:06] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 16:36:07] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-02 16:36:07] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:36:07] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 16:36:07] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 16:36:07] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-02 16:36:07] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 16:36:07] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-02 16:36:07] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 16:36:07] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 16:36:10] [INFO] [MainFrame.lambda$addSTTSettingsListeners$0()] STT Settings button clicked. Displaying STT settings dialog.
+[2025-08-02 16:36:10] [INFO] [STTSettingsDialog.loadSettingsIntoUI()] STT settings loaded into UI.
+[2025-08-02 16:56:18] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-02 16:56:18] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-02 16:56:18] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-02 16:56:18] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-02 16:56:18] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 16:56:18] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 16:56:18] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:56:18] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 16:56:18] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 16:56:18] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-02 16:56:18] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:56:18] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 16:56:18] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 16:56:19] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-02 16:56:19] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 16:56:19] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 5 audio input device(s).
+[2025-08-02 16:56:19] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 16:56:19] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 16:56:22] [INFO] [MainFrame.lambda$addSTTSettingsListeners$0()] STT Settings button clicked. Displaying STT settings dialog.
+[2025-08-02 16:56:22] [INFO] [STTSettingsDialog.loadSettingsIntoUI()] STT settings loaded into UI.
+[2025-08-02 16:57:14] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-02 16:57:14] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-02 16:57:14] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-02 16:57:14] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-02 16:57:14] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 16:57:14] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 16:57:14] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:57:14] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 16:57:14] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 16:57:14] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-02 16:57:14] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:57:14] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 16:57:14] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 16:57:15] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-02 16:57:15] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 16:57:15] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 5 audio input device(s).
+[2025-08-02 16:57:15] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 16:57:15] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 16:57:17] [INFO] [MainFrame.lambda$addSTTSettingsListeners$0()] STT Settings button clicked. Displaying STT settings dialog.
+[2025-08-02 16:57:17] [INFO] [STTSettingsDialog.loadSettingsIntoUI()] STT settings loaded into UI.
+[2025-08-02 16:58:02] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-02 16:58:03] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-02 16:58:03] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-02 16:58:03] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-02 16:58:03] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 16:58:03] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 16:58:03] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:58:03] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 16:58:03] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 16:58:03] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-02 16:58:03] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 16:58:03] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 16:58:03] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 16:58:03] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-02 16:58:04] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 16:58:04] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 5 audio input device(s).
+[2025-08-02 16:58:04] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 16:58:04] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 16:58:05] [INFO] [MainFrame.lambda$addSTTSettingsListeners$0()] STT Settings button clicked. Displaying STT settings dialog.
+[2025-08-02 16:58:05] [INFO] [STTSettingsDialog.loadSettingsIntoUI()] STT settings loaded into UI.
+[2025-08-02 17:00:45] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-02 17:00:45] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-02 17:00:45] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-02 17:00:45] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-02 17:00:45] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-02 17:00:45] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-02 17:00:45] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 17:00:45] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-02 17:00:45] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-02 17:00:46] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-02 17:00:46] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-02 17:00:46] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-02 17:00:46] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-02 17:00:46] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-02 17:00:46] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-02 17:00:46] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 5 audio input device(s).
+[2025-08-02 17:00:46] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-02 17:00:46] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-02 17:00:48] [INFO] [MainFrame.lambda$addSTTSettingsListeners$0()] STT Settings button clicked. Displaying STT settings dialog.
+[2025-08-02 17:00:48] [INFO] [STTSettingsDialog.loadSettingsIntoUI()] STT settings loaded into UI.
+[2025-08-02 17:01:07] [INFO] [MainFrame.lambda$addSTTSettingsListeners$0()] STT Settings button clicked. Displaying STT settings dialog.
+[2025-08-02 17:01:07] [INFO] [STTSettingsDialog.loadSettingsIntoUI()] STT settings loaded into UI.
+[2025-08-03 00:13:19] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-03 00:13:19] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-03 00:13:20] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-03 00:13:20] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-03 00:13:20] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-03 00:13:20] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-03 00:13:20] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-03 00:13:20] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-03 00:13:20] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-03 00:13:20] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-03 00:13:20] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-03 00:13:20] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-03 00:13:21] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-03 00:13:21] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 8 audio output device(s).
+[2025-08-03 00:13:21] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 7 audio input device(s).
+[2025-08-03 00:13:21] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, WH-1000XM5, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-03 00:13:21] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-03 00:13:27] [INFO] [SystemAudioOutputService.close()] SystemAudioOutputService closed.
+[2025-08-03 00:13:27] [WARN] [SystemAudioInputService.stopRecording()] Recording not active.
+[2025-08-03 00:13:27] [INFO] [SystemAudioInputService.close()] SystemAudioInputService resources released.
+[2025-08-03 00:13:27] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-03 00:13:27] [INFO] [GoogleCloudSpeechToTextService.closeClient()] Google Cloud SpeechClient closed.
+[2025-08-03 00:13:27] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
+[2025-08-03 00:13:27] [INFO] [MainFrame$2.windowClosing()] Application closing. Audio resources released.

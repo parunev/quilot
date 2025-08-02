@@ -7,12 +7,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * A final utility class for discovering available audio output devices on the system.
+ * This class cannot be instantiated.
+ */
 public final class AudioDeviceDiscoverer {
 
     private AudioDeviceDiscoverer() {
         throw new UnsupportedOperationException("AudioDeviceDiscoverer is a utility class.");
     }
 
+    /**
+     * Scans the system for all available audio output devices.
+     * An output device is identified as a mixer that supports a {@link SourceDataLine}.
+     *
+     * @return A {@link List} of the names of all found output devices. Returns an empty list if none are found.
+     */
     public static List<String> discoverOutputDevices() {
         Mixer.Info[] mixerInfos = AudioSystem.getMixerInfo();
         if (mixerInfos == null || mixerInfos.length == 0) {

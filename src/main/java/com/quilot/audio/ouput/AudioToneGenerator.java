@@ -2,12 +2,26 @@ package com.quilot.audio.ouput;
 
 import javax.sound.sampled.AudioFormat;
 
+/**
+ * A final utility class for generating simple audio tones, such as a sine wave.
+ * This class is used for creating test sounds. It cannot be instantiated.
+ */
 public final class AudioToneGenerator {
 
     private AudioToneGenerator() {
         throw new UnsupportedOperationException("Utility class cannot be instantiated.");
     }
 
+    /**
+     * Generates a byte array representing a sine wave with the specified parameters.
+     *
+     * @param format The {@link AudioFormat} of the desired output tone (e.g., sample rate, bit depth).
+     * @param frequency The frequency of the sine wave in Hertz (e.g., 440 for A4).
+     * @param durationMs The duration of the tone in milliseconds.
+     * @return A byte array containing the raw PCM audio data for the sine wave.
+     * @throws IllegalArgumentException if any of the parameters are invalid.
+     * @throws UnsupportedOperationException if the audio format's encoding or bit depth is not supported.
+     */
     public static byte[] generateSineWave(AudioFormat format, int frequency, int durationMs) {
         if (format == null || frequency <= 0 || durationMs <= 0) {
             throw new IllegalArgumentException("Invalid parameters for tone generation.");

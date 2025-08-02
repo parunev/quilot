@@ -13,6 +13,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+/**
+ * A concrete implementation of {@link AudioInputService} that uses the Java Sound API
+ * to interact with the system's audio input devices.
+ * <p>
+ * This class manages device discovery, selection, recording, and format negotiation.
+ * It also persists the user's last selected device using Java Preferences.
+ */
 @Getter
 @Setter
 public class SystemAudioInputService implements AudioInputService {
@@ -32,6 +39,12 @@ public class SystemAudioInputService implements AudioInputService {
     private Thread captureThread;
     private AudioDataListener audioDataListener;
 
+    /**
+     * Constructs a new SystemAudioInputService.
+     * Initializes Java Preferences and attempts to select the last used audio device.
+     *
+     * @throws RuntimeException if the Java Preferences API cannot be accessed due to security restrictions.
+     */
     public SystemAudioInputService() {
         try {
             this.prefs = Preferences.userRoot().node(PREF_NODE_NAME);
@@ -51,6 +64,9 @@ public class SystemAudioInputService implements AudioInputService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<String> getAvailableInputDevices() {
         List<String> deviceNames = new ArrayList<>();
@@ -68,6 +84,9 @@ public class SystemAudioInputService implements AudioInputService {
         return deviceNames;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void selectInputDevice(String deviceName) throws AudioDeviceException {
         for (Mixer.Info info : AudioSystem.getMixerInfo()) {
@@ -82,6 +101,9 @@ public class SystemAudioInputService implements AudioInputService {
         throw new AudioDeviceException("Audio input device not found: " + deviceName);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void startRecording() throws AudioDeviceException {
         if (targetDataLine == null || !targetDataLine.isOpen()) {
@@ -101,6 +123,9 @@ public class SystemAudioInputService implements AudioInputService {
         Logger.info("Recording started.");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean stopRecording() {
         if (!isRecording.getAndSet(false)) {
@@ -112,6 +137,9 @@ public class SystemAudioInputService implements AudioInputService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void close() {
         stopRecording();
@@ -119,31 +147,49 @@ public class SystemAudioInputService implements AudioInputService {
         Logger.info("SystemAudioInputService resources released.");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getSelectedDeviceName() {
         return selectedInputMixer != null ? selectedInputMixer.getMixerInfo().getName() : null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isDeviceSelected() {
         return targetDataLine != null && targetDataLine.isOpen();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setAudioDataListener(AudioDataListener listener) {
         this.audioDataListener = listener;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public byte[] getRecordedAudioData() {
         return recordedAudioBuffer.toByteArray();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void clearRecordedAudioData() {
         recordedAudioBuffer.reset();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public AudioFormat getAudioFormat() {
         return this.audioFormat;

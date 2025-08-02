@@ -1,5 +1,6 @@
 package com.quilot.ui.help;
 
+import com.quilot.exceptions.CredentialStorageException;
 import com.quilot.exceptions.stt.STTAuthenticationException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.utils.CredentialManager;
@@ -101,7 +102,7 @@ public class CredentialsSetupDialog extends JDialog {
             credentialManager.saveGoogleCloudCredentialPath(path);
             speechToTextService.setCredentialPath(path);
             showInfoMessage("Credential path saved and applied successfully.", "Save Success");
-        } catch (STTAuthenticationException e) {
+        } catch (CredentialStorageException | STTAuthenticationException e) {
             Logger.error("Failed to apply new credential path.", e);
             showErrorMessage("Saved path, but failed to apply it to the service:\n" + e.getMessage(), "Credential Error");
         }

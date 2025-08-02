@@ -1,7 +1,9 @@
 package com.quilot.exceptions.audio;
 
 /**
- * Thrown when an audio device cannot be found, opened, or configured.
+ * A checked exception thrown when an audio device cannot be found, opened, or configured.
+ * This typically occurs if a device is disconnected, in use by another application,
+ * or does not support the required audio format.
  */
 public class AudioDeviceException extends AudioException {
     public AudioDeviceException(String message) {

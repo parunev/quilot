@@ -1,5 +1,9 @@
 package com.quilot.utils;
 
+import com.quilot.exceptions.CredentialStorageException;
+
+import java.util.Objects;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 /**
@@ -13,26 +17,35 @@ public class CredentialManager {
     private final Preferences prefs;
 
     public CredentialManager() {
-        prefs = Preferences.userRoot().node(PREF_NODE_NAME);
-        Logger.info("CredentialManager initialized.");
+        try {
+            this.prefs = Preferences.userRoot().node(PREF_NODE_NAME);
+            Logger.info("CredentialManager initialized.");
+        } catch (SecurityException e) {
+            Logger.error("Could not access Java Preferences due to a security policy.", e);
+            throw new RuntimeException("Failed to initialize CredentialManager due to security restrictions.", e);
+        }
     }
 
     /**
      * Saves the path to Google Cloud credential file.
-     * @param path the file path to save; must not be null or empty.
+     * @param path the file path to save; must not be null.
      */
-    public void saveGoogleCloudCredentialPath(String path) {
-        if (path == null || path.isEmpty()) {
-            Logger.warn("Attempted to save empty or null Google Cloud credential path; operation skipped.");
-            return;
+    public void saveGoogleCloudCredentialPath(String path) throws CredentialStorageException {
+        Objects.requireNonNull(path, "Credential path cannot be null.");
+
+        try {
+            prefs.put(GOOGLE_CREDENTIAL_PATH_KEY, path);
+            prefs.flush();
+            Logger.info("Google Cloud credential path saved: " + path);
+        } catch (BackingStoreException e) {
+            Logger.error("Failed to save credential path to the backing store.", e);
+            throw new CredentialStorageException("Could not save credential path due to a storage error.", e);
         }
-        prefs.put(GOOGLE_CREDENTIAL_PATH_KEY, path);
-        Logger.info("Google Cloud credential path saved: " + path);
     }
 
     /**
      * Loads the stored Google Cloud credential path.
-     * @return the credential path, or empty string if none stored.
+     * @return the credential path, or an empty string if none is stored.
      */
     public String loadGoogleCloudCredentialPath() {
         String path = prefs.get(GOOGLE_CREDENTIAL_PATH_KEY, "");

@@ -12,7 +12,6 @@ import com.google.protobuf.ByteString;
 import com.quilot.audio.input.AudioInputService;
 import com.quilot.exceptions.stt.STTAuthenticationException;
 import com.quilot.exceptions.stt.STTException;
-import com.quilot.exceptions.stt.STTInitializationException;
 import com.quilot.stt.settings.RecognitionConfigSettings;
 import com.quilot.utils.Logger;
 import lombok.Getter;
@@ -28,6 +27,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
+/**
+ * A concrete implementation of {@link SpeechToTextService} that uses the Google Cloud Speech-to-Text API.
+ * <p>
+ * This class manages the lifecycle of the {@link SpeechClient}, handles streaming recognition requests,
+ * and forwards audio data from an {@link com.quilot.audio.input.AudioInputService.AudioDataListener}
+ * to the Google Cloud API.
+ */
 @Getter
 public class GoogleCloudSpeechToTextService implements SpeechToTextService, AudioInputService.AudioDataListener {
 
@@ -41,6 +47,16 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
     private final AtomicBoolean isStreamingActive = new AtomicBoolean(false);
     private ScheduledExecutorService executorService;
 
+    /**
+     * Constructs a new GoogleCloudSpeechToTextService.
+     * <p>
+     * The constructor attempts a non-critical initialization of the SpeechClient. If the initial
+     * credential path is invalid or missing, the service will remain in an uninitialized state,
+     * logging a warning, and must be configured later via {@link #setCredentialPath(String)}.
+     *
+     * @param initialCredentialPath The initial path to the Google Cloud service account JSON key file.
+     * @param settingsManager The manager for loading STT recognition settings.
+     */
     public GoogleCloudSpeechToTextService(String initialCredentialPath, ISpeechToTextSettingsManager settingsManager) {
         this.settingsManager = Objects.requireNonNull(settingsManager, "Settings manager cannot be null.");
         this.credentialPath = initialCredentialPath;
@@ -50,7 +66,7 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         try {
             initializeClient();
         } catch (STTAuthenticationException e) {
-            throw new STTInitializationException("Failed to initialize STT service with provided credentials.", e);
+            Logger.warn("Initial STT client initialization failed. The service will remain inactive until configured: " + e.getMessage());
         }
     }
 
@@ -85,6 +101,13 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         }
     }
 
+    /**
+     * Sets a new credential path and re-initializes the SpeechClient.
+     * This is the primary method for configuring the service after instantiation.
+     *
+     * @param newCredentialPath The new path to the JSON key file.
+     * @throws STTAuthenticationException if re-initialization with the new path fails.
+     */
     public void setCredentialPath(String newCredentialPath) throws STTAuthenticationException {
         if (Objects.equals(this.credentialPath, newCredentialPath)) return;
         this.credentialPath = newCredentialPath;
@@ -92,6 +115,9 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         initializeClient();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void startStreamingRecognition(AudioFormat audioFormat, StreamingRecognitionListener listener) throws STTException {
         if (!isClientInitialized || speechClient == null) {
@@ -209,6 +235,9 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
                 .build();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean stopStreamingRecognition() {
         if (!isStreamingActive.getAndSet(false)) {
@@ -235,6 +264,13 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         }
     }
 
+    /**
+     * Implementation of the AudioDataListener interface.
+     * This method receives audio data from the audio input service and sends it to the Google Cloud API stream.
+     *
+     * @param audioData The raw byte array of captured audio.
+     * @param bytesRead The number of valid bytes in the array.
+     */
     @Override
     public void onAudioDataCaptured(byte[] audioData, int bytesRead) {
         if (isStreamingActive.get() && clientStream != null) {
@@ -252,6 +288,10 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * This implementation re-initializes the client to verify the current credential path is valid.
+     */
     @Override
     public void testCredentials() throws STTAuthenticationException {
         Logger.info("Testing Google Cloud SpeechClient credentials by re-initializing...");
@@ -261,6 +301,10 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
         }
     }
 
+    /**
+     * Closes the underlying {@link SpeechClient} and releases all associated resources,
+     * including stopping any active recognition streams. This should be called on application shutdown.
+     */
     public void closeClient() {
         stopStreamingRecognition();
         if (speechClient != null) {
