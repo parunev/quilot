@@ -184,7 +184,18 @@ public class GoogleCloudSpeechToTextService implements SpeechToTextService, Audi
                 .setLanguageCode(settings.getLanguageCode())
                 .setEnableAutomaticPunctuation(settings.isEnableAutomaticPunctuation())
                 .setEnableWordTimeOffsets(settings.isEnableWordTimeOffsets())
-                .setModel(settings.getModel());
+                .setModel(settings.getModel())
+                .setUseEnhanced(settings.isUseEnhanced())
+                .setProfanityFilter(settings.isProfanityFilter())
+                .setMaxAlternatives(settings.getMaxAlternatives());
+
+        if (settings.isEnableSpeakerDiarization()) {
+            configBuilder.setDiarizationConfig(SpeakerDiarizationConfig.newBuilder()
+                    .setEnableSpeakerDiarization(true)
+                    .setMinSpeakerCount(2)
+                    .setMaxSpeakerCount(6)
+                    .build());
+        }
 
         List<SpeechContext> contexts = settings.getSpeechContextsAsList().stream()
                 .map(phrase -> SpeechContext.newBuilder().addPhrases(phrase).build())

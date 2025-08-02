@@ -29,6 +29,11 @@ public class STTSettingsDialog extends JDialog {
     private JCheckBox enableSingleUtterance;
     private JCheckBox enableInterimTranscription;
 
+    private JCheckBox useEnhancedCheckBox;
+    private JCheckBox profanityFilterCheckBox;
+    private JSpinner maxAlternativesSpinner;
+    private JCheckBox enableSpeakerDiarizationCheckBox;
+
     private JButton saveButton;
     private JButton loadDefaultsButton;
     private JButton closeButton;
@@ -52,88 +57,81 @@ public class STTSettingsDialog extends JDialog {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.WEST;
+        int y = 0;
 
-        // Language Code
-        gbc.gridx = 0; gbc.gridy = 0;
-        add(new JLabel("Language Code:"), gbc);
-        gbc.gridx = 1; gbc.gridy = 0; gbc.weightx = 1.0;
-        languageCodeComboBox = new JComboBox<>(SUPPORTED_LANGUAGES);
-        languageCodeComboBox.setEditable(true); // Allow custom entry
-        add(languageCodeComboBox, gbc);
-        gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 2;
-        add(new JLabel("<html><small>e.g., en-US (US English), en-GB (British English)</small></html>"), gbc);
+        // Helper for creating info icons
+        final Font infoFont = new Font("SansSerif", Font.BOLD, 12);
+        final Color infoColor = Color.GRAY;
 
+        // --- Settings Rows with Info Icons ---
+        gbc.gridy = y++;
+        gbc.gridx = 0; add(new JLabel("Language Code:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 1.0; gbc.fill = GridBagConstraints.HORIZONTAL; languageCodeComboBox = new JComboBox<>(SUPPORTED_LANGUAGES); languageCodeComboBox.setEditable(true); add(languageCodeComboBox, gbc);
+        gbc.gridx = 2; gbc.weightx = 0; gbc.fill = GridBagConstraints.NONE; add(createInfoIcon("The language of the audio (e.g., 'en-US'). Critical for accuracy.", infoFont, infoColor), gbc);
 
-        // Automatic Punctuation
-        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
-        enableAutomaticPunctuationCheckBox = new JCheckBox("Enable Automatic Punctuation");
-        add(enableAutomaticPunctuationCheckBox, gbc);
-        gbc.gridx = 0; gbc.gridy = 3; gbc.gridwidth = 2;
-        add(new JLabel("<html><small>Adds commas, periods, question marks, etc.</small></html>"), gbc);
+        gbc.gridy = y++;
+        gbc.gridx = 0; add(new JLabel("Recognition Model:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 1.0; gbc.fill = GridBagConstraints.HORIZONTAL; modelComboBox = new JComboBox<>(SUPPORTED_MODELS); modelComboBox.setEditable(true); add(modelComboBox, gbc);
+        gbc.gridx = 2; gbc.weightx = 0; gbc.fill = GridBagConstraints.NONE; add(createInfoIcon("Optimizes recognition for specific audio types like 'phone_call' or 'video'.", infoFont, infoColor), gbc);
 
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; enableAutomaticPunctuationCheckBox = new JCheckBox("Enable Automatic Punctuation"); add(enableAutomaticPunctuationCheckBox, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Adds punctuation (periods, commas, etc.) to the final transcript.", infoFont, infoColor), gbc);
 
-        // Word Time Offsets
-        gbc.gridx = 0; gbc.gridy = 4; gbc.gridwidth = 2;
-        enableWordTimeOffsetsCheckBox = new JCheckBox("Enable Word Time Offsets");
-        add(enableWordTimeOffsetsCheckBox, gbc);
-        gbc.gridx = 0; gbc.gridy = 5; gbc.gridwidth = 2;
-        add(new JLabel("<html><small>Provides start and end times for each word.</small></html>"), gbc);
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; enableInterimTranscription = new JCheckBox("Enable Interim Transcription"); add(enableInterimTranscription, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Shows real-time, partial speech-to-text results as you speak.", infoFont, infoColor), gbc);
 
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 3; add(new JSeparator(), gbc);
+        gbc.gridwidth = 1;
 
-        // Model
-        gbc.gridx = 0; gbc.gridy = 6; gbc.gridwidth = 1;
-        add(new JLabel("Recognition Model:"), gbc);
-        gbc.gridx = 1; gbc.gridy = 6; gbc.weightx = 1.0;
-        modelComboBox = new JComboBox<>(SUPPORTED_MODELS);
-        modelComboBox.setEditable(true); // Allow custom entry
-        add(modelComboBox, gbc);
-        gbc.gridx = 0; gbc.gridy = 7; gbc.gridwidth = 2;
-        add(new JLabel("<html><small>Optimized for different audio types (e.g., 'phone_call' for call center audio).</small></html>"), gbc);
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; useEnhancedCheckBox = new JCheckBox("Use Enhanced Model"); add(useEnhancedCheckBox, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Use a premium, higher-accuracy model. May affect cost.", infoFont, infoColor), gbc);
 
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; profanityFilterCheckBox = new JCheckBox("Filter Profanity"); add(profanityFilterCheckBox, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Replaces recognized profane words with asterisks (e.g., 'f***').", infoFont, infoColor), gbc);
 
-        // Speech Contexts (Phrases)
-        gbc.gridx = 0; gbc.gridy = 8; gbc.gridwidth = 2;
-        add(new JLabel("Speech Contexts (one phrase per line to boost accuracy):"), gbc);
-        gbc.gridx = 0; gbc.gridy = 9; gbc.gridwidth = 2; gbc.weighty = 1.0; gbc.fill = GridBagConstraints.BOTH;
-        speechContextsTextArea = new JTextArea(5, 30); // 5 rows, 30 cols
-        speechContextsTextArea.setLineWrap(true);
-        speechContextsTextArea.setWrapStyleWord(true);
-        add(new JScrollPane(speechContextsTextArea), gbc);
-        gbc.gridx = 0; gbc.gridy = 10; gbc.gridwidth = 2; gbc.weighty = 0; // Reset weighty
-        add(new JLabel("<html><small>Custom words/phrases to improve recognition for domain-specific terms.</small></html>"), gbc);
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; enableWordTimeOffsetsCheckBox = new JCheckBox("Enable Word Time Offsets"); add(enableWordTimeOffsetsCheckBox, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Provides the start and end time for each transcribed word.", infoFont, infoColor), gbc);
 
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; enableSingleUtterance = new JCheckBox("Enable Single Utterance"); add(enableSingleUtterance, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Stops transcription automatically after the first detected phrase or sentence.", infoFont, infoColor), gbc);
 
-        // Utterance
-        gbc.gridx = 0; gbc.gridy = 11; gbc.gridwidth = 1;
-        enableSingleUtterance = new JCheckBox("Enable Single Utterance");
-        add(enableSingleUtterance, gbc);
-        gbc.gridx = 0; gbc.gridy = 12; gbc.gridwidth = 2;
-        add(new JLabel("<html><small>An utterance is a piece of spoken language with a start and an end. Utterances can be whole sentences or just single words used in communication. </small></html>"), gbc);
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; enableSpeakerDiarizationCheckBox = new JCheckBox("Enable Speaker Diarization"); add(enableSpeakerDiarizationCheckBox, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Identifies and labels different speakers in the audio (e.g., 'Speaker 1:').", infoFont, infoColor), gbc);
 
-        // Interim Description
-        gbc.gridx = 0; gbc.gridy = 14; gbc.gridwidth = 1;
-        enableInterimTranscription = new JCheckBox("Enable Interim Transcription");
-        add(enableInterimTranscription, gbc);
-        gbc.gridx = 0; gbc.gridy = 15; gbc.gridwidth = 2;
-        add(new JLabel("<html><small>Interim transcription shows real-time, partial speech-to-text results before the final transcription is confirmed.</small></html>"), gbc);
+        gbc.gridy = y++;
+        gbc.gridx = 0; add(new JLabel("Max Alternatives:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 1.0; gbc.fill = GridBagConstraints.HORIZONTAL; maxAlternativesSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 30, 1)); add(maxAlternativesSpinner, gbc);
+        gbc.gridx = 2; gbc.weightx = 0; gbc.fill = GridBagConstraints.NONE; add(createInfoIcon("How many possible alternative transcriptions to return.", infoFont, infoColor), gbc);
 
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 3; add(new JSeparator(), gbc);
 
-        // Buttons
-        saveButton = new JButton("Save Settings");
-        loadDefaultsButton = new JButton("Load Defaults");
-        closeButton = new JButton("Close");
+        gbc.gridy = y++;
+        gbc.gridwidth = 2; add(new JLabel("Speech Contexts (one phrase per line):"), gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Provide a list of specific words (like names or jargon) to improve their accuracy.", infoFont, infoColor), gbc);
+        y++;
 
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 5));
-        buttonPanel.add(saveButton);
-        buttonPanel.add(loadDefaultsButton);
-        buttonPanel.add(closeButton);
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 3; gbc.weighty = 1.0; gbc.fill = GridBagConstraints.BOTH; speechContextsTextArea = new JTextArea(4, 30); add(new JScrollPane(speechContextsTextArea), gbc);
 
-        gbc.gridx = 0; gbc.gridy = 18; gbc.gridwidth = 2; gbc.fill = GridBagConstraints.NONE; gbc.anchor = GridBagConstraints.EAST;
+        // --- Buttons ---
+        gbc.gridy = y; gbc.weighty = 0; gbc.fill = GridBagConstraints.NONE; gbc.anchor = GridBagConstraints.EAST;
+        saveButton = new JButton("Save"); loadDefaultsButton = new JButton("Defaults"); closeButton = new JButton("Close");
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.add(saveButton); buttonPanel.add(loadDefaultsButton); buttonPanel.add(closeButton);
         add(buttonPanel, gbc);
 
-        pack(); // Adjusts dialog size to fit components
-        setLocationRelativeTo(getOwner()); // Center relative to parent frame
+        pack();
+        setLocationRelativeTo(getOwner());
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
@@ -146,13 +144,15 @@ public class STTSettingsDialog extends JDialog {
     private void loadSettingsIntoUI(RecognitionConfigSettings settings) {
         setComboBoxSelectedItem(languageCodeComboBox, settings.getLanguageCode());
         setComboBoxSelectedItem(modelComboBox, settings.getModel());
-
         enableAutomaticPunctuationCheckBox.setSelected(settings.isEnableAutomaticPunctuation());
         enableWordTimeOffsetsCheckBox.setSelected(settings.isEnableWordTimeOffsets());
         speechContextsTextArea.setText(settings.getSpeechContexts());
         enableSingleUtterance.setSelected(settings.isEnableSingleUtterance());
         enableInterimTranscription.setSelected(settings.isInterimTranscription());
-
+        useEnhancedCheckBox.setSelected(settings.isUseEnhanced());
+        profanityFilterCheckBox.setSelected(settings.isProfanityFilter());
+        maxAlternativesSpinner.setValue(settings.getMaxAlternatives());
+        enableSpeakerDiarizationCheckBox.setSelected(settings.isEnableSpeakerDiarization());
         Logger.info("STT settings loaded into UI.");
     }
 
@@ -178,12 +178,16 @@ public class STTSettingsDialog extends JDialog {
     private RecognitionConfigSettings getRecognitionConfigSettingsFromUI() {
         return RecognitionConfigSettings.builder()
                 .languageCode((String) languageCodeComboBox.getSelectedItem())
-                .enableAutomaticPunctuation(enableAutomaticPunctuationCheckBox.isSelected())
-                .enableWordTimeOffsets(enableWordTimeOffsetsCheckBox.isSelected())
                 .model((String) modelComboBox.getSelectedItem())
                 .speechContexts(speechContextsTextArea.getText())
+                .enableAutomaticPunctuation(enableAutomaticPunctuationCheckBox.isSelected())
+                .enableWordTimeOffsets(enableWordTimeOffsetsCheckBox.isSelected())
                 .enableSingleUtterance(enableSingleUtterance.isSelected())
                 .interimTranscription(enableInterimTranscription.isSelected())
+                .useEnhanced(useEnhancedCheckBox.isSelected())
+                .profanityFilter(profanityFilterCheckBox.isSelected())
+                .maxAlternatives((Integer) maxAlternativesSpinner.getValue())
+                .enableSpeakerDiarization(enableSpeakerDiarizationCheckBox.isSelected())
                 .build();
     }
 
@@ -221,5 +225,14 @@ public class STTSettingsDialog extends JDialog {
             Logger.warn("Attempted to set unsupported non-editable combo box item: " + item + ". Falling back to default.");
             comboBox.setSelectedIndex(0);
         }
+    }
+
+    private JLabel createInfoIcon(String tooltip, Font font, Color color) {
+        JLabel infoLabel = new JLabel("(?)");
+        infoLabel.setFont(font);
+        infoLabel.setForeground(color);
+        infoLabel.setToolTipText(tooltip);
+        infoLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        return infoLabel;
     }
 }

@@ -33,6 +33,18 @@ public class RecognitionConfigSettings {
     @Builder.Default
     boolean interimTranscription = true;
 
+    @Builder.Default
+    boolean useEnhanced = false;
+
+    @Builder.Default
+    boolean profanityFilter = true;
+
+    @Builder.Default
+    int maxAlternatives = 1;
+
+    @Builder.Default
+    boolean enableSpeakerDiarization = false;
+
     public List<String> getSpeechContextsAsList() {
         if (speechContexts == null || speechContexts.trim().isEmpty()) {
             return List.of();

@@ -20,6 +20,10 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
     private static final String KEY_SPEECH_CONTEXTS = "speechContexts";
     private static final String KEY_ENABLE_SINGLE_UTTERANCE = "enableSingleUtterance";
     private static final String KEY_ENABLE_INTERIM_TRANSCRIPTION = "enableInterimTranscription";
+    private static final String KEY_USE_ENHANCED = "useEnhanced";
+    private static final String KEY_PROFANITY_FILTER = "profanityFilter";
+    private static final String KEY_MAX_ALTERNATIVES = "maxAlternatives";
+    private static final String KEY_ENABLE_SPEAKER_DIARIZATION = "enableSpeakerDiarization";
 
     public SpeechToTextSettingsManager() {
         try {
@@ -43,6 +47,10 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
                 .speechContexts(prefs.get(KEY_SPEECH_CONTEXTS, defaults.getSpeechContexts()))
                 .enableSingleUtterance(prefs.getBoolean(KEY_ENABLE_SINGLE_UTTERANCE, defaults.isEnableSingleUtterance()))
                 .interimTranscription(prefs.getBoolean(KEY_ENABLE_INTERIM_TRANSCRIPTION, defaults.isInterimTranscription()))
+                .useEnhanced(prefs.getBoolean(KEY_USE_ENHANCED, defaults.isUseEnhanced()))
+                .profanityFilter(prefs.getBoolean(KEY_PROFANITY_FILTER, defaults.isProfanityFilter()))
+                .maxAlternatives(prefs.getInt(KEY_MAX_ALTERNATIVES, defaults.getMaxAlternatives()))
+                .enableSpeakerDiarization(prefs.getBoolean(KEY_ENABLE_SPEAKER_DIARIZATION, defaults.isEnableSpeakerDiarization()))
                 .build();
     }
 
@@ -58,6 +66,10 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
             prefs.put(KEY_SPEECH_CONTEXTS, settings.getSpeechContexts());
             prefs.putBoolean(KEY_ENABLE_SINGLE_UTTERANCE, settings.isEnableSingleUtterance());
             prefs.putBoolean(KEY_ENABLE_INTERIM_TRANSCRIPTION, settings.isInterimTranscription());
+            prefs.putBoolean(KEY_USE_ENHANCED, settings.isUseEnhanced());
+            prefs.putBoolean(KEY_PROFANITY_FILTER, settings.isProfanityFilter());
+            prefs.putInt(KEY_MAX_ALTERNATIVES, settings.getMaxAlternatives());
+            prefs.putBoolean(KEY_ENABLE_SPEAKER_DIARIZATION, settings.isEnableSpeakerDiarization());
 
             prefs.flush();
             Logger.info("STT settings saved successfully.");
