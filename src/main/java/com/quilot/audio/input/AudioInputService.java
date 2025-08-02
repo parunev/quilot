@@ -77,6 +77,12 @@ public interface AudioInputService {
     AudioFormat getAudioFormat();
 
     /**
+     * Gets the name of the currently selected audio input device.
+     * @return The device name, or null if no device is selected.
+     */
+    String getSelectedDeviceName();
+
+    /**
      * Functional interface for receiving captured audio data.
      */
     @FunctionalInterface

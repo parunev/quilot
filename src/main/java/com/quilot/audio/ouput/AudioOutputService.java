@@ -57,4 +57,6 @@ public interface AudioOutputService {
      * @return true if a device is selected and open, false otherwise.
      */
     boolean isDeviceSelected();
+
+    String getSelectedDeviceName();
 }

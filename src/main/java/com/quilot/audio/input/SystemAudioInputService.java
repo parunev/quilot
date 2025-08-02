@@ -9,10 +9,16 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.prefs.Preferences;
 
 @Getter
 @Setter
 public class SystemAudioInputService implements AudioInputService {
+
+    private static final String PREF_NODE_NAME = "com/quilot/audio";
+    private static final String PREF_INPUT_DEVICE_KEY = "selectedInputDevice";
+
+    private final Preferences prefs;
 
     private static final AudioFormat DEFAULT_AUDIO_FORMAT = new AudioFormat(
             44100,
@@ -28,11 +34,20 @@ public class SystemAudioInputService implements AudioInputService {
 
     private AudioFormat audioFormat = DEFAULT_AUDIO_FORMAT;
     private TargetDataLine targetDataLine;
+    private Mixer selectedInputMixer; // Added to keep track of the selected mixer
     private Thread captureThread;
     private AudioDataListener audioDataListener;
 
     public SystemAudioInputService() {
-        Logger.info("SystemAudioInputService initialized.");
+        this.prefs = Preferences.userRoot().node(PREF_NODE_NAME);
+        Logger.info("SystemAudioInputService initialized. Preferences node: " + PREF_NODE_NAME);
+
+        // Load the saved device on startup
+        String savedDeviceName = loadSavedDeviceName();
+        if (savedDeviceName != null) {
+            Logger.info("Found saved audio input device: " + savedDeviceName + ". Attempting to select it.");
+            selectInputDevice(savedDeviceName);
+        }
     }
 
     @Override
@@ -56,11 +71,18 @@ public class SystemAudioInputService implements AudioInputService {
     public boolean selectInputDevice(String deviceName) {
         for (Mixer.Info info : AudioSystem.getMixerInfo()) {
             if (info.getName().equals(deviceName)) {
-                return configureDevice(AudioSystem.getMixer(info), deviceName);
+                Mixer mixer = AudioSystem.getMixer(info);
+                if (configureDevice(mixer, deviceName)) {
+                    // Save the successfully selected device to preferences
+                    selectedInputMixer = mixer;
+                    saveSelectedDeviceName(deviceName);
+                    return true;
+                }
             }
         }
         Logger.warn("Input device not found or unsupported: " + deviceName);
         targetDataLine = null;
+        selectedInputMixer = null;
         return false;
     }
 
@@ -96,6 +118,11 @@ public class SystemAudioInputService implements AudioInputService {
         stopRecording();
         closeInputLine();
         Logger.info("SystemAudioInputService resources released.");
+    }
+
+    @Override
+    public String getSelectedDeviceName() {
+        return selectedInputMixer != null ? selectedInputMixer.getMixerInfo().getName() : null;
     }
 
     @Override
@@ -228,5 +255,14 @@ public class SystemAudioInputService implements AudioInputService {
         } else {
             Logger.info("Found " + devices.size() + " audio input device(s).");
         }
+    }
+
+    private void saveSelectedDeviceName(String deviceName) {
+        prefs.put(PREF_INPUT_DEVICE_KEY, deviceName);
+        Logger.info("Saved selected input device '" + deviceName + "' to preferences.");
+    }
+
+    private String loadSavedDeviceName() {
+        return prefs.get(PREF_INPUT_DEVICE_KEY, null);
     }
 }

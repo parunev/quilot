@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * Builds the panel for Audio Output Settings.
+ * This class has been updated to correctly select the previously saved audio device.
  */
 @Getter
 public class AudioOutputSettingsPanelBuilder implements ComponentPanelBuilder {
@@ -39,6 +40,7 @@ public class AudioOutputSettingsPanelBuilder implements ComponentPanelBuilder {
 
     private void populateOutputDevices() {
         List<String> devices = audioOutputService.getAvailableOutputDevices();
+        outputDeviceComboBox.removeAllItems(); // Clear any existing items
 
         if (devices.isEmpty()) {
             outputDeviceComboBox.addItem("No Devices Found");
@@ -47,8 +49,17 @@ public class AudioOutputSettingsPanelBuilder implements ComponentPanelBuilder {
             testVolumeButton.setEnabled(false);
         } else {
             devices.forEach(outputDeviceComboBox::addItem);
-            outputDeviceComboBox.setSelectedIndex(0);
-            audioOutputService.selectOutputDevice(devices.getFirst());
+
+            // Check if a device was already selected by the service from preferences
+            String selectedDevice = audioOutputService.getSelectedDeviceName();
+            if (selectedDevice != null) {
+                // Find and set the selected item in the combo box
+                outputDeviceComboBox.setSelectedItem(selectedDevice);
+            } else {
+                // No saved device found, or selection failed, so default to the first one
+                outputDeviceComboBox.setSelectedIndex(0);
+                audioOutputService.selectOutputDevice(devices.getFirst());
+            }
         }
     }
 

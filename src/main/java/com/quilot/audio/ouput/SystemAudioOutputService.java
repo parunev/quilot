@@ -8,23 +8,36 @@ import javax.sound.sampled.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 @Getter
 @Setter
 public class SystemAudioOutputService implements AudioOutputService{
 
+    private static final String PREF_NODE_NAME = "com/quilot/audio";
+    private static final String PREF_OUTPUT_DEVICE_KEY = "selectedOutputDevice";
+
+    private final Preferences prefs;
     private Mixer selectedOutputMixer;
     private FloatControl masterGainControl;
     private SourceDataLine outputLine;
 
     private static final AudioFormat DEFAULT_AUDIO_FORMAT = new AudioFormat
             (44100,
-            16,
-            1, true,
-            false);
+                    16,
+                    1, true,
+                    false);
 
     public SystemAudioOutputService() {
-        Logger.info("SystemAudioOutputService initialized.");
+        this.prefs = Preferences.userRoot().node(PREF_NODE_NAME);
+        Logger.info("SystemAudioOutputService initialized. Preferences node: " + PREF_NODE_NAME);
+
+        // Load the saved device on startup
+        String savedDeviceName = loadSavedDeviceName();
+        if (savedDeviceName != null) {
+            Logger.info("Found saved audio device: " + savedDeviceName + ". Attempting to select it.");
+            selectOutputDevice(savedDeviceName);
+        }
     }
 
     @Override
@@ -74,6 +87,8 @@ public class SystemAudioOutputService implements AudioOutputService{
                     outputLine.start();
                     initializeVolumeControl();
 
+                    // Save the successfully selected device to preferences
+                    saveSelectedDeviceName(deviceName);
                     Logger.info("Selected audio output device: " + deviceName);
                     return true;
 
@@ -200,5 +215,19 @@ public class SystemAudioOutputService implements AudioOutputService{
     @Override
     public boolean isDeviceSelected() {
         return outputLine != null && outputLine.isOpen();
+    }
+
+    private void saveSelectedDeviceName(String deviceName) {
+        prefs.put(PREF_OUTPUT_DEVICE_KEY, deviceName);
+        Logger.info("Saved selected device '" + deviceName + "' to preferences.");
+    }
+
+    private String loadSavedDeviceName() {
+        return prefs.get(PREF_OUTPUT_DEVICE_KEY, null);
+    }
+
+    @Override
+    public String getSelectedDeviceName() {
+        return selectedOutputMixer != null ? selectedOutputMixer.getMixerInfo().getName() : null;
     }
 }

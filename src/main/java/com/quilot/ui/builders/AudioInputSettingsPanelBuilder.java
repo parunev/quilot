@@ -50,6 +50,7 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
 
     private void populateInputDevices() {
         List<String> devices = audioInputService.getAvailableInputDevices();
+        inputDeviceComboBox.removeAllItems(); // Clear any existing items
         Logger.info("Available Input Devices detected by SystemAudioInputService: " + devices);
 
         if (devices.isEmpty()) {
@@ -60,8 +61,14 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
             playRecordedInputButton.setEnabled(false);
         } else {
             devices.forEach(inputDeviceComboBox::addItem);
-            inputDeviceComboBox.setSelectedIndex(0);
-            audioInputService.selectInputDevice(devices.getFirst());
+
+            String selectedDevice = audioInputService.getSelectedDeviceName();
+            if (selectedDevice != null) {
+                inputDeviceComboBox.setSelectedItem(selectedDevice);
+            } else {
+                inputDeviceComboBox.setSelectedIndex(0);
+                audioInputService.selectInputDevice(devices.getFirst());
+            }
         }
     }
 
