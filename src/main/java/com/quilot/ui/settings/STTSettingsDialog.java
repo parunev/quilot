@@ -33,13 +33,14 @@ public class STTSettingsDialog extends JDialog {
     private JCheckBox profanityFilterCheckBox;
     private JSpinner maxAlternativesSpinner;
     private JCheckBox enableSpeakerDiarizationCheckBox;
+    private JCheckBox enableQuestionDetectionCheckBox;
 
     private JButton saveButton;
     private JButton loadDefaultsButton;
     private JButton closeButton;
 
     // Supported models and languages (can be expanded)
-    private static final String[] SUPPORTED_LANGUAGES = {"en-US", "en-GB", "es-ES", "fr-FR", "de-DE", "ja-JP"};
+    private static final String[] SUPPORTED_LANGUAGES = {"en-US", "en-GB", "bg-BG"};
     private static final String[] SUPPORTED_MODELS = {"default", "command_and_search", "phone_call", "video", "latest_long", "latest_short"};
 
 
@@ -47,6 +48,8 @@ public class STTSettingsDialog extends JDialog {
         super(owner, "Google Cloud STT Settings", true);
         this.settingsManager = settingsManager;
         this.speechToTextService = speechToTextService;
+
+        setResizable(false);
 
         initComponents();
         addListeners();
@@ -108,6 +111,15 @@ public class STTSettingsDialog extends JDialog {
         gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Identifies and labels different speakers in the audio (e.g., 'Speaker 1:').", infoFont, infoColor), gbc);
 
         gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 2; enableQuestionDetectionCheckBox = new JCheckBox("Enable Question Detection (Cost Saver)"); add(enableQuestionDetectionCheckBox, gbc);
+        gbc.gridx = 2; gbc.gridwidth = 1; add(createInfoIcon("Only sends detected questions to the AI, ignoring other speech to reduce cost.", infoFont, infoColor), gbc);
+
+        gbc.gridy = y++;
+        gbc.gridx = 0; gbc.gridwidth = 3; gbc.insets = new Insets(0, 5, 5, 5);
+        JLabel warningLabel = new JLabel("<html><small><i>Note: Accuracy is highest for languages with full punctuation support (e.g., en-US).</i></small></html>");
+        warningLabel.setForeground(Color.GRAY); add(warningLabel, gbc); gbc.insets = new Insets(5, 5, 5, 5); // Reset insets
+
+        gbc.gridy = y++;
         gbc.gridx = 0; add(new JLabel("Max Alternatives:"), gbc);
         gbc.gridx = 1; gbc.weightx = 1.0; gbc.fill = GridBagConstraints.HORIZONTAL; maxAlternativesSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 30, 1)); add(maxAlternativesSpinner, gbc);
         gbc.gridx = 2; gbc.weightx = 0; gbc.fill = GridBagConstraints.NONE; add(createInfoIcon("How many possible alternative transcriptions to return.", infoFont, infoColor), gbc);
@@ -153,6 +165,7 @@ public class STTSettingsDialog extends JDialog {
         profanityFilterCheckBox.setSelected(settings.isProfanityFilter());
         maxAlternativesSpinner.setValue(settings.getMaxAlternatives());
         enableSpeakerDiarizationCheckBox.setSelected(settings.isEnableSpeakerDiarization());
+        enableQuestionDetectionCheckBox.setSelected(settings.isEnableQuestionDetection());
         Logger.info("STT settings loaded into UI.");
     }
 
@@ -188,6 +201,7 @@ public class STTSettingsDialog extends JDialog {
                 .profanityFilter(profanityFilterCheckBox.isSelected())
                 .maxAlternatives((Integer) maxAlternativesSpinner.getValue())
                 .enableSpeakerDiarization(enableSpeakerDiarizationCheckBox.isSelected())
+                .enableQuestionDetection(enableQuestionDetectionCheckBox.isSelected())
                 .build();
     }
 

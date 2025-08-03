@@ -13,6 +13,7 @@ import com.quilot.exceptions.stt.STTException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.stt.SpeechToTextService;
 import com.quilot.stt.ISpeechToTextSettingsManager;
+import com.quilot.stt.settings.RecognitionConfigSettings;
 import com.quilot.stt.settings.SpeechToTextSettingsManager;
 import com.quilot.ui.help.CredentialsSetupDialog;
 import com.quilot.ui.help.GoogleCloudSetupGuideDialog;
@@ -21,6 +22,7 @@ import com.quilot.ui.settings.AISettingsDialog;
 import com.quilot.ui.settings.STTSettingsDialog;
 import com.quilot.utils.CredentialManager;
 import com.quilot.utils.Logger;
+import com.quilot.utils.QuestionDetector;
 import lombok.Getter;
 
 import javax.sound.sampled.AudioFormat;
@@ -70,6 +72,7 @@ public class MainFrame extends JFrame {
     private CredentialManager credentialManager;
     private ISpeechToTextSettingsManager sttSettingsManager;
     private IAIService aiService;
+    private QuestionDetector questionDetector;
 
     /**
      * Constructs the MainFrame.
@@ -113,6 +116,7 @@ public class MainFrame extends JFrame {
         audioOutputService = new SystemAudioOutputService();
         audioInputService = new SystemAudioInputService();
         sttSettingsManager = new SpeechToTextSettingsManager();
+        questionDetector = new QuestionDetector();
 
         String savedCredentialPath = credentialManager.loadGoogleCloudCredentialPath();
 
@@ -252,25 +256,38 @@ public class MainFrame extends JFrame {
                                     transcribedAudioArea.append("Interviewer (Final): '" + transcription + "'\n");
                                     transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
 
-                                    aiService.generateResponse(transcription, new IAIService.AIResponseListener() {
-                                        @Override
-                                        public void onResponse(String aiResponse) {
-                                            SwingUtilities.invokeLater(() -> {
-                                                aiResponseArea.append("AI (Response): '" + aiResponse + "'\n");
-                                                aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
-                                            });
+                                    RecognitionConfigSettings settings = sttSettingsManager.loadSettings();
+                                    String currentLanguage = sttSettingsManager.loadSettings().getLanguageCode();
+
+                                    if (!settings.isEnableQuestionDetection() || questionDetector.isQuestion(transcription, currentLanguage)) {
+
+                                        if (settings.isEnableQuestionDetection()) {
+                                            appendToLogArea("Question detected. Sending to AI...");
+                                        } else {
+                                            appendToLogArea("Question detection disabled. Sending all final transcripts to AI...");
                                         }
 
-                                        @Override
-                                        public void onError(String errorMessage) {
-                                            SwingUtilities.invokeLater(() -> {
-                                                aiResponseArea.append("AI (Error): " + errorMessage + "\n");
-                                                aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
-                                            });
-                                            appendToLogArea("AI Response Error: " + errorMessage);
-                                        }
-                                    });
+                                        aiService.generateResponse(transcription, new IAIService.AIResponseListener() {
+                                            @Override
+                                            public void onResponse(String aiResponse) {
+                                                SwingUtilities.invokeLater(() -> {
+                                                    aiResponseArea.append("AI (Response): '" + aiResponse + "'\n");
+                                                    aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                                                });
+                                            }
 
+                                            @Override
+                                            public void onError(String errorMessage) {
+                                                SwingUtilities.invokeLater(() -> {
+                                                    aiResponseArea.append("AI (Error): " + errorMessage + "\n");
+                                                    aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                                                });
+                                                appendToLogArea("AI Response Error: " + errorMessage);
+                                            }
+                                        });
+                                    } else {
+                                        appendToLogArea("Non-question detected. Ignoring for AI response.");
+                                    }
                                 } else {
                                     String existingText = transcribedAudioArea.getText();
                                     int lastNewline = existingText.lastIndexOf('\n');

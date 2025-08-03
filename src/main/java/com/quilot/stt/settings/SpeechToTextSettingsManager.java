@@ -28,6 +28,7 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
     private static final String KEY_PROFANITY_FILTER = "profanityFilter";
     private static final String KEY_MAX_ALTERNATIVES = "maxAlternatives";
     private static final String KEY_ENABLE_SPEAKER_DIARIZATION = "enableSpeakerDiarization";
+    private static final String KEY_ENABLE_QUESTION_DETECTION = "enableQuestionDetection";
 
     public SpeechToTextSettingsManager() {
         try {
@@ -58,6 +59,7 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
                 .profanityFilter(prefs.getBoolean(KEY_PROFANITY_FILTER, defaults.isProfanityFilter()))
                 .maxAlternatives(prefs.getInt(KEY_MAX_ALTERNATIVES, defaults.getMaxAlternatives()))
                 .enableSpeakerDiarization(prefs.getBoolean(KEY_ENABLE_SPEAKER_DIARIZATION, defaults.isEnableSpeakerDiarization()))
+                .enableQuestionDetection(prefs.getBoolean(KEY_ENABLE_QUESTION_DETECTION, defaults.isEnableQuestionDetection()))
                 .build();
     }
 
@@ -80,6 +82,7 @@ public class SpeechToTextSettingsManager implements ISpeechToTextSettingsManager
             prefs.putBoolean(KEY_PROFANITY_FILTER, settings.isProfanityFilter());
             prefs.putInt(KEY_MAX_ALTERNATIVES, settings.getMaxAlternatives());
             prefs.putBoolean(KEY_ENABLE_SPEAKER_DIARIZATION, settings.isEnableSpeakerDiarization());
+            prefs.putBoolean(KEY_ENABLE_QUESTION_DETECTION, settings.isEnableQuestionDetection());
 
             prefs.flush();
             Logger.info("STT settings saved successfully.");

@@ -59,6 +59,10 @@ public class RecognitionConfigSettings {
     @Builder.Default
     boolean enableSpeakerDiarization = false;
 
+    /** If true, only sends detected questions to the AI to reduce cost. */
+    @Builder.Default
+    boolean enableQuestionDetection = false;
+
     /**
      * A derived property that parses the speechContexts string into a list of phrases.
      * @return A {@link List} of speech context phrases.
