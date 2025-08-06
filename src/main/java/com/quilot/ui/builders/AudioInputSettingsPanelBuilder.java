@@ -16,12 +16,6 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
     private final JButton startInputRecordingButton;
     private final JButton stopInputRecordingButton;
     private final JButton playRecordedInputButton;
-    private final JButton setupGuideButton;
-    private final JButton credentialsButton;
-    private final JButton googleCloudSetupGuideButton;
-    private final JButton sttSettingsButton;
-    private final JButton aiSettingsButton;
-    private final JButton viewHistoryButton;
 
     private final AudioInputService audioInputService;
 
@@ -32,12 +26,6 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
         startInputRecordingButton = new JButton("Start Input Capture");
         stopInputRecordingButton = new JButton("Stop Input Capture");
         playRecordedInputButton = new JButton("Play Recorded Input");
-        setupGuideButton = new JButton("Setup Guide (macOS)");
-        credentialsButton = new JButton("STT Credentials");
-        googleCloudSetupGuideButton = new JButton("Google Cloud Setup Guide");
-        sttSettingsButton = new JButton("STT Settings");
-        this.aiSettingsButton = new JButton("AI Settings");
-        this.viewHistoryButton = new JButton("View History");
 
         configureInitialButtonStates();
         populateInputDevices();
@@ -50,7 +38,7 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
 
     private void populateInputDevices() {
         List<String> devices = audioInputService.getAvailableInputDevices();
-        inputDeviceComboBox.removeAllItems(); // Clear any existing items
+        inputDeviceComboBox.removeAllItems();
         Logger.info("Available Input Devices detected by SystemAudioInputService: " + devices);
 
         if (devices.isEmpty()) {
@@ -85,7 +73,6 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
 
         addInputDeviceRow(panel, gbc);
         addRecordingButtonsRow(panel, gbc);
-        addHelpButtonsRow(panel, gbc);
 
         return panel;
     }
@@ -117,23 +104,5 @@ public class AudioInputSettingsPanelBuilder implements ComponentPanelBuilder {
         buttonPanel.add(playRecordedInputButton);
 
         panel.add(buttonPanel, gbc);
-    }
-
-    private void addHelpButtonsRow(JPanel panel, GridBagConstraints gbc) {
-        gbc.gridx = 0;
-        gbc.gridy++;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.fill = GridBagConstraints.NONE;
-
-        JPanel helpPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
-        helpPanel.add(setupGuideButton);
-        helpPanel.add(credentialsButton);
-        helpPanel.add(googleCloudSetupGuideButton);
-        helpPanel.add(sttSettingsButton);
-        helpPanel.add(aiSettingsButton);
-        helpPanel.add(viewHistoryButton);
-
-        panel.add(helpPanel, gbc);
     }
 }

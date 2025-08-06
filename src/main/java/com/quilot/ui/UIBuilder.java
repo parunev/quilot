@@ -81,12 +81,6 @@ public class UIBuilder {
     public JButton getStartInputRecordingButton() { return audioInputSettingsPanelBuilder.getStartInputRecordingButton(); }
     public JButton getStopInputRecordingButton() { return audioInputSettingsPanelBuilder.getStopInputRecordingButton(); }
     public JButton getPlayRecordedInputButton() { return audioInputSettingsPanelBuilder.getPlayRecordedInputButton(); }
-    public JButton getSetupGuideButton() { return audioInputSettingsPanelBuilder.getSetupGuideButton(); }
-    public JButton getCredentialsButton() { return audioInputSettingsPanelBuilder.getCredentialsButton(); }
-    public JButton getGoogleCloudSetupGuideButton() { return audioInputSettingsPanelBuilder.getGoogleCloudSetupGuideButton(); }
-    public JButton getSttSettingsButton() { return audioInputSettingsPanelBuilder.getSttSettingsButton(); }
-    public JButton getAiSettingsButton() { return audioInputSettingsPanelBuilder.getAiSettingsButton(); }
-    public JButton getViewHistoryButton() { return audioInputSettingsPanelBuilder.getViewHistoryButton(); }
 
     // Getters for Transcribed Audio and AI Response Panels
     public JTextArea getTranscribedAudioArea() { return transcribedAudioPanelBuilder.getTranscribedAudioArea(); }

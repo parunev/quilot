@@ -2382,3 +2382,256 @@ java.lang.NullPointerException: Cannot invoke "javax.sound.sampled.SourceDataLin
 [2025-08-06 10:42:05] [INFO] [GoogleCloudSpeechToTextService.closeClient()] Google Cloud SpeechClient closed.
 [2025-08-06 10:42:05] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
 [2025-08-06 10:42:05] [INFO] [MainFrame$2.windowClosing()] Application closing. Audio resources released.
+[2025-08-06 10:52:05] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-06 10:52:05] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-06 10:52:05] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-06 10:52:05] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-06 10:52:05] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-06 10:52:05] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-06 10:52:05] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-06 10:52:05] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-06 10:52:05] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-06 10:52:05] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-06 10:52:05] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-06 10:52:05] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-06 10:52:05] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-06 10:52:05] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-06 10:52:05] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-06 10:52:05] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-06 10:52:05] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-06 10:52:20] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-06 10:52:24] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 10:52:31] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:01:44] [INFO] [CredentialManager.<init>()] CredentialManager initialized.
+[2025-08-06 11:01:44] [INFO] [SystemAudioOutputService.<init>()] Found saved audio device: System Audio + BlackHole. Attempting to select it.
+[2025-08-06 11:01:44] [INFO] [SystemAudioInputService.<init>()] Found saved audio input device: BlackHole 2ch. Attempting to select it.
+[2025-08-06 11:01:44] [INFO] [SystemAudioInputService.configureDevice()] Successfully opened device 'BlackHole 2ch' with default format.
+[2025-08-06 11:01:44] [INFO] [SystemAudioInputService.saveSelectedDeviceName()] Saved selected input device 'BlackHole 2ch' to preferences.
+[2025-08-06 11:01:44] [INFO] [SpeechToTextSettingsManager.<init>()] SpeechToTextSettingsManager initialized.
+[2025-08-06 11:01:44] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /Users/parunev/Desktop/quilot-1b72c432fc2c.json
+[2025-08-06 11:01:44] [INFO] [AISettingsManager.<init>()] AISettingsManager initialized.
+[2025-08-06 11:01:44] [INFO] [VertexAIService.<init>()] VertexAIService initialized. Client initialization deferred.
+[2025-08-06 11:01:45] [INFO] [VertexAIService.initializeClient()] Vertex AI client created successfully for model: gemini-2.5-flash
+[2025-08-06 11:01:45] [INFO] [GoogleCloudSpeechToTextService.<init>()] GoogleCloudSpeechToTextService instantiated. Client initialization deferred.
+[2025-08-06 11:01:45] [WARN] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] No active streaming recognition to stop.
+[2025-08-06 11:01:45] [INFO] [GoogleCloudSpeechToTextService.initializeClient()] Google Cloud SpeechClient created successfully.
+[2025-08-06 11:01:45] [INFO] [AudioDeviceDiscoverer.logDiscoverySummary()] Discovered 7 audio output device(s).
+[2025-08-06 11:01:45] [INFO] [SystemAudioInputService.logDeviceDiscoveryResult()] Found 6 audio input device(s).
+[2025-08-06 11:01:45] [INFO] [AudioInputSettingsPanelBuilder.populateInputDevices()] Available Input Devices detected by SystemAudioInputService: [Default Audio Device, Mmp’s iPhone Microphone, Background Music, Background Music (UI Sounds), BlackHole 2ch, MacBook Pro Microphone]
+[2025-08-06 11:01:45] [INFO] [MainFrame.<init>()] Quilot UI initialized.
+[2025-08-06 11:01:51] [INFO] [AISettingsDialog.loadSettingsIntoUI()] AI settings loaded into UI.
+[2025-08-06 11:01:57] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:01:59] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:02:01] [INFO] [InterviewReviewDialog.lambda$playFullAudio$0()] Playback thread started: Fetching audio for interview ID 2
+[2025-08-06 11:02:01] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:02:01] [INFO] [InterviewReviewDialog.lambda$playFullAudio$0()] Audio data found. Starting playback...
+[2025-08-06 11:02:03] [INFO] [SystemAudioOutputService.stopPlayback()] Stopping and closing active playback line.
+[2025-08-06 11:02:03] [INFO] [InterviewReviewDialog.lambda$playFullAudio$0()] Playback finished successfully.
+[2025-08-06 11:02:48] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:02:48] [INFO] [InterviewDao.createNewInterview()] Created new interview record with ID: 5
+[2025-08-06 11:02:48] [INFO] [SystemAudioInputService.startRecording()] Recording started.
+[2025-08-06 11:02:48] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread started.
+[2025-08-06 11:02:48] [INFO] [ElapsedTimerManager.startElapsedTimer()] Elapsed time timer started.
+[2025-08-06 11:02:48] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Starting new streaming recognition session...
+[2025-08-06 11:02:48] [INFO] [GoogleCloudSpeechToTextService$1.onStart()] Streaming recognition response observer started.
+[2025-08-06 11:02:48] [INFO] [GoogleCloudSpeechToTextService.startStreamingRecognition()] Streaming recognition session started successfully.
+[2025-08-06 11:02:56] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: "What is the Java virtual machine or jvm?" (Final: true)
+[2025-08-06 11:02:56] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:02:56] [INFO] [VertexAIService.lambda$generateResponse$0()] Sending prompt to AI: What is the Java virtual machine or jvm?
+[2025-08-06 11:03:00] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "The Java Virtual Machine JVM is an abstract computing machine that enables a computer to run Java programs. It is a core component of the Java platform.\n\nThe JVM acts as an interpreter and runtime environment for Java bytecode"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754467377
+  2: 6112000
+}
+13: "MQyTaOAvgovF9w_CzcjRDw"
+
+[2025-08-06 11:03:00] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: ". When a Java program is compiled, it is translated into platform independent bytecode. The JVM then reads and executes this bytecode on any system where a JVM is installed. This allows Java programs to achieve their write once run anywhere portability.\n\nThe JVM performs several functions including loading class files, verifying code, executing bytecode instructions, and"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754467377
+  2: 6112000
+}
+13: "MQyTaOAvgovF9w_CzcjRDw"
+
+[2025-08-06 11:03:00] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " providing a runtime environment for the program. It manages memory and handles garbage collection."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 48
+  candidates_token_count: 127
+  total_token_count: 602
+  8: 1
+  9: {
+    1: 1
+    2: 48
+  }
+  11: {
+    1: 1
+    2: 127
+  }
+  14: 427
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754467377
+  2: 6112000
+}
+13: "MQyTaOAvgovF9w_CzcjRDw"
+
+[2025-08-06 11:03:00] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: The Java Virtual Machine JVM is an abstract computing machine that enables a computer to run Java programs. It is a core component of the Java platform.
+
+The JVM acts as an interpreter and runtime environment for Java bytecode. When a Java program is compiled, it is translated into platform independent bytecode. The JVM then reads and executes this bytecode on any system where a JVM is installed. This allows Java programs to achieve their write once run anywhere portability.
+
+The JVM performs several functions including loading class files, verifying code, executing bytecode instructions, and providing a runtime environment for the program. It manages memory and handles garbage collection.
+[2025-08-06 11:03:00] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:12] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " The jvm is a runtime environment that executes Java byte code. It translates bite code into machine code enabling Java applications to run on any operating system with a jvm installed." (Final: true)
+[2025-08-06 11:03:12] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:14] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " Moving forward to question 5." (Final: true)
+[2025-08-06 11:03:14] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:19] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " What's the difference between jdk JRE and jvm?" (Final: true)
+[2025-08-06 11:03:19] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:19] [INFO] [VertexAIService.lambda$generateResponse$0()] Sending prompt to AI:  What's the difference between jdk JRE and jvm?
+[2025-08-06 11:03:23] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "JVM Java Virtual Machine is an abstract machine that provides a runtime environment for Java bytecode. It interprets and executes Java programs. It is"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754467399
+  2: 321010000
+}
+13: "RwyTaPLLE7aNmNAPspqLiQI"
+
+[2025-08-06 11:03:23] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " the core component for running Java applications.\n\nJRE Java Runtime Environment is a software package that contains everything needed to run a Java application. It includes the JVM standard libraries and other components for executing compiled Java code. JRE allows you to run Java programs but not develop them.\n\nJDK Java Development Kit is a superset of J"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754467399
+  2: 321010000
+}
+13: "RwyTaPLLE7aNmNAPspqLiQI"
+
+[2025-08-06 11:03:24] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: "RE. It contains everything in the JRE plus development tools like the Java compiler javac and debugger jdb. JDK is essential for developing Java applications. It allows you to write compile and run Java programs.\n\nIn summary JVM is the specification JRE is the implementation for running and JDK is for developing. You need JDK to build Java"
+    }
+  }
+}
+usage_metadata {
+  8: 1
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754467399
+  2: 321010000
+}
+13: "RwyTaPLLE7aNmNAPspqLiQI"
+
+[2025-08-06 11:03:24] [INFO] [VertexAIService.lambda$generateResponse$1()] Response: candidates {
+  content {
+    role: "model"
+    parts {
+      text: " applications and JRE to simply run them. JVM is the engine that executes the code."
+    }
+  }
+  finish_reason: STOP
+}
+usage_metadata {
+  prompt_token_count: 52
+  candidates_token_count: 180
+  total_token_count: 814
+  8: 1
+  9: {
+    1: 1
+    2: 52
+  }
+  11: {
+    1: 1
+    2: 180
+  }
+  14: 582
+}
+11: "gemini-2.5-flash"
+12: {
+  1: 1754467399
+  2: 321010000
+}
+13: "RwyTaPLLE7aNmNAPspqLiQI"
+
+[2025-08-06 11:03:24] [INFO] [VertexAIService.lambda$generateResponse$0()] AI responded: JVM Java Virtual Machine is an abstract machine that provides a runtime environment for Java bytecode. It interprets and executes Java programs. It is the core component for running Java applications.
+
+JRE Java Runtime Environment is a software package that contains everything needed to run a Java application. It includes the JVM standard libraries and other components for executing compiled Java code. JRE allows you to run Java programs but not develop them.
+
+JDK Java Development Kit is a superset of JRE. It contains everything in the JRE plus development tools like the Java compiler javac and debugger jdb. JDK is essential for developing Java applications. It allows you to write compile and run Java programs.
+
+In summary JVM is the specification JRE is the implementation for running and JDK is for developing. You need JDK to build Java applications and JRE to simply run them. JVM is the engine that executes the code.
+[2025-08-06 11:03:24] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:27] [INFO] [SystemAudioInputService.captureAudioLoop()] Audio capture thread stopped.
+[2025-08-06 11:03:27] [INFO] [SystemAudioInputService.stopRecording()] Recording stopped.
+[2025-08-06 11:03:27] [INFO] [ElapsedTimerManager.stopElapsedTimer()] Elapsed time timer stopped.
+[2025-08-06 11:03:27] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:27] [INFO] [InterviewDao.saveFullAudio()] Saved full audio recording for interview ID: 5
+[2025-08-06 11:03:27] [INFO] [GoogleCloudSpeechToTextService.stopStreamingRecognition()] Stopping streaming recognition session.
+[2025-08-06 11:03:27] [INFO] [GoogleCloudSpeechToTextService.closeClientStream()] Executor service for streaming recognition shut down.
+[2025-08-06 11:03:28] [INFO] [GoogleCloudSpeechToTextService$1.onResponse()] Streaming STT Result: " Good question, Java development. Kit is a toolkit for developers the Junior." (Final: true)
+[2025-08-06 11:03:28] [INFO] [GoogleCloudSpeechToTextService$1.onComplete()] Streaming recognition completed.
+[2025-08-06 11:03:28] [INFO] [SpeechToTextService$StreamingRecognitionListener.onStreamClosed()] Streaming STT session closed.
+[2025-08-06 11:03:38] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:40] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:42] [INFO] [InterviewReviewDialog.lambda$playFullAudio$0()] Playback thread started: Fetching audio for interview ID 5
+[2025-08-06 11:03:42] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:03:42] [INFO] [InterviewReviewDialog.lambda$playFullAudio$0()] Audio data found. Starting playback...
+[2025-08-06 11:03:58] [INFO] [SystemAudioOutputService.stopPlayback()] Stopping and closing active playback line.
+[2025-08-06 11:03:58] [INFO] [InterviewReviewDialog.lambda$playFullAudio$0()] Playback finished successfully.
+[2025-08-06 11:04:03] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:04:05] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:04:05] [INFO] [InterviewDao.deleteInterview()] Successfully deleted interview with ID: 5
+[2025-08-06 11:04:09] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:04:09] [INFO] [InterviewDao.deleteInterview()] Successfully deleted interview with ID: 2
+[2025-08-06 11:04:11] [INFO] [DatabaseManager.getConnection()] Successfully connected to the database.
+[2025-08-06 11:04:11] [INFO] [InterviewDao.deleteInterview()] Successfully deleted interview with ID: 1
