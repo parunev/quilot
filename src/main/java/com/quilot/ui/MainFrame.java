@@ -22,6 +22,7 @@ import com.quilot.ui.help.DatabaseSetupDialog;
 import com.quilot.ui.help.GoogleCloudSetupGuideDialog;
 import com.quilot.ui.help.SetupGuideDialog;
 import com.quilot.ui.history.InterviewHistoryDialog;
+import com.quilot.ui.history.SaveInterviewDialog;
 import com.quilot.ui.settings.AISettingsDialog;
 import com.quilot.ui.settings.STTSettingsDialog;
 import com.quilot.utils.CredentialManager;
@@ -376,11 +377,18 @@ public class MainFrame extends JFrame {
             updateAudioInputButtonStates(false);
 
             if (currentInterviewId != -1) {
+                String defaultTitle = "Interview - " + java.time.LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
                 try {
                     byte[] recordedData = audioInputService.getRecordedAudioData();
                     interviewDao.saveFullAudio(currentInterviewId, recordedData);
                     appendToLogArea("Full audio recording saved for interview ID: " + currentInterviewId);
-                    updateStatus("Recording saved. Ready.", StatusBar.StatusType.SUCCESS);
+
+                    SaveInterviewDialog saveDialog = new SaveInterviewDialog(this, defaultTitle);
+                    saveDialog.setVisible(true);
+                    String finalTitle = saveDialog.getInterviewTitle();
+                    interviewDao.updateInterviewTitle(currentInterviewId, finalTitle);
+
+                    updateStatus("Recording saved as '" + finalTitle + "'.", StatusBar.StatusType.SUCCESS);
                 } catch (SQLException e) {
                     updateStatus("Error: Failed to save audio recording.", StatusBar.StatusType.ERROR);
                     appendToLogArea("DB_ERROR: Failed to save full audio recording: " + e.getMessage());

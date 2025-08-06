@@ -199,4 +199,25 @@ public class InterviewDao {
             }
         }
     }
+
+    /**
+     * Updates the title of an existing interview record.
+     *
+     * @param interviewId The ID of the interview to update.
+     * @param newTitle The new title for the interview.
+     * @throws SQLException if a database access error occurs.
+     */
+    public void updateInterviewTitle(int interviewId, String newTitle) throws SQLException {
+        String sql = "UPDATE interviews SET title = ? WHERE id = ?";
+
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, newTitle);
+            pstmt.setInt(2, interviewId);
+
+            pstmt.executeUpdate();
+            Logger.info("Updated title for interview ID " + interviewId + " to: " + newTitle);
+        }
+    }
 }
