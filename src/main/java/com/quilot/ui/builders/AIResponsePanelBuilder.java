@@ -11,18 +11,19 @@ import java.awt.*;
 @Getter
 public class AIResponsePanelBuilder implements ComponentPanelBuilder {
 
-    private final JTextArea responseTextArea;
+    private final JTextPane responseTextPane;
 
     public AIResponsePanelBuilder() {
-        this.responseTextArea = createResponseTextArea();
+        this.responseTextPane = createResponseTextPane();
     }
 
-    private JTextArea createResponseTextArea() {
-        JTextArea textArea = new JTextArea(10, 40);
-        textArea.setEditable(false);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        return textArea;
+    private JTextPane createResponseTextPane() {
+        JTextPane textPane = new JTextPane();
+        textPane.setEditable(false);
+        // Set a slightly different background to distinguish it further
+        textPane.setBackground(new Color(245, 245, 245));
+        textPane.setFont(new Font("SansSerif", Font.PLAIN, 14));
+        return textPane;
     }
 
     @Override
@@ -31,7 +32,7 @@ public class AIResponsePanelBuilder implements ComponentPanelBuilder {
         panel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 
         JLabel titleLabel = new JLabel("AI Response (Your Answer):", SwingConstants.LEFT);
-        JScrollPane scrollPane = new JScrollPane(responseTextArea);
+        JScrollPane scrollPane = new JScrollPane(responseTextPane);
 
         panel.add(titleLabel, BorderLayout.NORTH);
         panel.add(scrollPane, BorderLayout.CENTER);

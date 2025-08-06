@@ -89,7 +89,7 @@ public class UIBuilder {
 
     // Getters for Transcribed Audio and AI Response Panels
     public JTextArea getTranscribedAudioArea() { return transcribedAudioPanelBuilder.getTranscribedAudioArea(); }
-    public JTextArea getAiResponseArea() { return aiResponsePanelBuilder.getResponseTextArea(); }
+    public JTextPane getAiResponseArea() { return aiResponsePanelBuilder.getResponseTextPane(); }
 
     // Getter for Log Panel
     public JTextArea getLogArea() { return logPanelBuilder.getLogArea(); }

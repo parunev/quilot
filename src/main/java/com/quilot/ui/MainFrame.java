@@ -32,6 +32,9 @@ import lombok.Getter;
 
 import javax.sound.sampled.AudioFormat;
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.WindowAdapter;
@@ -58,7 +61,7 @@ public class MainFrame extends JFrame {
 
     // UI Components
     private final JTextArea transcribedAudioArea;
-    private final JTextArea aiResponseArea;
+    private final JTextPane aiResponseTextPane;
     private final JTextArea logArea;
     private final JComboBox<String> outputDeviceComboBox;
     private final JSlider volumeSlider;
@@ -106,7 +109,7 @@ public class MainFrame extends JFrame {
         // Build the UI
         UIBuilder uiBuilder = new UIBuilder(audioOutputService, audioInputService, timerManager);
         this.transcribedAudioArea = uiBuilder.getTranscribedAudioArea();
-        this.aiResponseArea = uiBuilder.getAiResponseArea();
+        this.aiResponseTextPane = uiBuilder.getAiResponseArea();
         this.logArea = uiBuilder.getLogArea();
         this.outputDeviceComboBox = uiBuilder.getOutputDeviceComboBox();
         this.volumeSlider = uiBuilder.getVolumeSlider();
@@ -277,7 +280,6 @@ public class MainFrame extends JFrame {
                 public void onTranscriptionError(Exception error) {
                     String errorMessage = "A transcription error occurred: " + error.getMessage();
                     appendToLogArea(errorMessage);
-                    aiResponseArea.append("STT (Error): " + errorMessage + "\n");
                 }
             });
         } catch (AudioDeviceException | STTException ex) {
@@ -317,12 +319,16 @@ public class MainFrame extends JFrame {
      * @param transcription The text to send.
      */
     private void sendToAiService(String transcription) {
+        final Color aiColor = new Color(0, 120, 0); // A dark green for the "AI" label
+        final Color errorColor = new Color(180, 0, 0); // A dark red for the "Error" label
+
         aiService.generateResponse(transcription, new IAIService.AIResponseListener() {
             @Override
             public void onResponse(String aiResponse) {
                 SwingUtilities.invokeLater(() -> {
-                    aiResponseArea.append("AI (Response): '" + aiResponse + "'\n");
-                    aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                    appendStyledText(aiResponseTextPane, "AI (Response): ", aiColor, true);
+                    appendStyledText(aiResponseTextPane, "'" + aiResponse + "'\n\n", Color.BLACK, false);
+
                     if (currentInterviewId != -1) {
                         saveTranscriptionEntry("AI", aiResponse, false);
                     }
@@ -331,8 +337,8 @@ public class MainFrame extends JFrame {
             @Override
             public void onError(String errorMessage) {
                 SwingUtilities.invokeLater(() -> {
-                    aiResponseArea.append("AI (Error): " + errorMessage + "\n");
-                    aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+                    appendStyledText(aiResponseTextPane, "AI (Error): ", errorColor, true);
+                    appendStyledText(aiResponseTextPane, errorMessage + "\n\n", Color.BLACK, false);
                 });
                 appendToLogArea("AI Response Error: " + errorMessage);
             }
@@ -623,5 +629,28 @@ public class MainFrame extends JFrame {
      */
     private void updateStatus(String status, StatusBar.StatusType type) {
         statusBar.setStatus(status, type);
+    }
+
+    /**
+     * Appends text with a specific style to a JTextPane.
+     * This is a thread-safe method.
+     *
+     * @param textPane The JTextPane to append to.
+     * @param text The text to append.
+     * @param color The color of the text.
+     * @param isBold True if the text should be bold.
+     */
+    private void appendStyledText(JTextPane textPane, String text, Color color, boolean isBold) {
+        StyledDocument doc = textPane.getStyledDocument();
+        SimpleAttributeSet style = new SimpleAttributeSet();
+        StyleConstants.setForeground(style, color);
+        StyleConstants.setBold(style, isBold);
+
+        try {
+            doc.insertString(doc.getLength(), text, style);
+            textPane.setCaretPosition(doc.getLength());
+        } catch (Exception e) {
+            Logger.error("Failed to append styled text.", e);
+        }
     }
 }
