@@ -53,6 +53,12 @@ public interface AudioOutputService {
     void playAudioData(byte[] audioData, AudioFormat format) throws AudioException;
 
     /**
+     * Immediately stops any audio that is currently playing.
+     * If no audio is playing, this method does nothing.
+     */
+    void stopPlayback();
+
+    /**
      * Closes the currently open audio output line and releases its resources.
      * This should be called on application shutdown.
      */

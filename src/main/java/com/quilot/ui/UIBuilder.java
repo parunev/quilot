@@ -86,6 +86,7 @@ public class UIBuilder {
     public JButton getGoogleCloudSetupGuideButton() { return audioInputSettingsPanelBuilder.getGoogleCloudSetupGuideButton(); }
     public JButton getSttSettingsButton() { return audioInputSettingsPanelBuilder.getSttSettingsButton(); }
     public JButton getAiSettingsButton() { return audioInputSettingsPanelBuilder.getAiSettingsButton(); }
+    public JButton getViewHistoryButton() { return audioInputSettingsPanelBuilder.getViewHistoryButton(); }
 
     // Getters for Transcribed Audio and AI Response Panels
     public JTextArea getTranscribedAudioArea() { return transcribedAudioPanelBuilder.getTranscribedAudioArea(); }

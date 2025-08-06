@@ -7,6 +7,8 @@ import com.quilot.audio.input.AudioInputService;
 import com.quilot.audio.input.SystemAudioInputService;
 import com.quilot.audio.ouput.AudioOutputService;
 import com.quilot.audio.ouput.SystemAudioOutputService;
+import com.quilot.db.DatabaseManager;
+import com.quilot.db.dao.InterviewDao;
 import com.quilot.exceptions.audio.AudioDeviceException;
 import com.quilot.exceptions.audio.AudioException;
 import com.quilot.exceptions.stt.STTException;
@@ -16,8 +18,10 @@ import com.quilot.stt.ISpeechToTextSettingsManager;
 import com.quilot.stt.settings.RecognitionConfigSettings;
 import com.quilot.stt.settings.SpeechToTextSettingsManager;
 import com.quilot.ui.help.CredentialsSetupDialog;
+import com.quilot.ui.help.DatabaseSetupDialog;
 import com.quilot.ui.help.GoogleCloudSetupGuideDialog;
 import com.quilot.ui.help.SetupGuideDialog;
+import com.quilot.ui.history.InterviewHistoryDialog;
 import com.quilot.ui.settings.AISettingsDialog;
 import com.quilot.ui.settings.STTSettingsDialog;
 import com.quilot.utils.CredentialManager;
@@ -29,6 +33,7 @@ import javax.sound.sampled.AudioFormat;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 
 /**
  * The main user interface frame for the application.
@@ -63,6 +68,12 @@ public class MainFrame extends JFrame {
     private JButton googleCloudSetupGuideButton;
     private JButton sttSettingsButton;
     private JButton aiSettingsButton;
+    private JButton viewHistoryButton;
+
+    // Database
+    private boolean askForDatabaseSetup = true;
+    private final InterviewDao interviewDao;
+    private int currentInterviewId = -1;
 
     // Services and Managers
     private ElapsedTimerManager timerManager;
@@ -82,6 +93,8 @@ public class MainFrame extends JFrame {
      * to set them up after the UI is visible.
      */
     public MainFrame() {
+        this.interviewDao = new InterviewDao();
+
         initializeServices();
         initializeUI();
         bindListeners();
@@ -110,6 +123,8 @@ public class MainFrame extends JFrame {
     }
 
     private void initializeServices() {
+        DatabaseManager.loadCredentials();
+
         timerManager = new ElapsedTimerManager();
         credentialManager = new CredentialManager();
 
@@ -147,6 +162,7 @@ public class MainFrame extends JFrame {
         googleCloudSetupGuideButton = uiBuilder.getGoogleCloudSetupGuideButton();
         sttSettingsButton = uiBuilder.getSttSettingsButton();
         aiSettingsButton = uiBuilder.getAiSettingsButton();
+        viewHistoryButton = uiBuilder.getViewHistoryButton();
 
         JPanel mainPanel = new JPanel(new GridBagLayout());
         uiBuilder.setupLayout(mainPanel);
@@ -165,6 +181,7 @@ public class MainFrame extends JFrame {
         addSettingsListeners();
         addSTTSettingsListeners();
         addAISettingsListeners();
+        addHistoryListeners();
     }
 
     private void addAISettingsListeners() {
@@ -239,7 +256,44 @@ public class MainFrame extends JFrame {
         });
 
         startInputRecordingButton.addActionListener(_ -> {
+            if (askForDatabaseSetup && !DatabaseManager.isDatabaseEnabled()) {
+                int response = JOptionPane.showConfirmDialog(
+                        this,
+                        "Would you like to save interview recordings to a local database?\nThis allows you to review past sessions.",
+                        "Enable Interview History",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE
+                );
+
+                if (response == JOptionPane.YES_OPTION) {
+                    DatabaseSetupDialog setupDialog = new DatabaseSetupDialog(this);
+                    setupDialog.setVisible(true);
+                    if (!setupDialog.wasSetupSuccessful()) {
+                        // User tried to set up, but it failed, or they cancelled.
+                        // We won't ask again this session and will proceed without the database.
+                        askForDatabaseSetup = false;
+                        appendToLogArea("Database setup was not completed. Proceeding without saving.");
+                    }
+                } else {
+                    // User chose "No". Don't ask again this session.
+                    askForDatabaseSetup = false;
+                    appendToLogArea("Interview history disabled for this session.");
+                }
+            }
+
             try {
+
+                if (DatabaseManager.isDatabaseEnabled()) {
+                    try {
+                        String title = "Interview - " + java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+                        currentInterviewId = interviewDao.createNewInterview(title);
+                        appendToLogArea("Started new interview session. Saving to database with ID: " + currentInterviewId);
+                    } catch (SQLException e) {
+                        currentInterviewId = -1; // Ensure we don't try to save if creation failed
+                        appendToLogArea("WARNING: Could not create interview record in database. History will not be saved. Error: " + e.getMessage());
+                    }
+                }
+
                 audioInputService.startRecording();
                 appendToLogArea("Started capturing audio from input device.");
                 timerManager.startElapsedTimer();
@@ -258,6 +312,15 @@ public class MainFrame extends JFrame {
 
                                     RecognitionConfigSettings settings = sttSettingsManager.loadSettings();
                                     String currentLanguage = sttSettingsManager.loadSettings().getLanguageCode();
+                                    boolean isQuestion = questionDetector.isQuestion(transcription, currentLanguage);
+
+                                    if (currentInterviewId != -1) {
+                                        try {
+                                            interviewDao.addTranscriptionEntry(currentInterviewId, "Interviewer", transcription, isQuestion);
+                                        } catch (SQLException e) {
+                                            appendToLogArea("DB_ERROR: Failed to save transcription entry: " + e.getMessage());
+                                        }
+                                    }
 
                                     if (!settings.isEnableQuestionDetection() || questionDetector.isQuestion(transcription, currentLanguage)) {
 
@@ -273,6 +336,14 @@ public class MainFrame extends JFrame {
                                                 SwingUtilities.invokeLater(() -> {
                                                     aiResponseArea.append("AI (Response): '" + aiResponse + "'\n");
                                                     aiResponseArea.setCaretPosition(aiResponseArea.getDocument().getLength());
+
+                                                    if (currentInterviewId != -1) {
+                                                        try {
+                                                            interviewDao.addTranscriptionEntry(currentInterviewId, "AI", aiResponse, false);
+                                                        } catch (SQLException e) {
+                                                            appendToLogArea("DB_ERROR: Failed to save AI response: " + e.getMessage());
+                                                        }
+                                                    }
                                                 });
                                             }
 
@@ -334,6 +405,19 @@ public class MainFrame extends JFrame {
                 startInputRecordingButton.setEnabled(true);
                 stopInputRecordingButton.setEnabled(false);
                 playRecordedInputButton.setEnabled(audioInputService.getRecordedAudioData().length > 0);
+
+                if (currentInterviewId != -1) {
+                    try {
+                        byte[] recordedData = audioInputService.getRecordedAudioData();
+                        interviewDao.saveFullAudio(currentInterviewId, recordedData);
+                        appendToLogArea("Full audio recording saved for interview ID: " + currentInterviewId);
+                    } catch (SQLException e) {
+                        appendToLogArea("DB_ERROR: Failed to save full audio recording: " + e.getMessage());
+                    } finally {
+                        currentInterviewId = -1;
+                    }
+                }
+
             } else {
                 appendToLogArea("Failed to stop audio input capture.");
             }
@@ -382,6 +466,7 @@ public class MainFrame extends JFrame {
             public void windowClosing(WindowEvent e) {
                 audioOutputService.close();
                 audioInputService.close();
+                DatabaseManager.closeConnection();
                 if (speechToTextService instanceof GoogleCloudSpeechToTextService) {
                     ((GoogleCloudSpeechToTextService) speechToTextService).closeClient();
                 }
@@ -420,6 +505,21 @@ public class MainFrame extends JFrame {
             Logger.info("STT Settings button clicked. Displaying STT settings dialog.");
             STTSettingsDialog dialog = new STTSettingsDialog(this, sttSettingsManager, (GoogleCloudSpeechToTextService) speechToTextService);
             dialog.setVisible(true);
+        });
+    }
+
+    private void addHistoryListeners() {
+        viewHistoryButton.addActionListener(_ -> {
+            if (DatabaseManager.isDatabaseEnabled()) {
+                InterviewHistoryDialog historyDialog = new InterviewHistoryDialog(this, interviewDao, audioOutputService);
+                historyDialog.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "The interview history feature is currently disabled.\n" +
+                                "Please start a recording to enable and set up the database.",
+                        "Feature Disabled",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
         });
     }
 

@@ -6,8 +6,6 @@ import com.quilot.utils.Logger;
 import lombok.Getter;
 
 import javax.sound.sampled.*;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.util.List;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
@@ -30,6 +28,7 @@ public class SystemAudioOutputService implements AudioOutputService {
     private Mixer selectedOutputMixer;
     private SourceDataLine outputLine;
     private FloatControl masterGainControl;
+    private SourceDataLine activePlaybackLine;
 
     /**
      * Constructs a new SystemAudioOutputService.
@@ -175,27 +174,43 @@ public class SystemAudioOutputService implements AudioOutputService {
      */
     @Override
     public void playAudioData(byte[] audioData, AudioFormat format) throws AudioException {
-        ensureDeviceIsReady();
+        if (selectedOutputMixer == null) {
+            throw new AudioDeviceException("No audio output device selected.");
+        }
 
-        AudioFormat targetFormat = outputLine.getFormat();
-        try (AudioInputStream sourceStream = new AudioInputStream(new ByteArrayInputStream(audioData), format, audioData.length / format.getFrameSize())) {
-            AudioInputStream playbackStream = sourceStream;
-            if (!format.matches(targetFormat)) {
-                if (AudioSystem.isConversionSupported(targetFormat, format)) {
-                    playbackStream = AudioSystem.getAudioInputStream(targetFormat, sourceStream);
-                } else {
-                    throw new AudioException("Audio format conversion from " + format + " to " + targetFormat + " is not supported.");
-                }
+        // Re-open the line to ensure a fresh state for every playback.
+        try {
+            DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
+            if (!selectedOutputMixer.isLineSupported(info)) {
+                throw new AudioException("The selected device does not support the audio format: " + format);
             }
+            activePlaybackLine = (SourceDataLine) selectedOutputMixer.getLine(info);
+            activePlaybackLine.open(format);
+        } catch (LineUnavailableException e) {
+            throw new AudioDeviceException("Audio line is unavailable. It may be in use by another application.", e);
+        }
 
-            byte[] buffer = new byte[4096];
-            int bytesRead;
-            while ((bytesRead = playbackStream.read(buffer)) != -1) {
-                outputLine.write(buffer, 0, bytesRead);
-            }
-            outputLine.drain();
-        } catch (IOException e) {
-            throw new AudioException("Failed to read audio data for playback.", e);
+        try {
+            activePlaybackLine.start();
+            activePlaybackLine.write(audioData, 0, audioData.length);
+            activePlaybackLine.drain(); // This will now block correctly.
+        } finally {
+            // Always ensure the line is stopped and closed after playback.
+            stopPlayback();
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public synchronized void stopPlayback() {
+        if (activePlaybackLine != null) {
+            Logger.info("Stopping and closing active playback line.");
+            activePlaybackLine.stop();
+            activePlaybackLine.flush();
+            activePlaybackLine.close();
+            activePlaybackLine = null;
         }
     }
 
@@ -204,8 +219,8 @@ public class SystemAudioOutputService implements AudioOutputService {
      */
     @Override
     public void close() {
-        closeOutputLine();
-        Logger.info("SystemAudioOutputService closed.");
+        stopPlayback(); // Ensure any active line is closed on shutdown.
+        Logger.info("SystemAudioOutputService resources released.");
     }
 
     private void closeOutputLine() {
