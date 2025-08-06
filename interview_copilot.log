@@ -3112,3 +3112,6 @@ Classes are fundamental to object oriented programming. They promote code organi
 [2025-08-06 11:56:29] [INFO] [GoogleCloudSpeechToTextService.closeClient()] Google Cloud SpeechClient closed.
 [2025-08-06 11:56:29] [INFO] [VertexAIService.closeClient()] Vertex AI client closed.
 [2025-08-06 11:56:29] [INFO] [MainFrame$3.windowClosing()] Application closing. All resources released.
+[2025-08-06 12:21:41] [INFO] [CredentialManager.saveGoogleCloudCredentialPath()] Google Cloud credential path saved: /path/to/credentials.json
+[2025-08-06 12:21:41] [INFO] [CredentialManager.loadGoogleCloudCredentialPath()] Loaded Google Cloud credential path: /path/to/credentials.json
+[2025-08-06 12:21:41] [WARN] [CredentialManager.loadGoogleCloudCredentialPath()] No Google Cloud credential path found in preferences.

@@ -40,6 +40,14 @@ public class QuestionDetector {
                         "may", "might", "must",
                         // Interview command verbs
                         "explain", "describe", "tell", "give", "define", "compare", "contrast"
+                ),
+                "bg-BG", List.of(
+                        "какво", "кой", "кога", "къде", "защо", "как",
+                        "е", "са", "съм", "беше", "бяха",
+                        "правиш", "прави", "направи",
+                        "може", "можеше", "ще", "би",
+                        "който", "чия",
+                        "обясни", "опиши", "разкажи", "дай", "дефинирай", "сравни"
                 )
                 // Add other supported languages here
         );

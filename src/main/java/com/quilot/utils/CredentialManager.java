@@ -27,6 +27,16 @@ public class CredentialManager {
     }
 
     /**
+     * A package-private constructor for testing purposes.
+     * Allows injecting a mock or in-memory Preferences object.
+     *
+     * @param prefs The Preferences object to use.
+     */
+    CredentialManager(Preferences prefs) {
+        this.prefs = prefs;
+    }
+
+    /**
      * Saves the path to Google Cloud credential file.
      * @param path the file path to save; must not be null.
      */
