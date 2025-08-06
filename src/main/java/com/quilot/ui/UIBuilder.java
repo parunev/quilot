@@ -25,6 +25,7 @@ public class UIBuilder {
     private final TranscribedAudioPanelBuilder transcribedAudioPanelBuilder;
     private final AIResponsePanelBuilder aiResponsePanelBuilder;
     private final LogPanelBuilder logPanelBuilder;
+    private final StatusBar statusBar;
 
     public UIBuilder(AudioOutputService audioOutputService,
                      AudioInputService audioInputService,
@@ -34,6 +35,7 @@ public class UIBuilder {
         this.transcribedAudioPanelBuilder = new TranscribedAudioPanelBuilder();
         this.aiResponsePanelBuilder = new AIResponsePanelBuilder();
         this.logPanelBuilder = new LogPanelBuilder(timerManager);
+        this.statusBar = new StatusBar();
     }
 
     /**
@@ -69,6 +71,9 @@ public class UIBuilder {
 
         // Row 3: Application Logs Panel (full width)
         addComponent(mainPanel, logPanelBuilder.build(), 0, 3, 2, 1.0, 0.2);
+
+        // Row 4: Status Bar
+        addComponent(mainPanel, statusBar, 0, 4, 2, 1.0, 0.0);
     }
 
     // Getters for Audio Output Settings Panel

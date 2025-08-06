@@ -55,7 +55,7 @@ import java.time.format.DateTimeFormatter;
 @Getter
 public class MainFrame extends JFrame {
 
-    // --- UI Components ---
+    // UI Components
     private final JTextArea transcribedAudioArea;
     private final JTextArea aiResponseArea;
     private final JTextArea logArea;
@@ -66,8 +66,9 @@ public class MainFrame extends JFrame {
     private final JButton startInputRecordingButton;
     private final JButton stopInputRecordingButton;
     private final JButton playRecordedInputButton;
+    private final StatusBar statusBar;
 
-    // --- Services and Managers ---
+    // Services and Managers
     private final ElapsedTimerManager timerManager;
     private final AudioOutputService audioOutputService;
     private final AudioInputService audioInputService;
@@ -78,7 +79,7 @@ public class MainFrame extends JFrame {
     private final InterviewDao interviewDao;
     private final QuestionDetector questionDetector;
 
-    // --- State Management ---
+    // State Management
     private int currentInterviewId = -1; // -1 indicates no active recording session
     private boolean askForDatabaseSetup = true;
 
@@ -113,12 +114,14 @@ public class MainFrame extends JFrame {
         this.startInputRecordingButton = uiBuilder.getStartInputRecordingButton();
         this.stopInputRecordingButton = uiBuilder.getStopInputRecordingButton();
         this.playRecordedInputButton = uiBuilder.getPlayRecordedInputButton();
+        this.statusBar = uiBuilder.getStatusBar();
 
         initializeFrame(uiBuilder);
         bindListeners();
 
         Logger.info("Quilot UI initialized.");
         appendToLogArea("UI initialized. Ready to start.");
+        updateStatus("Ready.", StatusBar.StatusType.INFO);
         performPostStartupChecks();
     }
 
@@ -159,12 +162,12 @@ public class MainFrame extends JFrame {
                 String selectedDevice = (String) e.getItem();
                 try {
                     audioOutputService.selectOutputDevice(selectedDevice);
-                    appendToLogArea("Selected audio output device: " + selectedDevice);
+                    updateStatus("Selected output device: " + selectedDevice, StatusBar.StatusType.SUCCESS);
                     volumeSlider.setEnabled(true);
                     testVolumeButton.setEnabled(true);
                     audioOutputService.setVolume(volumeSlider.getValue() / 100.0f);
                 } catch (AudioDeviceException ex) {
-                    appendToLogArea("Failed to select audio output device: " + selectedDevice);
+                    updateStatus("Selected output device: " + selectedDevice, StatusBar.StatusType.ERROR);
                     volumeSlider.setEnabled(false);
                     testVolumeButton.setEnabled(false);
                     JOptionPane.showMessageDialog(this,
@@ -185,10 +188,11 @@ public class MainFrame extends JFrame {
 
         testVolumeButton.addActionListener(_ -> {
             try {
+                updateStatus("Playing test sound...", StatusBar.StatusType.INFO);
                 audioOutputService.playTestSound();
-                appendToLogArea("Test sound played.");
+                updateStatus("Ready.", StatusBar.StatusType.SUCCESS);
             } catch (AudioDeviceException e) {
-                appendToLogArea("Failed to play test sound: " + e.getMessage());
+                updateStatus("Error: Could not play test sound.", StatusBar.StatusType.ERROR);
                 JOptionPane.showMessageDialog(this,
                         "Could not play test sound. Please ensure an output device is selected.",
                         "Playback Error",
@@ -255,7 +259,7 @@ public class MainFrame extends JFrame {
                 createNewInterviewRecord();
             }
             audioInputService.startRecording();
-            appendToLogArea("Started capturing audio from input device.");
+            updateStatus("Recording audio...", StatusBar.StatusType.INFO);
             timerManager.startElapsedTimer();
             updateAudioInputButtonStates(true);
 
@@ -276,9 +280,8 @@ public class MainFrame extends JFrame {
                 }
             });
         } catch (AudioDeviceException | STTException ex) {
-            String errorType = (ex instanceof AudioDeviceException) ? "Recording Error" : "Speech-to-Text Error";
-            appendToLogArea("Failed to start session: " + ex.getMessage());
-            JOptionPane.showMessageDialog(this, "Could not start session:\n" + ex.getMessage(), errorType, JOptionPane.ERROR_MESSAGE);
+            updateStatus("Error: Failed to start session.", StatusBar.StatusType.ERROR);
+            JOptionPane.showMessageDialog(this, "Could not start session:\n" + ex.getMessage(), "Session Error", JOptionPane.ERROR_MESSAGE);
             updateAudioInputButtonStates(false);
         }
     }
@@ -368,7 +371,7 @@ public class MainFrame extends JFrame {
      */
     private void handleStopRecording() {
         if (audioInputService.stopRecording()) {
-            appendToLogArea("Stopped capturing audio from input device.");
+            updateStatus("Recording stopped. Processing final audio...", StatusBar.StatusType.INFO);
             timerManager.stopElapsedTimer();
             updateAudioInputButtonStates(false);
 
@@ -377,11 +380,15 @@ public class MainFrame extends JFrame {
                     byte[] recordedData = audioInputService.getRecordedAudioData();
                     interviewDao.saveFullAudio(currentInterviewId, recordedData);
                     appendToLogArea("Full audio recording saved for interview ID: " + currentInterviewId);
+                    updateStatus("Recording saved. Ready.", StatusBar.StatusType.SUCCESS);
                 } catch (SQLException e) {
+                    updateStatus("Error: Failed to save audio recording.", StatusBar.StatusType.ERROR);
                     appendToLogArea("DB_ERROR: Failed to save full audio recording: " + e.getMessage());
                 } finally {
                     currentInterviewId = -1; // End the session
                 }
+            } else {
+                updateStatus("Ready.", StatusBar.StatusType.INFO);
             }
         }
         speechToTextService.stopStreamingRecognition();
@@ -394,18 +401,24 @@ public class MainFrame extends JFrame {
         byte[] recordedData = audioInputService.getRecordedAudioData();
         AudioFormat format = audioInputService.getAudioFormat();
         if (recordedData != null && recordedData.length > 0 && format != null) {
-            appendToLogArea("Playing recorded input audio...");
-            try {
-                audioOutputService.playAudioData(recordedData, format);
-                audioInputService.clearRecordedAudioData();
-                playRecordedInputButton.setEnabled(false);
-                appendToLogArea("Recorded input audio played and cleared.");
-            } catch (AudioException ex) {
-                appendToLogArea("Failed to play recorded audio: " + ex.getMessage());
-                JOptionPane.showMessageDialog(this, "Could not play recorded audio.\n" + ex.getMessage(), "Playback Error", JOptionPane.ERROR_MESSAGE);
-            }
+            updateStatus("Playing recorded audio...", StatusBar.StatusType.INFO);
+            new Thread(() -> {
+                try {
+                    audioOutputService.playAudioData(recordedData, format);
+                    audioInputService.clearRecordedAudioData();
+                    SwingUtilities.invokeLater(() -> {
+                        playRecordedInputButton.setEnabled(false);
+                        updateStatus("Playback finished. Ready.", StatusBar.StatusType.SUCCESS);
+                    });
+                } catch (AudioException ex) {
+                    SwingUtilities.invokeLater(() -> {
+                        updateStatus("Error: Playback failed.", StatusBar.StatusType.ERROR);
+                        JOptionPane.showMessageDialog(this, "Could not play recorded audio.\n" + ex.getMessage(), "Playback Error", JOptionPane.ERROR_MESSAGE);
+                    });
+                }
+            }).start();
         } else {
-            appendToLogArea("No recorded audio data to play.");
+            updateStatus("No recorded audio to play.", StatusBar.StatusType.INFO);
             playRecordedInputButton.setEnabled(false);
         }
     }
@@ -417,9 +430,9 @@ public class MainFrame extends JFrame {
     private void handleInputDeviceSelection(String selectedDevice) {
         try {
             audioInputService.selectInputDevice(selectedDevice);
-            appendToLogArea("Selected audio input device: " + selectedDevice);
+            updateStatus("Selected input device: " + selectedDevice, StatusBar.StatusType.SUCCESS);
         } catch (AudioDeviceException ex) {
-            appendToLogArea("Failed to select audio input device: " + selectedDevice + " - " + ex.getMessage());
+            updateStatus("Error: Could not select input device.", StatusBar.StatusType.ERROR);
             JOptionPane.showMessageDialog(this, "Could not open audio device: " + selectedDevice + "\nIt may be in use by another application or disconnected.", "Audio Device Error", JOptionPane.ERROR_MESSAGE);
         }
         updateAudioInputButtonStates(false);
@@ -480,22 +493,22 @@ public class MainFrame extends JFrame {
     private JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
-        // --- File Menu ---
+        // File Menu
         JMenu fileMenu = new JMenu("File");
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.addActionListener(_ -> System.exit(0));
         fileMenu.add(exitItem);
 
-        // --- View Menu ---
+        // View Menu
         JMenu viewMenu = new JMenu("View");
         JMenuItem historyItem = new JMenuItem("Interview History...");
         historyItem.addActionListener(_ -> openHistoryDialog());
         viewMenu.add(historyItem);
 
-        // --- Settings Menu ---
+        // Settings Menu
         JMenu settingsMenu = getJMenu();
 
-        // --- Help Menu ---
+        // Help Menu
         JMenu helpMenu = new JMenu("Help");
         JMenuItem googleGuideItem = new JMenuItem("Google Cloud Setup Guide");
         googleGuideItem.addActionListener(_ -> new GoogleCloudSetupGuideDialog(this).setVisible(true));
@@ -594,5 +607,13 @@ public class MainFrame extends JFrame {
             logArea.append(message + "\n");
             logArea.setCaretPosition(logArea.getDocument().getLength());
         });
+    }
+
+    /**
+     * Updates the text in the status bar in a thread-safe manner.
+     * @param status The new status message to display.
+     */
+    private void updateStatus(String status, StatusBar.StatusType type) {
+        statusBar.setStatus(status, type);
     }
 }
