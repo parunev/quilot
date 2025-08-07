@@ -40,6 +40,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -86,6 +87,7 @@ public class MainFrame extends JFrame {
     // State Management
     private int currentInterviewId = -1; // -1 indicates no active recording session
     private boolean askForDatabaseSetup = true;
+    private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     /**
      * Constructs the MainFrame.
@@ -295,7 +297,9 @@ public class MainFrame extends JFrame {
      */
     private void handleFinalTranscription(String transcription) {
         SwingUtilities.invokeLater(() -> {
-            transcribedAudioArea.append("Interviewer (Final): '" + transcription + "'\n");
+            String timestamp = LocalTime.now().format(timeFormatter);
+            String formattedTranscription = String.format("[%s] Interviewer (Final): '%s'\n", timestamp, transcription);
+            transcribedAudioArea.append(formattedTranscription);
             transcribedAudioArea.setCaretPosition(transcribedAudioArea.getDocument().getLength());
 
             RecognitionConfigSettings settings = sttSettingsManager.loadSettings();
@@ -326,7 +330,8 @@ public class MainFrame extends JFrame {
             @Override
             public void onResponse(String aiResponse) {
                 SwingUtilities.invokeLater(() -> {
-                    appendStyledText(aiResponseTextPane, "AI (Response): ", aiColor, true);
+                    String timestamp = LocalTime.now().format(timeFormatter);
+                    appendStyledText(aiResponseTextPane, String.format("[%s] AI (Response): ", timestamp), aiColor, true);
                     appendStyledText(aiResponseTextPane, "'" + aiResponse + "'\n\n", Color.BLACK, false);
 
                     if (currentInterviewId != -1) {
