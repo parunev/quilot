@@ -6,6 +6,7 @@ import com.quilot.ai.VertexAIService;
 import com.quilot.exceptions.ai.AIInitializationException;
 import com.quilot.exceptions.ai.AISettingsException;
 import com.quilot.utils.Logger;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ import java.text.NumberFormat;
  * A JDialog for configuring Google Cloud Vertex AI settings.
  * Allows users to input project ID, location, model ID, and generation parameters.
  */
+@Getter
 public class AISettingsDialog extends JDialog {
 
     private final IAISettingsManager settingsManager;
@@ -140,7 +142,7 @@ public class AISettingsDialog extends JDialog {
         closeButton.addActionListener(_ -> dispose());
     }
 
-    private void loadSettingsIntoUI(AIConfigSettings settings) {
+    void loadSettingsIntoUI(AIConfigSettings settings) {
         projectIdField.setText(settings.getProjectId());
         locationField.setText(settings.getLocation());
         modelIdField.setText(settings.getModelId());

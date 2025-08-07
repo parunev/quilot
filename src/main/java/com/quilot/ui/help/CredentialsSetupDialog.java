@@ -5,12 +5,14 @@ import com.quilot.exceptions.stt.STTAuthenticationException;
 import com.quilot.stt.GoogleCloudSpeechToTextService;
 import com.quilot.utils.CredentialManager;
 import com.quilot.utils.Logger;
+import lombok.Getter;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 
+@Getter
 public class CredentialsSetupDialog extends JDialog {
 
     private final JTextField credentialPathField;

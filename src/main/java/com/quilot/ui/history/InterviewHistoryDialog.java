@@ -4,6 +4,7 @@ import com.quilot.db.dao.InterviewDao;
 import com.quilot.db.model.Interview;
 import com.quilot.audio.ouput.AudioOutputService;
 import com.quilot.utils.Logger;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,17 +17,25 @@ import java.util.List;
 /**
  * A dialog to display a list of all past interviews from the database.
  */
+@Getter
 public class InterviewHistoryDialog extends JDialog {
 
     private final InterviewDao interviewDao;
     private final AudioOutputService audioOutputService;
     private final JList<Interview> interviewList;
+    private final JButton viewButton;
+    private final JButton deleteButton;
+    private final JButton closeButton;
 
     public InterviewHistoryDialog(Frame owner, InterviewDao interviewDao, AudioOutputService audioOutputService) {
         super(owner, "Interview History", true);
         this.interviewDao = interviewDao;
         this.audioOutputService = audioOutputService;
         this.interviewList = new JList<>();
+
+        this.viewButton = new JButton("View Selected");
+        this.deleteButton = new JButton("Delete Selected");
+        this.closeButton = new JButton("Close");
 
         initComponents();
         loadInterviews();

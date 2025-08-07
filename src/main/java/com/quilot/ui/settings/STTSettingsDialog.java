@@ -8,6 +8,7 @@ import com.quilot.stt.settings.RecognitionConfigSettings;
 import com.quilot.stt.settings.SttLanguageData;
 import com.quilot.stt.settings.SttLanguageFeatureData;
 import com.quilot.utils.Logger;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,7 @@ import java.util.Objects;
  * A JDialog for configuring Google Cloud Speech-to-Text (STT) recognition settings.
  * Allows users to fine-tune transcription parameters.
  */
+@Getter
 public class STTSettingsDialog extends JDialog {
 
     private final ISpeechToTextSettingsManager settingsManager;

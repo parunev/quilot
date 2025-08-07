@@ -2,6 +2,7 @@ package com.quilot.ui.help;
 
 import com.quilot.db.DatabaseManager;
 import com.quilot.utils.Logger;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,10 +12,12 @@ import java.sql.SQLException;
  * A modal dialog for setting up the initial database connection.
  * Prompts the user for their MySQL credentials and runs the schema setup.
  */
+@Getter
 public class DatabaseSetupDialog extends JDialog {
 
     private final JTextField userField;
     private final JPasswordField passwordField;
+    private final JButton setupButton;
     private boolean setupSuccessful = false;
 
     /**
@@ -28,7 +31,7 @@ public class DatabaseSetupDialog extends JDialog {
 
         userField = new JTextField("root", 20);
         passwordField = new JPasswordField(20);
-        JButton setupButton = new JButton("Connect & Setup");
+        setupButton = new JButton("Connect & Setup");
         JButton cancelButton = new JButton("Cancel");
 
         // Layout components

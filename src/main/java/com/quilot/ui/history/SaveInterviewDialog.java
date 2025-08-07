@@ -13,6 +13,7 @@ public class SaveInterviewDialog extends JDialog {
 
     private final JTextField titleField;
     private String interviewTitle;
+    private final JButton saveButton;
 
     /**
      * Constructs the dialog.
@@ -25,7 +26,7 @@ public class SaveInterviewDialog extends JDialog {
 
         setLayout(new BorderLayout(10, 10));
         titleField = new JTextField(defaultTitle, 30);
-        JButton saveButton = new JButton("Save");
+        saveButton = new JButton("Save");
         JButton cancelButton = new JButton("Cancel");
 
         saveButton.addActionListener(_ -> onSave());

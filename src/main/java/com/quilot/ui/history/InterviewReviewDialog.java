@@ -5,6 +5,7 @@ import com.quilot.db.dao.InterviewDao;
 import com.quilot.db.model.Interview;
 import com.quilot.db.model.TranscriptionEntry;
 import com.quilot.utils.Logger;
+import lombok.Getter;
 
 import javax.sound.sampled.AudioFormat;
 import javax.swing.*;
@@ -15,6 +16,7 @@ import java.util.List;
 /**
  * A dialog to review the details of a single past interview.
  */
+@Getter
 public class InterviewReviewDialog extends JDialog {
 
     private final Interview interview;
