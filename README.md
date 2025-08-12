@@ -20,13 +20,7 @@ The "brain" behind Quilot is its efficiency. Instead of blindly sending every sp
 
 The result? A massive cost reduction. While other apps burn through your cash, Quilot is surgically precise, achieving costs as low as **\~$0.02 for 20 AI requests** (depending on the model used). It's not just about providing answers, it's about providing them intelligently and affordably.
 
-## 🎥 Live Demo & Gallery
-
-Check out a quick video of Quilot in action during a mock interview!
-
-`[TO BE UPLOADED]`
-
-### Screenshots
+## 🎥 Gallery
 
 <p align="center">
   <img  alt="Screenshot 2025-08-07 at 13 39 18" src="https://github.com/user-attachments/assets/0ff92508-11eb-4f32-993c-3726c3d2d480" width="30%"/>
